@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1",
+    "slug": "sublimax-ecommerce",
+    "title": "Sublimax - E-commerce",
+    "tagline": "Plataforma de perfumeria con inventario y ventas integrados",
+    "description": "E-commerce B2C con panel administrativo, control de stock y flujo de pedidos.",
+    "challenge": "Gestionar catalogo, inventario y ventas en un solo sistema sin depender de plugins genericos.",
+    "solution": "Arquitectura Angular + Laravel con API REST y base PostgreSQL.",
+    "results": "Operacion centralizada del negocio con trazabilidad de inventario en tiempo real.",
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "company": "Sublimax",
+    "is_featured": true,
+    "sort_order": 1,
+    "year": 2024
+  },
+  {
+    "id": "2",
+    "slug": "cobeca-corporate-apps",
+    "title": "Aplicaciones corporativas - Grupo Cobeca",
+    "tagline": "Sistemas internos y APIs para operaciones empresariales",
+    "description": "Desarrollo de modulos web para procesos internos del grupo empresarial.",
+    "challenge": "Integrar flujos legacy con interfaces modernas y mantenibles.",
+    "solution": "Frontend Angular modular y backend Laravel con capas de servicio claras.",
+    "results": "Reduccion de tiempos operativos y mejor experiencia para usuarios internos.",
+    "stack": ["Angular", "Laravel", "PHP", "MySQL"],
+    "company": "Grupo Cobeca",
+    "is_featured": true,
+    "sort_order": 2,
+    "year": 2023
+  },
+  {
+    "id": "3",
+    "slug": "portfolio-nikenver",
+    "title": "Portfolio profesional",
+    "tagline": "Vitrina Full Stack Angular y Laravel",
+    "description": "Sitio personal 100% publico, optimizado para SEO y descubrimiento por IA.",
+    "challenge": "Presentar trayectoria real sin fricciones ni formularios invasivos.",
+    "solution": "Monorepo Angular + Laravel con diseno Dark Precision y datos semanticos.",
+    "results": "Presencia profesional lista para reclutadores y empresas.",
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "is_featured": true,
+    "sort_order": 3,
+    "year": 2026
+  }
+]

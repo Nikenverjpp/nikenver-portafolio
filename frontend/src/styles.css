@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg-primary font-sans text-text-primary antialiased;
+    background-image: radial-gradient(circle at 20% 10%, #00d9ff0a, transparent 40%),
+      radial-gradient(circle at 80% 0%, #818cf80a, transparent 35%);
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-border bg-bg-secondary/80 backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-lg border border-accent-cyan/40 bg-accent-cyan/10 px-5 py-2.5 text-sm font-medium text-accent-cyan transition-all hover:-translate-y-0.5 hover:border-accent-cyan hover:bg-accent-cyan/20 hover:shadow-glow;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-lg border border-border px-5 py-2.5 text-sm font-medium text-text-secondary transition-all hover:border-border-active hover:text-text-primary;
+  }
+
+  .nav-link {
+    @apply relative text-sm text-text-secondary transition-colors hover:text-text-primary;
+  }
+
+  .nav-link-active {
+    @apply text-accent-cyan;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl;
+  }
+
+  .prose-portfolio {
+    @apply space-y-4 text-base leading-relaxed text-text-secondary;
+  }
+
+  .filter-chip {
+    @apply rounded-full border border-border px-3 py-1 text-xs font-mono text-text-secondary transition-colors;
+  }
+
+  .filter-chip-active {
+    @apply border-accent-cyan bg-accent-cyan/10 text-accent-cyan;
+  }
+}

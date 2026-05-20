@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "company": "Sublimax",
+    "role": "Fundador y CEO",
+    "description": "Plataforma de e-commerce para perfumeria y cosmetica. Sistema de inventario y ventas desarrollado desde cero.",
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "start_year": 2024,
+    "end_year": null,
+    "sort_order": 1
+  },
+  {
+    "id": "2",
+    "company": "Grupo Cobeca",
+    "role": "Analista Programador Senior",
+    "description": "Desarrollo de aplicaciones web corporativas y APIs REST en entornos de produccion.",
+    "stack": ["Angular", "Laravel", "PHP", "MySQL"],
+    "start_year": 2022,
+    "end_year": 2024,
+    "sort_order": 2
+  },
+  {
+    "id": "3",
+    "company": "Metro IT Service",
+    "role": "Desarrollador Full Stack",
+    "description": "Soluciones web para clientes empresariales con stack moderno.",
+    "stack": ["Vue.js", "Laravel", "PHP", "MySQL"],
+    "start_year": 2020,
+    "end_year": 2022,
+    "sort_order": 3
+  },
+  {
+    "id": "4",
+    "company": "Iconos Consultores",
+    "role": "Desarrollador Web",
+    "description": "Proyectos a medida para distintos sectores.",
+    "stack": ["React", "PHP", "MySQL", "WordPress"],
+    "start_year": 2020,
+    "end_year": 2022,
+    "sort_order": 4
+  },
+  {
+    "id": "5",
+    "company": "C.A. Diario Panorama",
+    "role": "Desarrollador Web",
+    "description": "Portales y herramientas internas para medios digitales.",
+    "stack": ["PHP", "JavaScript", "MySQL", "WordPress"],
+    "start_year": 2018,
+    "end_year": 2020,
+    "sort_order": 5
+  },
+  {
+    "id": "6",
+    "company": "Grupo Nivar",
+    "role": "Desarrollador Web Junior",
+    "description": "Primeros anos en desarrollo web profesional.",
+    "stack": ["PHP", "JavaScript", "MySQL", "Bootstrap"],
+    "start_year": 2015,
+    "end_year": 2018,
+    "sort_order": 6
+  }
+]
