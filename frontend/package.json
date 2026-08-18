@@ -1,6 +1,9 @@
 {
   "name": "nikenver-portfolio-frontend",
   "version": "1.0.0",
+  "engines": {
+    "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,11 +25,11 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^22.1.4",
+    "@angular/build": "^22.1.4",
     "@angular/cli": "^22.1.4",
     "@angular/compiler-cli": "^22.1.2",
     "@tailwindcss/postcss": "^4.3.3",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.3",
     "tailwindcss": "^4.3.3",
     "typescript": "~6.0.3"
   }
