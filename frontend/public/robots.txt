@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nikenver-portafolio.vercel.app/sitemap.xml

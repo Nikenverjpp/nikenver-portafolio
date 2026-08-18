@@ -7,6 +7,22 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'title.about': { es: 'Sobre mí - Nikenver Pulgar', en: 'About - Nikenver Pulgar' },
   'title.projects': { es: 'Proyectos - Nikenver Pulgar', en: 'Projects - Nikenver Pulgar' },
   'title.contact': { es: 'Contacto - Nikenver Pulgar', en: 'Contact - Nikenver Pulgar' },
+  'meta.home': {
+    es: 'Nikenver Pulgar, desarrollador Full Stack Angular y Laravel en Maracaibo, Venezuela. Más de 10 años construyendo sistemas administrativos, e-commerce y aplicaciones web para empresas reales.',
+    en: 'Nikenver Pulgar, Full Stack Angular and Laravel developer in Maracaibo, Venezuela. Over 10 years building administrative systems, e-commerce and web applications for real businesses.',
+  },
+  'meta.about': {
+    es: 'Trayectoria profesional de Nikenver Pulgar: 10+ años en desarrollo Full Stack, fundador de Sublimax, y experiencia en Grupo Cobeca con Angular, Laravel, React y .NET.',
+    en: "Nikenver Pulgar's professional background: 10+ years in Full Stack development, founder of Sublimax, and experience at Grupo Cobeca with Angular, Laravel, React and .NET.",
+  },
+  'meta.projects': {
+    es: 'Casos de estudio reales de Nikenver Pulgar: sistemas administrativos, e-commerce y plataformas corporativas construidas con Angular, Laravel, PostgreSQL y .NET.',
+    en: 'Real case studies by Nikenver Pulgar: administrative systems, e-commerce and corporate platforms built with Angular, Laravel, PostgreSQL and .NET.',
+  },
+  'meta.contact': {
+    es: 'Contacta a Nikenver Pulgar, desarrollador Full Stack en Venezuela, para proyectos de desarrollo web con Angular y Laravel.',
+    en: 'Contact Nikenver Pulgar, Full Stack developer in Venezuela, for web development projects with Angular and Laravel.',
+  },
 
   'nav.ariaLabel': { es: 'Principal', en: 'Primary' },
   'nav.home': { es: 'Inicio', en: 'Home' },

@@ -1,16 +1,13 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Experience } from '../models/experience.model';
+import experiencesData from '../data/experiences.data.json';
+
+const experiences = experiencesData as Experience[];
 
 @Injectable({ providedIn: 'root' })
 export class ExperienceService {
-  private readonly http = inject(HttpClient);
-  private readonly local = '/data/experiences.json';
-
   list(): Observable<Experience[]> {
-    return this.http
-      .get<Experience[]>(this.local)
-      .pipe(map((items) => [...items].sort((a, b) => a.sort_order - b.sort_order)));
+    return of([...experiences].sort((a, b) => a.sort_order - b.sort_order));
   }
 }

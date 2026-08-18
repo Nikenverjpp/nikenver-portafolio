@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { filter, switchMap } from 'rxjs';
 import { Project } from '../../core/models/project.model';
 import { ProjectService } from '../../core/api/project.service';
@@ -178,6 +178,7 @@ export class ProjectDetailComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly projects = inject(ProjectService);
   private readonly pageTitle = inject(Title);
+  private readonly pageMeta = inject(Meta);
   readonly locale = inject(LocaleService);
 
   readonly project$ = this.route.paramMap.pipe(
@@ -194,7 +195,16 @@ export class ProjectDetailComponent {
       const project = this.project();
       const locale = this.locale.locale();
       if (project) {
-        this.pageTitle.setTitle(`${project.title[locale]} - Nikenver Pulgar`);
+        const title = `${project.title[locale]} - Nikenver Pulgar`;
+        this.pageTitle.setTitle(title);
+        this.pageMeta.updateTag({ property: 'og:title', content: title });
+        this.pageMeta.updateTag({ name: 'twitter:title', content: title });
+        const description = project.tagline?.[locale] ?? project.description?.[locale];
+        if (description) {
+          this.pageMeta.updateTag({ name: 'description', content: description });
+          this.pageMeta.updateTag({ property: 'og:description', content: description });
+          this.pageMeta.updateTag({ name: 'twitter:description', content: description });
+        }
       }
     });
   }

@@ -1,22 +1,17 @@
-import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Project } from '../models/project.model';
+import projectsData from '../data/projects.data.json';
+
+const projects = projectsData as Project[];
 
 @Injectable({ providedIn: 'root' })
 export class ProjectService {
-  private readonly http = inject(HttpClient);
-  private readonly local = '/data/projects.json';
-
   list(): Observable<Project[]> {
-    return this.http
-      .get<Project[]>(this.local)
-      .pipe(map((items) => [...items].sort((a, b) => a.sort_order - b.sort_order)));
+    return of([...projects].sort((a, b) => a.sort_order - b.sort_order));
   }
 
   getBySlug(slug: string): Observable<Project | undefined> {
-    return this.http
-      .get<Project[]>(this.local)
-      .pipe(map((items) => items.find((p) => p.slug === slug)));
+    return of(projects.find((p) => p.slug === slug));
   }
 }
