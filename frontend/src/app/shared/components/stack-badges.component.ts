@@ -1,8 +1,9 @@
-﻿import { Component, Input } from '@angular/core';
+﻿import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-stack-badges',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="flex flex-wrap gap-2">
       @for (item of items; track item) {

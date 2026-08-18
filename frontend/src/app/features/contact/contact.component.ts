@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -8,6 +8,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   selector: 'app-contact',
   standalone: true,
   imports: [RevealOnScrollDirective, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <section class="container-page py-16 sm:py-24">
       <header appRevealOnScroll>

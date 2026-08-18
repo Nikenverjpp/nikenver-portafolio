@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../core/models/project.model';
 import { StackBadgesComponent } from './stack-badges.component';
@@ -9,6 +9,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   selector: 'app-project-card',
   standalone: true,
   imports: [RouterLink, StackBadgesComponent, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <article
       class="card-surface group flex h-full flex-col p-6 transition-all hover:-translate-y-1 hover:border-accent-cyan/40"

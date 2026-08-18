@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { LocaleService } from '../core/i18n/locale.service';
@@ -9,6 +9,7 @@ import { ThemeService } from '../core/theme/theme.service';
   selector: 'app-shell',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="min-h-screen flex flex-col">
       <a href="#content" class="skip-link">{{ 'a11y.skipToContent' | t: locale.locale() }}</a>

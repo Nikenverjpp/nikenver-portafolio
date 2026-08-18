@@ -1,5 +1,5 @@
 import { AsyncPipe, SlicePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { ExperienceService } from '../../core/api/experience.service';
@@ -23,6 +23,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
     RevealOnScrollDirective,
     TranslatePipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <section class="container-page py-20 sm:py-28">
       <section appRevealOnScroll>

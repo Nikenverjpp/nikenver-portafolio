@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Title } from '@angular/platform-browser';
@@ -23,6 +23,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
     RevealOnScrollDirective,
     TranslatePipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     @if (project$ | async; as project) {
       <article class="container-page py-16 sm:py-24">

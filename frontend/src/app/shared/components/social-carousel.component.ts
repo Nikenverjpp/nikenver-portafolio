@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { SocialPost } from '../../core/models/social-post.model';
 
 /**
@@ -16,6 +16,7 @@ import { SocialPost } from '../../core/models/social-post.model';
 @Component({
   selector: 'app-social-carousel',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
       @for (post of posts; track post.url) {

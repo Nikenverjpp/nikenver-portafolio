@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { Experience } from '../../core/models/experience.model';
 import { StackBadgesComponent } from './stack-badges.component';
 import { LocaleService } from '../../core/i18n/locale.service';
@@ -8,6 +8,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   selector: 'app-timeline-item',
   standalone: true,
   imports: [StackBadgesComponent, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="relative border-l border-border pl-6 pb-10 last:pb-0">
       <span

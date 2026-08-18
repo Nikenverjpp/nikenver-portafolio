@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { ExperienceService } from '../../core/api/experience.service';
 import { TimelineItemComponent } from '../../shared/components/timeline-item.component';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
@@ -10,6 +10,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   selector: 'app-about',
   standalone: true,
   imports: [AsyncPipe, TimelineItemComponent, RevealOnScrollDirective, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <section class="container-page py-16 sm:py-24">
       <header appRevealOnScroll class="flex flex-col items-start gap-6 sm:flex-row sm:items-center">

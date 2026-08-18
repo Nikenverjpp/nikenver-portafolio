@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProjectService } from '../../core/api/project.service';
 import { ProjectCardComponent } from '../../shared/components/project-card.component';
@@ -10,6 +10,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   selector: 'app-projects-list',
   standalone: true,
   imports: [ProjectCardComponent, RevealOnScrollDirective, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <section class="container-page py-16 sm:py-24">
       <header appRevealOnScroll>

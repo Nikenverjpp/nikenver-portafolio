@@ -9,25 +9,25 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^19.2.0",
-    "@angular/common": "^19.2.0",
-    "@angular/compiler": "^19.2.0",
-    "@angular/core": "^19.2.0",
-    "@angular/forms": "^19.2.0",
-    "@angular/platform-browser": "^19.2.0",
-    "@angular/platform-browser-dynamic": "^19.2.0",
-    "@angular/router": "^19.2.0",
+    "@angular/animations": "^22.1.2",
+    "@angular/common": "^22.1.2",
+    "@angular/compiler": "^22.1.2",
+    "@angular/core": "^22.1.2",
+    "@angular/forms": "^22.1.2",
+    "@angular/platform-browser": "^22.1.2",
+    "@angular/platform-browser-dynamic": "^22.1.2",
+    "@angular/router": "^22.1.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^19.2.0",
-    "@angular/cli": "^19.2.0",
-    "@angular/compiler-cli": "^19.2.0",
+    "@angular-devkit/build-angular": "^22.1.4",
+    "@angular/cli": "^22.1.4",
+    "@angular/compiler-cli": "^22.1.2",
     "@tailwindcss/postcss": "^4.3.3",
     "postcss": "^8.4.49",
     "tailwindcss": "^4.3.3",
-    "typescript": "~5.7.2"
+    "typescript": "~6.0.3"
   }
 }

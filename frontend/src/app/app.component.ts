@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet, TitleStrategy } from '@angular/router';
 import { ShellComponent } from './layout/shell.component';
 import { ThemeService } from './core/theme/theme.service';
@@ -9,6 +9,7 @@ import { TranslatedTitleStrategy } from './core/i18n/translated-title-strategy';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, ShellComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <app-shell>
       <router-outlet />
