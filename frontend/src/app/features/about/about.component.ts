@@ -22,7 +22,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
           decoding="async"
           class="h-28 w-28 shrink-0 rounded-full object-cover ring-2 ring-accent-cyan/50 ring-offset-4 ring-offset-bg-primary sm:h-32 sm:w-32"
         />
-        <div>
+        <div class="max-w-3xl">
           <p class="font-mono text-sm text-accent-cyan">{{ 'about.eyebrow' | t: locale.locale() }}</p>
           <h1 class="section-title mt-3">Nikenver Pulgar</h1>
           <p class="mt-2 text-lg text-text-secondary">

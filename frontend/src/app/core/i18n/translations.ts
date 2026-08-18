@@ -93,8 +93,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'about.skillOther': { es: 'Otros', en: 'Other' },
   'about.skillFragrance': { es: 'Perfumería', en: 'Perfumery' },
   'about.personalMeta': {
-    es: '32 años · Maracaibo, Venezuela · Padre de familia · Vehículo propio, disponible para movilizarse · Fanático del fútbol y madridista',
-    en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle, available to travel · Football fan and Real Madrid supporter',
+    es: '32 años · Maracaibo, Venezuela · Padre de familia · Vehículo propio · Catador de Perfumes · Fanático del fútbol y madridista',
+    en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle · Perfume Connoisseur · Football fan and Real Madrid supporter',
   },
   'about.coursesTitle': { es: 'Cursos y diplomados', en: 'Courses and diplomas' },
 
