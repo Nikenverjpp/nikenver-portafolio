@@ -30,7 +30,9 @@
       { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home" },
       { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login" },
       { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login" },
-      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" }
+      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" },
+      { "label": { "es": "PFL8", "en": "PFL8" }, "url": "https://pfl.drogueriascobeca.com/login" },
+      { "label": { "es": "Farmacia SaaS", "en": "Farmacia SaaS" }, "url": "https://www.farmaciasaas.com/" }
     ],
     "start_year": 2022,
     "end_year": 2024,
@@ -61,7 +63,7 @@
       "en": "Built full-stack web systems with PHP and Laravel, including Livewire implementations, and interactive interfaces with Vue.js on MySQL."
     },
     "stack": ["Laravel", "PHP", "Vue.js", "MySQL"],
-    "start_year": 2020,
+    "start_year": 2018,
     "end_year": 2022,
     "sort_order": 4
   },
@@ -74,6 +76,8 @@
       "en": "Built front-end interfaces from scratch with plain HTML, CSS and JavaScript, and customized WordPress and Joomla sites with PHP and MySQL."
     },
     "stack": ["JavaScript", "PHP", "MySQL", "WordPress"],
+    "start_year": 2018,
+    "end_year": 2020,
     "links": [
       {
         "label": { "es": "Amavida", "en": "Amavida" },
@@ -86,8 +90,6 @@
         "preview_image_url": "/img/previews/wilmer-nadin.webp"
       }
     ],
-    "start_year": 2020,
-    "end_year": 2022,
     "sort_order": 5
   },
   {
@@ -99,8 +101,8 @@
       "en": "Built the company's first mobile app (Android and iOS), and maintained web portals with technical support for users."
     },
     "stack": ["PHP", "JavaScript", "MySQL", "Android"],
-    "start_year": 2018,
-    "end_year": 2020,
+    "start_year": 2017,
+    "end_year": 2018,
     "sort_order": 6
   },
   {
@@ -115,8 +117,8 @@
       "en": "Provided technical support for hardware and operating systems, and helped build the company's training and recruitment web portal."
     },
     "stack": ["PHP", "JavaScript", "MySQL"],
-    "start_year": 2015,
-    "end_year": 2018,
+    "start_year": 2016,
+    "end_year": 2016,
     "sort_order": 7
   }
 ]

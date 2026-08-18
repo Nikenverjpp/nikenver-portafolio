@@ -30,7 +30,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
         <app-stack-badges [items]="experience.stack!" class="mt-3 block" />
       }
       @if (experience.links?.length) {
-        <p class="mt-3 flex flex-wrap gap-3 text-sm">
+        <p class="mt-3 mb-3 flex flex-wrap gap-3 text-sm">
           @for (link of experience.links; track link.url) {
             <a
               [href]="link.url"
