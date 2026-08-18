@@ -1,46 +1,221 @@
 [
   {
     "id": "1",
-    "slug": "sublimax-ecommerce",
-    "title": "Sublimax - E-commerce",
-    "tagline": "Plataforma de perfumeria con inventario y ventas integrados",
-    "description": "E-commerce B2C con panel administrativo, control de stock y flujo de pedidos.",
-    "challenge": "Gestionar catalogo, inventario y ventas en un solo sistema sin depender de plugins genericos.",
-    "solution": "Arquitectura Angular + Laravel con API REST y base PostgreSQL.",
-    "results": "Operacion centralizada del negocio con trazabilidad de inventario en tiempo real.",
+    "slug": "subladmin-sistema-administrativo",
+    "title": {
+      "es": "Subladmin - Sistema Administrativo Sublimax",
+      "en": "Subladmin - Sublimax Administrative System"
+    },
+    "tagline": {
+      "es": "ERP interno con trazabilidad FEFO/FIFO, RLS y crédito multi-moneda",
+      "en": "In-house ERP with FEFO/FIFO traceability, row-level security and multi-currency credit"
+    },
+    "description": {
+      "es": "Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, CRM, crédito y cobranza, cierre de caja y auditoría en una sola herramienta.",
+      "en": "Full administrative system built for Sublimax: it centralizes purchasing, unit-level inventory, sales, CRM, credit and collections, cash closing and auditing into one tool."
+    },
+    "challenge": {
+      "es": "Sublimax operaba con seguimiento desorganizado en Excel, WhatsApp y cuadernos, sin trazabilidad de inventario por unidad ni control real del crédito otorgado a clientes.",
+      "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
+    },
+    "solution": {
+      "es": "El backend en Laravel concentra la lógica crítica en una capa de servicios: despacho de inventario bajo la regla FEFO, asignación de pagos entrantes bajo FIFO y recálculo automático de cuotas cuando hay una devolución. Row-Level Security aísla lo que cada vendedor puede ver, con RBAC vía Spatie y auditoría de las acciones sensibles. El frontend en Angular usa Standalone Components y Signals, pensado para tablets en el mostrador y en la calle, y escritorio para el administrador. Incluye además hardening OWASP Top 10: rate limiting, cabeceras de seguridad, sanitización de archivos y consultas parametrizadas.",
+      "en": "The Laravel backend concentrates the critical logic in a dedicated service layer: FEFO-based inventory dispatch, FIFO-based allocation of incoming payments, and automatic installment recalculation on returns. Strict row-level security isolates what each salesperson can see, with RBAC via Spatie and auditing of sensitive actions. The Angular frontend uses Standalone Components and Signals, built for tablets at the counter and out in the field, and desktop for the admin. It also includes OWASP Top 10 hardening: rate limiting, security headers, file sanitization and parameterized queries."
+    },
+    "results": {
+      "es": "En fase final de desarrollo, próximo a producción como PWA. Reemplaza las hojas de cálculo sueltas por una sola herramienta donde el inventario y las finanzas cuadran siempre.",
+      "en": "In its final development stage, close to shipping as a PWA. Replaces loose spreadsheets with a single tool where inventory and finances always add up."
+    },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "company": "Sublimax",
+    "thumbnail_url": "/img/logos/sublimax.webp",
+    "demo_url": "https://sublabmin.vercel.app/",
     "is_featured": true,
     "sort_order": 1,
-    "year": 2024
+    "year": 2026
   },
   {
     "id": "2",
-    "slug": "cobeca-corporate-apps",
-    "title": "Aplicaciones corporativas - Grupo Cobeca",
-    "tagline": "Sistemas internos y APIs para operaciones empresariales",
-    "description": "Desarrollo de modulos web para procesos internos del grupo empresarial.",
-    "challenge": "Integrar flujos legacy con interfaces modernas y mantenibles.",
-    "solution": "Frontend Angular modular y backend Laravel con capas de servicio claras.",
-    "results": "Reduccion de tiempos operativos y mejor experiencia para usuarios internos.",
-    "stack": ["Angular", "Laravel", "PHP", "MySQL"],
-    "company": "Grupo Cobeca",
+    "slug": "axsence-perfumeria-premium",
+    "title": {
+      "es": "Axsence - E-commerce de Perfumería de Autor",
+      "en": "Axsence - Designer Perfumery E-commerce"
+    },
+    "tagline": {
+      "es": "Diagnóstico olfativo, layering y checkout multi-moneda para perfumería árabe de lujo",
+      "en": "Olfactory diagnosis, layering and multi-currency checkout for luxury Arabic perfumery"
+    },
+    "description": {
+      "es": "Plataforma de e-commerce para una perfumería de autor árabe, con renderizado en servidor para velocidad y SEO, pensada para gente que nunca ha comprado una fragancia árabe.",
+      "en": "An e-commerce platform for an Arabic designer perfumery, server-rendered for speed and SEO, built for shoppers who have never bought an Arabic fragrance before."
+    },
+    "challenge": {
+      "es": "Recomendar la fragancia correcta a compradores sin experiencia previa en perfumería árabe o de autor, y que la tienda se sienta de lujo real, no genérica.",
+      "en": "Recommending the right fragrance to buyers with no prior experience in Arabic or designer perfumery, while making the store feel genuinely luxurious, not generic."
+    },
+    "solution": {
+      "es": "Angular con Signals y renderizado en servidor (SSR) en el frontend; Laravel con panel Filament sobre PostgreSQL en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. El contenido está estructurado también para búsquedas por IA (Gemini, ChatGPT), no solo para SEO tradicional.",
+      "en": "Angular with Signals and server-side rendering (SSR) on the frontend; Laravel with a Filament admin panel over PostgreSQL on the backend. I built a 5-step olfactory diagnosis quiz with a scoring algorithm, an interactive fragrance-layering simulator, a couple-matching feature, and a multi-step checkout with manual payment verification (Pago Móvil, Zelle) and BCV/parallel exchange-rate conversion. The content is also structured for AI search (Gemini, ChatGPT), not just traditional SEO."
+    },
+    "results": {
+      "es": "En producción, con un panel Filament para manejar catálogo, pedidos, leads y blog, y SSR activo para que cargue rápido y posicione bien en buscadores.",
+      "en": "In production, with a Filament panel for managing catalog, orders, leads and blog, and SSR keeping load times fast and search rankings healthy."
+    },
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "Filament"],
+    "thumbnail_url": "/img/logos/axsence.svg",
+    "demo_url": "https://axsence.web.app/",
     "is_featured": true,
     "sort_order": 2,
-    "year": 2023
+    "year": 2026
   },
   {
     "id": "3",
-    "slug": "portfolio-nikenver",
-    "title": "Portfolio profesional",
-    "tagline": "Vitrina Full Stack Angular y Laravel",
-    "description": "Sitio personal 100% publico, optimizado para SEO y descubrimiento por IA.",
-    "challenge": "Presentar trayectoria real sin fricciones ni formularios invasivos.",
-    "solution": "Monorepo Angular + Laravel con diseno Dark Precision y datos semanticos.",
-    "results": "Presencia profesional lista para reclutadores y empresas.",
+    "slug": "sublimax-ecommerce",
+    "title": {
+      "es": "Sublimax - Perfumería, Maquillaje y Variedades",
+      "en": "Sublimax - Perfumery, Makeup and Variety Store"
+    },
+    "tagline": {
+      "es": "E-commerce que fundé y dirijo en Maracaibo, Venezuela",
+      "en": "The e-commerce business I founded and run in Maracaibo, Venezuela"
+    },
+    "description": {
+      "es": "Marca y operación de e-commerce que fundé en 2024: perfumería, maquillaje y variedades, con estrategia comercial, logística de proveedores y ventas propias.",
+      "en": "The e-commerce brand and operation I founded in 2024: perfumery, makeup and variety goods, with my own commercial strategy, supplier logistics and sales."
+    },
+    "challenge": {
+      "es": "Lanzar y operar un e-commerce real en Venezuela (proveedores, inventario físico, cobros en varias monedas, marca propia) sin depender de plataformas genéricas ni de seguimiento manual.",
+      "en": "Launching and running a real e-commerce business in Venezuela (suppliers, physical inventory, multi-currency payments, a brand of its own) without leaning on generic platforms or manual tracking."
+    },
+    "solution": {
+      "es": "Dirijo la estrategia comercial, operativa y de marketing del negocio: negociación con proveedores, administración del capital, control de costos, imagen de marca y contenido para redes sociales. La operación corre sobre Subladmin, el sistema administrativo que construí a la medida para sostenerla.",
+      "en": "I run the business's commercial, operational and marketing strategy: supplier negotiation, capital management, cost control, brand image and social content. The operation runs on Subladmin, the administrative system I built to sustain it."
+    },
+    "results": {
+      "es": "Activo desde 2024, con marca, contenido y ventas propias, respaldado por un sistema administrativo hecho a medida.",
+      "en": "Active since 2024, with its own brand, content and sales, backed by a purpose-built administrative system."
+    },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "company": "Sublimax",
+    "thumbnail_url": "/img/logos/sublimax.webp",
+    "links": [
+      { "label": { "es": "Instagram", "en": "Instagram" }, "url": "https://www.instagram.com/sublimaxss_" },
+      { "label": { "es": "TikTok", "en": "TikTok" }, "url": "https://www.tiktok.com/@sublimaxss_" }
+    ],
+    "socialPosts": [
+      { "platform": "instagram", "url": "https://www.instagram.com/sublimaxss_/p/Dax-i_aCnaj/" },
+      { "platform": "instagram", "url": "https://www.instagram.com/sublimaxss_/p/DaqyfWHDL07/" },
+      { "platform": "tiktok", "url": "https://www.tiktok.com/@sublimaxss_/video/7605822785528581384" },
+      { "platform": "tiktok", "url": "https://www.tiktok.com/@sublimaxss_/video/7626971372459134215" }
+    ],
     "is_featured": true,
     "sort_order": 3,
+    "year": 2024
+  },
+  {
+    "id": "4",
+    "slug": "cobeca-corporate-apps",
+    "title": {
+      "es": "Aplicaciones corporativas - Grupo Cobeca",
+      "en": "Corporate Applications - Grupo Cobeca"
+    },
+    "tagline": {
+      "es": "Sistemas internos y APIs para operaciones empresariales",
+      "en": "Internal systems and APIs for business operations"
+    },
+    "description": {
+      "es": "Desarrollo de módulos web para procesos internos del grupo empresarial.",
+      "en": "Web modules built for the corporate group's internal processes."
+    },
+    "challenge": {
+      "es": "Integrar flujos legacy con interfaces modernas y mantenibles.",
+      "en": "Integrating legacy workflows with modern, maintainable interfaces."
+    },
+    "solution": {
+      "es": "Frontend Angular modular y backend .NET (C#) con SQL Server para las plataformas comerciales (Tienda Virtual SaaS, Expocobeca y Negociaciones Cobeca) y los sistemas internos (SIC, PFL8, Step Web y Step Web Junior).",
+      "en": "A modular Angular frontend and a .NET (C#) backend with SQL Server, for the commercial platforms (Tienda Virtual SaaS, Expocobeca and Negociaciones Cobeca) and the internal systems (SIC, PFL8, Step Web and Step Web Junior)."
+    },
+    "results": {
+      "es": "Menos tiempo operativo y mejor experiencia para usuarios internos y clientes.",
+      "en": "Less operational time spent, and a better experience for internal users and customers."
+    },
+    "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server", "Tailwind CSS"],
+    "company": "Grupo Cobeca",
+    "links": [
+      { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home" },
+      { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login" },
+      { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login" },
+      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" }
+    ],
+    "is_featured": true,
+    "sort_order": 4,
+    "year": 2023
+  },
+  {
+    "id": "5",
+    "slug": "isla-de-los-dinosaurios",
+    "title": {
+      "es": "La Isla de los Dinosaurios",
+      "en": "Dinosaur Island"
+    },
+    "tagline": {
+      "es": "Juego educativo de programación para niños, hecho junto a mi hijo",
+      "en": "An educational coding game for kids, built together with my son"
+    },
+    "description": {
+      "es": "Videojuego web para enseñar nociones básicas de programación (variables, condicionales, bucles) a través de actividades lúdicas, programado junto a mi hijo Axel.",
+      "en": "A web game that teaches basic programming concepts (variables, conditionals, loops) through playful activities, built together with my son Axel."
+    },
+    "challenge": {
+      "es": "Enseñarle a un niño qué es programar, de forma tangible y divertida, sin código real ni interfaces abstractas.",
+      "en": "Teaching a kid what programming actually is, in a tangible and fun way, without real code or abstract interfaces."
+    },
+    "solution": {
+      "es": "Cinco actividades de \"programación\" (trazo de código, sumas con variables, completar un nombre, arrastrar figuras, recortar y pegar una etiqueta HTML), seguidas de un juego de memoria de 18 cartas que reconoce dinosaurios de juguete reales por cámara web (visión por computadora) o por voz (Web Speech API). El sonido y la música se generan en tiempo real con Web Audio API, sin un solo archivo de audio.",
+      "en": "Five \"programming\" activities (tracing code, sums with variables, completing a name, dragging shapes, cutting and pasting an HTML tag), followed by an 18-card memory game that recognizes real toy dinosaurs through the webcam (computer vision) or by voice (Web Speech API). Sound and music are generated in real time with the Web Audio API, without a single audio file."
+    },
+    "results": {
+      "es": "Publicado en Vercel con integración continua desde GitHub, listo para jugar en cualquier dispositivo con cámara o micrófono.",
+      "en": "Deployed on Vercel with continuous deployment from GitHub, ready to play on any device with a camera or microphone."
+    },
+    "stack": ["JavaScript", "HTML", "CSS"],
+    "thumbnail_url": "/img/logos/isla-de-dinosaurios.webp",
+    "demo_url": "https://isla-dinosaurio-app.vercel.app/",
+    "repo_url": "https://github.com/Nikenverjpp/isla-dinosaurio-app",
+    "is_featured": false,
+    "sort_order": 5,
+    "year": 2026
+  },
+  {
+    "id": "6",
+    "slug": "portfolio-nikenver",
+    "title": {
+      "es": "Portfolio profesional",
+      "en": "Professional Portfolio"
+    },
+    "tagline": {
+      "es": "Vitrina Full Stack Angular",
+      "en": "A Full Stack Angular showcase"
+    },
+    "description": {
+      "es": "Sitio personal público, optimizado para SEO y descubrimiento por IA.",
+      "en": "A public personal site, optimized for SEO and AI discovery."
+    },
+    "challenge": {
+      "es": "Presentar mi trayectoria real sin fricciones ni formularios invasivos.",
+      "en": "Presenting a real career history without friction or invasive forms."
+    },
+    "solution": {
+      "es": "Angular y Tailwind CSS con datos estáticos, diseño Dark Precision y contenido semántico.",
+      "en": "Angular and Tailwind CSS with static data, a Dark Precision design, and semantic content."
+    },
+    "results": {
+      "es": "Presencia profesional lista para reclutadores y empresas.",
+      "en": "A professional presence ready for recruiters and companies."
+    },
+    "stack": ["Angular", "Tailwind CSS"],
+    "is_featured": false,
+    "sort_order": 6,
     "year": 2026
   }
 ]

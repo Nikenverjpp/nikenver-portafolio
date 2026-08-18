@@ -2,8 +2,11 @@
   {
     "id": "1",
     "company": "Sublimax",
-    "role": "Fundador y CEO",
-    "description": "Plataforma de e-commerce para perfumeria y cosmetica. Sistema de inventario y ventas desarrollado desde cero.",
+    "role": { "es": "Fundador y CEO", "en": "Founder and CEO" },
+    "description": {
+      "es": "E-commerce de perfumería y cosmética. Diseñé y desarrollé Subladmin, el sistema administrativo propio del negocio (inventario, CRM, crédito y cobranza) con lógica FEFO/FIFO y reportes multi-moneda (USD/VES).",
+      "en": "Perfumery and cosmetics e-commerce. I designed and built Subladmin, the business's own administrative system (inventory, CRM, credit and collections) with FEFO/FIFO logic and multi-currency reporting (USD/VES)."
+    },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "start_year": 2024,
     "end_year": null,
@@ -12,51 +15,89 @@
   {
     "id": "2",
     "company": "Grupo Cobeca",
-    "role": "Analista Programador Senior",
-    "description": "Desarrollo de aplicaciones web corporativas y APIs REST en entornos de produccion.",
-    "stack": ["Angular", "Laravel", "PHP", "MySQL"],
+    "role": { "es": "Analista Programador Senior", "en": "Senior Programmer Analyst" },
+    "description": {
+      "es": "Desarrollo de aplicaciones web corporativas (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) y sistemas internos (SIC, PFL8, Step Web) con Angular, React y .NET (C#).",
+      "en": "Built corporate web applications (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) and internal systems (SIC, PFL8, Step Web) with Angular, React and .NET (C#)."
+    },
+    "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server"],
     "start_year": 2022,
     "end_year": 2024,
     "sort_order": 2
   },
   {
     "id": "3",
-    "company": "Metro IT Service",
-    "role": "Desarrollador Full Stack",
-    "description": "Soluciones web para clientes empresariales con stack moderno.",
-    "stack": ["Vue.js", "Laravel", "PHP", "MySQL"],
+    "company": "Gandalf Comunicaciones C.A",
+    "role": {
+      "es": "Consultor de Ventas y Técnico de Infraestructura (Freelance)",
+      "en": "Sales Consultant and Infrastructure Technician (Freelance)"
+    },
+    "description": {
+      "es": "Cartera propia de más de 260 clientes de internet, gestionada de forma independiente: prospección, venta, instalación y soporte de infraestructura inalámbrica con equipos Ubiquiti.",
+      "en": "Built a book of over 260 internet-service customers on my own, end to end: prospecting, sales, installation and wireless infrastructure support with Ubiquiti equipment."
+    },
+    "stack": ["Ubiquiti", "MikroTik", "Redes inalámbricas"],
     "start_year": 2020,
-    "end_year": 2022,
+    "end_year": 2023,
     "sort_order": 3
   },
   {
     "id": "4",
-    "company": "Iconos Consultores",
-    "role": "Desarrollador Web",
-    "description": "Proyectos a medida para distintos sectores.",
-    "stack": ["React", "PHP", "MySQL", "WordPress"],
+    "company": "Metro IT Service",
+    "role": { "es": "Ingeniero de Software", "en": "Software Engineer" },
+    "description": {
+      "es": "Desarrollo de sistemas web full-stack con PHP y Laravel, incluyendo implementaciones con Livewire, e interfaces interactivas con Vue.js sobre MySQL.",
+      "en": "Built full-stack web systems with PHP and Laravel, including Livewire implementations, and interactive interfaces with Vue.js on MySQL."
+    },
+    "stack": ["Laravel", "PHP", "Vue.js", "MySQL"],
     "start_year": 2020,
     "end_year": 2022,
     "sort_order": 4
   },
   {
     "id": "5",
-    "company": "C.A. Diario Panorama",
-    "role": "Desarrollador Web",
-    "description": "Portales y herramientas internas para medios digitales.",
-    "stack": ["PHP", "JavaScript", "MySQL", "WordPress"],
-    "start_year": 2018,
-    "end_year": 2020,
+    "company": "Iconos Consultores",
+    "role": { "es": "Front-End Web Developer (Freelance)", "en": "Front-End Web Developer (Freelance)" },
+    "description": {
+      "es": "Interfaces front-end desde cero con HTML, CSS y JavaScript puro, y personalización de sitios WordPress y Joomla con PHP y MySQL.",
+      "en": "Built front-end interfaces from scratch with plain HTML, CSS and JavaScript, and customized WordPress and Joomla sites with PHP and MySQL."
+    },
+    "stack": ["JavaScript", "PHP", "MySQL", "WordPress"],
+    "links": [
+      { "label": { "es": "Amavida", "en": "Amavida" }, "url": "https://www.amavida.org.ve/" },
+      { "label": { "es": "Wilmer Nadín", "en": "Wilmer Nadín" }, "url": "https://wilmernadin.com/" }
+    ],
+    "start_year": 2020,
+    "end_year": 2022,
     "sort_order": 5
   },
   {
     "id": "6",
+    "company": "C.A. Diario Panorama",
+    "role": { "es": "Desarrollador Full Stack", "en": "Full Stack Developer" },
+    "description": {
+      "es": "Primera aplicación móvil de la empresa (Android e iOS), y mantenimiento de portales web con soporte técnico a usuarios.",
+      "en": "Built the company's first mobile app (Android and iOS), and maintained web portals with technical support for users."
+    },
+    "stack": ["PHP", "JavaScript", "MySQL", "Android"],
+    "start_year": 2018,
+    "end_year": 2020,
+    "sort_order": 6
+  },
+  {
+    "id": "7",
     "company": "Grupo Nivar",
-    "role": "Desarrollador Web Junior",
-    "description": "Primeros anos en desarrollo web profesional.",
-    "stack": ["PHP", "JavaScript", "MySQL", "Bootstrap"],
+    "role": {
+      "es": "Pasantías y Asistente de Soporte Técnico",
+      "en": "Internship and Technical Support Assistant"
+    },
+    "description": {
+      "es": "Soporte técnico a hardware y sistemas operativos, y colaboración en el portal web de capacitación y reclutamiento de la empresa.",
+      "en": "Provided technical support for hardware and operating systems, and helped build the company's training and recruitment web portal."
+    },
+    "stack": ["PHP", "JavaScript", "MySQL"],
     "start_year": 2015,
     "end_year": 2018,
-    "sort_order": 6
+    "sort_order": 7
   }
 ]
