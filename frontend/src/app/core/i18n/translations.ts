@@ -78,20 +78,23 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: "I'm Nikenver Pulgar, a Systems Engineer from Universidad Dr. José Gregorio Hernández in Maracaibo, Venezuela. I've spent over 10 years building full stack web applications for companies like Grupo Cobeca, C.A. Diario Panorama, Metro IT Service and Iconos Consultores, with Angular, Laravel, React, Vue.js and PHP.",
   },
   'about.paragraph2': {
-    es: 'También soy el fundador de Sublimax, un e-commerce de perfumería y variedades para el que construí Subladmin, su sistema administrativo a medida (inventario, CRM y crédito). Aparte desarrollé Axsence, una plataforma de e-commerce para perfumería de autor con Angular y Laravel. Me especializo en front-end moderno con Angular y React, con un back-end sólido en Laravel y PHP como soporte.',
-    en: "I'm also the founder of Sublimax, a perfumery and variety e-commerce business for which I built Subladmin, its custom-built administrative system (inventory, CRM and credit). I also built Axsence, a designer-perfumery e-commerce platform with Angular and Laravel. I specialize in modern front-end development with Angular and React, backed by a solid Laravel and PHP back-end.",
+    es: 'También soy el fundador de Sublimax, un e-commerce de perfumería y variedades para el que construí Subladmin, su sistema administrativo a medida (inventario, CRM y crédito). Aparte desarrollé Axsence, una plataforma de e-commerce para perfumería de autor con Angular y Laravel. El diagnóstico olfativo, el matching y el simulador de layering que construí para Axsence no son solo funcionalidades técnicas: reflejan conocimiento propio como Asesor Olfativo (Fragrance Consultant), un camino que sigo profundizando. Me especializo en front-end moderno con Angular y React, con un back-end sólido en Laravel y PHP como soporte.',
+    en: "I'm also the founder of Sublimax, a perfumery and variety e-commerce business for which I built Subladmin, its custom-built administrative system (inventory, CRM and credit). I also built Axsence, a designer-perfumery e-commerce platform with Angular and Laravel. The olfactory diagnosis, matching and layering simulator I built for Axsence aren't just technical features: they reflect my own knowledge as a Fragrance Consultant (Asesor Olfativo), a path I keep deepening. I specialize in modern front-end development with Angular and React, backed by a solid Laravel and PHP back-end.",
   },
   'about.paragraph3': {
     es: 'Hoy trabajo como desarrollador senior apoyado en IA: dirijo la arquitectura y las decisiones técnicas del proyecto, y uso herramientas de IA para acelerar la implementación, revisando y corrigiendo cada línea antes de que llegue a producción. Este mismo portfolio es evidencia de esa forma de trabajar. La experiencia y el criterio siguen siendo míos; la IA acelera la ejecución, no la reemplaza.',
     en: "Today I work as a senior developer supported by AI: I drive the architecture and technical decisions on a project, and use AI tooling to speed up implementation — reviewing and correcting every line before it ships. This portfolio itself is evidence of that workflow. The judgment is still mine; AI speeds up execution, it doesn't replace it.",
   },
+  'about.readMore': { es: 'Leer más', en: 'Read more' },
+  'about.readLess': { es: 'Leer menos', en: 'Read less' },
   'about.stackTitle': { es: 'Stack tecnológico', en: 'Tech stack' },
   'about.skillFrontend': { es: 'Frontend', en: 'Frontend' },
   'about.skillBackend': { es: 'Backend', en: 'Backend' },
   'about.skillOther': { es: 'Otros', en: 'Other' },
+  'about.skillFragrance': { es: 'Perfumería', en: 'Perfumery' },
   'about.personalMeta': {
-    es: '32 años · Maracaibo, Venezuela · Padre de familia · Vehículo propio, disponible para movilizarse',
-    en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle, available to travel',
+    es: '32 años · Maracaibo, Venezuela · Padre de familia · Vehículo propio, disponible para movilizarse · Fanático del fútbol y madridista',
+    en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle, available to travel · Football fan and Real Madrid supporter',
   },
   'about.coursesTitle': { es: 'Cursos y diplomados', en: 'Courses and diplomas' },
 

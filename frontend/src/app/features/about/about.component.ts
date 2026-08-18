@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { ExperienceService } from '../../core/api/experience.service';
 import { TimelineItemComponent } from '../../shared/components/timeline-item.component';
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
@@ -34,11 +34,40 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
         </div>
       </header>
 
-      <article appRevealOnScroll class="prose-portfolio mt-10 max-w-3xl">
-        <p>{{ 'about.paragraph1' | t: locale.locale() }}</p>
-        <p>{{ 'about.paragraph2' | t: locale.locale() }}</p>
-        <p>{{ 'about.paragraph3' | t: locale.locale() }}</p>
-      </article>
+      <div class="mt-10 max-w-3xl">
+        <div class="relative">
+          <article
+            id="bio-content"
+            appRevealOnScroll
+            class="prose-portfolio bio-clamp"
+            [class.is-expanded]="bioExpanded()"
+          >
+            <p>{{ 'about.paragraph1' | t: locale.locale() }}</p>
+            <p>{{ 'about.paragraph2' | t: locale.locale() }}</p>
+            <p>{{ 'about.paragraph3' | t: locale.locale() }}</p>
+          </article>
+
+          @if (!bioExpanded()) {
+            <div
+              class="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg-primary to-transparent sm:hidden"
+              aria-hidden="true"
+            ></div>
+          }
+        </div>
+
+        <button
+          type="button"
+          class="mt-3 inline-flex items-center gap-1 font-mono text-sm text-accent-cyan sm:hidden"
+          [attr.aria-expanded]="bioExpanded()"
+          aria-controls="bio-content"
+          (click)="bioExpanded.set(!bioExpanded())"
+        >
+          {{ (bioExpanded() ? 'about.readLess' : 'about.readMore') | t: locale.locale() }}
+          <span class="material-symbols-outlined !text-base" aria-hidden="true">
+            {{ bioExpanded() ? 'expand_less' : 'expand_more' }}
+          </span>
+        </button>
+      </div>
 
       <section class="mt-16">
         <h2 class="section-title mb-8" appRevealOnScroll>{{ 'shared.experienceTitle' | t: locale.locale() }}</h2>
@@ -90,6 +119,7 @@ export class AboutComponent {
   private readonly experiences = inject(ExperienceService);
   readonly locale = inject(LocaleService);
   readonly experiences$ = this.experiences.list();
+  readonly bioExpanded = signal(false);
 
   readonly skillGroups = [
     {
@@ -103,6 +133,15 @@ export class AboutComponent {
     {
       titleKey: 'about.skillOther',
       items: ['Prompt Engineering', 'WordPress', '.NET (C#)', 'Git', 'Docker (básico)', 'Cloudinary'],
+    },
+    {
+      titleKey: 'about.skillFragrance',
+      items: [
+        'Diagnóstico olfativo',
+        'Layering de fragancias',
+        'Matching de perfumes',
+        'Familias olfativas',
+      ],
     },
   ];
 

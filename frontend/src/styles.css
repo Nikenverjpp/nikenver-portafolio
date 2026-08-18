@@ -49,6 +49,11 @@
   --color-border: #e2e2ea;
 }
 
+:root {
+  /* Lets .bio-clamp transition smoothly to block-size: auto on supporting browsers. */
+  interpolate-size: allow-keywords;
+}
+
 @layer base {
   .material-symbols-outlined {
     font-family: 'Material Symbols Outlined';
@@ -126,7 +131,7 @@
   }
 
   .prose-portfolio {
-    @apply space-y-4 text-base leading-relaxed text-text-secondary;
+    @apply space-y-4 text-base leading-relaxed text-text-secondary text-justify;
   }
 
   .filter-chip {
@@ -150,6 +155,25 @@
   /* Keeps the sticky header clear of notches/status bars on mobile. */
   .safe-top {
     padding-top: env(safe-area-inset-top);
+  }
+
+  /* Mobile-only "leer más" clamp for the About bio (see AboutComponent). Inert on sm+. */
+  @media (max-width: 639px) {
+    .bio-clamp {
+      overflow: hidden;
+      block-size: 11rem;
+      transition: block-size 0.35s ease-out;
+    }
+
+    .bio-clamp.is-expanded {
+      block-size: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bio-clamp {
+        transition: none;
+      }
+    }
   }
 
   /* Reveal-on-scroll: CSS-driven where supported (see RevealOnScrollDirective). */
