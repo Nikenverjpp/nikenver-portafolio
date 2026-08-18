@@ -12,12 +12,12 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <article
-      class="card-surface group flex h-full flex-col overflow-hidden transition-all hover:-translate-y-1 hover:border-accent-cyan/40"
+      class="card-surface group flex flex-col overflow-hidden transition-all hover:-translate-y-1 hover:border-accent-cyan/40"
     >
       @if (project.preview_image_url) {
         <a
           [routerLink]="['/proyectos', project.slug]"
-          class="block aspect-video w-full overflow-hidden bg-bg-primary"
+          class="block h-36 w-full overflow-hidden bg-bg-primary sm:h-40"
           tabindex="-1"
         >
           <img
@@ -32,8 +32,8 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
           />
         </a>
       }
-      <div class="flex h-full flex-col p-6">
-        <div class="mb-3 flex items-start justify-between gap-3">
+      <div class="flex flex-col p-5">
+        <div class="mb-2 flex items-start justify-between gap-3">
           <div class="flex items-start gap-3">
             @if (project.thumbnail_url) {
               <span class="logo-chip h-11 w-11">
@@ -64,14 +64,14 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
           }
         </div>
         @if (project.tagline) {
-          <p class="mb-4 text-sm text-text-secondary">{{ project.tagline | t: locale.locale() }}</p>
+          <p class="mb-3 text-sm text-text-secondary">{{ project.tagline | t: locale.locale() }}</p>
         }
         @if (project.stack?.length) {
-          <app-stack-badges [items]="project.stack!" class="mt-auto" />
+          <app-stack-badges [items]="project.stack!" />
         }
         <a
           [routerLink]="['/proyectos', project.slug]"
-          class="mt-5 inline-flex text-sm font-medium text-accent-cyan hover:underline"
+          class="mt-4 inline-flex text-sm font-medium text-accent-cyan hover:underline"
         >
           {{ 'projects.viewCase' | t: locale.locale() }}
         </a>

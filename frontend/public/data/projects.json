@@ -66,6 +66,18 @@
     "thumbnail_url": "/img/logos/axsence.svg",
     "preview_image_url": "/img/previews/axsence.webp",
     "demo_url": "https://axsence.web.app/",
+    "links": [
+      {
+        "label": { "es": "Instagram", "en": "Instagram" },
+        "url": "https://www.instagram.com/axsenceperfumes/",
+        "preview_image_url": "/img/previews/axsence-instagram.webp"
+      },
+      {
+        "label": { "es": "TikTok", "en": "TikTok" },
+        "url": "https://www.tiktok.com/@axsenceperfumes",
+        "preview_image_url": "/img/previews/axsence-tiktok.webp"
+      }
+    ],
     "is_featured": true,
     "sort_order": 2,
     "year": 2026
@@ -100,6 +112,7 @@
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "company": "Sublimax",
     "thumbnail_url": "/img/logos/sublimax.webp",
+    "preview_image_url": "/img/previews/sublimax-instagram.webp",
     "links": [
       { "label": { "es": "Instagram", "en": "Instagram" }, "url": "https://www.instagram.com/sublimaxss_" },
       { "label": { "es": "TikTok", "en": "TikTok" }, "url": "https://www.tiktok.com/@sublimaxss_" }
@@ -145,10 +158,26 @@
     "company": "Grupo Cobeca",
     "preview_image_url": "/img/previews/cobeca.webp",
     "links": [
-      { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home" },
-      { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login" },
-      { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login" },
-      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" }
+      {
+        "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" },
+        "url": "https://negociacionescobeca.com/home",
+        "preview_image_url": "/img/previews/cobeca.webp"
+      },
+      {
+        "label": { "es": "Step Web", "en": "Step Web" },
+        "url": "https://stepweb.drogueriascobeca.com/login",
+        "preview_image_url": "/img/previews/cobeca-stepweb.webp"
+      },
+      {
+        "label": { "es": "Step Web Junior", "en": "Step Web Junior" },
+        "url": "https://stepwebjunior.drogueriascobeca.com/login",
+        "preview_image_url": "/img/previews/cobeca-stepweb-junior.webp"
+      },
+      {
+        "label": { "es": "SIC", "en": "SIC" },
+        "url": "https://sic.drogueriascobeca.com/autenticacion",
+        "preview_image_url": "/img/previews/cobeca-sic.webp"
+      }
     ],
     "is_featured": true,
     "sort_order": 4,
@@ -192,32 +221,35 @@
   },
   {
     "id": "6",
-    "slug": "portfolio-nikenver",
+    "slug": "cobeca-sic",
     "title": {
-      "es": "Portfolio profesional",
-      "en": "Professional Portfolio"
+      "es": "SIC - Sistema Integral de Clientes, Grupo Cobeca",
+      "en": "SIC - Grupo Cobeca Customer Portal"
     },
     "tagline": {
-      "es": "Vitrina Full Stack Angular",
-      "en": "A Full Stack Angular showcase"
+      "es": "Portal de clientes para facturación digital y actualización de datos",
+      "en": "Customer portal for digital invoicing and data updates"
     },
     "description": {
-      "es": "Sitio personal público, optimizado para SEO y descubrimiento por IA.",
-      "en": "A public personal site, optimized for SEO and AI discovery."
+      "es": "Portal web para los clientes de Droguerías Cobeca: consulta de facturación digital, actualización de datos de contacto y autogestión, para reducir el papeleo físico entre la droguería y sus clientes.",
+      "en": "Web portal for Droguerías Cobeca's customers: digital invoice lookup, contact-data updates and self-service, cutting down on physical paperwork between the drugstore chain and its clients."
     },
     "challenge": {
-      "es": "Presentar mi trayectoria real sin fricciones ni formularios invasivos.",
-      "en": "Presenting a real career history without friction or invasive forms."
+      "es": "Migrar a los clientes de la facturación en papel a un canal digital propio, sin depender de correos ni llamadas para cada actualización de datos.",
+      "en": "Moving customers from paper invoicing to a self-service digital channel, without relying on emails or phone calls for every data update."
     },
     "solution": {
-      "es": "Angular y Tailwind CSS con datos estáticos, diseño Dark Precision y contenido semántico.",
-      "en": "Angular and Tailwind CSS with static data, a Dark Precision design, and semantic content."
+      "es": "Frontend Angular y backend .NET (C#) sobre SQL Server, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.",
+      "en": "Angular frontend and a .NET (C#) backend over SQL Server, integrated with the rest of Grupo Cobeca's internal systems I built alongside it."
     },
     "results": {
-      "es": "Presencia profesional lista para reclutadores y empresas.",
-      "en": "A professional presence ready for recruiters and companies."
+      "es": "En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.",
+      "en": "In production, serving as the official digital invoicing channel for Droguerías Cobeca's customers."
     },
-    "stack": ["Angular", "Tailwind CSS"],
+    "stack": ["Angular", ".NET", "SQL Server"],
+    "company": "Grupo Cobeca",
+    "preview_image_url": "/img/previews/cobeca-sic.webp",
+    "demo_url": "https://sic.drogueriascobeca.com/autenticacion",
     "is_featured": false,
     "sort_order": 6,
     "year": 2026

@@ -8,6 +8,11 @@
       "en": "Perfumery and cosmetics e-commerce. I designed and built Subladmin, the business's own administrative system (inventory, CRM, credit and collections) with FEFO/FIFO logic and multi-currency reporting (USD/VES)."
     },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "links": [
+      { "label": { "es": "Subladmin", "en": "Subladmin" }, "url": "https://sublabmin.vercel.app/" },
+      { "label": { "es": "Instagram", "en": "Instagram" }, "url": "https://www.instagram.com/sublimaxss_" },
+      { "label": { "es": "TikTok", "en": "TikTok" }, "url": "https://www.tiktok.com/@sublimaxss_" }
+    ],
     "start_year": 2024,
     "end_year": null,
     "sort_order": 1
@@ -21,6 +26,12 @@
       "en": "Built corporate web applications (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) and internal systems (SIC, PFL8, Step Web) with Angular, React and .NET (C#)."
     },
     "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server"],
+    "links": [
+      { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home" },
+      { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login" },
+      { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login" },
+      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" }
+    ],
     "start_year": 2022,
     "end_year": 2024,
     "sort_order": 2
@@ -64,8 +75,16 @@
     },
     "stack": ["JavaScript", "PHP", "MySQL", "WordPress"],
     "links": [
-      { "label": { "es": "Amavida", "en": "Amavida" }, "url": "https://www.amavida.org.ve/" },
-      { "label": { "es": "Wilmer Nadín", "en": "Wilmer Nadín" }, "url": "https://wilmernadin.com/" }
+      {
+        "label": { "es": "Amavida", "en": "Amavida" },
+        "url": "https://www.amavida.org.ve/",
+        "preview_image_url": "/img/previews/amavida.webp"
+      },
+      {
+        "label": { "es": "Wilmer Nadín", "en": "Wilmer Nadín" },
+        "url": "https://wilmernadin.com/",
+        "preview_image_url": "/img/previews/wilmer-nadin.webp"
+      }
     ],
     "start_year": 2020,
     "end_year": 2022,

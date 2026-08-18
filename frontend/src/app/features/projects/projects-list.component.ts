@@ -22,7 +22,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
       </header>
 
       <h2 class="sr-only">{{ 'projects.gridHeading' | t: locale.locale() }}</h2>
-      <section class="mt-10 grid gap-6 md:grid-cols-2">
+      <section class="mt-10 grid items-start gap-6 md:grid-cols-2">
         @for (project of allProjects(); track project.id) {
           <app-project-card [project]="project" appRevealOnScroll />
         }

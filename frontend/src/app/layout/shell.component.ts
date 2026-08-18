@@ -21,8 +21,15 @@ import { ThemeService } from '../core/theme/theme.service';
           class="container-page flex h-16 items-center justify-between gap-4"
           [attr.aria-label]="'nav.ariaLabel' | t: locale.locale()"
         >
-          <a routerLink="/" class="font-display text-lg font-bold tracking-tight text-text-primary">
-            NP<span class="text-accent-cyan">.</span>
+          <a routerLink="/" class="flex items-center gap-3 font-display text-text-primary">
+            <span class="text-lg font-bold tracking-tight">NP<span class="text-accent-cyan">.</span></span>
+            <span class="hidden items-center gap-3 md:flex">
+              <span class="h-6 w-px bg-border" aria-hidden="true"></span>
+              <span class="flex flex-col leading-none">
+                <span class="text-sm font-bold tracking-wide">NIKENVER</span>
+                <span class="text-[10px] font-medium tracking-[0.3em] text-text-secondary">PULGAR</span>
+              </span>
+            </span>
           </a>
           <div class="hidden items-center gap-8 md:flex">
             @for (link of navLinks; track link.path) {
@@ -92,10 +99,11 @@ import { ThemeService } from '../core/theme/theme.service';
                 <button
                   type="button"
                   class="filter-chip"
-                  [attr.aria-label]="'theme.ariaLabel' | t: locale.locale()"
+                  [attr.title]="'theme.' + theme.mode() | t: locale.locale()"
+                  [attr.aria-label]="('theme.ariaLabel' | t: locale.locale()) + ': ' + ('theme.' + theme.mode() | t: locale.locale())"
                   (click)="theme.cycle()"
                 >
-                  {{ 'theme.' + theme.mode() | t: locale.locale() }}
+                  <span class="material-symbols-outlined" aria-hidden="true">{{ theme.icon() }}</span>
                 </button>
                 <button
                   type="button"

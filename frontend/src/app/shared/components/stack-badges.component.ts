@@ -5,7 +5,7 @@
   standalone: true,
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <div class="flex flex-wrap gap-2">
+    <div class="mb-4 flex flex-wrap gap-2">
       @for (item of items; track item) {
         <span
           class="rounded-md border border-border bg-bg-elevated px-2.5 py-1 font-mono text-xs text-text-secondary"

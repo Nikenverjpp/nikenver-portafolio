@@ -112,19 +112,37 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailLinks' | t: locale.locale() }}
             </h2>
-            <p class="mt-3 flex flex-wrap gap-3">
+            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
               @for (link of project.links; track link.url) {
                 <a
                   [href]="link.url"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="filter-chip gap-1 text-text-secondary hover:text-accent-cyan"
+                  class="card-surface group flex flex-col overflow-hidden transition-all hover:-translate-y-0.5 hover:border-accent-cyan/40"
                 >
-                  {{ link.label | t: locale.locale() }}
-                  <span class="material-symbols-outlined !text-sm" aria-hidden="true">open_in_new</span>
+                  @if (link.preview_image_url) {
+                    <span class="block h-20 w-full overflow-hidden bg-bg-primary">
+                      <img
+                        [src]="link.preview_image_url"
+                        [alt]="''"
+                        aria-hidden="true"
+                        width="640"
+                        height="360"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </span>
+                  }
+                  <span
+                    class="flex items-center justify-between gap-1 px-3 py-2 text-xs font-medium text-text-secondary group-hover:text-accent-cyan"
+                  >
+                    {{ link.label | t: locale.locale() }}
+                    <span class="material-symbols-outlined !text-sm" aria-hidden="true">open_in_new</span>
+                  </span>
                 </a>
               }
-            </p>
+            </div>
           </section>
         }
 
