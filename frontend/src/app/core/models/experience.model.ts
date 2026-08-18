@@ -3,8 +3,10 @@
 export interface Experience {
   id: string;
   company: string;
+  company_url?: string;
   role: LocalizedText;
   description?: LocalizedText;
+  detail?: LocalizedText;
   stack?: string[];
   start_year?: number;
   end_year?: number | null;

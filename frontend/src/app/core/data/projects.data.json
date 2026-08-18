@@ -11,20 +11,20 @@
       "en": "In-house ERP with FEFO/FIFO traceability, row-level security and multi-currency credit"
     },
     "description": {
-      "es": "Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, CRM, crédito y cobranza, cierre de caja y auditoría en una sola herramienta.",
-      "en": "Full administrative system built for Sublimax: it centralizes purchasing, unit-level inventory, sales, CRM, credit and collections, cash closing and auditing into one tool."
+      "es": "Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, <b>CRM</b>, crédito y cobranza, cierre de caja y auditoría en una sola herramienta.",
+      "en": "Full administrative system built for Sublimax: it centralizes purchasing, unit-level inventory, sales, <b>CRM</b>, credit and collections, cash closing and auditing into one tool."
     },
     "challenge": {
       "es": "Sublimax operaba con seguimiento desorganizado en Excel, WhatsApp y cuadernos, sin trazabilidad de inventario por unidad ni control real del crédito otorgado a clientes.",
       "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
     },
     "solution": {
-      "es": "El backend en Laravel concentra la lógica crítica en una capa de servicios: despacho de inventario bajo la regla FEFO, asignación de pagos entrantes bajo FIFO y recálculo automático de cuotas cuando hay una devolución. Row-Level Security aísla lo que cada vendedor puede ver, con RBAC vía Spatie y auditoría de las acciones sensibles. El frontend en Angular usa Standalone Components y Signals, pensado para tablets en el mostrador y en la calle, y escritorio para el administrador. Incluye además hardening OWASP Top 10: rate limiting, cabeceras de seguridad, sanitización de archivos y consultas parametrizadas.",
-      "en": "The Laravel backend concentrates the critical logic in a dedicated service layer: FEFO-based inventory dispatch, FIFO-based allocation of incoming payments, and automatic installment recalculation on returns. Strict row-level security isolates what each salesperson can see, with RBAC via Spatie and auditing of sensitive actions. The Angular frontend uses Standalone Components and Signals, built for tablets at the counter and out in the field, and desktop for the admin. It also includes OWASP Top 10 hardening: rate limiting, security headers, file sanitization and parameterized queries."
+      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en una capa de servicios: despacho de inventario bajo la regla <b>FEFO</b>, asignación de pagos entrantes bajo <b>FIFO</b> y recálculo automático de cuotas cuando hay una devolución. <b>Row-Level Security</b> aísla lo que cada vendedor puede ver, con <b>RBAC</b> vía Spatie y auditoría de las acciones sensibles. El frontend en <b>Angular</b> usa <b>Standalone Components</b> y <b>Signals</b>, pensado para tablets en el mostrador y en la calle, y escritorio para el administrador. Incluye además hardening <b>OWASP Top 10</b>: rate limiting, cabeceras de seguridad, sanitización de archivos y consultas parametrizadas.",
+      "en": "The <b>Laravel</b> backend concentrates the critical logic in a dedicated service layer: <b>FEFO</b>-based inventory dispatch, <b>FIFO</b>-based allocation of incoming payments, and automatic installment recalculation on returns. Strict <b>row-level security</b> isolates what each salesperson can see, with <b>RBAC</b> via Spatie and auditing of sensitive actions. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, built for tablets at the counter and out in the field, and desktop for the admin. It also includes <b>OWASP Top 10</b> hardening: rate limiting, security headers, file sanitization and parameterized queries."
     },
     "results": {
-      "es": "En fase final de desarrollo, próximo a producción como PWA. Reemplaza las hojas de cálculo sueltas por una sola herramienta donde el inventario y las finanzas cuadran siempre.",
-      "en": "In its final development stage, close to shipping as a PWA. Replaces loose spreadsheets with a single tool where inventory and finances always add up."
+      "es": "En fase final de desarrollo, próximo a producción como <b>PWA</b>. Reemplaza las hojas de cálculo sueltas por una sola herramienta donde el inventario y las finanzas cuadran siempre.",
+      "en": "In its final development stage, close to shipping as a <b>PWA</b>. Replaces loose spreadsheets with a single tool where inventory and finances always add up."
     },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "company": "Sublimax",
@@ -47,20 +47,20 @@
       "en": "Olfactory diagnosis, layering and multi-currency checkout for luxury Arabic perfumery"
     },
     "description": {
-      "es": "Plataforma de e-commerce para una perfumería de autor árabe, con renderizado en servidor para velocidad y SEO, pensada para gente que nunca ha comprado una fragancia árabe.",
-      "en": "An e-commerce platform for an Arabic designer perfumery, server-rendered for speed and SEO, built for shoppers who have never bought an Arabic fragrance before."
+      "es": "Plataforma de e-commerce para una perfumería de autor árabe, con renderizado en servidor (<b>SSR</b>) para velocidad y <b>SEO</b>, pensada para gente que nunca ha comprado una fragancia árabe.",
+      "en": "An e-commerce platform for an Arabic designer perfumery, server-rendered (<b>SSR</b>) for speed and <b>SEO</b>, built for shoppers who have never bought an Arabic fragrance before."
     },
     "challenge": {
       "es": "Recomendar la fragancia correcta a compradores sin experiencia previa en perfumería árabe o de autor, y que la tienda se sienta de lujo real, no genérica.",
       "en": "Recommending the right fragrance to buyers with no prior experience in Arabic or designer perfumery, while making the store feel genuinely luxurious, not generic."
     },
     "solution": {
-      "es": "Angular con Signals y renderizado en servidor (SSR) en el frontend; Laravel con panel Filament sobre PostgreSQL en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. La lógica de estas funcionalidades está basada en mi propio conocimiento como Asesor Olfativo (Fragrance Consultant), no solo en investigación de producto. El contenido está estructurado también para búsquedas por IA (Gemini, ChatGPT), no solo para SEO tradicional.",
-      "en": "Angular with Signals and server-side rendering (SSR) on the frontend; Laravel with a Filament admin panel over PostgreSQL on the backend. I built a 5-step olfactory diagnosis quiz with a scoring algorithm, an interactive fragrance-layering simulator, a couple-matching feature, and a multi-step checkout with manual payment verification (Pago Móvil, Zelle) and BCV/parallel exchange-rate conversion. The logic behind these features is grounded in my own knowledge as a Fragrance Consultant (Asesor Olfativo), not just product research. The content is also structured for AI search (Gemini, ChatGPT), not just traditional SEO."
+      "es": "<b>Angular</b> con <b>Signals</b> y renderizado en servidor (<b>SSR</b>) en el frontend; <b>Laravel</b> con panel <b>Filament</b> sobre <b>PostgreSQL</b> en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. La lógica de estas funcionalidades está basada en mi propio conocimiento como <b>Asesor Olfativo (Fragrance Consultant)</b>, no solo en investigación de producto. El contenido está estructurado también para búsquedas por <b>IA</b> (Gemini, ChatGPT), no solo para <b>SEO</b> tradicional.",
+      "en": "<b>Angular</b> with <b>Signals</b> and server-side rendering (<b>SSR</b>) on the frontend; <b>Laravel</b> with a <b>Filament</b> admin panel over <b>PostgreSQL</b> on the backend. I built a 5-step olfactory diagnosis quiz with a scoring algorithm, an interactive fragrance-layering simulator, a couple-matching feature, and a multi-step checkout with manual payment verification (Pago Móvil, Zelle) and BCV/parallel exchange-rate conversion. The logic behind these features is grounded in my own knowledge as a <b>Fragrance Consultant (Asesor Olfativo)</b>, not just product research. The content is also structured for <b>AI</b> search (Gemini, ChatGPT), not just traditional <b>SEO</b>."
     },
     "results": {
-      "es": "En producción, con un panel Filament para manejar catálogo, pedidos, leads y blog, y SSR activo para que cargue rápido y posicione bien en buscadores.",
-      "en": "In production, with a Filament panel for managing catalog, orders, leads and blog, and SSR keeping load times fast and search rankings healthy."
+      "es": "En producción, con un panel <b>Filament</b> para manejar catálogo, pedidos, leads y blog, y <b>SSR</b> activo para que cargue rápido y posicione bien en buscadores.",
+      "en": "In production, with a <b>Filament</b> panel for managing catalog, orders, leads and blog, and <b>SSR</b> keeping load times fast and search rankings healthy."
     },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "Filament"],
     "thumbnail_url": "/img/logos/axsence.svg",
@@ -147,8 +147,8 @@
       "en": "Integrating legacy workflows with modern, maintainable interfaces."
     },
     "solution": {
-      "es": "Frontend Angular modular y backend .NET (C#) con SQL Server para las plataformas comerciales (Tienda Virtual SaaS, Expocobeca y Negociaciones Cobeca) y los sistemas internos (SIC, PFL8, Step Web y Step Web Junior).",
-      "en": "A modular Angular frontend and a .NET (C#) backend with SQL Server, for the commercial platforms (Tienda Virtual SaaS, Expocobeca and Negociaciones Cobeca) and the internal systems (SIC, PFL8, Step Web and Step Web Junior)."
+      "es": "Frontend <b>Angular</b> modular y backend <b>.NET (C#)</b> con <b>SQL Server</b> para las plataformas comerciales (Tienda Virtual SaaS, Expocobeca y Negociaciones Cobeca) y los sistemas internos (SIC, PFL8, Step Web y Step Web Junior).",
+      "en": "A modular <b>Angular</b> frontend and a <b>.NET (C#)</b> backend with <b>SQL Server</b>, for the commercial platforms (Tienda Virtual SaaS, Expocobeca and Negociaciones Cobeca) and the internal systems (SIC, PFL8, Step Web and Step Web Junior)."
     },
     "results": {
       "es": "Menos tiempo operativo y mejor experiencia para usuarios internos y clientes.",
@@ -203,12 +203,12 @@
       "en": "Teaching a kid what programming actually is, in a tangible and fun way, without real code or abstract interfaces."
     },
     "solution": {
-      "es": "Cinco actividades de \"programación\" (trazo de código, sumas con variables, completar un nombre, arrastrar figuras, recortar y pegar una etiqueta HTML), seguidas de un juego de memoria de 18 cartas que reconoce dinosaurios de juguete reales por cámara web (visión por computadora) o por voz (Web Speech API). El sonido y la música se generan en tiempo real con Web Audio API, sin un solo archivo de audio.",
-      "en": "Five \"programming\" activities (tracing code, sums with variables, completing a name, dragging shapes, cutting and pasting an HTML tag), followed by an 18-card memory game that recognizes real toy dinosaurs through the webcam (computer vision) or by voice (Web Speech API). Sound and music are generated in real time with the Web Audio API, without a single audio file."
+      "es": "Cinco actividades de \"programación\" (trazo de código, sumas con variables, completar un nombre, arrastrar figuras, recortar y pegar una etiqueta <b>HTML</b>), seguidas de un juego de memoria de 18 cartas que reconoce dinosaurios de juguete reales por cámara web (<b>visión por computadora</b>) o por voz (<b>Web Speech API</b>). El sonido y la música se generan en tiempo real con <b>Web Audio API</b>, sin un solo archivo de audio.",
+      "en": "Five \"programming\" activities (tracing code, sums with variables, completing a name, dragging shapes, cutting and pasting an <b>HTML</b> tag), followed by an 18-card memory game that recognizes real toy dinosaurs through the webcam (<b>computer vision</b>) or by voice (<b>Web Speech API</b>). Sound and music are generated in real time with the <b>Web Audio API</b>, without a single audio file."
     },
     "results": {
-      "es": "Publicado en Vercel con integración continua desde GitHub, listo para jugar en cualquier dispositivo con cámara o micrófono.",
-      "en": "Deployed on Vercel with continuous deployment from GitHub, ready to play on any device with a camera or microphone."
+      "es": "Publicado en <b>Vercel</b> con integración continua desde <b>GitHub</b>, listo para jugar en cualquier dispositivo con cámara o micrófono.",
+      "en": "Deployed on <b>Vercel</b> with continuous deployment from <b>GitHub</b>, ready to play on any device with a camera or microphone."
     },
     "stack": ["JavaScript", "HTML", "CSS"],
     "thumbnail_url": "/img/logos/isla-de-dinosaurios.webp",
@@ -239,8 +239,8 @@
       "en": "Moving customers from paper invoicing to a self-service digital channel, without relying on emails or phone calls for every data update."
     },
     "solution": {
-      "es": "Frontend Angular y backend .NET (C#) sobre SQL Server, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.",
-      "en": "Angular frontend and a .NET (C#) backend over SQL Server, integrated with the rest of Grupo Cobeca's internal systems I built alongside it."
+      "es": "Frontend <b>Angular</b> y backend <b>.NET (C#)</b> sobre <b>SQL Server</b>, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.",
+      "en": "<b>Angular</b> frontend and a <b>.NET (C#)</b> backend over <b>SQL Server</b>, integrated with the rest of Grupo Cobeca's internal systems I built alongside it."
     },
     "results": {
       "es": "En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.",

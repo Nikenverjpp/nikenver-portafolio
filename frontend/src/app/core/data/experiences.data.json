@@ -4,8 +4,12 @@
     "company": "Sublimax",
     "role": { "es": "Fundador y CEO", "en": "Founder and CEO" },
     "description": {
-      "es": "E-commerce de perfumería y cosmética. Diseñé y desarrollé Subladmin, el sistema administrativo propio del negocio (inventario, CRM, crédito y cobranza) con lógica FEFO/FIFO y reportes multi-moneda (USD/VES).",
-      "en": "Perfumery and cosmetics e-commerce. I designed and built Subladmin, the business's own administrative system (inventory, CRM, credit and collections) with FEFO/FIFO logic and multi-currency reporting (USD/VES)."
+      "es": "E-commerce de perfumería y cosmética. Diseñé y desarrollé Subladmin, el sistema administrativo propio del negocio (inventario, CRM, crédito y cobranza) con lógica <b>FEFO/FIFO</b> y reportes multi-moneda (USD/VES).",
+      "en": "Perfumery and cosmetics e-commerce. I designed and built Subladmin, the business's own administrative system (inventory, CRM, credit and collections) with <b>FEFO/FIFO</b> logic and multi-currency reporting (USD/VES)."
+    },
+    "detail": {
+      "es": "E-commerce de perfumería y cosmética que fundé y dirijo de punta a punta: estrategia comercial, negociación con proveedores, administración del capital y control de costos. Diseñé y desarrollé Subladmin, el sistema administrativo propio del negocio (inventario, CRM, crédito y cobranza) con lógica <b>FEFO/FIFO</b> y reportes multi-moneda (USD/VES). También llevo la imagen de marca y produzco el contenido para redes sociales.",
+      "en": "Perfumery and cosmetics e-commerce I founded and run end to end: commercial strategy, supplier negotiation, capital management and cost control. I designed and built Subladmin, the business's own administrative system (inventory, CRM, credit and collections) with <b>FEFO/FIFO</b> logic and multi-currency reporting (USD/VES). I also run the brand image and produce the content for social media."
     },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "links": [
@@ -20,10 +24,15 @@
   {
     "id": "2",
     "company": "Grupo Cobeca",
+    "company_url": "https://www.grupocobeca.com",
     "role": { "es": "Analista Programador Senior", "en": "Senior Programmer Analyst" },
     "description": {
-      "es": "Desarrollo de aplicaciones web corporativas (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) y sistemas internos (SIC, PFL8, Step Web) con Angular, React y .NET (C#).",
-      "en": "Built corporate web applications (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) and internal systems (SIC, PFL8, Step Web) with Angular, React and .NET (C#)."
+      "es": "Desarrollo de aplicaciones web corporativas (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) y sistemas internos (SIC, PFL8, Step Web) con <b>Angular</b>, <b>React</b> y <b>.NET (C#)</b>.",
+      "en": "Built corporate web applications (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) and internal systems (SIC, PFL8, Step Web) with <b>Angular</b>, <b>React</b> and <b>.NET (C#)</b>."
+    },
+    "detail": {
+      "es": "Cubrí el ciclo completo de desarrollo, front-end y back-end, para las plataformas comerciales (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) y los sistemas internos (SIC, PFL8, Step Web y Step Web Junior). En el front-end construí interfaces con <b>Angular</b>, <b>React</b>, <b>TypeScript</b> y <b>JavaScript</b>, con diseños responsivos en <b>Tailwind CSS</b> pensados para la experiencia del usuario final. En el back-end desarrollé servicios y lógica de negocio en <b>.NET (C#)</b> sobre <b>SQL Server</b>.",
+      "en": "I covered the full development cycle, front-end and back-end, for the commercial platforms (Tienda Virtual SaaS, Expocobeca, Negociaciones Cobeca) and the internal systems (SIC, PFL8, Step Web and Step Web Junior). On the front-end I built interfaces with <b>Angular</b>, <b>React</b>, <b>TypeScript</b> and <b>JavaScript</b>, with responsive <b>Tailwind CSS</b> designs built around the end user's experience. On the back-end I built services and business logic in <b>.NET (C#)</b> over <b>SQL Server</b>."
     },
     "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server"],
     "links": [
@@ -41,15 +50,20 @@
   {
     "id": "3",
     "company": "Gandalf Comunicaciones C.A",
+    "company_url": "https://gandalfca.com",
     "role": {
       "es": "Consultor de Ventas y Técnico de Infraestructura (Freelance)",
       "en": "Sales Consultant and Infrastructure Technician (Freelance)"
     },
     "description": {
-      "es": "Cartera propia de más de 260 clientes de internet, gestionada de forma independiente: prospección, venta, instalación y soporte de infraestructura inalámbrica con equipos Ubiquiti.",
-      "en": "Built a book of over 260 internet-service customers on my own, end to end: prospecting, sales, installation and wireless infrastructure support with Ubiquiti equipment."
+      "es": "Cartera propia de más de 260 clientes de internet, gestionada de forma independiente: prospección, venta, instalación y soporte de infraestructura inalámbrica con equipos <b>Ubiquiti</b>.",
+      "en": "Built a book of over 260 internet-service customers on my own, end to end: prospecting, sales, installation and wireless infrastructure support with <b>Ubiquiti</b> equipment."
     },
-    "stack": ["Ubiquiti", "MikroTik", "Redes inalámbricas"],
+    "detail": {
+      "es": "Construí y gestioné solo, como freelancer, una cartera de más de 260 clientes reales de servicio de internet: prospección, negociación y cierre del contrato. Ejecuté personalmente cada instalación, desde la configuración de infraestructura inalámbrica con equipos <b>Ubiquiti</b>, <b>MikroTik</b>, <b>Tenda</b> y <b>TP-Link</b> hasta el cableado estructurado y las redes domésticas. Después de cada instalación corría pruebas de conformidad y de velocidad para verificar que el servicio cumpliera los estándares contratados, y daba soporte y asesoría técnica continua a los clientes.",
+      "en": "As a solo freelancer, I built and managed a book of over 260 real internet-service customers: prospecting, negotiation and closing the contract. I personally handled every installation, from configuring wireless infrastructure with <b>Ubiquiti</b>, <b>MikroTik</b>, <b>Tenda</b> and <b>TP-Link</b> equipment to structured cabling and home networks. After each install I ran conformance and speed tests to confirm the service met the contracted standard, and provided ongoing technical support to customers."
+    },
+    "stack": ["Ubiquiti", "MikroTik", "Tenda", "TP-Link", "Redes inalámbricas"],
     "start_year": 2020,
     "end_year": 2023,
     "sort_order": 3
@@ -59,8 +73,12 @@
     "company": "Metro IT Service",
     "role": { "es": "Ingeniero de Software", "en": "Software Engineer" },
     "description": {
-      "es": "Desarrollo de sistemas web full-stack con PHP y Laravel, incluyendo implementaciones con Livewire, e interfaces interactivas con Vue.js sobre MySQL.",
-      "en": "Built full-stack web systems with PHP and Laravel, including Livewire implementations, and interactive interfaces with Vue.js on MySQL."
+      "es": "Desarrollo de sistemas web full-stack con <b>PHP</b> y <b>Laravel</b>, incluyendo implementaciones con <b>Livewire</b>, e interfaces interactivas con <b>Vue.js</b> sobre <b>MySQL</b>.",
+      "en": "Built full-stack web systems with <b>PHP</b> and <b>Laravel</b>, including <b>Livewire</b> implementations, and interactive interfaces with <b>Vue.js</b> on <b>MySQL</b>."
+    },
+    "detail": {
+      "es": "Especialización en un stack <b>LAMP</b> moderno, cubriendo front-end y back-end de principio a fin. En el back-end desarrollé lógica de negocio y APIs con <b>PHP</b> y <b>Laravel</b>, incluyendo implementaciones con <b>Livewire</b> para interfaces reactivas sin recargar la página. En el front-end construí interfaces dinámicas con <b>Vue.js</b> y, cuando el proyecto lo pedía, interfaces base con <b>HTML</b> y <b>CSS</b> puro. Diseñé, optimicé y administré las bases de datos relacionales en <b>MySQL</b>.",
+      "en": "Specialized in a modern <b>LAMP</b> stack, covering front-end and back-end end to end. On the back-end I built business logic and APIs with <b>PHP</b> and <b>Laravel</b>, including <b>Livewire</b> implementations for reactive interfaces without page reloads. On the front-end I built dynamic interfaces with <b>Vue.js</b> and, when the project called for it, base interfaces with plain <b>HTML</b> and <b>CSS</b>. I designed, optimized and administered the relational databases in <b>MySQL</b>."
     },
     "stack": ["Laravel", "PHP", "Vue.js", "MySQL"],
     "start_year": 2018,
@@ -70,12 +88,17 @@
   {
     "id": "5",
     "company": "Iconos Consultores",
+    "company_url": "https://iconoscs.com",
     "role": { "es": "Front-End Web Developer (Freelance)", "en": "Front-End Web Developer (Freelance)" },
     "description": {
-      "es": "Interfaces front-end desde cero con HTML, CSS y JavaScript puro, y personalización de sitios WordPress y Joomla con PHP y MySQL.",
-      "en": "Built front-end interfaces from scratch with plain HTML, CSS and JavaScript, and customized WordPress and Joomla sites with PHP and MySQL."
+      "es": "Interfaces front-end desde cero con <b>HTML</b>, <b>CSS</b> y <b>JavaScript</b> puro, y personalización de sitios <b>WordPress</b> y <b>Joomla</b> con <b>PHP</b> y <b>MySQL</b>.",
+      "en": "Built front-end interfaces from scratch with plain <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>, and customized <b>WordPress</b> and <b>Joomla</b> sites with <b>PHP</b> and <b>MySQL</b>."
     },
-    "stack": ["JavaScript", "PHP", "MySQL", "WordPress"],
+    "detail": {
+      "es": "Responsable del ciclo completo de desarrollo front-end desde cero, con <b>HTML</b>, <b>CSS</b> y <b>JavaScript</b> puro, optimizando el diseño responsive con <b>Bootstrap</b>. Programé y personalicé sitios en <b>WordPress</b> y <b>Joomla</b>, aplicando <b>PHP</b> y <b>MySQL</b> para funcionalidades y contenido a medida. Karla Pérez, directora de la empresa y también coordinadora del Diplomado de Medios Web de la URBE, reconoció mi trabajo y me ofreció integrarme al equipo permanente y dar clases en ese diplomado; no acepté el rol docente por falta de tiempo, pero la oferta valida el nivel del trabajo entregado.",
+      "en": "Owned the full front-end development cycle from scratch, with plain <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b>, optimizing the responsive design with <b>Bootstrap</b>. I coded and customized <b>WordPress</b> and <b>Joomla</b> sites, applying <b>PHP</b> and <b>MySQL</b> for custom functionality and content. Karla Pérez, the company's director and also coordinator of URBE's Web Media diploma program, recognized my work and offered me a permanent spot on the team plus a teaching role in that diploma program; I didn't take the teaching role due to time constraints, but the offer speaks to the level of the work."
+    },
+    "stack": ["JavaScript", "PHP", "MySQL", "WordPress", "Joomla", "Bootstrap"],
     "start_year": 2018,
     "end_year": 2020,
     "links": [
@@ -97,8 +120,12 @@
     "company": "C.A. Diario Panorama",
     "role": { "es": "Desarrollador Full Stack", "en": "Full Stack Developer" },
     "description": {
-      "es": "Primera aplicación móvil de la empresa (Android e iOS), y mantenimiento de portales web con soporte técnico a usuarios.",
-      "en": "Built the company's first mobile app (Android and iOS), and maintained web portals with technical support for users."
+      "es": "Primera aplicación móvil de la empresa (<b>Android</b> e <b>iOS</b>), y mantenimiento de portales web con soporte técnico a usuarios.",
+      "en": "Built the company's first mobile app (<b>Android</b> and <b>iOS</b>), and maintained web portals with technical support for users."
+    },
+    "detail": {
+      "es": "Desarrollé y lancé la primera aplicación móvil de la empresa, con despliegue en <b>Android</b> e <b>iOS</b>. Programé, actualicé y mantuve los portales web existentes, integrando nuevas funcionalidades con pruebas rigurosas antes de cada actualización. También resolví problemas técnicos y optimicé el rendimiento del software, además de dar soporte y capacitación directa a los usuarios y coordinar con equipos de otras áreas para alinear el desarrollo con los objetivos del negocio.",
+      "en": "Developed and shipped the company's first mobile app, deployed on <b>Android</b> and <b>iOS</b>. I coded, updated and maintained the existing web portals, integrating new features with rigorous testing before every release. I also fixed technical issues and optimized software performance, provided direct training and support to users, and coordinated with other teams to keep development aligned with business goals."
     },
     "stack": ["PHP", "JavaScript", "MySQL", "Android"],
     "start_year": 2017,
@@ -108,6 +135,7 @@
   {
     "id": "7",
     "company": "Grupo Nivar",
+    "company_url": "https://gruponivar.com/",
     "role": {
       "es": "Pasantías y Asistente de Soporte Técnico",
       "en": "Internship and Technical Support Assistant"
@@ -115,6 +143,10 @@
     "description": {
       "es": "Soporte técnico a hardware y sistemas operativos, y colaboración en el portal web de capacitación y reclutamiento de la empresa.",
       "en": "Provided technical support for hardware and operating systems, and helped build the company's training and recruitment web portal."
+    },
+    "detail": {
+      "es": "Di soporte técnico de primer nivel a equipos de cómputo, impresoras, cámaras de seguridad (<b>CCTV</b>) y routers, incluyendo instalación, configuración y mantenimiento preventivo de <b>Windows</b> para prolongar la vida útil de los equipos. En paralelo colaboré en el portal web de capacitación y reclutamiento de la empresa, aportando funcionalidades similares a un portal de empleo (al estilo Bumerán o Computrabajo) para apoyar la captación de talento.",
+      "en": "Provided first-level technical support for computers, printers, security cameras (<b>CCTV</b>) and routers, including <b>Windows</b> installation, configuration and preventive maintenance to extend equipment lifespan. Alongside that, I helped build the company's training and recruitment web portal, contributing job-board-style features (similar to Bumerán or Computrabajo) to support talent acquisition."
     },
     "stack": ["PHP", "JavaScript", "MySQL"],
     "start_year": 2016,

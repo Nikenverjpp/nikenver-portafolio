@@ -81,7 +81,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
           {{ 'home.viewFullBio' | t: locale.locale() }}
         </a>
       </header>
-      <section class="max-w-3xl">
+      <section class="text-justify">
         @if (experiences$ | async; as experiences) {
           @for (exp of experiences | slice: 0 : 4; track exp.id) {
             <app-timeline-item [experience]="exp" appRevealOnScroll />

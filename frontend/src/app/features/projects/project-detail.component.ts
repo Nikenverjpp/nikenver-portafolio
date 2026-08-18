@@ -1,5 +1,5 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, DOCUMENT } from '@angular/common';
+import { Component, OnDestroy, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -11,6 +11,9 @@ import { SocialCarouselComponent } from '../../shared/components/social-carousel
 import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '../../core/i18n/locale.service';
 import { TranslatePipe } from '../../core/i18n/translate.pipe';
+
+const SITE_ORIGIN = 'https://nikenver-portafolio.vercel.app';
+const JSONLD_SCRIPT_ID = 'project-jsonld';
 
 @Component({
   selector: 'app-project-detail',
@@ -76,7 +79,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailSummary' | t: locale.locale() }}
             </h2>
-            <p>{{ project.description | t: locale.locale() }}</p>
+            <p [innerHTML]="project.description | t: locale.locale()"></p>
           </section>
         }
 
@@ -85,7 +88,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailChallenge' | t: locale.locale() }}
             </h2>
-            <p>{{ project.challenge | t: locale.locale() }}</p>
+            <p [innerHTML]="project.challenge | t: locale.locale()"></p>
           </section>
         }
 
@@ -94,7 +97,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailSolution' | t: locale.locale() }}
             </h2>
-            <p>{{ project.solution | t: locale.locale() }}</p>
+            <p [innerHTML]="project.solution | t: locale.locale()"></p>
           </section>
         }
 
@@ -103,7 +106,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailResults' | t: locale.locale() }}
             </h2>
-            <p>{{ project.results | t: locale.locale() }}</p>
+            <p [innerHTML]="project.results | t: locale.locale()"></p>
           </section>
         }
 
@@ -174,11 +177,12 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
     }
   `,
 })
-export class ProjectDetailComponent {
+export class ProjectDetailComponent implements OnDestroy {
   private readonly route = inject(ActivatedRoute);
   private readonly projects = inject(ProjectService);
   private readonly pageTitle = inject(Title);
   private readonly pageMeta = inject(Meta);
+  private readonly document = inject(DOCUMENT);
   readonly locale = inject(LocaleService);
 
   readonly project$ = this.route.paramMap.pipe(
@@ -199,13 +203,61 @@ export class ProjectDetailComponent {
         this.pageTitle.setTitle(title);
         this.pageMeta.updateTag({ property: 'og:title', content: title });
         this.pageMeta.updateTag({ name: 'twitter:title', content: title });
-        const description = project.tagline?.[locale] ?? project.description?.[locale];
+        // description can carry <b> tags for on-page rendering; strip them here since
+        // this value only ever lands in plain-text meta tags / JSON-LD, never innerHTML.
+        const description = (project.tagline?.[locale] ?? project.description?.[locale])?.replace(
+          /<\/?[^>]+>/g,
+          ''
+        );
         if (description) {
           this.pageMeta.updateTag({ name: 'description', content: description });
           this.pageMeta.updateTag({ property: 'og:description', content: description });
           this.pageMeta.updateTag({ name: 'twitter:description', content: description });
         }
+        const image = project.preview_image_url
+          ? `${SITE_ORIGIN}${project.preview_image_url}`
+          : `${SITE_ORIGIN}/img/nikenver-pulgar.webp`;
+        this.pageMeta.updateTag({ property: 'og:image', content: image });
+        this.pageMeta.updateTag({ name: 'twitter:image', content: image });
+
+        this.updateJsonLd(project, locale, description, image);
       }
     });
+  }
+
+  private updateJsonLd(
+    project: Project,
+    locale: 'es' | 'en',
+    description: string | undefined,
+    image: string
+  ): void {
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'CreativeWork',
+      name: project.title[locale],
+      description,
+      image,
+      url: `${SITE_ORIGIN}/proyectos/${project.slug}`,
+      keywords: project.stack?.join(', '),
+      author: { '@type': 'Person', name: 'Nikenver Pulgar', url: SITE_ORIGIN },
+      ...(project.year ? { dateCreated: `${project.year}` } : {}),
+    };
+
+    let script = this.document.getElementById(JSONLD_SCRIPT_ID) as HTMLScriptElement | null;
+    if (!script) {
+      script = this.document.createElement('script');
+      script.id = JSONLD_SCRIPT_ID;
+      script.type = 'application/ld+json';
+      this.document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd);
+  }
+
+  ngOnDestroy(): void {
+    this.document.getElementById(JSONLD_SCRIPT_ID)?.remove();
+    // Reset to the default profile image so a later static route doesn't inherit this project's og:image.
+    const defaultImage = `${SITE_ORIGIN}/img/nikenver-pulgar.webp`;
+    this.pageMeta.updateTag({ property: 'og:image', content: defaultImage });
+    this.pageMeta.updateTag({ name: 'twitter:image', content: defaultImage });
   }
 }

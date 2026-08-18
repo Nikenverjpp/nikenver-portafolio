@@ -20,11 +20,29 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
       <h3 class="mt-1 font-display text-lg font-semibold text-text-primary">
         {{ experience.role | t: locale.locale() }}
       </h3>
-      <p class="text-accent-cyan">{{ experience.company }}</p>
-      @if (experience.description) {
-        <p class="mt-2 text-sm leading-relaxed text-text-secondary">
-          {{ experience.description | t: locale.locale() }}
-        </p>
+      @if (experience.company_url) {
+        <a
+          [href]="experience.company_url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 text-accent-cyan hover:underline"
+        >
+          {{ experience.company }}
+          <span class="material-symbols-outlined !text-sm" aria-hidden="true">open_in_new</span>
+        </a>
+      } @else {
+        <p class="text-accent-cyan">{{ experience.company }}</p>
+      }
+      @if (detailed && experience.detail) {
+        <p
+          class="mt-2 text-sm leading-relaxed text-text-secondary text-justify"
+          [innerHTML]="experience.detail | t: locale.locale()"
+        ></p>
+      } @else if (experience.description) {
+        <p
+          class="mt-2 text-sm leading-relaxed text-text-secondary"
+          [innerHTML]="experience.description | t: locale.locale()"
+        ></p>
       }
       @if (experience.stack?.length) {
         <app-stack-badges [items]="experience.stack!" class="mt-3 block" />
@@ -49,6 +67,7 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 })
 export class TimelineItemComponent {
   @Input({ required: true }) experience!: Experience;
+  @Input() detailed = false;
   readonly locale = inject(LocaleService);
 
   period(): string {

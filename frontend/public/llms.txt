@@ -2,7 +2,7 @@
 
 > Nikenver Pulgar es un desarrollador Full Stack venezolano (Maracaibo, Venezuela) con más de 10 años de experiencia profesional, especializado en Angular y Laravel.
 
-Fundador y CEO de Sublimax (e-commerce de perfumería y cosmética), para el que construyó Subladmin, su sistema administrativo a medida (FEFO/FIFO, RLS, crédito multi-moneda). Analista Programador Senior en Grupo Cobeca (aplicaciones corporativas con Angular, React y .NET). También desarrolló Axsence, una plataforma de e-commerce para perfumería de autor árabe con diagnóstico olfativo por IA.
+Fundador y CEO de Sublimax (e-commerce de perfumería y cosmética), para el que construyó Subladmin, su sistema administrativo a medida (FEFO/FIFO, RLS, crédito multi-moneda). Analista Programador Senior en Grupo Cobeca (aplicaciones corporativas con Angular, React y .NET). También desarrolló Axsence, una plataforma de e-commerce para perfumería de autor árabe con diagnóstico olfativo, matching y layering — funcionalidades basadas en su propio conocimiento como Asesor Olfativo (Fragrance Consultant). Trabaja como desarrollador senior apoyado en agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura y revisa cada línea antes de producción; este mismo portfolio está construido con Claude Code.
 
 ## Sitio
 

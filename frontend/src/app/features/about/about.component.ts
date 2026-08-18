@@ -13,28 +13,30 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <section class="container-page py-16 sm:py-24">
-      <header appRevealOnScroll class="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-        <img
-          src="/img/nikenver-pulgar.webp"
-          alt="Nikenver Pulgar"
-          width="128"
-          height="128"
-          decoding="async"
-          class="h-28 w-28 shrink-0 rounded-full object-cover ring-2 ring-accent-cyan/50 ring-offset-4 ring-offset-bg-primary sm:h-32 sm:w-32"
-        />
-        <div class="max-w-3xl">
-          <p class="font-mono text-sm text-accent-cyan">{{ 'about.eyebrow' | t: locale.locale() }}</p>
-          <h1 class="section-title mt-3">Nikenver Pulgar</h1>
-          <p class="mt-2 text-lg text-text-secondary">
-            {{ 'about.subtitle' | t: locale.locale() }}
-          </p>
-          <p class="mt-2 font-mono text-xs text-text-muted">
-            {{ 'about.personalMeta' | t: locale.locale() }}
-          </p>
+      <header appRevealOnScroll>
+        <div class="flex flex-row items-center gap-4 sm:gap-6">
+          <img
+            src="/img/nikenver-pulgar.webp"
+            alt="Nikenver Pulgar"
+            width="128"
+            height="128"
+            decoding="async"
+            class="h-20 w-20 shrink-0 rounded-full object-cover ring-2 ring-accent-cyan/50 ring-offset-4 ring-offset-bg-primary sm:h-32 sm:w-32"
+          />
+          <div>
+            <p class="font-mono text-sm text-accent-cyan">{{ 'about.eyebrow' | t: locale.locale() }}</p>
+            <h1 class="section-title mt-3">Nikenver Pulgar</h1>
+          </div>
         </div>
+        <p class="mt-6 text-lg text-text-secondary">
+          {{ 'about.subtitle' | t: locale.locale() }}
+        </p>
+        <p class="mt-2 font-mono text-xs text-text-muted">
+          {{ 'about.personalMeta' | t: locale.locale() }}
+        </p>
       </header>
 
-      <div class="mt-10 max-w-3xl">
+      <div class="mt-10 ">
         <div class="relative">
           <article
             id="bio-content"
@@ -42,9 +44,9 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
             class="prose-portfolio bio-clamp"
             [class.is-expanded]="bioExpanded()"
           >
-            <p>{{ 'about.paragraph1' | t: locale.locale() }}</p>
-            <p>{{ 'about.paragraph2' | t: locale.locale() }}</p>
-            <p>{{ 'about.paragraph3' | t: locale.locale() }}</p>
+            <p [innerHTML]="'about.paragraph1' | t: locale.locale()"></p>
+            <p [innerHTML]="'about.paragraph2' | t: locale.locale()"></p>
+            <p [innerHTML]="'about.paragraph3' | t: locale.locale()"></p>
           </article>
 
           @if (!bioExpanded()) {
@@ -71,10 +73,10 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 
       <section class="mt-16">
         <h2 class="section-title mb-8" appRevealOnScroll>{{ 'shared.experienceTitle' | t: locale.locale() }}</h2>
-        <section class="max-w-3xl">
+        <section class="text-justify">
           @if (experiences$ | async; as experiences) {
             @for (exp of experiences; track exp.id) {
-              <app-timeline-item [experience]="exp" appRevealOnScroll />
+              <app-timeline-item [experience]="exp" [detailed]="true" appRevealOnScroll />
             }
           }
         </section>
