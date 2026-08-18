@@ -24,6 +24,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'Contact Nikenver Pulgar, Full Stack developer in Venezuela, for web development projects with Angular and Laravel.',
   },
 
+  'whatsapp.ariaLabel': { es: 'Escríbeme por WhatsApp', en: 'Message me on WhatsApp' },
+
   'nav.ariaLabel': { es: 'Principal', en: 'Primary' },
   'nav.home': { es: 'Inicio', en: 'Home' },
   'nav.about': { es: 'Sobre mí', en: 'About' },

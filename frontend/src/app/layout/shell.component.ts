@@ -4,11 +4,12 @@ import { environment } from '../../environments/environment';
 import { LocaleService } from '../core/i18n/locale.service';
 import { TranslatePipe } from '../core/i18n/translate.pipe';
 import { ThemeService } from '../core/theme/theme.service';
+import { WhatsappButtonComponent } from '../shared/components/whatsapp-button.component';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  imports: [RouterLink, RouterLinkActive, TranslatePipe, WhatsappButtonComponent],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="min-h-screen flex flex-col">
@@ -151,6 +152,8 @@ import { ThemeService } from '../core/theme/theme.service';
           </div>
         </div>
       </footer>
+
+      <app-whatsapp-button />
     </div>
   `,
 })
