@@ -5,8 +5,8 @@
   contact: {
     name: 'Nikenver Pulgar',
     email: 'nikenverp@gmail.com',
-    phone: '+58 412-0000000',
-    phoneDisplay: '+58 412-000 0000',
+    phone: '+584120736425',
+    phoneDisplay: '(+58) 412-0736425',
     linkedin: 'https://linkedin.com/in/nikenver-pulgar',
   },
 };

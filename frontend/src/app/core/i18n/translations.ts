@@ -106,8 +106,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   },
   'contact.phoneLabel': { es: 'Teléfono / WhatsApp', en: 'Phone / WhatsApp' },
   'contact.phoneHint': {
-    es: 'Para WhatsApp o llamadas directas.',
-    en: 'For WhatsApp or direct calls.',
+    es: 'Toca para abrir un chat directo en WhatsApp.',
+    en: 'Tap to open a direct chat on WhatsApp.',
   },
   'contact.linkedinLabel': { es: 'LinkedIn', en: 'LinkedIn' },
 

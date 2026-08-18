@@ -36,7 +36,9 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
         <article appRevealOnScroll class="card-surface p-6">
           <p class="font-mono text-xs text-text-muted">{{ 'contact.phoneLabel' | t: locale.locale() }}</p>
           <a
-            [href]="'tel:' + contact.phone"
+            [href]="whatsappLink"
+            target="_blank"
+            rel="noopener noreferrer"
             class="mt-2 block font-display text-xl text-text-primary hover:text-accent-cyan"
           >
             {{ contact.phoneDisplay }}
@@ -64,4 +66,5 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
 export class ContactComponent {
   readonly contact = environment.contact;
   readonly locale = inject(LocaleService);
+  readonly whatsappLink = `https://wa.me/${this.contact.phone.replace(/\D/g, '')}`;
 }
