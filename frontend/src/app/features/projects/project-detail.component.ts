@@ -31,7 +31,20 @@ import { TranslatePipe } from '../../core/i18n/translate.pipe';
           <a routerLink="/proyectos" class="hover:underline">{{ 'projects.title' | t: locale.locale() }}</a>
           / {{ project.title | t: locale.locale() }}
         </p>
-        <header appRevealOnScroll class="mt-4 flex max-w-3xl items-start gap-4">
+        @if (project.preview_image_url) {
+          <div class="card-surface mt-6 aspect-video max-w-3xl overflow-hidden" appRevealOnScroll>
+            <img
+              [src]="project.preview_image_url"
+              [alt]="''"
+              aria-hidden="true"
+              width="960"
+              height="474"
+              decoding="async"
+              class="h-full w-full object-cover object-top"
+            />
+          </div>
+        }
+        <header appRevealOnScroll class="mt-8 flex max-w-3xl items-start gap-4">
           @if (project.thumbnail_url) {
             <span class="logo-chip h-16 w-16">
               <img

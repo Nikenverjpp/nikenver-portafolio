@@ -12,6 +12,8 @@ export interface Project {
   results?: LocalizedText;
   stack?: string[];
   thumbnail_url?: string;
+  /** Screenshot of the live site/app, shown as a preview thumbnail in the projects grid. */
+  preview_image_url?: string;
   gallery_urls?: string[];
   demo_url?: string;
   repo_url?: string;
