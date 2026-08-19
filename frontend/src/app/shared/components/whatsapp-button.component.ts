@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { environment } from '@env/environment';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-whatsapp-button',

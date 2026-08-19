@@ -1,9 +1,9 @@
 import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Project } from '../../core/models/project.model';
+import { Project } from '@core/models/project.model';
 import { StackBadgesComponent } from './stack-badges.component';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-project-card',

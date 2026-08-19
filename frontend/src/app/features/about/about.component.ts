@@ -1,10 +1,10 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, signal, ChangeDetectionStrategy } from '@angular/core';
-import { ExperienceService } from '../../core/api/experience.service';
-import { TimelineItemComponent } from '../../shared/components/timeline-item.component';
-import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { ExperienceService } from '@core/api/experience.service';
+import { TimelineItemComponent } from '@components/timeline-item.component';
+import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-about',

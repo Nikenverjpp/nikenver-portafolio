@@ -1,5 +1,5 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
-import projectsData from './core/data/projects.data.json';
+import projectsData from '@core/data/projects.data.json';
 
 export const serverRoutes: ServerRoute[] = [
   {

@@ -2,14 +2,14 @@ import { AsyncPipe, SlicePipe } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { map } from 'rxjs';
-import { ExperienceService } from '../../core/api/experience.service';
-import { ProjectService } from '../../core/api/project.service';
-import { environment } from '../../../environments/environment';
-import { ProjectCardComponent } from '../../shared/components/project-card.component';
-import { TimelineItemComponent } from '../../shared/components/timeline-item.component';
-import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { ExperienceService } from '@core/api/experience.service';
+import { ProjectService } from '@core/api/project.service';
+import { environment } from '@env/environment';
+import { ProjectCardComponent } from '@components/project-card.component';
+import { TimelineItemComponent } from '@components/timeline-item.component';
+import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-home',

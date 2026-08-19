@@ -1,8 +1,8 @@
 import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
-import { Experience } from '../../core/models/experience.model';
+import { Experience } from '@core/models/experience.model';
 import { StackBadgesComponent } from './stack-badges.component';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-timeline-item',

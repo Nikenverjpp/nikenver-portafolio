@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Project } from '../models/project.model';
-import projectsData from '../data/projects.data.json';
+import { Project } from '@core/models/project.model';
+import projectsData from '@core/data/projects.data.json';
 
 const projects = projectsData as Project[];
 

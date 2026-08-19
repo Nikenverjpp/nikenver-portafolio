@@ -176,37 +176,7 @@
     }
   }
 
-  /* Reveal-on-scroll: CSS-driven where supported (see RevealOnScrollDirective). */
-  @media (prefers-reduced-motion: no-preference) {
-    @supports ((animation-timeline: view()) and (animation-range: entry)) {
-      @keyframes reveal-in {
-        from {
-          opacity: 0;
-          translate: 0 1rem;
-        }
-      }
-
-      .reveal-on-scroll {
-        animation: reveal-in linear both;
-        animation-timeline: view();
-        animation-range: entry 0% entry 40%;
-      }
-    }
-
-    /* IntersectionObserver fallback for browsers without scroll-driven animations. */
-    .reveal-on-scroll-fallback {
-      opacity: 0;
-      translate: 0 1rem;
-      transition:
-        opacity 0.7s ease-out,
-        translate 0.7s ease-out;
-    }
-
-    .reveal-on-scroll-fallback.is-visible {
-      opacity: 1;
-      translate: 0 0;
-    }
-  }
+  /* Reveal-on-scroll: RevealOnScrollDirective toggles opacity-0 + animate.css classes. */
 }
 
 @media (prefers-reduced-motion: reduce) {

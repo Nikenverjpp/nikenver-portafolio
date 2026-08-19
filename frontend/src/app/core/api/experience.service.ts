@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Experience } from '../models/experience.model';
-import experiencesData from '../data/experiences.data.json';
+import { Experience } from '@core/models/experience.model';
+import experiencesData from '@core/data/experiences.data.json';
 
 const experiences = experiencesData as Experience[];
 

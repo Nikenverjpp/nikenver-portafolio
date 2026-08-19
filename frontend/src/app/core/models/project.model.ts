@@ -1,4 +1,4 @@
-﻿import { LocalizedText, NamedLink } from '../i18n/localized-text.model';
+﻿import { LocalizedText, NamedLink } from '@core/i18n/localized-text.model';
 import { SocialPost } from './social-post.model';
 
 export interface Project {

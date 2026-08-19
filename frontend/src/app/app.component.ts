@@ -1,9 +1,9 @@
 import { Component, effect, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet, TitleStrategy } from '@angular/router';
 import { ShellComponent } from './layout/shell.component';
-import { ThemeService } from './core/theme/theme.service';
-import { LocaleService } from './core/i18n/locale.service';
-import { TranslatedTitleStrategy } from './core/i18n/translated-title-strategy';
+import { ThemeService } from '@core/theme/theme.service';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatedTitleStrategy } from '@core/i18n/translated-title-strategy';
 
 @Component({
   selector: 'app-root',

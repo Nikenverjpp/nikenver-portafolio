@@ -2,7 +2,7 @@
 import { TitleStrategy, provideRouter, withInMemoryScrolling, withViewTransitions } from '@angular/router';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
-import { TranslatedTitleStrategy } from './core/i18n/translated-title-strategy';
+import { TranslatedTitleStrategy } from '@core/i18n/translated-title-strategy';
 import { provideClientHydration } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {

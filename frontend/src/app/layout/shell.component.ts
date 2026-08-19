@@ -1,10 +1,22 @@
-import { Component, ElementRef, HostListener, ViewChild, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  NgZone,
+  OnDestroy,
+  PLATFORM_ID,
+  ViewChild,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { environment } from '../../environments/environment';
-import { LocaleService } from '../core/i18n/locale.service';
-import { TranslatePipe } from '../core/i18n/translate.pipe';
-import { ThemeService } from '../core/theme/theme.service';
-import { WhatsappButtonComponent } from '../shared/components/whatsapp-button.component';
+import { environment } from '@env/environment';
+import { Locale, LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
+import { ThemeService } from '@core/theme/theme.service';
+import { WhatsappButtonComponent } from '@components/whatsapp-button.component';
 
 @Component({
   selector: 'app-shell',
@@ -23,13 +35,20 @@ import { WhatsappButtonComponent } from '../shared/components/whatsapp-button.co
           [attr.aria-label]="'nav.ariaLabel' | t: locale.locale()"
         >
           <a routerLink="/" class="flex items-center gap-3 font-display text-text-primary">
-            <span class="text-lg font-bold tracking-tight">NP<span class="text-accent-cyan">.</span></span>
-            <span class="hidden items-center gap-3 md:flex">
-              <span class="h-6 w-px bg-border" aria-hidden="true"></span>
-              <span class="flex flex-col leading-none">
-                <span class="text-sm font-bold tracking-wide">NIKENVER</span>
-                <span class="text-[10px] font-medium tracking-[0.3em] text-text-secondary">PULGAR</span>
+            <span class="flex items-baseline text-lg font-bold">
+              <span class="relative z-10">N</span>
+              <span class="relative -ml-[0.3em] z-0">P</span>
+              <span class="text-accent-cyan">.</span>
+            </span>
+            <span class="hidden items-center lg:flex">
+              <span class="inline-flex w-[21ch] items-center overflow-hidden text-sm font-medium lowercase text-text-secondary">
+                <span class="truncate" aria-hidden="true">{{ typedName() }}</span>
+                <span
+                  class="ml-0.5 inline-block h-4 w-[2px] shrink-0 bg-accent-cyan motion-safe:animate-pulse"
+                  aria-hidden="true"
+                ></span>
               </span>
+              <span class="sr-only">Nikenver Pulgar, Ingeniero de Sistemas, Angular y Laravel</span>
             </span>
           </a>
           <div class="hidden items-center gap-8 md:flex">
@@ -157,7 +176,7 @@ import { WhatsappButtonComponent } from '../shared/components/whatsapp-button.co
     </div>
   `,
 })
-export class ShellComponent {
+export class ShellComponent implements OnDestroy {
   @ViewChild('menuDetails') private readonly menuDetails?: ElementRef<HTMLDetailsElement>;
 
   readonly locale = inject(LocaleService);
@@ -172,6 +191,60 @@ export class ShellComponent {
     { path: '/proyectos', labelKey: 'nav.projects', exact: false },
     { path: '/contacto', labelKey: 'nav.contact', exact: false },
   ];
+
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly ngZone = inject(NgZone);
+  private readonly typewriterWords: Record<Locale, string>[] = [
+    { es: 'Nikenver', en: 'Nikenver' },
+    { es: 'Pulgar', en: 'Pulgar' },
+    { es: 'Ingeniero de Sistemas', en: 'Systems Engineer' },
+    { es: 'Angular', en: 'Angular' },
+    { es: 'Laravel', en: 'Laravel' },
+  ];
+  private typewriterTimeout?: ReturnType<typeof setTimeout>;
+
+  readonly typedName = signal('Nikenver');
+
+  constructor() {
+    if (this.isBrowser && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.ngZone.runOutsideAngular(() => {
+        this.runTypewriter(0, this.typewriterWords[0].es.length, 'deleting');
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    clearTimeout(this.typewriterTimeout);
+  }
+
+  private runTypewriter(wordIndex: number, charIndex: number, phase: 'typing' | 'deleting'): void {
+    const TYPE_MS = 70;
+    const DELETE_MS = 35;
+    const HOLD_MS = 1400;
+    const PAUSE_MS = 300;
+    const word = this.typewriterWords[wordIndex][this.locale.locale()];
+    const schedule = (delay: number, next: () => void) => {
+      this.typewriterTimeout = setTimeout(next, delay);
+    };
+
+    if (phase === 'typing') {
+      this.typedName.set(word.slice(0, charIndex));
+      if (charIndex < word.length) {
+        schedule(TYPE_MS, () => this.runTypewriter(wordIndex, charIndex + 1, 'typing'));
+      } else {
+        schedule(HOLD_MS, () => this.runTypewriter(wordIndex, charIndex, 'deleting'));
+      }
+      return;
+    }
+
+    this.typedName.set(word.slice(0, charIndex));
+    if (charIndex > 0) {
+      schedule(DELETE_MS, () => this.runTypewriter(wordIndex, charIndex - 1, 'deleting'));
+      return;
+    }
+    const nextWordIndex = (wordIndex + 1) % this.typewriterWords.length;
+    schedule(PAUSE_MS, () => this.runTypewriter(nextWordIndex, 0, 'typing'));
+  }
 
   closeMenu(event: Event): void {
     const details = (event.target as HTMLElement).closest('details');

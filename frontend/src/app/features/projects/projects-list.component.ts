@@ -1,10 +1,10 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { ProjectService } from '../../core/api/project.service';
-import { ProjectCardComponent } from '../../shared/components/project-card.component';
-import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { ProjectService } from '@core/api/project.service';
+import { ProjectCardComponent } from '@components/project-card.component';
+import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-projects-list',

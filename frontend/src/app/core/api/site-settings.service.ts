@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { SiteSettings } from '../models/site-settings.model';
+import { environment } from '@env/environment';
+import { SiteSettings } from '@core/models/site-settings.model';
 
 @Injectable({ providedIn: 'root' })
 export class SiteSettingsService {

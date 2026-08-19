@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { SocialPost } from '../../core/models/social-post.model';
+import { SocialPost } from '@core/models/social-post.model';
 
 /**
  * A row of link-out cards to curated Instagram/TikTok posts.

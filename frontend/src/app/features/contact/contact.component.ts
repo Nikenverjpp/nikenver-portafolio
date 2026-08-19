@@ -1,8 +1,8 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { environment } from '../../../environments/environment';
-import { RevealOnScrollDirective } from '../../shared/directives/reveal-on-scroll.directive';
-import { LocaleService } from '../../core/i18n/locale.service';
-import { TranslatePipe } from '../../core/i18n/translate.pipe';
+import { environment } from '@env/environment';
+import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 @Component({
   selector: 'app-contact',
