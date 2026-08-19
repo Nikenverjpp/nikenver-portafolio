@@ -50,7 +50,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
             }
             <div>
               @if (project.year) {
-                <p class="font-mono text-xs text-text-muted">{{ project.year }}</p>
+                <p class="font-sans text-xs text-text-muted">{{ project.year }}</p>
               }
               <h3 class="mt-1 font-display text-xl font-semibold text-text-primary group-hover:text-accent-cyan">
                 <a [routerLink]="['/proyectos', project.slug]">{{ project.title | t: locale.locale() }}</a>

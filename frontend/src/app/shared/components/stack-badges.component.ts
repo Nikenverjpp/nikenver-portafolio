@@ -8,7 +8,7 @@
     <div class="mb-4 flex flex-wrap gap-2">
       @for (item of items; track item) {
         <span
-          class="rounded-md border border-border bg-bg-elevated px-2.5 py-1 font-mono text-xs text-text-secondary"
+          class="rounded-md border border-border bg-bg-elevated px-2.5 py-1 font-sans text-xs text-text-secondary"
         >
           {{ item }}
         </span>

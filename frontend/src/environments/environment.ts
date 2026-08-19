@@ -7,7 +7,7 @@
     email: 'nikenverp@gmail.com',
     phone: '+584120736425',
     phoneDisplay: '(+58) 412-0736425',
-    linkedin: 'https://linkedin.com/in/nikenver-pulgar',
+    linkedin: 'https://linkedin.com/in/nikenver',
   },
 };
 

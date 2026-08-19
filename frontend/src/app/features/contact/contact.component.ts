@@ -12,7 +12,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   template: `
     <section class="container-page py-16 sm:py-24">
       <header appRevealOnScroll>
-        <p class="font-mono text-sm text-accent-cyan">{{ 'contact.eyebrow' | t: locale.locale() }}</p>
+        <p class="font-sans text-sm text-accent-cyan">{{ 'contact.eyebrow' | t: locale.locale() }}</p>
         <h1 class="section-title mt-3">{{ 'contact.title' | t: locale.locale() }}</h1>
         <p class="mt-4 max-w-2xl text-lg text-text-secondary">
           {{ 'contact.intro' | t: locale.locale() }}
@@ -21,7 +21,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
 
       <section class="mt-12 grid gap-6 sm:grid-cols-2 lg:max-w-3xl">
         <article appRevealOnScroll class="card-surface p-6">
-          <p class="font-mono text-xs text-text-muted">{{ 'contact.emailLabel' | t: locale.locale() }}</p>
+          <p class="font-sans text-xs text-text-muted">{{ 'contact.emailLabel' | t: locale.locale() }}</p>
           <a
             [href]="'mailto:' + contact.email"
             class="mt-2 block font-display text-xl text-accent-cyan hover:underline"
@@ -34,7 +34,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         </article>
 
         <article appRevealOnScroll class="card-surface p-6">
-          <p class="font-mono text-xs text-text-muted">{{ 'contact.phoneLabel' | t: locale.locale() }}</p>
+          <p class="font-sans text-xs text-text-muted">{{ 'contact.phoneLabel' | t: locale.locale() }}</p>
           <a
             [href]="whatsappLink"
             target="_blank"
@@ -49,14 +49,14 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         </article>
 
         <article appRevealOnScroll class="card-surface p-6 sm:col-span-2">
-          <p class="font-mono text-xs text-text-muted">{{ 'contact.linkedinLabel' | t: locale.locale() }}</p>
+          <p class="font-sans text-xs text-text-muted">{{ 'contact.linkedinLabel' | t: locale.locale() }}</p>
           <a
             [href]="contact.linkedin"
             target="_blank"
             rel="noopener noreferrer"
             class="mt-2 inline-flex font-display text-xl text-accent-cyan hover:underline"
           >
-            linkedin.com/in/nikenver-pulgar
+            linkedin.com/in/nikenver
           </a>
         </article>
       </section>

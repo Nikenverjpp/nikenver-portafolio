@@ -19,7 +19,7 @@ class SettingsController extends Controller
                 'email' => env('ADMIN_EMAIL', 'admin@portfolio.local'),
                 'phone' => env('APP_PHONE', '+584120736425'),
                 'phone_display' => env('APP_PHONE_DISPLAY', '(+58) 412-0736425'),
-                'linkedin' => env('APP_LINKEDIN', 'https://linkedin.com/in/nikenver-pulgar'),
+                'linkedin' => env('APP_LINKEDIN', 'https://linkedin.com/in/nikenver'),
                 'hero_subtitle' => 'Angular y Laravel en producción',
                 'hero_description' => 'Más de 10 años construyendo aplicaciones web para empresas en Venezuela.',
                 'about_heading' => 'Sobre mi',

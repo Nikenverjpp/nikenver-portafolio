@@ -24,42 +24,33 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
             class="h-20 w-20 shrink-0 rounded-full object-cover ring-2 ring-accent-cyan/50 ring-offset-4 ring-offset-bg-primary sm:h-32 sm:w-32"
           />
           <div>
-            <p class="font-mono text-sm text-accent-cyan">{{ 'about.eyebrow' | t: locale.locale() }}</p>
+            <p class="font-sans text-sm text-accent-cyan">{{ 'about.eyebrow' | t: locale.locale() }}</p>
             <h1 class="section-title mt-3">Nikenver Pulgar</h1>
           </div>
         </div>
         <p class="mt-6 text-lg text-text-secondary">
           {{ 'about.subtitle' | t: locale.locale() }}
         </p>
-        <p class="mt-2 font-mono text-xs text-text-muted">
+        <p class="mt-2 font-sans text-xs text-text-muted">
           {{ 'about.personalMeta' | t: locale.locale() }}
         </p>
       </header>
 
       <div class="mt-10 ">
-        <div class="relative">
-          <article
-            id="bio-content"
-            appRevealOnScroll
-            class="prose-portfolio bio-clamp"
-            [class.is-expanded]="bioExpanded()"
-          >
-            <p [innerHTML]="'about.paragraph1' | t: locale.locale()"></p>
-            <p [innerHTML]="'about.paragraph2' | t: locale.locale()"></p>
-            <p [innerHTML]="'about.paragraph3' | t: locale.locale()"></p>
-          </article>
-
-          @if (!bioExpanded()) {
-            <div
-              class="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-bg-primary to-transparent sm:hidden"
-              aria-hidden="true"
-            ></div>
-          }
-        </div>
+        <article
+          id="bio-content"
+          appRevealOnScroll
+          class="prose-portfolio bio-clamp"
+          [class.is-expanded]="bioExpanded()"
+        >
+          <p [innerHTML]="'about.paragraph1' | t: locale.locale()"></p>
+          <p [innerHTML]="'about.paragraph2' | t: locale.locale()"></p>
+          <p [innerHTML]="'about.paragraph3' | t: locale.locale()"></p>
+        </article>
 
         <button
           type="button"
-          class="mt-3 inline-flex items-center gap-1 font-mono text-sm text-accent-cyan sm:hidden"
+          class="mt-3 inline-flex items-center gap-1 font-sans text-sm text-accent-cyan sm:hidden"
           [attr.aria-expanded]="bioExpanded()"
           aria-controls="bio-content"
           (click)="bioExpanded.set(!bioExpanded())"

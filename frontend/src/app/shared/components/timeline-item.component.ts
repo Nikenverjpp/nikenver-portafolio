@@ -14,7 +14,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
       <span
         class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-accent-cyan shadow-[0_0_12px_#00D9FF80]"
       ></span>
-      <p class="font-mono text-xs text-text-muted">
+      <p class="font-sans text-xs text-text-muted">
         {{ period() }}
       </p>
       <h3 class="mt-1 font-display text-lg font-semibold text-text-primary">

@@ -4,7 +4,6 @@
 @theme {
   --font-display: 'Syne', system-ui, sans-serif;
   --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
 
   --shadow-glow: 0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent);
 
@@ -135,7 +134,7 @@
   }
 
   .filter-chip {
-    @apply inline-flex min-h-11 items-center rounded-full border border-border px-3.5 text-xs font-mono text-text-secondary transition-colors;
+    @apply inline-flex min-h-11 items-center rounded-full border border-border px-3.5 text-xs font-sans text-text-secondary transition-colors;
   }
 
   .filter-chip-active {
@@ -162,11 +161,19 @@
     .bio-clamp {
       overflow: hidden;
       block-size: 11rem;
-      transition: block-size 0.35s ease-out;
+      transition:
+        block-size 0.35s ease-out,
+        mask-image 0.35s ease-out;
+      /* Fades the clamped text itself to transparent, so whatever sits behind it
+         (gradient body background, either theme) shows through with no seam. */
+      mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
     }
 
     .bio-clamp.is-expanded {
       block-size: auto;
+      mask-image: none;
+      -webkit-mask-image: none;
     }
 
     @media (prefers-reduced-motion: reduce) {

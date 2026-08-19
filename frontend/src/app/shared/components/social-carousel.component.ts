@@ -29,7 +29,7 @@ import { SocialPost } from '@core/models/social-post.model';
           [class.border-l-accent-violet]="post.platform === 'instagram'"
           [class.border-l-accent-cyan]="post.platform === 'tiktok'"
         >
-          <span class="font-mono text-xs uppercase tracking-wide text-text-muted">
+          <span class="font-sans text-xs uppercase tracking-wide text-text-muted">
             {{ post.platform === 'instagram' ? 'Instagram' : 'TikTok' }}
           </span>
           <span class="font-display text-lg font-semibold text-text-primary">{{ '@sublimaxss_' }}</span>

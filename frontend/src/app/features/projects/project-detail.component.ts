@@ -30,7 +30,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
   template: `
     @if (project$ | async; as project) {
       <article class="container-page py-16 sm:py-24">
-        <p class="font-mono text-sm text-accent-cyan" appRevealOnScroll>
+        <p class="font-sans text-sm text-accent-cyan" appRevealOnScroll>
           <a routerLink="/proyectos" class="hover:underline">{{ 'projects.title' | t: locale.locale() }}</a>
           / {{ project.title | t: locale.locale() }}
         </p>
@@ -62,7 +62,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
           }
           <div>
             @if (project.year) {
-              <p class="font-mono text-xs text-text-muted">{{ project.year }}</p>
+              <p class="font-sans text-xs text-text-muted">{{ project.year }}</p>
             }
             <h1 class="section-title mt-2">{{ project.title | t: locale.locale() }}</h1>
             @if (project.tagline) {

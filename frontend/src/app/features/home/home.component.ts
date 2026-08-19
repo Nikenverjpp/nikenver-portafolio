@@ -27,7 +27,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   template: `
     <section class="container-page py-20 sm:py-28">
       <section appRevealOnScroll>
-        <p class="font-mono text-sm text-accent-cyan">{{ 'home.eyebrow' | t: locale.locale() }}</p>
+        <p class="font-sans text-sm text-accent-cyan">{{ 'home.eyebrow' | t: locale.locale() }}</p>
         <h1 class="mt-4 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
           Nikenver Pulgar
           <span class="block text-2xl font-semibold text-text-secondary sm:text-3xl">
@@ -65,7 +65,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
           <p class="mt-2 text-sm text-text-secondary">{{ 'home.statCompaniesLabel' | t: locale.locale() }}</p>
         </article>
         <article class="card-surface col-span-2 p-4 sm:p-6 lg:col-span-1">
-          <p class="font-mono text-xs text-text-muted">{{ 'home.statStackLabel' | t: locale.locale() }}</p>
+          <p class="font-sans text-xs text-text-muted">{{ 'home.statStackLabel' | t: locale.locale() }}</p>
           <p class="mt-2 font-display text-lg text-text-primary">Angular / Laravel / PostgreSQL</p>
         </article>
       </section>

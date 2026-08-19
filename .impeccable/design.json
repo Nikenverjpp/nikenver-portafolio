@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-19T22:00:00Z",
+  "title": "Design System: Nikenver Pulgar Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent-cyan": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "#00d9ff",
+        "tonalRamp": ["#00232b", "#003847", "#004f63", "#00697f", "#00839c", "#00a0bd", "#00c0de", "#3ce0fc"]
+      },
+      "accent-amber": {
+        "role": "secondary",
+        "displayName": "Amber Metric",
+        "canonical": "#f59e0b",
+        "tonalRamp": ["#2b1c02", "#472e03", "#6b4405", "#925d07", "#b97609", "#e0900b", "#f5a82f", "#f9c674"]
+      },
+      "accent-violet": {
+        "role": "tertiary",
+        "displayName": "Soft Violet",
+        "canonical": "#818cf8",
+        "tonalRamp": ["#131335", "#1f2058", "#2d2f80", "#3d40a8", "#5257c8", "#6b70e0", "#818cf8", "#aab1fb"]
+      },
+      "bg-primary": { "role": "neutral", "displayName": "Near-Black Canvas", "canonical": "#0a0a0f", "tonalRamp": ["#000000", "#050508", "#0a0a0f", "#111118", "#1a1a26", "#26263a", "#3a3a56", "#55557f"] },
+      "bg-secondary": { "role": "neutral", "displayName": "Elevated Panel", "canonical": "#111118" },
+      "bg-elevated": { "role": "neutral", "displayName": "Raised Surface", "canonical": "#1a1a26" },
+      "text-primary": { "role": "neutral", "displayName": "Off-White Ink", "canonical": "#f0f0ff" },
+      "text-secondary": { "role": "neutral", "displayName": "Cool Gray", "canonical": "#9b9bb8" },
+      "text-muted": { "role": "neutral", "displayName": "Muted Gray", "canonical": "#8888a8" },
+      "border": { "role": "neutral", "displayName": "Hairline Border", "canonical": "#2a2a3f" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (Syne)", "purpose": "Identity moments only: logo monogram, H1/H2 section titles." },
+      "body": { "displayName": "Sans (IBM Plex Sans)", "purpose": "Everything else: paragraphs, labels, nav, buttons, badges, captions." }
+    },
+    "shadows": [
+      { "name": "glow-on-response", "value": "0 0 40px color-mix(in srgb, var(--color-accent-cyan) 15%, transparent)", "purpose": "The only shadow in the system; appears solely on primary-button hover and skip-link focus, never at rest." }
+    ],
+    "motion": [
+      { "name": "reveal-fade-up", "value": "animate.css fadeInUp, 0.8s, triggered by IntersectionObserver at 15% visibility", "purpose": "One-time section reveal as content scrolls into view; skipped under prefers-reduced-motion." },
+      { "name": "header-typewriter", "value": "recursive setTimeout, ~70ms type / ~35ms delete / 1400ms hold", "purpose": "Infinite type/delete loop cycling name, role and stack keywords beside the logo; frozen to a static value under prefers-reduced-motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action (e.g. \"Ver proyectos\").",
+      "html": "<button class=\"ds-btn-primary\">Ver proyectos</button>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border-radius: 0.5rem; border: 1px solid color-mix(in srgb, #00d9ff 40%, transparent); background: color-mix(in srgb, #00d9ff 10%, transparent); padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 500; color: #00d9ff; transition: all 0.2s ease; } .ds-btn-primary:hover, .ds-btn-primary:focus-visible { border-color: #00d9ff; background: color-mix(in srgb, #00d9ff 20%, transparent); transform: translateY(-2px); box-shadow: 0 0 40px color-mix(in srgb, #00d9ff 15%, transparent); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action (e.g. \"LinkedIn\").",
+      "html": "<button class=\"ds-btn-ghost\">LinkedIn</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border-radius: 0.5rem; border: 1px solid #2a2a3f; background: transparent; padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 500; color: #9b9bb8; transition: all 0.2s ease; } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { border-color: color-mix(in srgb, #00d9ff 40%, transparent); color: #f0f0ff; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Tappable filter pill; active state uses the same cyan-selected language as the rest of the system.",
+      "html": "<button class=\"ds-chip ds-chip--active\">Angular</button>",
+      "css": ".ds-chip { display: inline-flex; min-height: 44px; align-items: center; border-radius: 9999px; border: 1px solid #2a2a3f; padding: 0 0.875rem; font-size: 0.75rem; color: #9b9bb8; background: transparent; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; } .ds-chip--active, .ds-chip:hover { border-color: #00d9ff; color: #00d9ff; background: color-mix(in srgb, #00d9ff 10%, transparent); }"
+    },
+    {
+      "name": "Card Surface",
+      "kind": "card",
+      "refersTo": "card-surface",
+      "description": "Base container for project cards, stat tiles and skill groups.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-eyebrow\">Stack principal</p><p class=\"ds-card-title\">Angular / Laravel / PostgreSQL</p></div>",
+      "css": ".ds-card { border-radius: 1rem; border: 1px solid #2a2a3f; background: color-mix(in srgb, #111118 80%, transparent); backdrop-filter: blur(4px); padding: 1.5rem; } .ds-card-eyebrow { font-size: 0.75rem; color: #8888a8; margin: 0 0 0.5rem; } .ds-card-title { font-family: 'IBM Plex Sans', system-ui, sans-serif; font-weight: 600; color: #f0f0ff; margin: 0; }"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header nav item; active route turns cyan, no underline or pill background.",
+      "html": "<a class=\"ds-nav-link ds-nav-link--active\">Proyectos</a>",
+      "css": ".ds-nav-link { display: inline-flex; min-height: 44px; align-items: center; font-size: 0.875rem; color: #9b9bb8; text-decoration: none; transition: color 0.2s ease; } .ds-nav-link:hover { color: #f0f0ff; } .ds-nav-link--active { color: #00d9ff; }"
+    },
+    {
+      "name": "Timeline Marker",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature component: solid cyan dot marking each experience-timeline entry, on a hairline vertical rule.",
+      "html": "<div class=\"ds-timeline-dot\"></div>",
+      "css": ".ds-timeline-dot { width: 10px; height: 10px; border-radius: 9999px; background: #00d9ff; box-shadow: 0 0 40px color-mix(in srgb, #00d9ff 15%, transparent); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Dark Precision",
+    "overview": "This is a portfolio that wins trust through evidence, not decoration: every case study links to a real, live production system, and the interface around that content has to read as equally credible. The visual language is precise and sober — a near-black canvas, hairline borders instead of drop shadows, and a single accent color spent deliberately rather than everywhere. It should feel like a well-made engineering tool that happens to also be persuasive, never like a marketing template with a dark mode toggle. Two audiences read this site side by side — technical recruiters auditing stack depth, and non-technical business owners deciding whether to trust the person behind the code. The design stays legible and calm for both: no jargon-coded visual flourishes, just clean hierarchy, real content, and one confident accent color doing the pointing.",
+    "keyCharacteristics": [
+      "Near-black canvas by default; light theme is a deliberate alternate, not the \"true\" identity.",
+      "Flat surfaces at rest — elevation is borders and translucency, not shadow.",
+      "One accent (cyan) carries all primary interactive meaning; amber and violet are rare, deliberate seconds.",
+      "Two type families only: a distinctive display face for identity moments, a plain-spoken sans for everything read at length."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Cyan is the only color that means \"interactive\" or \"selected.\" Amber and violet never gain that responsibility.", "section": "colors" },
+      { "name": "The AA Floor Rule", "body": "Any text at body size or smaller must clear 4.5:1 contrast against its background. Muted Gray is for large/decorative text only.", "section": "colors" },
+      { "name": "The Two-Voice Rule", "body": "Every piece of text is either Display (identity, rare) or Sans (everything else). A third family is a regression, not a refinement.", "section": "typography" },
+      { "name": "The Glow-on-Response Rule", "body": "Shadow only ever appears as a reaction to hover or focus, and it is always the cyan glow — never generic, never decorative, never present at rest.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep cyan as the singular primary/interactive accent; let amber and violet stay rare.",
+      "Do use a 1px hairline border (--color-border) as the default way to separate surfaces.",
+      "Do reserve --shadow-glow for hover/focus response only, never a resting decoration.",
+      "Do set body-length copy in IBM Plex Sans at 4.5:1+ contrast against its background.",
+      "Do respect prefers-reduced-motion on every animated or auto-playing element."
+    ],
+    "donts": [
+      "Don't introduce a third type family.",
+      "Don't add static/decorative box-shadows.",
+      "Don't promote amber or violet into a primary-action or \"selected\" role.",
+      "Don't let muted/tertiary gray carry body-sized text."
+    ]
+  }
+}

@@ -14,7 +14,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   template: `
     <section class="container-page py-16 sm:py-24">
       <header appRevealOnScroll>
-        <p class="font-mono text-sm text-accent-cyan">{{ 'projects.eyebrow' | t: locale.locale() }}</p>
+        <p class="font-sans text-sm text-accent-cyan">{{ 'projects.eyebrow' | t: locale.locale() }}</p>
         <h1 class="section-title mt-3">{{ 'projects.title' | t: locale.locale() }}</h1>
         <p class="mt-2 max-w-2xl text-text-secondary">
           {{ 'projects.subtitle' | t: locale.locale() }}
