@@ -71,7 +71,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         }
         <a
           [routerLink]="['/proyectos', project.slug]"
-          class="mt-4 inline-flex text-sm font-medium text-accent-cyan hover:underline"
+          class="mt-4 inline-flex min-h-11 items-center text-sm font-medium text-accent-cyan hover:underline"
         >
           {{ 'projects.viewCase' | t: locale.locale() }}
         </a>

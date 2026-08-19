@@ -1,5 +1,7 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { SocialPost } from '@core/models/social-post.model';
+import { LocaleService } from '@core/i18n/locale.service';
+import { TranslatePipe } from '@core/i18n/translate.pipe';
 
 /**
  * A row of link-out cards to curated Instagram/TikTok posts.
@@ -16,6 +18,7 @@ import { SocialPost } from '@core/models/social-post.model';
 @Component({
   selector: 'app-social-carousel',
   standalone: true,
+  imports: [TranslatePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2">
@@ -24,17 +27,16 @@ import { SocialPost } from '@core/models/social-post.model';
           [href]="post.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="card-surface flex w-[220px] shrink-0 snap-start flex-col gap-3 p-5 transition-all hover:-translate-y-1"
-          [class.border-l-4]="true"
+          class="card-surface flex w-[220px] shrink-0 snap-start flex-col gap-3 border-l-4 p-5 transition-all hover:-translate-y-1"
           [class.border-l-accent-violet]="post.platform === 'instagram'"
-          [class.border-l-accent-cyan]="post.platform === 'tiktok'"
+          [class.border-l-border]="post.platform === 'tiktok'"
         >
           <span class="font-sans text-xs uppercase tracking-wide text-text-muted">
             {{ post.platform === 'instagram' ? 'Instagram' : 'TikTok' }}
           </span>
           <span class="font-display text-lg font-semibold text-text-primary">{{ '@sublimaxss_' }}</span>
           <span class="mt-auto inline-flex items-center gap-1 text-sm font-medium text-accent-cyan">
-            Ver publicación
+            {{ 'social.viewPost' | t: locale.locale() }}
             <span class="material-symbols-outlined !text-base" aria-hidden="true">open_in_new</span>
           </span>
         </a>
@@ -44,4 +46,5 @@ import { SocialPost } from '@core/models/social-post.model';
 })
 export class SocialCarouselComponent {
   @Input({ required: true }) posts: SocialPost[] = [];
+  readonly locale = inject(LocaleService);
 }

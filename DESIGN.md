@@ -83,7 +83,7 @@ A near-black neutral scale carries the page; color is reserved for meaning, not 
 - **Amber Metric** (`#f59e0b` dark / `#b45309` light): reserved for standout numeric emphasis (the "5+ empresas" stat on Home). Used sparingly enough that its rarity is what makes it land.
 
 ### Tertiary
-- **Soft Violet** (`#818cf8` dark / `#4f46e5` light): a quiet second accent — the Instagram-post left border in the social carousel, and a faint thread in the body's background wash. Never used for primary actions.
+- **Soft Violet** (`#818cf8` dark / `#4f46e5` light): a quiet second accent — the Instagram-post left border in the social carousel, and a faint thread in the body's background wash. Never used for primary actions. The social carousel's other platform card (TikTok) intentionally uses a neutral hairline border instead of a second accent color — platform identity in that component is carried by the label text, not by claiming another accent.
 
 ### Neutral
 - **Near-Black Canvas** (`#0a0a0f` dark / `#f4f4f9` light): page background — `--color-bg-primary`.
@@ -154,6 +154,9 @@ Every interactive surface stays quiet at rest and answers clearly on hover/focus
 
 ### Navigation
 - Text-only links (`nav-link`), no pill or underline background. Default is secondary text; hover shifts to primary text; the active route is cyan (`nav-link-active`) — same accent grammar as everything else. Mobile collapses into a native `<details>` menu rather than a custom off-canvas panel, keeping the interaction native and accessible by default.
+
+### Empty / Not-Found State
+Reuses the page-header rhythm (eyebrow → `section-title` → supporting paragraph → CTA row) rather than a dedicated "error page" template. A bare "404" sits in the eyebrow slot (Label voice, cyan); the heading and message stay in plain bilingual language, never technical jargon. Primary CTA is always "back home"; a secondary ghost CTA ("all projects") appears only where it's contextually useful (an unknown project slug). Used for both the sitewide 404 and an unmatched project slug — same component, different title key.
 
 ### Timeline Markers (signature component)
 Small solid cyan dots mark each entry in the experience timeline, connected by a hairline vertical rule. It's the one place the primary accent appears as a pure filled shape rather than text/border color — a deliberate, singular use of "cyan as a mark," not a pattern to repeat elsewhere.

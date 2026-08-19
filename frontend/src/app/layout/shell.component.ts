@@ -11,7 +11,9 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map } from 'rxjs';
 import { environment } from '@env/environment';
 import { Locale, LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
@@ -172,7 +174,9 @@ import { WhatsappButtonComponent } from '@components/whatsapp-button.component';
         </div>
       </footer>
 
-      <app-whatsapp-button />
+      @if (!onContactPage()) {
+        <app-whatsapp-button />
+      }
     </div>
   `,
 })
@@ -181,6 +185,17 @@ export class ShellComponent implements OnDestroy {
 
   readonly locale = inject(LocaleService);
   readonly theme = inject(ThemeService);
+
+  private readonly router = inject(Router);
+  // Contact's own WhatsApp card already covers this action, so the floating
+  // button would just duplicate it right where a decision should be reinforced.
+  readonly onContactPage = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects.startsWith('/contacto'))
+    ),
+    { initialValue: this.router.url.startsWith('/contacto') }
+  );
 
   readonly year = new Date().getFullYear();
   readonly contact = environment.contact;

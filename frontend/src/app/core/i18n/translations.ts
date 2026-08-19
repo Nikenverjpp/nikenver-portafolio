@@ -7,6 +7,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'title.about': { es: 'Sobre mí - Nikenver Pulgar', en: 'About - Nikenver Pulgar' },
   'title.projects': { es: 'Proyectos - Nikenver Pulgar', en: 'Projects - Nikenver Pulgar' },
   'title.contact': { es: 'Contacto - Nikenver Pulgar', en: 'Contact - Nikenver Pulgar' },
+  'title.notFound': { es: 'Página no encontrada - Nikenver Pulgar', en: 'Page not found - Nikenver Pulgar' },
   'meta.home': {
     es: 'Nikenver Pulgar, desarrollador Full Stack Angular y Laravel en Maracaibo, Venezuela. Más de 10 años construyendo sistemas administrativos, e-commerce y aplicaciones web para empresas reales.',
     en: 'Nikenver Pulgar, Full Stack Angular and Laravel developer in Maracaibo, Venezuela. Over 10 years building administrative systems, e-commerce and web applications for real businesses.',
@@ -23,8 +24,21 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     es: 'Contacta a Nikenver Pulgar, desarrollador Full Stack en Venezuela, para proyectos de desarrollo web con Angular y Laravel.',
     en: 'Contact Nikenver Pulgar, Full Stack developer in Venezuela, for web development projects with Angular and Laravel.',
   },
+  'meta.notFound': {
+    es: 'Esta página no existe o el enlace está desactualizado.',
+    en: "This page doesn't exist, or the link is outdated.",
+  },
 
   'whatsapp.ariaLabel': { es: 'Escríbeme por WhatsApp', en: 'Message me on WhatsApp' },
+
+  'notFound.title': { es: 'No encontramos esta página', en: "We couldn't find this page" },
+  'notFound.projectTitle': { es: 'No encontramos este proyecto', en: "We couldn't find this project" },
+  'notFound.message': {
+    es: 'Es posible que el enlace esté desactualizado o mal escrito.',
+    en: 'The link may be outdated or mistyped.',
+  },
+  'notFound.backHome': { es: 'Volver al inicio', en: 'Back to home' },
+  'notFound.backProjects': { es: 'Ver todos los proyectos', en: 'View all projects' },
 
   'nav.ariaLabel': { es: 'Principal', en: 'Primary' },
   'nav.home': { es: 'Inicio', en: 'Home' },
@@ -133,4 +147,6 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.viewCode': { es: 'Ver código', en: 'View code' },
   'projects.detailLinks': { es: 'Sistemas en producción', en: 'Live systems' },
   'projects.detailSocial': { es: 'Marca y comunidad en redes', en: 'Brand and community on social' },
+
+  'social.viewPost': { es: 'Ver publicación', en: 'View post' },
 };

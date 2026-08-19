@@ -131,6 +131,7 @@
 
   .prose-portfolio {
     @apply space-y-4 text-base leading-relaxed text-text-secondary text-justify;
+    hyphens: auto;
   }
 
   .filter-chip {

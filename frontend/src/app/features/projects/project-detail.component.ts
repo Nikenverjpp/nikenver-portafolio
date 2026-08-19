@@ -3,14 +3,16 @@ import { Component, OnDestroy, effect, inject, ChangeDetectionStrategy } from '@
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
-import { filter, switchMap } from 'rxjs';
+import { switchMap } from 'rxjs';
 import { Project } from '@core/models/project.model';
 import { ProjectService } from '@core/api/project.service';
 import { StackBadgesComponent } from '@components/stack-badges.component';
 import { SocialCarouselComponent } from '@components/social-carousel.component';
+import { NotFoundComponent } from '@components/not-found.component';
 import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
+import { UI_STRINGS } from '@core/i18n/translations';
 
 const SITE_ORIGIN = 'https://nikenver-portafolio.vercel.app';
 const JSONLD_SCRIPT_ID = 'project-jsonld';
@@ -23,6 +25,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
     RouterLink,
     StackBadgesComponent,
     SocialCarouselComponent,
+    NotFoundComponent,
     RevealOnScrollDirective,
     TranslatePipe,
   ],
@@ -174,6 +177,8 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
           }
         </p>
       </article>
+    } @else {
+      <app-not-found titleKey="notFound.projectTitle" [showProjectsLink]="true" />
     }
   `,
 })
@@ -186,17 +191,16 @@ export class ProjectDetailComponent implements OnDestroy {
   readonly locale = inject(LocaleService);
 
   readonly project$ = this.route.paramMap.pipe(
-    switchMap((params) => this.projects.getBySlug(params.get('slug') ?? '')),
-    filter((project): project is Project => !!project)
+    switchMap((params) => this.projects.getBySlug(params.get('slug') ?? ''))
   );
 
-  private readonly project = toSignal(this.project$);
+  private readonly projectSignal = toSignal(this.project$);
 
   constructor() {
     // Static routes get their title from TranslatedTitleStrategy; this route's
     // title depends on async-loaded project data, so it's set here instead.
     effect(() => {
-      const project = this.project();
+      const project = this.projectSignal();
       const locale = this.locale.locale();
       if (project) {
         const title = `${project.title[locale]} - Nikenver Pulgar`;
@@ -221,6 +225,8 @@ export class ProjectDetailComponent implements OnDestroy {
         this.pageMeta.updateTag({ name: 'twitter:image', content: image });
 
         this.updateJsonLd(project, locale, description, image);
+      } else {
+        this.pageTitle.setTitle(UI_STRINGS['notFound.projectTitle'][locale]);
       }
     });
   }

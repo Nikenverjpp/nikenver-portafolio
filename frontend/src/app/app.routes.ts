@@ -33,6 +33,11 @@ export const routes: Routes = [
     title: 'title.contact',
     data: { description: 'meta.contact' },
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: '**',
+    loadComponent: () => import('@components/not-found.component').then((m) => m.NotFoundComponent),
+    title: 'title.notFound',
+    data: { description: 'meta.notFound' },
+  },
 ];
 
