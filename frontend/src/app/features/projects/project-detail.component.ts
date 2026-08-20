@@ -118,7 +118,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailLinks' | t: locale.locale() }}
             </h2>
-            <div class="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-3">
               @for (link of project.links; track link.url) {
                 <a
                   [href]="link.url"
