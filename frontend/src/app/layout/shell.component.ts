@@ -42,8 +42,8 @@ import { WhatsappButtonComponent } from '@components/whatsapp-button.component';
               <span class="relative -ml-[0.3em] z-0">P</span>
               <span class="text-accent-cyan">.</span>
             </span>
-            <span class="hidden items-center lg:flex">
-              <span class="inline-flex w-[21ch] items-center overflow-hidden text-sm font-medium lowercase text-text-secondary">
+            <span class="flex items-center">
+              <span class="inline-flex w-[15ch] items-center overflow-hidden text-sm font-medium lowercase text-text-secondary sm:w-[21ch]">
                 <span class="truncate" aria-hidden="true">{{ typedName() }}</span>
                 <span
                   class="ml-0.5 inline-block h-4 w-[2px] shrink-0 bg-accent-cyan motion-safe:animate-pulse"
