@@ -159,8 +159,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'services.eyebrow': { es: 'Servicios', en: 'Services' },
   'services.title': { es: 'Qué ofrezco', en: 'What I offer' },
   'services.subtitle': {
-    es: 'Sistemas reales para negocios reales — sin plantillas genéricas ni relleno.',
-    en: 'Real systems for real businesses — no generic templates, no filler.',
+    es: 'Sistemas reales para negocios reales. Sin plantillas genéricas ni relleno.',
+    en: 'Real systems for real businesses. No generic templates, no filler.',
   },
   'services.gridHeading': { es: 'Servicios disponibles', en: 'Available services' },
   'services.evidenceLabel': { es: 'Ejemplo real:', en: 'Real example:' },
@@ -201,8 +201,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   },
   'services.why3Title': { es: '10+ años full stack', en: '10+ years full stack' },
   'services.why3Desc': {
-    es: 'Angular, Laravel, React, .NET — elijo el stack correcto para el proyecto, no el único que sé.',
-    en: 'Angular, Laravel, React, .NET — I choose the right stack for the project, not just the one I know.',
+    es: 'Trabajo con Angular, Laravel, React y .NET. Elijo el stack correcto para el proyecto, no el único que sé.',
+    en: 'I work with Angular, Laravel, React and .NET. I choose the right stack for the project, not just the one I know.',
   },
   'services.why4Title': { es: 'Desarrollo senior apoyado en IA', en: 'Senior development, AI-assisted' },
   'services.why4Desc': {
