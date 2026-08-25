@@ -1,9 +1,19 @@
-import { AsyncPipe, SlicePipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, SlicePipe, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  PLATFORM_ID,
+  ViewChild,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import { map } from 'rxjs';
 import { ExperienceService } from '@core/api/experience.service';
 import { ProjectService } from '@core/api/project.service';
+import { FLOATING_TECH_ICONS } from '@core/data/tech-icons.data';
 import { environment } from '@env/environment';
 import { ProjectCardComponent } from '@components/project-card.component';
 import { TimelineItemComponent } from '@components/timeline-item.component';
@@ -25,7 +35,28 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   ],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <section class="container-page py-20 sm:py-28">
+    <section class="relative overflow-hidden" #heroSection>
+      <div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        @for (icon of techIcons; track icon.id) {
+          <div
+            class="parallax-icon absolute transition-transform duration-300 ease-out"
+            [attr.data-parallax]="icon.size / 44"
+            [style.top]="icon.top"
+            [style.left]="icon.left"
+          >
+            <span
+              class="icon-drift block text-text-muted opacity-[0.07]"
+              [style.width.px]="icon.size"
+              [style.height.px]="icon.size"
+              [style.--drift-duration]="icon.duration + 's'"
+              [style.--drift-delay]="icon.delay + 's'"
+              [innerHTML]="icon.svg"
+            ></span>
+          </div>
+        }
+      </div>
+
+      <section class="container-page relative z-10 py-20 sm:py-28">
       <section appRevealOnScroll>
         <p class="font-sans text-sm text-accent-cyan">{{ 'home.eyebrow' | t: locale.locale() }}</p>
         <h1 class="mt-4 max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-6xl">
@@ -48,6 +79,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
             LinkedIn
           </a>
         </p>
+      </section>
       </section>
     </section>
 
@@ -117,9 +149,13 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
     </section>
   `,
 })
-export class HomeComponent {
+export class HomeComponent implements OnDestroy {
+  @ViewChild('heroSection') private readonly heroSection?: ElementRef<HTMLElement>;
+
   private readonly projects = inject(ProjectService);
   private readonly experiences = inject(ExperienceService);
+  private readonly sanitizer = inject(DomSanitizer);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   readonly locale = inject(LocaleService);
 
   readonly contact = environment.contact;
@@ -129,4 +165,64 @@ export class HomeComponent {
   );
 
   readonly experiences$ = this.experiences.list();
+
+  // Static, developer-authored SVG markup (never user input) — bypassing the
+  // sanitizer keeps the fill="currentColor"/"var(--color-bg-primary)"
+  // attributes intact instead of risking Angular's sanitizer altering them.
+  readonly techIcons = FLOATING_TECH_ICONS.map((icon) => ({
+    ...icon,
+    svg: this.sanitizer.bypassSecurityTrustHtml(icon.svg),
+  }));
+
+  // Mouse-driven parallax on the hero's floating icons, layered on top of
+  // their own CSS drift animation (a separate wrapper element per icon, so
+  // the two transforms never fight over the same style property). Listens
+  // on window (same pattern as WhatsappButtonComponent's scroll listener)
+  // rather than a template (mousemove) binding, and mutates the DOM
+  // directly outside Angular's zone — this fires on every mouse move, and
+  // routing it through change detection would be wasteful on a page this
+  // content-heavy.
+  private static readonly PARALLAX_RANGE_PX = 8;
+  private rafId?: number;
+  private pendingX = 0;
+  private pendingY = 0;
+
+  private readonly onMouseMove = (event: MouseEvent): void => {
+    const el = this.heroSection?.nativeElement;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (event.clientY < rect.top || event.clientY > rect.bottom) {
+      return;
+    }
+    this.pendingX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    this.pendingY = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+    this.rafId ??= requestAnimationFrame(this.applyParallax);
+  };
+
+  private readonly applyParallax = (): void => {
+    this.rafId = undefined;
+    const el = this.heroSection?.nativeElement;
+    if (!el) return;
+    el.querySelectorAll<HTMLElement>('.parallax-icon').forEach((iconEl) => {
+      const factor = Number(iconEl.dataset['parallax'] ?? 1);
+      const x = this.pendingX * HomeComponent.PARALLAX_RANGE_PX * factor;
+      const y = this.pendingY * HomeComponent.PARALLAX_RANGE_PX * factor;
+      iconEl.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  };
+
+  constructor() {
+    if (this.isBrowser && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.addEventListener('mousemove', this.onMouseMove, { passive: true });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.isBrowser) {
+      window.removeEventListener('mousemove', this.onMouseMove);
+    }
+    if (this.rafId != null) {
+      cancelAnimationFrame(this.rafId);
+    }
+  }
 }
