@@ -10,10 +10,9 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   imports: [TranslatePipe],
   changeDetection: ChangeDetectionStrategy.Eager,
   template: `
-    <a
-      [href]="whatsappLink"
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      (click)="open()"
       [attr.aria-label]="'whatsapp.ariaLabel' | t: locale.locale()"
       [title]="'whatsapp.ariaLabel' | t: locale.locale()"
       class="fixed right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white opacity-70 shadow-lg shadow-black/20 transition hover:scale-105 hover:opacity-100 focus-visible:scale-105 focus-visible:opacity-100 sm:right-6 sm:h-14 sm:w-14"
@@ -26,12 +25,20 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         />
       </svg>
       <span class="sr-only">{{ 'whatsapp.ariaLabel' | t: locale.locale() }}</span>
-    </a>
+    </button>
   `,
 })
 export class WhatsappButtonComponent implements OnDestroy {
   readonly locale = inject(LocaleService);
-  readonly whatsappLink = `https://wa.me/${environment.contact.phone.replace(/\D/g, '')}`;
+
+  // The wa.me URL is built only inside the click handler, never bound as a
+  // static href — so the phone number never lands in the prerendered/static
+  // HTML that a scraper reads. Real visitors see zero added friction: one
+  // click still opens the chat immediately, exactly as before.
+  open(): void {
+    const url = `https://wa.me/${environment.contact.phone.replace(/\D/g, '')}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 
   // Fades the button while scrolling so it doesn't sit opaque over body text on
   // narrow mobile viewports (it's fixed-positioned, so running prose passes

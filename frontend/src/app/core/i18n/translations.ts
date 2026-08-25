@@ -129,11 +129,13 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     es: 'Ideal para propuestas formales o enviar detalles de un rol.',
     en: 'Best for formal proposals or sending role details.',
   },
+  'contact.showEmail': { es: 'Mostrar correo', en: 'Show email' },
   'contact.phoneLabel': { es: 'Teléfono / WhatsApp', en: 'Phone / WhatsApp' },
   'contact.phoneHint': {
     es: 'Toca o haz clic para abrir un chat directo en WhatsApp.',
     en: 'Tap or click to open a direct chat on WhatsApp.',
   },
+  'contact.showPhone': { es: 'Mostrar WhatsApp', en: 'Show WhatsApp' },
   'contact.linkedinLabel': { es: 'LinkedIn', en: 'LinkedIn' },
 
   'projects.eyebrow': { es: 'Portfolio', en: 'Portfolio' },

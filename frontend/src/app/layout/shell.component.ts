@@ -159,9 +159,13 @@ import { WhatsappButtonComponent } from '@components/whatsapp-button.component';
         <div class="container-page flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p class="text-sm text-text-muted">{{ year }} {{ 'footer.tagline' | t: locale.locale() }}</p>
           <div class="flex flex-wrap gap-4 text-sm">
-            <a [href]="'mailto:' + contact.email" class="text-text-secondary hover:text-accent-cyan">
-              {{ contact.email }}
-            </a>
+            <button
+              type="button"
+              (click)="openEmail()"
+              class="text-text-secondary hover:text-accent-cyan"
+            >
+              {{ 'contact.emailLabel' | t: locale.locale() }}
+            </button>
             <a
               [href]="contact.linkedin"
               target="_blank"
@@ -199,6 +203,12 @@ export class ShellComponent implements OnDestroy {
 
   readonly year = new Date().getFullYear();
   readonly contact = environment.contact;
+
+  // Built only on click, not bound as a static mailto: href, so the address
+  // never lands in the prerendered/static HTML shown on every page's footer.
+  openEmail(): void {
+    window.location.href = `mailto:${environment.contact.email}`;
+  }
 
   readonly navLinks = [
     { path: '/', labelKey: 'nav.home', exact: true },
