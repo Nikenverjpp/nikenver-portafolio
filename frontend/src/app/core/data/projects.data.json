@@ -185,6 +185,16 @@
         "label": { "es": "SIC", "en": "SIC" },
         "url": "https://sic.drogueriascobeca.com/autenticacion",
         "preview_image_url": "/img/previews/cobeca-sic.webp"
+      },
+      {
+        "label": { "es": "PFL8", "en": "PFL8" },
+        "url": "https://pfl.drogueriascobeca.com/login",
+        "preview_image_url": "/img/previews/cobeca-pfl8.webp"
+      },
+      {
+        "label": { "es": "Farmacia SaaS", "en": "Farmacia SaaS" },
+        "url": "https://www.farmaciasaas.com/",
+        "preview_image_url": "/img/previews/farmacia-saas.webp"
       }
     ],
     "is_featured": true,
@@ -331,5 +341,75 @@
     "is_featured": true,
     "sort_order": 8,
     "year": 2023
+  },
+  {
+    "id": "9",
+    "slug": "amavida-zulia",
+    "title": {
+      "es": "Amavida Zulia - Portal Institucional",
+      "en": "Amavida Zulia - Nonprofit Website"
+    },
+    "tagline": {
+      "es": "Sitio institucional para una ONG de salud sexual y derechos humanos en Maracaibo",
+      "en": "Nonprofit website for a sexual-health and human-rights organization in Maracaibo"
+    },
+    "description": {
+      "es": "Sitio institucional para Amavida Zulia, asociación civil de liderazgo comunitario dedicada a la prevención del VIH y la defensa de los derechos humanos en Maracaibo, construido como freelance en Iconos Consultores.",
+      "en": "Nonprofit website for Amavida Zulia, a community-led civil association working on HIV prevention and human-rights advocacy in Maracaibo, built as freelance work at Iconos Consultores."
+    },
+    "challenge": {
+      "es": "La organización necesitaba un sitio propio para publicar noticias, información de salud sexual y VIH, y convocatorias públicas, con un tono institucional apropiado para una ONG que trabaja con poblaciones vulnerables.",
+      "en": "The organization needed its own site to publish news, sexual-health and HIV information, and public calls for proposals, with an institutional tone appropriate for an NGO working with vulnerable populations."
+    },
+    "solution": {
+      "es": "Frontend a medida en <b>HTML</b>, <b>CSS</b> y <b>JavaScript</b> con <b>jQuery</b>, y backend en <b>PHP</b> y <b>MySQL</b> para el gestor de noticias y las secciones de servicios, documentos y convocatorias.",
+      "en": "Custom front-end in <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b> with <b>jQuery</b>, and a <b>PHP</b>/<b>MySQL</b> back-end powering the news manager and the services, documents and public-notice sections."
+    },
+    "results": {
+      "es": "En producción desde 2017, como canal oficial de noticias y contacto de la organización.",
+      "en": "In production since 2017, serving as the organization's official news and contact channel."
+    },
+    "stack": ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    "company": "Iconos Consultores",
+    "preview_image_url": "/img/previews/amavida.webp",
+    "demo_url": "https://www.amavida.org.ve/",
+    "is_featured": false,
+    "sort_order": 9,
+    "year": 2017
+  },
+  {
+    "id": "10",
+    "slug": "wilmer-nadin-holistic-center",
+    "title": {
+      "es": "Wilmer Nadín - Holistic Center",
+      "en": "Wilmer Nadín - Holistic Center"
+    },
+    "tagline": {
+      "es": "Sitio y tienda online para un centro holístico y de life coaching",
+      "en": "Website and online store for a holistic life-coaching center"
+    },
+    "description": {
+      "es": "Sitio web y tienda online para Wilmer Nadín Holistic Center, un espacio de life coaching y productos energéticos en Maracaibo, construido como freelance en Iconos Consultores.",
+      "en": "Website and online store for Wilmer Nadín Holistic Center, a life-coaching and energy-products business in Maracaibo, built as freelance work at Iconos Consultores."
+    },
+    "challenge": {
+      "es": "Combinar un blog de contenido (horóscopos, crecimiento personal) con una tienda online funcional para vender velas, amuletos y productos energéticos, todo bajo una sola identidad de marca.",
+      "en": "Combining a content blog (horoscopes, personal growth) with a working online store for candles, amulets and energy products, all under a single brand identity."
+    },
+    "solution": {
+      "es": "Tienda online sobre <b>PrestaShop</b>, con plantilla personalizada para la identidad visual del centro, integrada con un blog a medida en <b>PHP</b> y <b>MySQL</b> para el contenido editorial.",
+      "en": "Online store built on <b>PrestaShop</b>, with a custom template for the center's visual identity, integrated with a custom <b>PHP</b>/<b>MySQL</b> blog for editorial content."
+    },
+    "results": {
+      "es": "En producción desde 2018, con catálogo de productos, carrito de compra y blog activos.",
+      "en": "In production since 2018, with an active product catalog, shopping cart and blog."
+    },
+    "stack": ["PrestaShop", "PHP", "MySQL", "JavaScript", "CSS"],
+    "company": "Iconos Consultores",
+    "preview_image_url": "/img/previews/wilmer-nadin.webp",
+    "demo_url": "https://wilmernadin.com/",
+    "is_featured": false,
+    "sort_order": 10,
+    "year": 2018
   }
 ]
