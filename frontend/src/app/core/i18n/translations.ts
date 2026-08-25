@@ -6,6 +6,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'title.home': { es: 'Inicio - Nikenver Pulgar', en: 'Home - Nikenver Pulgar' },
   'title.about': { es: 'Sobre mí - Nikenver Pulgar', en: 'About - Nikenver Pulgar' },
   'title.projects': { es: 'Proyectos - Nikenver Pulgar', en: 'Projects - Nikenver Pulgar' },
+  'title.services': { es: 'Servicios - Nikenver Pulgar', en: 'Services - Nikenver Pulgar' },
   'title.contact': { es: 'Contacto - Nikenver Pulgar', en: 'Contact - Nikenver Pulgar' },
   'title.notFound': { es: 'Página no encontrada - Nikenver Pulgar', en: 'Page not found - Nikenver Pulgar' },
   'meta.home': {
@@ -19,6 +20,10 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'meta.projects': {
     es: 'Casos de estudio reales de Nikenver Pulgar: sistemas administrativos, e-commerce y plataformas corporativas construidas con Angular, Laravel, PostgreSQL y .NET.',
     en: 'Real case studies by Nikenver Pulgar: administrative systems, e-commerce and corporate platforms built with Angular, Laravel, PostgreSQL and .NET.',
+  },
+  'meta.services': {
+    es: 'Servicios de desarrollo web de Nikenver Pulgar: sistemas administrativos a medida, e-commerce, landing pages, mantenimiento y consultoría técnica.',
+    en: 'Web development services by Nikenver Pulgar: custom administrative systems, e-commerce, landing pages, maintenance and technical consulting.',
   },
   'meta.contact': {
     es: 'Contacta a Nikenver Pulgar, desarrollador Full Stack en Venezuela, para proyectos de desarrollo web con Angular y Laravel.',
@@ -44,6 +49,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'nav.home': { es: 'Inicio', en: 'Home' },
   'nav.about': { es: 'Sobre mí', en: 'About' },
   'nav.projects': { es: 'Proyectos', en: 'Projects' },
+  'nav.services': { es: 'Servicios', en: 'Services' },
   'nav.contact': { es: 'Contacto', en: 'Contact' },
   'nav.menu': { es: 'Menú', en: 'Menu' },
 
@@ -149,4 +155,65 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.detailSocial': { es: 'Marca y comunidad en redes', en: 'Brand and community on social' },
 
   'social.viewPost': { es: 'Ver publicación', en: 'View post' },
+
+  'services.eyebrow': { es: 'Servicios', en: 'Services' },
+  'services.title': { es: 'Qué ofrezco', en: 'What I offer' },
+  'services.subtitle': {
+    es: 'Sistemas reales para negocios reales — sin plantillas genéricas ni relleno.',
+    en: 'Real systems for real businesses — no generic templates, no filler.',
+  },
+  'services.gridHeading': { es: 'Servicios disponibles', en: 'Available services' },
+  'services.evidenceLabel': { es: 'Ejemplo real:', en: 'Real example:' },
+
+  'services.processTitle': { es: 'Cómo trabajo', en: 'How I work' },
+  'services.processSubtitle': { es: 'Un proceso claro, de principio a fin.', en: 'A clear process, start to finish.' },
+  'services.processStep1Title': { es: 'Contacto inicial', en: 'Initial contact' },
+  'services.processStep1Desc': {
+    es: 'Me escribes por WhatsApp o correo y me cuentas qué necesitas.',
+    en: 'You message me on WhatsApp or email and tell me what you need.',
+  },
+  'services.processStep2Title': { es: 'Propuesta y alcance', en: 'Proposal and scope' },
+  'services.processStep2Desc': {
+    es: 'Te devuelvo un alcance claro: qué incluye, qué no, y tiempo estimado, antes de empezar.',
+    en: 'I send back a clear scope: what is included, what is not, and an estimated timeline, before starting.',
+  },
+  'services.processStep3Title': { es: 'Desarrollo', en: 'Development' },
+  'services.processStep3Desc': {
+    es: 'Construyo el sistema con avances que puedes revisar en el camino.',
+    en: 'I build the system, with progress you can review along the way.',
+  },
+  'services.processStep4Title': { es: 'Entrega y soporte', en: 'Delivery and support' },
+  'services.processStep4Desc': {
+    es: 'Despliegue a producción y acompañamiento después de la entrega.',
+    en: 'Production deployment and support after delivery.',
+  },
+
+  'services.whyTitle': { es: 'Por qué contratarme', en: 'Why hire me' },
+  'services.why1Title': { es: 'Evidencia real, no relleno', en: 'Real evidence, not filler' },
+  'services.why1Desc': {
+    es: 'Cada sistema que ves en mis proyectos está en producción, no son mockups.',
+    en: 'Every system you see in my projects is in production, not a mockup.',
+  },
+  'services.why2Title': { es: 'Perspectiva de dueño de negocio', en: 'A business-owner perspective' },
+  'services.why2Desc': {
+    es: 'Dirijo Sublimax, mi propio e-commerce, así que entiendo el lado de negocio, no solo el código.',
+    en: 'I run Sublimax, my own e-commerce business, so I understand the business side, not just the code.',
+  },
+  'services.why3Title': { es: '10+ años full stack', en: '10+ years full stack' },
+  'services.why3Desc': {
+    es: 'Angular, Laravel, React, .NET — elijo el stack correcto para el proyecto, no el único que sé.',
+    en: 'Angular, Laravel, React, .NET — I choose the right stack for the project, not just the one I know.',
+  },
+  'services.why4Title': { es: 'Desarrollo senior apoyado en IA', en: 'Senior development, AI-assisted' },
+  'services.why4Desc': {
+    es: 'Dirijo la arquitectura y reviso cada línea; la IA acelera la ejecución, no reemplaza el criterio.',
+    en: "I drive the architecture and review every line; AI speeds up execution, it doesn't replace judgment.",
+  },
+
+  'services.ctaTitle': { es: '¿Tienes un proyecto en mente?', en: 'Have a project in mind?' },
+  'services.ctaText': {
+    es: 'Cuéntame qué necesitas y te respondo con una propuesta clara.',
+    en: 'Tell me what you need and I will get back to you with a clear proposal.',
+  },
+  'services.ctaButton': { es: 'Hablemos', en: "Let's talk" },
 };
