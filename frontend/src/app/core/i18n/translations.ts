@@ -103,7 +103,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   },
   'about.paragraph3': {
     es: 'Hoy trabajo como desarrollador senior apoyado en <b>IA</b>: dirijo la arquitectura y las decisiones técnicas del proyecto, y uso agentes de código como <b>Claude Code</b>, <b>Antigravity</b>, <b>GitHub Copilot</b> y <b>Cursor</b> para acelerar la implementación, revisando y corrigiendo cada línea antes de que llegue a producción. Este mismo portfolio es evidencia de esa forma de trabajar: está construido con <b>Claude Code</b>. La experiencia y el criterio siguen siendo míos; la <b>IA</b> acelera la ejecución, no la reemplaza.',
-    en: "Today I work as a senior developer supported by <b>AI</b>: I drive the architecture and technical decisions on a project, and use coding agents like <b>Claude Code</b>, <b>Antigravity</b>, <b>GitHub Copilot</b> and <b>Cursor</b> to speed up implementation — reviewing and correcting every line before it ships. This portfolio itself is evidence of that workflow: it's built with <b>Claude Code</b>. The judgment is still mine; <b>AI</b> speeds up execution, it doesn't replace it.",
+    en: "Today I work as a senior developer supported by <b>AI</b>: I drive the architecture and technical decisions on a project, and use coding agents like <b>Claude Code</b>, <b>Antigravity</b>, <b>GitHub Copilot</b> and <b>Cursor</b> to speed up implementation, reviewing and correcting every line before it ships. This portfolio itself is evidence of that workflow: it's built with <b>Claude Code</b>. The judgment is still mine; <b>AI</b> speeds up execution, it doesn't replace it.",
   },
   'about.readMore': { es: 'Leer más', en: 'Read more' },
   'about.readLess': { es: 'Leer menos', en: 'Read less' },
@@ -191,7 +191,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'services.whyTitle': { es: 'Por qué contratarme', en: 'Why hire me' },
   'services.why1Title': { es: 'Evidencia real, no relleno', en: 'Real evidence, not filler' },
   'services.why1Desc': {
-    es: 'Cada sistema que ves en mis proyectos está en producción, no son mockups.',
+    es: 'Cada sistema que ves en mis proyectos está en producción, no es una maqueta.',
     en: 'Every system you see in my projects is in production, not a mockup.',
   },
   'services.why2Title': { es: 'Perspectiva de dueño de negocio', en: 'A business-owner perspective' },
