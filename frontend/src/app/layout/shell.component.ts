@@ -204,6 +204,7 @@ export class ShellComponent implements OnDestroy {
     { path: '/', labelKey: 'nav.home', exact: true },
     { path: '/sobre-mi', labelKey: 'nav.about', exact: false },
     { path: '/proyectos', labelKey: 'nav.projects', exact: false },
+    { path: '/servicios', labelKey: 'nav.services', exact: false },
     { path: '/contacto', labelKey: 'nav.contact', exact: false },
   ];
 

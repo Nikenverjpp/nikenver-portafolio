@@ -27,6 +27,13 @@ export const routes: Routes = [
     // Dynamic per-project title and description are set by ProjectDetailComponent itself.
   },
   {
+    path: 'servicios',
+    loadComponent: () =>
+      import('@features/services/services.component').then((m) => m.ServicesComponent),
+    title: 'title.services',
+    data: { description: 'meta.services' },
+  },
+  {
     path: 'contacto',
     loadComponent: () =>
       import('@features/contact/contact.component').then((m) => m.ContactComponent),
