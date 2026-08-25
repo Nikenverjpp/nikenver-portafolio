@@ -49,7 +49,20 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         <app-stack-badges [items]="experience.stack!" class="mt-3 block" />
       }
       @if (experience.links?.length) {
-        <div class="mt-3 mb-3">
+        <p class="mt-3 mb-3 flex flex-wrap gap-3 text-sm sm:hidden">
+          @for (link of experience.links; track link.url) {
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 text-accent-cyan hover:underline"
+            >
+              {{ link.label | t: locale.locale() }}
+              <span class="material-symbols-outlined !text-sm" aria-hidden="true">open_in_new</span>
+            </a>
+          }
+        </p>
+        <div class="mt-3 mb-3 hidden sm:block">
           <app-link-preview-grid [links]="experience.links!" />
         </div>
       }
