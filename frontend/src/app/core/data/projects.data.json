@@ -114,8 +114,16 @@
     "thumbnail_url": "/img/logos/sublimax.webp",
     "preview_image_url": "/img/previews/sublimax-instagram.webp",
     "links": [
-      { "label": { "es": "Instagram", "en": "Instagram" }, "url": "https://www.instagram.com/sublimaxss_" },
-      { "label": { "es": "TikTok", "en": "TikTok" }, "url": "https://www.tiktok.com/@sublimaxss_" }
+      {
+        "label": { "es": "Instagram", "en": "Instagram" },
+        "url": "https://www.instagram.com/sublimaxss_",
+        "preview_image_url": "/img/previews/sublimax-instagram.webp"
+      },
+      {
+        "label": { "es": "TikTok", "en": "TikTok" },
+        "url": "https://www.tiktok.com/@sublimaxss_",
+        "preview_image_url": "/img/previews/sublimax-tiktok.webp"
+      }
     ],
     "socialPosts": [
       { "platform": "instagram", "url": "https://www.instagram.com/sublimaxss_/p/Dax-i_aCnaj/" },
@@ -253,5 +261,75 @@
     "is_featured": false,
     "sort_order": 6,
     "year": 2026
+  },
+  {
+    "id": "7",
+    "slug": "dekasa-porcelanato-revestimientos",
+    "title": {
+      "es": "Dekasa - Porcelanato y Revestimientos",
+      "en": "Dekasa - Porcelain Tile & Home Fixtures"
+    },
+    "tagline": {
+      "es": "Catálogo de e-commerce para porcelanato, baños y revestimientos",
+      "en": "E-commerce catalog for porcelain tile, bathrooms and coatings"
+    },
+    "description": {
+      "es": "Catálogo de e-commerce para Dekasa, tienda de porcelanato y revestimientos, construido en <b>WordPress</b> con <b>Elementor</b> y <b>WooCommerce</b> mientras trabajaba como freelance en Minima Studio.",
+      "en": "E-commerce catalog for Dekasa, a porcelain tile and home fixtures store, built on <b>WordPress</b> with <b>Elementor</b> and <b>WooCommerce</b> while freelancing at Minima Studio."
+    },
+    "challenge": {
+      "es": "El cliente necesitaba un catálogo online que organizara cientos de referencias de porcelanato, baños y revestimientos por categoría, con una experiencia de compra clara para un producto que la gente suele elegir en tienda física.",
+      "en": "The client needed an online catalog to organize hundreds of porcelain tile, bathroom and coating references by category, with a shopping experience clear enough for a product people are used to picking out in a physical showroom."
+    },
+    "solution": {
+      "es": "Desarrollo frontend sobre <b>WordPress</b>: maquetación con <b>Elementor</b>, integración de <b>WooCommerce</b> para el catálogo y el carrito, y estilos a medida para que categorías como revestimientos y baños se vean como una tienda de decoración, no como un catálogo genérico.",
+      "en": "Front-end work on <b>WordPress</b>: page building with <b>Elementor</b>, <b>WooCommerce</b> integration for the catalog and cart, and custom styling so categories like coatings and bathrooms read like a home-decor store, not a generic catalog."
+    },
+    "results": {
+      "es": "En producción, con su catálogo de productos organizado por categoría y checkout funcional en WooCommerce.",
+      "en": "In production, with its product catalog organized by category and a working WooCommerce checkout."
+    },
+    "stack": ["WordPress", "WooCommerce", "Elementor", "PHP", "CSS"],
+    "company": "Minima Studio",
+    "preview_image_url": "/img/previews/dekasa.webp",
+    "demo_url": "https://www.dekasa.com.ve/",
+    "is_featured": true,
+    "sort_order": 7,
+    "year": 2023
+  },
+  {
+    "id": "8",
+    "slug": "arcoweld-soluciones-industriales",
+    "title": {
+      "es": "Arcoweld - Soluciones Industriales",
+      "en": "Arcoweld - Industrial Solutions"
+    },
+    "tagline": {
+      "es": "Catálogo de e-commerce industrial para soldadura, corte y seguridad",
+      "en": "Industrial e-commerce catalog for welding, cutting and safety gear"
+    },
+    "description": {
+      "es": "Catálogo de e-commerce industrial para Arcoweld, tienda de equipos y consumibles de soldadura, corte y seguridad, construido sobre <b>WordPress</b> mientras trabajaba como freelance en Minima Studio.",
+      "en": "Industrial e-commerce catalog for Arcoweld, a store for welding, cutting and safety equipment, built on <b>WordPress</b> while freelancing at Minima Studio."
+    },
+    "challenge": {
+      "es": "Migrar un catálogo industrial amplio (soldadura, corte, máquinas, gases, herramientas, seguridad) a una tienda online con cuentas de cliente y carrito, manteniendo la identidad de marca de cada fabricante representado.",
+      "en": "Moving a wide industrial catalog (welding, cutting, machines, gases, tools, safety gear) into an online store with customer accounts and a cart, while keeping each represented brand's identity intact."
+    },
+    "solution": {
+      "es": "Desarrollo frontend sobre un tema de <b>WordPress</b> a medida con <b>Bootstrap</b>: navegación por categoría de producto, secciones de marca y destacados, y fichas de producto sobre <b>WooCommerce</b>.",
+      "en": "Front-end work on a custom <b>WordPress</b> theme with <b>Bootstrap</b>: category-based product navigation, brand and featured-product sections, and product cards built on top of <b>WooCommerce</b>."
+    },
+    "results": {
+      "es": "En producción, con múltiples categorías de producto, cuentas de cliente y carrito de compra activos.",
+      "en": "In production, with multiple product categories, customer accounts and a working shopping cart."
+    },
+    "stack": ["WordPress", "WooCommerce", "Bootstrap", "PHP", "JavaScript"],
+    "company": "Minima Studio",
+    "preview_image_url": "/img/previews/arcoweld.webp",
+    "demo_url": "https://www.arcoweld.com/",
+    "is_featured": true,
+    "sort_order": 8,
+    "year": 2023
   }
 ]
