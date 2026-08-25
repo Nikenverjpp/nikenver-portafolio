@@ -50,7 +50,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
 
         <button
           type="button"
-          class="mt-3 inline-flex items-center gap-1 font-sans text-sm text-accent-cyan sm:hidden"
+          class="mt-3 inline-flex min-h-11 items-center gap-1 font-sans text-sm text-accent-cyan sm:hidden"
           [attr.aria-expanded]="bioExpanded()"
           aria-controls="bio-content"
           (click)="bioExpanded.set(!bioExpanded())"

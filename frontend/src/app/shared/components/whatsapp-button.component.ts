@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, ChangeDetectionStrategy, NgZone, OnDestroy, PLATFORM_ID, inject, signal } from '@angular/core';
 import { environment } from '@env/environment';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
@@ -15,7 +16,8 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
       rel="noopener noreferrer"
       [attr.aria-label]="'whatsapp.ariaLabel' | t: locale.locale()"
       [title]="'whatsapp.ariaLabel' | t: locale.locale()"
-      class="fixed right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition-transform hover:scale-105 focus-visible:scale-105 sm:right-6"
+      class="fixed right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:scale-105 hover:opacity-100 focus-visible:scale-105 focus-visible:opacity-100 sm:right-6"
+      [class.opacity-20]="isScrolling()"
       style="bottom: calc(1.25rem + env(safe-area-inset-bottom))"
     >
       <svg viewBox="0 0 32 32" class="h-7 w-7" fill="currentColor" aria-hidden="true">
@@ -27,7 +29,39 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
     </a>
   `,
 })
-export class WhatsappButtonComponent {
+export class WhatsappButtonComponent implements OnDestroy {
   readonly locale = inject(LocaleService);
   readonly whatsappLink = `https://wa.me/${environment.contact.phone.replace(/\D/g, '')}`;
+
+  // Fades the button while scrolling so it doesn't sit opaque over body text on
+  // narrow mobile viewports (it's fixed-positioned, so running prose passes
+  // under it as the page scrolls); it returns to full opacity once scrolling stops.
+  readonly isScrolling = signal(false);
+
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly ngZone = inject(NgZone);
+  private scrollTimeout?: ReturnType<typeof setTimeout>;
+
+  private readonly onScroll = (): void => {
+    if (!this.isScrolling()) {
+      this.ngZone.run(() => this.isScrolling.set(true));
+    }
+    clearTimeout(this.scrollTimeout);
+    this.scrollTimeout = setTimeout(() => this.ngZone.run(() => this.isScrolling.set(false)), 400);
+  };
+
+  constructor() {
+    if (this.isBrowser) {
+      this.ngZone.runOutsideAngular(() => {
+        window.addEventListener('scroll', this.onScroll, { passive: true });
+      });
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.isBrowser) {
+      window.removeEventListener('scroll', this.onScroll);
+    }
+    clearTimeout(this.scrollTimeout);
+  }
 }
