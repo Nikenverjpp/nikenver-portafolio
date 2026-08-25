@@ -1,0 +1,61 @@
+[
+  {
+    "id": "1",
+    "slug": "sistemas-administrativos",
+    "title": { "es": "Sistemas administrativos a medida", "en": "Custom administrative systems" },
+    "description": {
+      "es": "ERPs y paneles internos para inventario, ventas, crédito y cobranza. Cotización según alcance.",
+      "en": "In-house ERPs and admin panels for inventory, sales, credit and collections. Quote based on scope."
+    },
+    "icon": "dashboard",
+    "relatedProjectSlugs": ["subladmin-sistema-administrativo"],
+    "sort_order": 1
+  },
+  {
+    "id": "2",
+    "slug": "ecommerce",
+    "title": { "es": "E-commerce", "en": "E-commerce" },
+    "description": {
+      "es": "Tiendas online con catálogo, checkout y pagos en varias monedas, a medida o sobre WordPress/WooCommerce. Cotización según alcance.",
+      "en": "Online stores with catalog, checkout and multi-currency payments, custom-built or on WordPress/WooCommerce. Quote based on scope."
+    },
+    "icon": "shopping_cart",
+    "relatedProjectSlugs": ["axsence-perfumeria-premium", "dekasa-porcelanato-revestimientos"],
+    "sort_order": 2
+  },
+  {
+    "id": "3",
+    "slug": "landing-pages",
+    "title": { "es": "Landing pages y sitios institucionales", "en": "Landing pages and institutional sites" },
+    "description": {
+      "es": "Sitios de marca, presentación o campaña, listos para publicar. Cotización según alcance.",
+      "en": "Brand, presentation or campaign sites, ready to publish. Quote based on scope."
+    },
+    "icon": "language",
+    "relatedProjectSlugs": ["amavida-zulia", "wilmer-nadin-holistic-center"],
+    "sort_order": 3
+  },
+  {
+    "id": "4",
+    "slug": "mantenimiento-soporte",
+    "title": { "es": "Mantenimiento y soporte de sistemas existentes", "en": "Maintenance and support for existing systems" },
+    "description": {
+      "es": "Corrección de errores, nuevas funcionalidades y actualizaciones sobre un sistema que ya tienes en producción. Cotización según alcance.",
+      "en": "Bug fixes, new features and updates on a system you already have in production. Quote based on scope."
+    },
+    "icon": "build",
+    "relatedProjectSlugs": ["cobeca-corporate-apps"],
+    "sort_order": 4
+  },
+  {
+    "id": "5",
+    "slug": "consultoria-tecnica",
+    "title": { "es": "Consultoría técnica", "en": "Technical consulting" },
+    "description": {
+      "es": "Revisión de arquitectura, decisiones de stack o segunda opinión técnica antes de invertir en un desarrollo grande. Cotización según alcance.",
+      "en": "Architecture review, stack decisions, or a second technical opinion before investing in a large build. Quote based on scope."
+    },
+    "icon": "insights",
+    "sort_order": 5
+  }
+]
