@@ -16,7 +16,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
       rel="noopener noreferrer"
       [attr.aria-label]="'whatsapp.ariaLabel' | t: locale.locale()"
       [title]="'whatsapp.ariaLabel' | t: locale.locale()"
-      class="fixed right-4 z-40 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-black/20 transition hover:scale-105 hover:opacity-100 focus-visible:scale-105 focus-visible:opacity-100 sm:right-6"
+      class="fixed right-4 z-40 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white opacity-70 shadow-lg shadow-black/20 transition hover:scale-105 hover:opacity-100 focus-visible:scale-105 focus-visible:opacity-100 sm:right-6 sm:h-14 sm:w-14"
       [class.opacity-20]="isScrolling()"
       style="bottom: calc(1.25rem + env(safe-area-inset-bottom))"
     >

@@ -38,6 +38,15 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
       return;
     }
 
+    const element = this.el.nativeElement;
+    const rect = element.getBoundingClientRect();
+    const alreadyInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+    if (alreadyInViewport) {
+      // Above-the-fold content renders instantly instead of fading in: the
+      // reveal is a reward for scrolling to something, not a delay on first paint.
+      return;
+    }
+
     let observer: IntersectionObserver;
     try {
       observer = getSharedObserver();
@@ -47,7 +56,6 @@ export class RevealOnScrollDirective implements OnInit, OnDestroy {
       return;
     }
 
-    const element = this.el.nativeElement;
     const animationName = this.animation.trim() || 'fadeInUp';
     element.style.setProperty('--animate-duration', '0.8s');
     element.classList.add('opacity-0');
