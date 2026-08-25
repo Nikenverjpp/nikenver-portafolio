@@ -36,16 +36,37 @@
     },
     "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server"],
     "links": [
-      { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home" },
-      { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login" },
-      { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login" },
-      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion" },
-      { "label": { "es": "PFL8", "en": "PFL8" }, "url": "https://pfl.drogueriascobeca.com/login" },
-      { "label": { "es": "Farmacia SaaS", "en": "Farmacia SaaS" }, "url": "https://www.farmaciasaas.com/" }
+      { "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" }, "url": "https://negociacionescobeca.com/home", "preview_image_url": "/img/previews/cobeca.webp" },
+      { "label": { "es": "Step Web", "en": "Step Web" }, "url": "https://stepweb.drogueriascobeca.com/login", "preview_image_url": "/img/previews/cobeca-stepweb.webp" },
+      { "label": { "es": "Step Web Junior", "en": "Step Web Junior" }, "url": "https://stepwebjunior.drogueriascobeca.com/login", "preview_image_url": "/img/previews/cobeca-stepweb-junior.webp" },
+      { "label": { "es": "SIC", "en": "SIC" }, "url": "https://sic.drogueriascobeca.com/autenticacion", "preview_image_url": "/img/previews/cobeca-sic.webp" },
+      { "label": { "es": "PFL8", "en": "PFL8" }, "url": "https://pfl.drogueriascobeca.com/login", "preview_image_url": "/img/previews/cobeca-pfl8.webp" },
+      { "label": { "es": "Farmacia SaaS", "en": "Farmacia SaaS" }, "url": "https://www.farmaciasaas.com/", "preview_image_url": "/img/previews/farmacia-saas.webp" }
     ],
     "start_year": 2022,
     "end_year": 2024,
     "sort_order": 2
+  },
+  {
+    "id": "8",
+    "company": "Minima Studio",
+    "role": { "es": "Frontend Developer Freelance", "en": "Freelance Frontend Developer" },
+    "description": {
+      "es": "Desarrollo frontend freelance para clientes de la agencia: catálogos de e-commerce en <b>WordPress</b> y <b>WooCommerce</b> para Dekasa y Arcoweld.",
+      "en": "Freelance front-end development for agency clients: <b>WordPress</b>/<b>WooCommerce</b> e-commerce catalogs for Dekasa and Arcoweld."
+    },
+    "detail": {
+      "es": "En 2023 hice desarrollo frontend freelance para clientes de Minima Studio, un estudio que cerró operaciones ese mismo año. Construí el catálogo de e-commerce de Dekasa (porcelanato y revestimientos) sobre <b>WordPress</b> con <b>Elementor</b> y <b>WooCommerce</b>, y el de Arcoweld (equipos industriales de soldadura) sobre un tema de <b>WordPress</b> a medida con <b>Bootstrap</b>, ambos con <b>WooCommerce</b> como motor del catálogo y el carrito.",
+      "en": "In 2023 I did freelance front-end development for Minima Studio's clients, an agency that closed that same year. I built Dekasa's e-commerce catalog (porcelain tile and coatings) on <b>WordPress</b> with <b>Elementor</b> and <b>WooCommerce</b>, and Arcoweld's (industrial welding equipment) on a custom <b>WordPress</b> theme with <b>Bootstrap</b>, both powered by <b>WooCommerce</b> for the catalog and cart."
+    },
+    "stack": ["WordPress", "WooCommerce", "Elementor", "Bootstrap", "PHP", "JavaScript"],
+    "links": [
+      { "label": { "es": "Dekasa", "en": "Dekasa" }, "url": "https://www.dekasa.com.ve/", "preview_image_url": "/img/previews/dekasa.webp" },
+      { "label": { "es": "Arcoweld", "en": "Arcoweld" }, "url": "https://www.arcoweld.com/", "preview_image_url": "/img/previews/arcoweld.webp" }
+    ],
+    "start_year": 2023,
+    "end_year": 2023,
+    "sort_order": 3
   },
   {
     "id": "3",
@@ -66,7 +87,7 @@
     "stack": ["Ubiquiti", "MikroTik", "Tenda", "TP-Link", "Redes inalámbricas"],
     "start_year": 2020,
     "end_year": 2023,
-    "sort_order": 3
+    "sort_order": 4
   },
   {
     "id": "4",
@@ -83,7 +104,7 @@
     "stack": ["Laravel", "PHP", "Vue.js", "MySQL"],
     "start_year": 2018,
     "end_year": 2022,
-    "sort_order": 4
+    "sort_order": 5
   },
   {
     "id": "5",
@@ -113,7 +134,7 @@
         "preview_image_url": "/img/previews/wilmer-nadin.webp"
       }
     ],
-    "sort_order": 5
+    "sort_order": 6
   },
   {
     "id": "6",
@@ -130,7 +151,7 @@
     "stack": ["PHP", "JavaScript", "MySQL", "Android"],
     "start_year": 2017,
     "end_year": 2018,
-    "sort_order": 6
+    "sort_order": 7
   },
   {
     "id": "7",
@@ -151,6 +172,6 @@
     "stack": ["PHP", "JavaScript", "MySQL"],
     "start_year": 2016,
     "end_year": 2016,
-    "sort_order": 7
+    "sort_order": 8
   }
 ]
