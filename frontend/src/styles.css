@@ -215,6 +215,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-spin {
+    animation: none;
+  }
+
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {
