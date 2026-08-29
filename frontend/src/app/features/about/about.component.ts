@@ -164,7 +164,8 @@ export class AboutComponent {
     try {
       await this.cvPdf.download(this.locale.locale());
       this.cvState.set('idle');
-    } catch {
+    } catch (error) {
+      console.error('CV PDF generation failed', error);
       this.cvState.set('error');
       setTimeout(() => this.cvState.set('idle'), 4000);
     }

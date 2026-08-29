@@ -5,7 +5,7 @@ Repositorio del portfolio personal de Nikenver Pulgar, desarrollador Full Stack 
 ## Qué tiene el sitio
 
 - **Inicio**: hero con animación de tipeo en el rol, fondo de íconos de tecnologías (Angular, Laravel, React, Vue, PostgreSQL y más) flotando con deriva lenta en CSS y un efecto de paralaje sutil que sigue el mouse, estadísticas rápidas, experiencia profesional y proyectos destacados.
-- **Sobre mí**: biografía completa y línea de tiempo de experiencia laboral.
+- **Sobre mí**: biografía completa, línea de tiempo de experiencia laboral, y descarga de CV en PDF (generado en el navegador, en el idioma activo del sitio).
 - **Proyectos**: catálogo filtrable con ficha de detalle por proyecto.
 - **Servicios**: qué se puede contratar, con evidencia real de proyectos por cada servicio, el proceso de trabajo en pasos y los motivos para contratar. Sin precios, a propósito.
 - **Contacto**: correo y WhatsApp ocultos detrás de un botón de "mostrar" en vez de texto plano, para reducir el scraping automático de spam.
@@ -49,6 +49,7 @@ php artisan serve
 - **Contenido**: los datos de proyectos y experiencia del frontend viven en JSON local (`frontend/src/app/core/data/`) y se sirven vía Angular services. El portfolio no depende de un CMS ni del backend Laravel para su contenido.
 - **Backend**: Laravel con migraciones y seeders, expuesto como API de solo lectura; documentado por separado, no es requisito para correr el frontend.
 - **i18n**: servicio de locale/tema propio basado en Signals (sin librería externa), español como idioma por defecto.
+- **CV en PDF**: se genera en el cliente con `pdfmake`, cargado de forma perezosa (`import()` dinámico) solo al hacer clic en el botón, para no afectar el bundle inicial ni el tiempo de carga del sitio.
 - **Alias de imports**: `@core/*`, `@shared/*`, `@components/*`, `@features/*`, `@env/*` (ver `frontend/tsconfig.json`).
 - **Despliegue**: Vercel, construye únicamente `frontend/` (ver `vercel.json`).
 
