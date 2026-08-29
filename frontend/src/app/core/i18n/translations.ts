@@ -117,6 +117,12 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle · Perfume Connoisseur · Football fan and Real Madrid supporter',
   },
   'about.coursesTitle': { es: 'Cursos y diplomados', en: 'Courses and diplomas' },
+  'about.downloadCv': { es: 'Descargar CV', en: 'Download CV' },
+  'about.downloadCvGenerating': { es: 'Generando PDF…', en: 'Generating PDF…' },
+  'about.downloadCvError': {
+    es: 'No se pudo generar el PDF, intenta de nuevo',
+    en: 'Could not generate the PDF, try again',
+  },
 
   'contact.eyebrow': { es: 'Contacto', en: 'Contact' },
   'contact.title': { es: 'Hablemos', en: "Let's talk" },
