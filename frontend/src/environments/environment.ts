@@ -9,5 +9,6 @@
     phoneDisplay: '(+58) 412-0736425',
     linkedin: 'https://linkedin.com/in/nikenver',
   },
+  analyticsWebsiteId: null as string | null,
 };
 
