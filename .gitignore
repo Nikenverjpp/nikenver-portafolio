@@ -30,3 +30,7 @@ Thumbs.db
 # Angular
 .angular/
 coverage/
+
+# Git worktrees (scratch, used for isolated feature work)
+.worktrees/
+.superpowers/
