@@ -6,6 +6,7 @@ import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.dir
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
 import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
+import { CvPdfService } from '@core/pdf/cv-pdf.service';
 
 @Component({
   selector: 'app-about',
@@ -60,6 +61,31 @@ import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
           <span class="material-symbols-outlined !text-base" aria-hidden="true">
             {{ bioExpanded() ? 'expand_less' : 'expand_more' }}
           </span>
+        </button>
+      </div>
+
+      <div class="mt-6">
+        <button
+          type="button"
+          class="btn-primary gap-2 disabled:cursor-not-allowed disabled:opacity-60"
+          [disabled]="cvState() === 'generating'"
+          (click)="downloadCv()"
+        >
+          <span
+            class="material-symbols-outlined !text-lg"
+            [class.animate-spin]="cvState() === 'generating'"
+            aria-hidden="true"
+          >
+            {{ cvState() === 'generating' ? 'progress_activity' : 'download' }}
+          </span>
+          {{
+            (cvState() === 'error'
+              ? 'about.downloadCvError'
+              : cvState() === 'generating'
+                ? 'about.downloadCvGenerating'
+                : 'about.downloadCv'
+            ) | t: locale.locale()
+          }}
         </button>
       </div>
 
@@ -120,11 +146,27 @@ import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
 })
 export class AboutComponent {
   private readonly experiences = inject(ExperienceService);
+  private readonly cvPdf = inject(CvPdfService);
   readonly locale = inject(LocaleService);
   readonly experiences$ = this.experiences.list();
   readonly bioExpanded = signal(false);
+  readonly cvState = signal<'idle' | 'generating' | 'error'>('idle');
 
   readonly skillGroups = SKILL_GROUPS;
 
   readonly courseGroups = COURSE_GROUPS;
+
+  async downloadCv(): Promise<void> {
+    if (this.cvState() === 'generating') {
+      return;
+    }
+    this.cvState.set('generating');
+    try {
+      await this.cvPdf.download(this.locale.locale());
+      this.cvState.set('idle');
+    } catch {
+      this.cvState.set('error');
+      setTimeout(() => this.cvState.set('idle'), 4000);
+    }
+  }
 }
