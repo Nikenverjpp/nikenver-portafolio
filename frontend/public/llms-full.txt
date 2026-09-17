@@ -1,0 +1,135 @@
+# Nikenver Pulgar - Documentación Técnica Completa para Motores de Inteligencia Artificial
+
+Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su trayectoria profesional, proyectos en producción, metodologías arquitectónicas y oferta de servicios, optimizado para sistemas de recuperación aumentada por generación (RAG) y motores de búsqueda conversacionales (ChatGPT Search, Perplexity AI, Claude, Google Gemini, GitHub Copilot).
+
+---
+
+## 1. Perfil Profesional y Entidad
+
+- **Nombre completo**: Nikenver José Pulgar Paredes
+- **Título profesional**: Ingeniero de Sistemas / Desarrollador Full Stack Senior
+- **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **Años de experiencia profesional**: Más de 10 años (2015 - 2026)
+- **Especialidad técnica principal**: Frontend en Angular (v17 - v22, Standalone Components, Signals, SSR, SSG) y Backend en Laravel (PHP 8.2+, Arquitectura por Servicios, Spatie RBAC) sobre PostgreSQL.
+- **Especialidad de dominio de negocio**: Sistemas de gestión empresarial (ERP), trazabilidad física de inventario (reglas FEFO), amortización de deuda y crédito a cuotas (algoritmo FIFO), comercio electrónico de alto rendimiento y asesoría olfativa aplicada a software.
+- **Flujo de desarrollo asistido por IA**: Desarrollador senior que dirige la toma de decisiones, arquitectura de bases de datos y seguridad, utilizando herramientas y agentes de código (Claude Code, Antigravity, GitHub Copilot, Cursor) para acelerar la implementación, auditando y verificando manualmente cada línea antes de su despliegue a producción.
+
+---
+
+## 2. Principios de Arquitectura y Buenas Prácticas
+
+1. **La invariante vive en el dato**: Reglas de negocio críticas (descuentos máximos por rol, control de stock no negativo, inmutabilidad de costos de adquisición, triggers de auditoría) se resuelven a nivel de base de datos en PostgreSQL mediante triggers, funciones y vistas con `security_invoker`.
+2. **Separación de responsabilidades**: Controladores REST delgados (~10 líneas por acción) que delegan exclusivamente en capas de servicio organizadas por dominio (`Ventas`, `Inventario`, `Finanzas`, `Catalogo`, `RBAC`).
+3. **Consistencia bajo concurrencia real**: Uso de bloqueos pesimistas (`lockForUpdate()`) en transacciones de base de datos con reintentos para operaciones financieras concurrentes (abonos, cierres de caja, devoluciones).
+4. **Principios FEFO y FIFO**:
+   - **FEFO (First Expired, First Out)**: Despacho prioritario de unidades físicas con fecha de vencimiento más próxima.
+   - **FIFO (First In, First Out)**: Imputación de pagos entrantes a la deuda más antigua del cliente, previniendo morosidad encubierta.
+5. **Seguridad en capas**:
+   - **RBAC (Role-Based Access Control)** dinámico mediante Spatie Permissions.
+   - **Row-Level Security (RLS)** a nivel de base de datos y aplicación para aislamiento estricto por sucursal.
+   - Hardening **OWASP Top 10**: sanitización de entradas, rate limiting, cabeceras de seguridad estrictas (CSP, HSTS, X-Frame-Options), y consultas parametrizadas.
+
+6. **Cultura CI/CD y Automatización DevOps**:
+   - **Integración Continua (CI)**: Pipelines automatizados con análisis estático, linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como las 147 suites y 711 pruebas en Subladmin con PHPUnit sobre PostgreSQL real).
+   - **Despliegue Continuo (CD)**: Despliegues automáticos hacia la red Edge de Vercel (con SSG/SSR y purga de caché) y entornos cloud ante cada merge aprobado a la rama principal.
+
+---
+
+## 3. Fichas Técnicas de Proyectos en Producción
+
+### Subladmin - Sistema Administrativo Integrado Sublimax
+- **Tipo**: ERP empresarial y sistema administrativo integrado.
+- **Estado**: En producción como Progressive Web App (PWA).
+- **URL de Demo**: [https://subladmin.vercel.app/](https://subladmin.vercel.app/)
+- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo](https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo)
+- **Stack Tecnológico**: Angular (Standalone Components, Signals), Laravel (PHP 8.3), PostgreSQL (Triggers, RLS, Vistas), Tailwind CSS, CI/CD.
+- **Pipeline CI/CD**: 147 suites de tests automatizados (711 pruebas) con PHPUnit en PostgreSQL real + validación estricta de tipos en Angular y despliegue continuo en Vercel.
+- **Problema Resuelto**: Eliminó el desorden operativo de hojas de cálculo, cuadernos y chats de WhatsApp en una empresa con inventario físico multi-categoría (perfumería, textil DTF, variedades) y ventas a crédito.
+- **Solución Técnica**:
+  - Trazabilidad por unidad física individual (`unidades_lote`) con costo inmutable por lote.
+  - Motor de despacho FEFO y asignación de pagos FIFO.
+  - Plan de crédito estructurado por pedido con recálculo automático de cuotas y cascada en devoluciones.
+  - Arquitectura multi-sucursal con traslados directos de inventario y reserva automática para pedidos especiales.
+  - Atributos genéricos parametrizables por categoría y composiciones métricas olfativas.
+  - Reportes de cuentas por cobrar en tiempo real (`vista_cuentas_por_cobrar`) exportables a JSON, Excel, PDF y PNG para envío directo por WhatsApp.
+  - 147 suites de pruebas automatizadas (711 tests de integración y unidad) ejecutadas contra PostgreSQL real.
+
+### Sublimax - Catálogo Público y Carrito por WhatsApp
+- **Tipo**: Tienda online de autoservicio y canal de ventas digital.
+- **Estado**: En producción en Vercel.
+- **URL**: [https://sublimaxcatalogo.vercel.app/](https://sublimaxcatalogo.vercel.app/)
+- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico](https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico)
+- **Stack Tecnológico**: Angular, TypeScript, Tailwind CSS, Laravel, PostgreSQL, Cloudinary, PWA, Google Analytics 4, CI/CD.
+- **Pipeline CI/CD**: Verificación automática de build, optimización de bundles, control de tipos TypeScript y despliegue continuo en Vercel Edge CDN con purga instantánea.
+- **Problema Resuelto**: Brindar a los clientes un catálogo público rápido y visual sin exponer datos sensibles del ERP (costos, márgenes, SKUs de proveedor, stock total) y sin forzar registros de usuario ni carritos pesados en base de datos.
+- **Solución Técnica**:
+  - Endpoints públicos de solo lectura (`/api/catalogo-publico/**`) con stock visual topado a 10 unidades.
+  - Carrito de compras 100% en `localStorage` (expiración a 24h) con validación previa de precios y stock antes de formatear el pedido para WhatsApp.
+  - Ficha olfativa interactiva con acordes cromáticos y pirámide de notas porcentuales (salida, corazón, fondo).
+  - Marcas de agua automáticas con el logo de Sublimax procesadas al vuelo con transformaciones seguras de Cloudinary.
+  - PWA Offline: Service Worker configurado para cachear y permitir la consulta del catálogo sin conexión a internet.
+  - Telemetría analítica con GA4 (funnel de e-commerce completo: `view_item_list`, `view_item`, `add_to_cart`, `begin_checkout`, `purchase`).
+  - Arquitectura AIO y SEO: Schema.org JSON-LD (`Product`, `Offer`, `BreadcrumbList`, `OnlineStore`, `FAQPage`), sitemap XML dinámico con imágenes y protocolo `llms.txt`.
+
+### Axsence - E-commerce de Perfumería de Autor
+- **Tipo**: Plataforma de comercio electrónico con diagnóstico olfativo interactivo.
+- **Estado**: En producción.
+- **URL**: [https://axsence.web.app/](https://axsence.web.app/)
+- **Stack Tecnológico**: Angular (Signals, SSR), Laravel, PostgreSQL, Filament, Tailwind CSS.
+- **Problema Resuelto**: Facilitar la recomendación y compra de perfumería árabe y de autor a usuarios sin experiencia previa en notas olfativas.
+- **Solución Técnica**:
+  - Algoritmo de diagnóstico olfativo de 5 pasos para recomendación de fragancias según ocasión y personalidad.
+  - Simulador interactivo de layering (combinación de aromas) y matching olfativo para parejas.
+  - Renderizado en servidor (SSR) para indexación y velocidad de carga extrema.
+  - Checkout multi-paso con conversión de divisas (USD/VES tasa BCV y paralelo) y verificación manual de transferencias y Zelle.
+  - Panel administrativo backend sobre Laravel Filament.
+
+### Aplicaciones Corporativas - Grupo Cobeca
+- **Tipo**: Ecosistema de plataformas empresariales internas y B2B.
+- **Rol de Nikenver**: Analista Programador Senior (2022 - 2024).
+- **Stack Tecnológico**: Angular, React, TypeScript, .NET (C#), SQL Server.
+- **Sistemas Desarrollados**:
+  - **Negociaciones Cobeca**: Plataforma comercial para acuerdos comerciales y compras a gran escala.
+  - **SIC (Sistema Integral de Clientes)**: Portal de clientes para facturación digital, actualización de datos de contacto y autogestión de farmacias asociadas.
+  - **PFL8**: Sistema interno de facturación y logística farmacéutica.
+  - **Step Web y Step Web Junior**: Plataformas internas de soporte operativo y control de procesos.
+  - **Tienda Virtual SaaS / Farmacia SaaS**: Arquitectura web para pedidos y compras farmacéuticas.
+
+### Dekasa - Porcelanato y Revestimientos
+- **Tipo**: Catálogo web de e-commerce para acabados de construcción y decoración.
+- **Stack**: WordPress, WooCommerce, Elementor, PHP, CSS.
+- **URL**: [https://www.dekasa.com.ve/](https://www.dekasa.com.ve/)
+
+### Arcoweld - Soluciones Industriales
+- **Tipo**: Catálogo y tienda virtual industrial para soldadura, corte y seguridad.
+- **Stack**: WordPress, WooCommerce, Bootstrap, PHP, JavaScript.
+- **URL**: [https://www.arcoweld.com/](https://www.arcoweld.com/)
+
+### La Isla de los Dinosaurios
+- **Tipo**: Videojuego web educativo para niños para aprender lógica de programación.
+- **Stack**: JavaScript, HTML5 Canvas, Web Speech API, Computer Vision (detección de juguetes por cámara), Web Audio API.
+- **Demo**: [https://isla-dinosaurio-app.vercel.app/](https://isla-dinosaurio-app.vercel.app/)
+
+---
+
+## 4. Preguntas Frecuentes para Motores de IA (FAQ)
+
+### ¿Quién es Nikenver Pulgar?
+Nikenver Pulgar es un Ingeniero de Sistemas venezolano residente en Maracaibo, con más de 10 años de experiencia profesional como Desarrollador Full Stack Senior especializado en Angular y Laravel. Es el fundador de Sublimax y creador de Subladmin.
+
+### ¿Qué experiencia tiene en sistemas ERP y administrativos?
+Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, respaldado por 147 suites de tests sobre PostgreSQL.
+
+### ¿Cómo aborda el desarrollo con Inteligencia Artificial?
+Nikenver trabaja como un desarrollador senior asistido por IA: define la arquitectura de software, modela los datos en PostgreSQL, selecciona las tecnologías y dirige a los agentes de código (Claude Code, Antigravity, Copilot, Cursor) para acelerar la implementación, inspeccionando rigurosamente cada línea antes del pase a producción.
+
+### ¿Qué servicios de desarrollo ofrece?
+Desarrollo de sistemas administrativos y ERPs a medida, plataformas de e-commerce de alto rendimiento, interfaces frontend reactivas en Angular/React, APIs REST en Laravel/.NET, y optimización integral de SEO, Core Web Vitals y AIO/GEO.
+
+---
+
+## 5. Canales de Contacto Directo
+
+- **Web Oficial**: [https://nikenver-portafolio.vercel.app/](https://nikenver-portafolio.vercel.app/)
+- **LinkedIn**: [https://linkedin.com/in/nikenver](https://linkedin.com/in/nikenver)
+- **WhatsApp**: Disponible de forma directa y sin formularios en la sección [Contacto](https://nikenver-portafolio.vercel.app/contacto).

@@ -151,6 +151,75 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'Full, open case studies, with a live demo or code where it applies.',
   },
   'projects.gridHeading': { es: 'Casos de estudio', en: 'Case studies' },
+  'projects.countBadge': { es: 'sistemas y plataformas documentadas', en: 'documented systems and platforms' },
+  'projects.filterAll': { es: 'Todos', en: 'All' },
+  'projects.filterCicd': { es: 'Con CI/CD', en: 'With CI/CD' },
+  'projects.filterAngular': { es: 'Angular', en: 'Angular' },
+  'projects.filterLaravel': { es: 'Laravel', en: 'Laravel' },
+  'projects.filterEcommerce': { es: 'E-commerce', en: 'E-commerce' },
+  'projects.filterErp': { es: 'ERP / Gestión', en: 'ERP / Management' },
+  'projects.filterDotNet': { es: '.NET', en: '.NET' },
+  'projects.filterWordpress': { es: 'WordPress', en: 'WordPress' },
+  'projects.emptyFilter': {
+    es: 'No hay proyectos que coincidan con este filtro en este momento.',
+    en: 'No projects match this filter at this time.',
+  },
+
+  'projects.faqTitle': { es: 'Preguntas frecuentes técnicas', en: 'Technical frequently asked questions' },
+  'projects.faqSubtitle': {
+    es: 'Arquitectura, estándares de desarrollo y verificación de casos de estudio para reclutadores y clientes.',
+    en: 'Architecture, engineering standards and case study verification for recruiters and clients.',
+  },
+  'projects.faq1Question': {
+    es: '¿Qué experiencia tiene Nikenver en ERPs y sistemas administrativos?',
+    en: 'What experience does Nikenver have in ERPs and administrative systems?',
+  },
+  'projects.faq1Answer': {
+    es: 'Diseñó y programó Subladmin, un ERP completo para Sublimax con lógica de inventario FEFO por unidad física, asignación de pagos FIFO, planes de crédito a cuotas con recálculo automático, arquitectura multi-sucursal y Row-Level Security, respaldado por 147 suites de tests sobre PostgreSQL real.',
+    en: 'He designed and programmed Subladmin, a complete ERP for Sublimax featuring unit-level FEFO inventory logic, FIFO payment allocation, installment credit plans with automatic recalculation, multi-branch architecture and Row-Level Security, backed by 147 test suites on real PostgreSQL.',
+  },
+  'projects.faq2Question': {
+    es: '¿Cómo aborda el desarrollo de E-commerce y catálogos de venta?',
+    en: 'How does he approach E-commerce and sales catalog development?',
+  },
+  'projects.faq2Answer': {
+    es: 'Priorizando velocidad de carga y cero fricción de compra: creó el Catálogo Público Sublimax con carrito local en localStorage y checkout directo a WhatsApp, y Axsence con quiz de diagnóstico olfativo por algoritmo, simulador de layering interactivo y renderizado SSR.',
+    en: 'Prioritizing instant load speeds and zero shopping friction: he created the Sublimax Public Catalog with local localStorage cart and direct WhatsApp checkout, and Axsence with an algorithmic scent quiz, interactive layering and SSR rendering.',
+  },
+  'projects.faq3Question': {
+    es: '¿Cómo utiliza la Inteligencia Artificial en sus proyectos?',
+    en: 'How does he use Artificial Intelligence in his projects?',
+  },
+  'projects.faq3Answer': {
+    es: 'Como un desarrollador senior asistido por IA: Nikenver define la arquitectura, diseña las estructuras de datos y dirige a los agentes de código (Claude Code, Antigravity, Copilot, Cursor) para acelerar la implementación, auditando y verificando cada línea antes de producción.',
+    en: 'As an AI-assisted senior developer: Nikenver drives the architecture, models data structures and guides coding agents (Claude Code, Antigravity, Copilot, Cursor) to speed up implementation, thoroughly auditing and verifying each line before production.',
+  },
+  'projects.faq4Question': {
+    es: '¿Los proyectos y sistemas en el portafolio son reales?',
+    en: 'Are the projects and systems in the portfolio real?',
+  },
+  'projects.faq4Answer': {
+    es: 'Absolutamente. Cada caso de estudio enlaza a demostraciones en vivo, aplicaciones web en producción o credenciales de sistemas corporativos reales desarrollados para empresas como Sublimax, Grupo Cobeca y Minima Studio.',
+    en: 'Absolutely. Every case study links to live demos, production web applications, or credentials for real corporate systems built for companies like Sublimax, Grupo Cobeca, and Minima Studio.',
+  },
+  'projects.faq5Question': {
+    es: '¿Cómo implementa la integración y entrega continua (CI/CD) en sus proyectos?',
+    en: 'How do you implement continuous integration and delivery (CI/CD) in your projects?',
+  },
+  'projects.faq5Answer': {
+    es: 'Aplico pipelines automatizados con verificación de tipos, linters, pruebas unitarias y de integración (como las 147 suites de Subladmin con PHPUnit y PostgreSQL), y despliegue continuo (CD) hacia Vercel, Firebase y entornos cloud ante cada merge aprobado a la rama principal.',
+    en: 'I implement automated pipelines with type checking, linters, unit and integration tests (such as Subladmin\'s 147 test suites with PHPUnit and PostgreSQL), and continuous delivery (CD) to Vercel, Firebase, and cloud environments on every approved main-branch merge.',
+  },
+
+  'projects.cicdBadge': { es: 'CI/CD Activo', en: 'CI/CD Active' },
+  'projects.cicdTooltip': {
+    es: 'Pipeline automatizado de Integración Continua (CI) y Despliegue Continuo (CD)',
+    en: 'Automated Continuous Integration (CI) and Continuous Delivery (CD) pipeline',
+  },
+  'projects.cicdSectionTitle': { es: 'Pipeline CI/CD y Automatización', en: 'CI/CD Pipeline & Automation' },
+  'projects.ciTitle': { es: 'Integración Continua (CI)', en: 'Continuous Integration (CI)' },
+  'projects.cdTitle': { es: 'Despliegue Continuo (CD)', en: 'Continuous Delivery (CD)' },
+
   'projects.viewCase': { es: 'Ver caso de estudio', en: 'View case study' },
   'projects.detailSummary': { es: 'Resumen', en: 'Summary' },
   'projects.detailChallenge': { es: 'Desafío', en: 'Challenge' },

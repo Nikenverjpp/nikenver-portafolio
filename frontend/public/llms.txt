@@ -1,26 +1,44 @@
-# Nikenver Pulgar - Full Stack Developer
+# Nikenver Pulgar - Desarrollador Full Stack Senior
 
-> Nikenver Pulgar es un desarrollador Full Stack venezolano (Maracaibo, Venezuela) con más de 10 años de experiencia profesional, especializado en Angular y Laravel.
+> Nikenver Pulgar es un Ingeniero de Sistemas y desarrollador Full Stack venezolano (Maracaibo, Venezuela) con más de 10 años de experiencia profesional construyendo sistemas empresariales en producción, especializado en Angular (v17 - v22) y Laravel (PHP 8.2+).
 
-Fundador y CEO de Sublimax (e-commerce de perfumería y cosmética), para el que construyó Subladmin, su sistema administrativo a medida (FEFO/FIFO, RLS, crédito multi-moneda). Analista Programador Senior en Grupo Cobeca (aplicaciones corporativas con Angular, React y .NET). También desarrolló Axsence, una plataforma de e-commerce para perfumería de autor árabe con diagnóstico olfativo, matching y layering — funcionalidades basadas en su propio conocimiento como Asesor Olfativo (Fragrance Consultant). Trabaja como desarrollador senior apoyado en agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura y revisa cada línea antes de producción; este mismo portfolio está construido con Claude Code.
+Fundador y CEO de Sublimax (marca y e-commerce de perfumería y personalización textil en Venezuela). Para Sublimax diseñó y construyó Subladmin (ERP integral con despacho FEFO, cobranza FIFO, arquitectura multi-sucursal, crédito a cuotas y Row-Level Security) y el Catálogo Público Sublimax (e-commerce de autoservicio con carrito local a WhatsApp, fichas olfativas interactivas y PWA offline). Previamente se desempeñó como Analista Programador Senior en Grupo Cobeca (desarrollando aplicaciones corporativas críticas con Angular, React y .NET) y consultor web freelance en Minima Studio e Iconos Consultores.
 
-## Sitio
+Trabaja como desarrollador senior apoyado en herramientas y agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura, diseña las estructuras de datos y revisa rigurosamente cada línea de código antes de producción.
 
-- [Inicio](https://nikenver-portafolio.vercel.app/): resumen de experiencia, stack y trayectoria.
-- [Sobre mí](https://nikenver-portafolio.vercel.app/sobre-mi): biografía completa y línea de tiempo profesional.
-- [Proyectos](https://nikenver-portafolio.vercel.app/proyectos): casos de estudio con reto, solución y resultado.
-- [Contacto](https://nikenver-portafolio.vercel.app/contacto): formas de contacto.
+## Navegación del Sitio
 
-## Proyectos
+- [Inicio](https://nikenver-portafolio.vercel.app/): Resumen de perfil, experiencia y stack principal.
+- [Sobre mí](https://nikenver-portafolio.vercel.app/sobre-mi): Biografía completa, línea de tiempo profesional y diplomados.
+- [Proyectos](https://nikenver-portafolio.vercel.app/proyectos): Casos de estudio abiertos con reto, solución técnica, stack y resultados verificables.
+- [Servicios](https://nikenver-portafolio.vercel.app/servicios): Oferta de desarrollo web, sistemas a medida, e-commerce y consultoría técnica.
+- [Contacto](https://nikenver-portafolio.vercel.app/contacto): Canales de comunicación directa sin formularios (WhatsApp, Email, LinkedIn).
 
-- [Subladmin - Sistema Administrativo Sublimax](https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo): ERP interno con trazabilidad FEFO/FIFO, RLS y crédito multi-moneda. Angular, Laravel, PostgreSQL.
-- [Axsence - E-commerce de Perfumería de Autor](https://nikenver-portafolio.vercel.app/proyectos/axsence-perfumeria-premium): diagnóstico olfativo, layering y checkout multi-moneda. Angular con SSR, Laravel, Filament.
-- [Sublimax - Perfumería, Maquillaje y Variedades](https://nikenver-portafolio.vercel.app/proyectos/sublimax-ecommerce): e-commerce que fundó y dirige en Maracaibo, Venezuela.
-- [Aplicaciones corporativas - Grupo Cobeca](https://nikenver-portafolio.vercel.app/proyectos/cobeca-corporate-apps): sistemas internos y APIs para operaciones empresariales. Angular, React, .NET.
-- [SIC - Sistema Integral de Clientes, Grupo Cobeca](https://nikenver-portafolio.vercel.app/proyectos/cobeca-sic): portal de clientes para facturación digital.
-- [La Isla de los Dinosaurios](https://nikenver-portafolio.vercel.app/proyectos/isla-de-los-dinosaurios): juego educativo de programación para niños, con visión por computadora y Web Speech API.
+## Proyectos y Casos de Estudio
 
-## Contacto
+- [Subladmin - Sistema Administrativo Sublimax](https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo): ERP integral en producción con trazabilidad FEFO/FIFO por unidad física, multi-sucursal, RLS, crédito multi-moneda congelado, pipeline CI/CD y 147 test suites. Stack: Angular, Laravel, PostgreSQL, Tailwind CSS, CI/CD. Demo: https://subladmin.vercel.app/
+- [Sublimax - Catálogo Público y Carrito por WhatsApp](https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico): E-commerce de autoservicio con ficha olfativa interactiva (pirámide de notas porcentuales), carrito local en localStorage, PWA offline, marcas de agua Cloudinary, telemetría GA4, pipeline CI/CD y checkout a WhatsApp. Stack: Angular, TypeScript, Tailwind CSS, Laravel, PostgreSQL, Cloudinary, PWA, CI/CD. Demo: https://sublimaxcatalogo.vercel.app/
+- [Axsence - E-commerce de Perfumería de Autor](https://nikenver-portafolio.vercel.app/proyectos/axsence-perfumeria-premium): Plataforma de comercio electrónico con quiz de diagnóstico olfativo algorítmico, simulador de layering interactivo y checkout multi-moneda con verificación manual. Stack: Angular SSR, Laravel, PostgreSQL, Filament. Demo: https://axsence.web.app/
+- [Sublimax - Perfumería, Maquillaje y Variedades](https://nikenver-portafolio.vercel.app/proyectos/sublimax-ecommerce): Marca y operación comercial que fundó en 2024 en Maracaibo, respaldada operativamente por Subladmin.
+- [Aplicaciones corporativas - Grupo Cobeca](https://nikenver-portafolio.vercel.app/proyectos/cobeca-corporate-apps): Sistemas internos de alta concurrencia para operaciones empresariales (Negociaciones Cobeca, Step Web, Step Web Junior, PFL8, Farmacia SaaS). Stack: Angular, React, .NET (C#), SQL Server.
+- [SIC - Sistema Integral de Clientes, Grupo Cobeca](https://nikenver-portafolio.vercel.app/proyectos/cobeca-sic): Portal web de autoservicio para facturación digital y gestión de clientes de Droguerías Cobeca. Stack: Angular, .NET, SQL Server.
+- [Dekasa - Porcelanato y Revestimientos](https://nikenver-portafolio.vercel.app/proyectos/dekasa-porcelanato-revestimientos): Catálogo de e-commerce para tienda de decoración y acabados para el hogar. Stack: WordPress, WooCommerce, Elementor. Demo: https://www.dekasa.com.ve/
+- [Arcoweld - Soluciones Industriales](https://nikenver-portafolio.vercel.app/proyectos/arcoweld-soluciones-industriales): Catálogo de e-commerce industrial para equipos de soldadura y seguridad industrial. Stack: WordPress, WooCommerce, Bootstrap. Demo: https://www.arcoweld.com/
+- [La Isla de los Dinosaurios](https://nikenver-portafolio.vercel.app/proyectos/isla-de-los-dinosaurios): Videojuego educativo infantil de programación web con visión por computadora y Web Speech API. Stack: JavaScript, Web Audio API, HTML5 Canvas. Demo: https://isla-dinosaurio-app.vercel.app/
+- [Amavida Zulia - Portal Institucional](https://nikenver-portafolio.vercel.app/proyectos/amavida-zulia): Sitio institucional y gestor de noticias para ONG de derechos humanos en Maracaibo. Stack: PHP, MySQL, JavaScript. Demo: https://www.amavida.org.ve/
+- [Wilmer Nadín - Holistic Center](https://nikenver-portafolio.vercel.app/proyectos/wilmer-nadin-holistic-center): Tienda online y blog editorial para centro holístico. Stack: PrestaShop, PHP, MySQL. Demo: https://wilmernadin.com/
 
-- Correo y WhatsApp: disponibles en [Contacto](https://nikenver-portafolio.vercel.app/contacto) (protegidos contra bots de spam, un clic los revela).
-- LinkedIn: https://linkedin.com/in/nikenver
+## Servicios Profesionales
+
+1. **Sistemas Administrativos y ERPs a Medida**: Centralización de inventario por unidad física (FEFO), facturación, compras, cuentas por cobrar (FIFO) y control multi-sucursal.
+2. **E-commerce y Catálogos de Venta Directa**: Tiendas online ultra rápidas con Angular SSR / SSG, integración de carritos sin fricción a WhatsApp y pasarelas multimoneda (BCV, Zelle, Pago Móvil).
+3. **Desarrollo Frontend Moderno con Angular y React**: Interfaces reactivas con Signals, accesibilidad WCAG, maquetación responsive Mobile-First y PWA.
+4. **Arquitectura Backend y APIs REST en Laravel / .NET**: Diseño de bases de datos PostgreSQL con triggers, RLS y lógica de negocio inmutable.
+5. **Consultoría y Auditoría Técnica**: Optimización de Core Web Vitals, SEO técnico y posicionamiento para motores de inteligencia artificial (AIO / GEO).
+
+## Información de Contacto Directo
+
+- **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **LinkedIn**: https://linkedin.com/in/nikenver
+- **Página de Contacto**: https://nikenver-portafolio.vercel.app/contacto (WhatsApp y correo directo a un clic)
+- **Documentación Completa para LLMs**: https://nikenver-portafolio.vercel.app/llms-full.txt

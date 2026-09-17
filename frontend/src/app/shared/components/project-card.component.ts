@@ -57,11 +57,22 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
               </h3>
             </div>
           </div>
-          @if (project.company) {
-            <span class="rounded-full border border-border px-2 py-1 text-xs text-text-muted">
-              {{ project.company }}
-            </span>
-          }
+          <div class="flex items-center gap-1.5 shrink-0">
+            @if (project.has_cicd) {
+              <span
+                class="inline-flex items-center gap-1 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-2 py-0.5 font-sans text-[11px] font-medium text-accent-cyan"
+                [title]="'projects.cicdTooltip' | t: locale.locale()"
+              >
+                <span class="material-symbols-outlined text-[13px] leading-none" aria-hidden="true">sync</span>
+                CI/CD
+              </span>
+            }
+            @if (project.company) {
+              <span class="rounded-full border border-border px-2 py-1 text-xs text-text-muted">
+                {{ project.company }}
+              </span>
+            }
+          </div>
         </div>
         @if (project.tagline) {
           <p class="mb-3 text-sm text-text-secondary">{{ project.tagline | t: locale.locale() }}</p>

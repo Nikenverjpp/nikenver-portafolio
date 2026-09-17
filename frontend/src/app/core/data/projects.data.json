@@ -19,20 +19,78 @@
       "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
     },
     "solution": {
-      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en una capa de servicios: despacho de inventario bajo la regla <b>FEFO</b>, asignación de pagos entrantes bajo <b>FIFO</b> y recálculo automático de cuotas cuando hay una devolución. <b>Row-Level Security</b> aísla lo que cada vendedor puede ver, con <b>RBAC</b> vía Spatie y auditoría de las acciones sensibles. El frontend en <b>Angular</b> usa <b>Standalone Components</b> y <b>Signals</b>, pensado para tablets en el mostrador y en la calle, y escritorio para el administrador. Incluye además hardening <b>OWASP Top 10</b>: rate limiting, cabeceras de seguridad, sanitización de archivos y consultas parametrizadas.",
-      "en": "The <b>Laravel</b> backend concentrates the critical logic in a dedicated service layer: <b>FEFO</b>-based inventory dispatch, <b>FIFO</b>-based allocation of incoming payments, and automatic installment recalculation on returns. Strict <b>row-level security</b> isolates what each salesperson can see, with <b>RBAC</b> via Spatie and auditing of sensitive actions. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, built for tablets at the counter and out in the field, and desktop for the admin. It also includes <b>OWASP Top 10</b> hardening: rate limiting, security headers, file sanitization and parameterized queries."
+      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle. La robustez está respaldada por 147 suites de tests automatizados (711 pruebas) ejecutadas contra PostgreSQL real.",
+      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets, backed by 147 test suites (711 automated tests) run against real PostgreSQL."
     },
     "results": {
-      "es": "En fase final de desarrollo, próximo a producción como <b>PWA</b>. Reemplaza las hojas de cálculo sueltas por una sola herramienta donde el inventario y las finanzas cuadran siempre.",
-      "en": "In its final development stage, close to shipping as a <b>PWA</b>. Replaces loose spreadsheets with a single tool where inventory and finances always add up."
+      "es": "En producción como PWA (<code>subladmin.vercel.app</code>), respaldando la operación integral de compras, inventario, ventas y cobranza de Sublimax con consistencia transaccional absoluta.",
+      "en": "In production as a PWA (<code>subladmin.vercel.app</code>), powering Sublimax's full purchasing, inventory, sales and collection operations with rock-solid transactional consistency."
     },
-    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "CI/CD"],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "147 suites de pruebas automatizadas (711 tests) con PHPUnit sobre PostgreSQL real, análisis estático y validación estricta de tipos en Angular.",
+        "en": "147 automated test suites (711 tests) with PHPUnit on real PostgreSQL, static analysis and strict Angular type checking."
+      },
+      "cd": {
+        "es": "Despliegue continuo en Vercel para frontend PWA y sincronización automatizada de producción tras superar la suite completa de pruebas.",
+        "en": "Continuous deployment to Vercel for the PWA frontend and automated production synchronization upon passing the full test suite."
+      }
+    },
     "company": "Sublimax",
     "thumbnail_url": "/img/logos/sublimax.webp",
     "preview_image_url": "/img/previews/subladmin.webp",
-    "demo_url": "https://sublabmin.vercel.app/",
+    "demo_url": "https://subladmin.vercel.app/",
     "is_featured": true,
     "sort_order": 1,
+    "year": 2026
+  },
+  {
+    "id": "11",
+    "slug": "sublimax-catalogo-publico",
+    "title": {
+      "es": "Sublimax - Catálogo Público y Carrito por WhatsApp",
+      "en": "Sublimax - Public Catalog & WhatsApp Cart"
+    },
+    "tagline": {
+      "es": "E-commerce de autoservicio con ficha olfativa interactiva, PWA offline y checkout directo a WhatsApp",
+      "en": "Self-service e-commerce with interactive scent breakdown, offline PWA and direct WhatsApp checkout"
+    },
+    "description": {
+      "es": "Canal público de e-commerce para Sublimax: permite a los clientes explorar el catálogo de perfumería y personalización textil DTF en tiempo real, consultar fichas olfativas interactivas y armar pedidos con carrito local que se envían directamente a WhatsApp sin requerir registro ni backend propio para el carrito.",
+      "en": "Public e-commerce storefront for Sublimax: lets customers browse live perfumery and DTF apparel catalogs, inspect interactive fragrance profiles, and build orders via a local cart routed directly to WhatsApp without registration or cart backend."
+    },
+    "challenge": {
+      "es": "Ofrecer una experiencia de compra rápida, de alta conversión y sin fricción para el mercado venezolano, protegiendo los datos sensibles de inventario y costos del ERP Subladmin, con soporte offline y tiempos de carga instantáneos en dispositivos móviles.",
+      "en": "Delivering a fast, high-converting, friction-free shopping experience for the Venezuelan market while shielding sensitive inventory and cost data from the Subladmin ERP, featuring offline support and instant mobile load times."
+    },
+    "solution": {
+      "es": "Frontend en <b>Angular</b> con <b>Standalone Components</b>, <b>Signals</b> y <b>Tailwind CSS</b>, conectado a la API de Subladmin con endpoints públicos seguros (<code>/api/catalogo-publico/**</code>) que topan el stock a 10 unidades y excluyen costos y SKUs. Incorpora un carrito 100% en <b>localStorage</b> con revalidación de precio y disponibilidad al momento de generar el mensaje estructurado para WhatsApp. Incluye fichas olfativas con pirámide de notas porcentuales, marcas de agua automáticas con el logo de Sublimax procesadas en <b>Cloudinary</b>, telemetría de comercio electrónico con <b>Google Analytics 4</b> (funnel completo), <b>PWA</b> con caché offline vía Service Worker, y una arquitectura <b>AIO / GEO</b> y <b>SEO</b> integral con <b>Schema.org JSON-LD</b> (<code>Product</code>, <code>Offer</code>, <code>OnlineStore</code>, <code>FAQPage</code>), sitemap dinámico con imágenes y protocolo <b>llms.txt</b> para visibilidad en ChatGPT Search y Perplexity.",
+      "en": "<b>Angular</b> frontend with <b>Standalone Components</b>, <b>Signals</b> and <b>Tailwind CSS</b> consuming hardened Subladmin API endpoints (<code>/api/catalogo-publico/**</code>) capping stock display at 10 units and stripping cost and SKU data. Features a 100% <b>localStorage</b> cart revalidating live prices before generating structured WhatsApp order messages. Includes interactive fragrance pyramids, automatic Cloudinary watermarks, <b>Google Analytics 4</b> e-commerce funnel tracking, offline <b>PWA</b> caching, and a full <b>AIO / GEO</b> and <b>SEO</b> architecture with <b>Schema.org JSON-LD</b>, dynamic image sitemaps, and <b>llms.txt</b> for ChatGPT Search and Perplexity visibility."
+    },
+    "results": {
+      "es": "En producción en Vercel (<code>sublimaxcatalogo.vercel.app</code>), canal oficial de venta digital de Sublimax con visualizaciones constantes y pedidos cerrados por WhatsApp con alta tasa de conversión.",
+      "en": "In production on Vercel (<code>sublimaxcatalogo.vercel.app</code>), serving as Sublimax's official digital sales channel driving WhatsApp-closed orders with high conversion."
+    },
+    "stack": ["Angular", "TypeScript", "Tailwind CSS", "Laravel", "PostgreSQL", "Cloudinary", "PWA", "CI/CD"],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "Validación automática de compilación, verificación estricta de tipos TypeScript y chequeo de optimización de assets.",
+        "en": "Automated build verification, strict TypeScript type checking and asset optimization audits."
+      },
+      "cd": {
+        "es": "Despliegue continuo en la red Edge CDN de Vercel con purga instantánea de caché ante cada integración en la rama de producción.",
+        "en": "Continuous deployment to Vercel's Edge CDN with instant cache invalidation upon each merge to the production branch."
+      }
+    },
+    "company": "Sublimax",
+    "thumbnail_url": "/img/logos/sublimax.webp",
+    "preview_image_url": "/img/previews/sublimax-catalogo.webp",
+    "demo_url": "https://sublimaxcatalogo.vercel.app/",
+    "is_featured": true,
+    "sort_order": 2,
     "year": 2026
   },
   {
@@ -62,7 +120,18 @@
       "es": "En producción, con un panel <b>Filament</b> para manejar catálogo, pedidos, leads y blog, y <b>SSR</b> activo para que cargue rápido y posicione bien en buscadores.",
       "en": "In production, with a <b>Filament</b> panel for managing catalog, orders, leads and blog, and <b>SSR</b> keeping load times fast and search rankings healthy."
     },
-    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "Filament"],
+    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "Filament", "CI/CD"],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "Pipeline de validación de compilación Angular SSR y chequeo de consistencia de esquemas relacionales.",
+        "en": "Angular SSR build validation pipeline and relational schema consistency checks."
+      },
+      "cd": {
+        "es": "Despliegue continuo hacia Firebase Hosting y Cloud Functions tras aprobación de revisiones.",
+        "en": "Continuous deployment to Firebase Hosting and Cloud Functions upon approved reviews."
+      }
+    },
     "thumbnail_url": "/img/logos/axsence.svg",
     "preview_image_url": "/img/previews/axsence.webp",
     "demo_url": "https://axsence.web.app/",
@@ -115,6 +184,11 @@
     "preview_image_url": "/img/previews/sublimax-instagram.webp",
     "links": [
       {
+        "label": { "es": "Catálogo online", "en": "Online catalog" },
+        "url": "https://sublimaxcatalogo.vercel.app/",
+        "preview_image_url": "/img/previews/sublimax-catalogo.webp"
+      },
+      {
         "label": { "es": "Instagram", "en": "Instagram" },
         "url": "https://www.instagram.com/sublimaxss_",
         "preview_image_url": "/img/previews/sublimax-instagram.webp"
@@ -162,7 +236,18 @@
       "es": "Menos tiempo operativo y mejor experiencia para usuarios internos y clientes.",
       "en": "Less operational time spent, and a better experience for internal users and customers."
     },
-    "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server", "Tailwind CSS"],
+    "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server", "Tailwind CSS", "CI/CD"],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "Pipelines en Azure DevOps con compilación automatizada de soluciones .NET y builds modulares de Angular.",
+        "en": "Azure DevOps pipelines with automated builds for .NET solutions and modular Angular builds."
+      },
+      "cd": {
+        "es": "Despliegue continuo hacia entornos de staging y servidores corporativos de producción.",
+        "en": "Continuous deployment to staging environments and corporate production servers."
+      }
+    },
     "company": "Grupo Cobeca",
     "preview_image_url": "/img/previews/cobeca.webp",
     "links": [
@@ -228,7 +313,18 @@
       "es": "Publicado en <b>Vercel</b> con integración continua desde <b>GitHub</b>, listo para jugar en cualquier dispositivo con cámara o micrófono.",
       "en": "Deployed on <b>Vercel</b> with continuous deployment from <b>GitHub</b>, ready to play on any device with a camera or microphone."
     },
-    "stack": ["JavaScript", "HTML", "CSS"],
+    "stack": ["JavaScript", "HTML", "CSS", "CI/CD"],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "Integración continua con GitHub Actions para validación estática de sintaxis.",
+        "en": "Continuous integration via GitHub Actions for static syntax validation."
+      },
+      "cd": {
+        "es": "Despliegue continuo instantáneo en Vercel ante cada push a la rama principal.",
+        "en": "Instant continuous deployment to Vercel upon each push to the main branch."
+      }
+    },
     "thumbnail_url": "/img/logos/isla-de-dinosaurios.webp",
     "preview_image_url": "/img/previews/isla-de-dinosaurios.webp",
     "demo_url": "https://isla-dinosaurio-app.vercel.app/",

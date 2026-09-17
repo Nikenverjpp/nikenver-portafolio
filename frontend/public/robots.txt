@@ -1,4 +1,27 @@
 User-agent: *
 Allow: /
 
+# Motores de Inteligencia Artificial (AIO / GEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps y Manifiestos para LLMs
 Sitemap: https://nikenver-portafolio.vercel.app/sitemap.xml
+# llms.txt: https://nikenver-portafolio.vercel.app/llms.txt
+# llms-full.txt: https://nikenver-portafolio.vercel.app/llms-full.txt
+# aeo.json: https://nikenver-portafolio.vercel.app/aeo.json

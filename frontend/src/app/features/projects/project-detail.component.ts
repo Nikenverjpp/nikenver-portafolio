@@ -1,5 +1,5 @@
-import { AsyncPipe, DOCUMENT } from '@angular/common';
-import { Component, OnDestroy, effect, inject, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, OnDestroy, effect, inject, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
@@ -66,9 +66,20 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
             </span>
           }
           <div>
-            @if (project.year) {
-              <p class="font-sans text-xs text-text-muted">{{ project.year }}</p>
-            }
+            <div class="flex items-center gap-2">
+              @if (project.year) {
+                <p class="font-sans text-xs text-text-muted">{{ project.year }}</p>
+              }
+              @if (project.has_cicd) {
+                <span
+                  class="inline-flex items-center gap-1 rounded-full border border-accent-cyan/40 bg-accent-cyan/10 px-2.5 py-0.5 font-sans text-xs font-medium text-accent-cyan"
+                  [title]="'projects.cicdTooltip' | t: locale.locale()"
+                >
+                  <span class="material-symbols-outlined text-[13px] leading-none" aria-hidden="true">sync</span>
+                  {{ 'projects.cicdBadge' | t: locale.locale() }}
+                </span>
+              }
+            </div>
             <h1 class="section-title mt-2">{{ project.title | t: locale.locale() }}</h1>
             @if (project.tagline) {
               <p class="mt-3 text-lg text-text-secondary">{{ project.tagline | t: locale.locale() }}</p>
@@ -112,6 +123,38 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
               {{ 'projects.detailResults' | t: locale.locale() }}
             </h2>
             <p [innerHTML]="project.results | t: locale.locale()"></p>
+          </section>
+        }
+
+        @if (project.has_cicd && project.cicd) {
+          <section appRevealOnScroll class="card-surface mt-8 max-w-3xl overflow-hidden rounded-xl border border-accent-cyan/20 p-6">
+            <div class="flex items-center gap-2.5 text-accent-cyan">
+              <span class="material-symbols-outlined text-xl" aria-hidden="true">published_with_changes</span>
+              <h2 class="font-display text-lg font-semibold text-text-primary">
+                {{ 'projects.cicdSectionTitle' | t: locale.locale() }}
+              </h2>
+            </div>
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-lg border border-border/80 bg-bg-primary/60 p-4">
+                <div class="flex items-center gap-2 font-display text-sm font-semibold text-accent-cyan">
+                  <span class="material-symbols-outlined text-base" aria-hidden="true">rule</span>
+                  {{ 'projects.ciTitle' | t: locale.locale() }}
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {{ project.cicd.ci | t: locale.locale() }}
+                </p>
+              </div>
+
+              <div class="rounded-lg border border-border/80 bg-bg-primary/60 p-4">
+                <div class="flex items-center gap-2 font-display text-sm font-semibold text-accent-amber">
+                  <span class="material-symbols-outlined text-base" aria-hidden="true">rocket_launch</span>
+                  {{ 'projects.cdTitle' | t: locale.locale() }}
+                </div>
+                <p class="mt-2 text-sm leading-relaxed text-text-secondary">
+                  {{ project.cicd.cd | t: locale.locale() }}
+                </p>
+              </div>
+            </div>
           </section>
         }
 
@@ -160,6 +203,7 @@ export class ProjectDetailComponent implements OnDestroy {
   private readonly pageTitle = inject(Title);
   private readonly pageMeta = inject(Meta);
   private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
   readonly locale = inject(LocaleService);
 
   readonly project$ = this.route.paramMap.pipe(
@@ -211,14 +255,43 @@ export class ProjectDetailComponent implements OnDestroy {
   ): void {
     const jsonLd = {
       '@context': 'https://schema.org',
-      '@type': 'CreativeWork',
-      name: project.title[locale],
-      description,
-      image,
-      url: `${SITE_ORIGIN}/proyectos/${project.slug}`,
-      keywords: project.stack?.join(', '),
-      author: { '@type': 'Person', name: 'Nikenver Pulgar', url: SITE_ORIGIN },
-      ...(project.year ? { dateCreated: `${project.year}` } : {}),
+      '@graph': [
+        {
+          '@type': 'SoftwareApplication',
+          name: project.title[locale],
+          description,
+          image,
+          url: `${SITE_ORIGIN}/proyectos/${project.slug}`,
+          applicationCategory: 'WebApplication',
+          operatingSystem: 'Web Browser',
+          keywords: project.stack?.join(', '),
+          author: { '@type': 'Person', name: 'Nikenver Pulgar', url: SITE_ORIGIN },
+          ...(project.year ? { dateCreated: `${project.year}` } : {}),
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            {
+              '@type': 'ListItem',
+              position: 1,
+              name: locale === 'es' ? 'Inicio' : 'Home',
+              item: `${SITE_ORIGIN}/`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 2,
+              name: locale === 'es' ? 'Proyectos' : 'Projects',
+              item: `${SITE_ORIGIN}/proyectos`,
+            },
+            {
+              '@type': 'ListItem',
+              position: 3,
+              name: project.title[locale],
+              item: `${SITE_ORIGIN}/proyectos/${project.slug}`,
+            },
+          ],
+        },
+      ],
     };
 
     let script = this.document.getElementById(JSONLD_SCRIPT_ID) as HTMLScriptElement | null;
@@ -232,10 +305,12 @@ export class ProjectDetailComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.document.getElementById(JSONLD_SCRIPT_ID)?.remove();
-    // Reset to the default profile image so a later static route doesn't inherit this project's og:image.
-    const defaultImage = `${SITE_ORIGIN}/img/nikenver-pulgar.webp`;
-    this.pageMeta.updateTag({ property: 'og:image', content: defaultImage });
-    this.pageMeta.updateTag({ name: 'twitter:image', content: defaultImage });
+    if (isPlatformBrowser(this.platformId)) {
+      this.document.getElementById(JSONLD_SCRIPT_ID)?.remove();
+      // Reset to the default profile image so a later static route doesn't inherit this project's og:image.
+      const defaultImage = `${SITE_ORIGIN}/img/nikenver-pulgar.webp`;
+      this.pageMeta.updateTag({ property: 'og:image', content: defaultImage });
+      this.pageMeta.updateTag({ name: 'twitter:image', content: defaultImage });
+    }
   }
 }

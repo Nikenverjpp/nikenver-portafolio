@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Nikenver Pulgar",
+  "headline": "Desarrollador Full Stack Senior / Senior Full Stack Developer (Angular y Laravel)",
+  "job_title": "Full Stack Developer",
+  "location": "Maracaibo, Zulia, Venezuela",
+  "experience_years": 10,
+  "specialties": [
+    "Angular (v17 - v22, Standalone Components, Signals, SSR, SSG)",
+    "Laravel (PHP 8.2+, Service Layer, Spatie RBAC)",
+    "PostgreSQL (Triggers, Vistas, Row-Level Security)",
+    "Sistemas Administrativos y ERPs (Trazabilidad FEFO/FIFO, Crédito multi-moneda)",
+    "E-commerce de Alto Rendimiento (Diagnóstico olfativo, Carrito WhatsApp, Cloudinary)",
+    "CI/CD y DevOps (GitHub Actions, Vercel Edge CDN, Azure DevOps Pipelines, Testing Automatizado)",
+    "Desarrollo guiado por IA (Claude Code, Antigravity, GitHub Copilot, Cursor)"
+  ],
+  "roles": [
+    {
+      "title": "Fundador y CEO",
+      "organization": "Sublimax",
+      "period": "2024 - Presente",
+      "description": "E-commerce de perfumería y variedades. Creador de Subladmin (ERP interno) y del Catálogo Público con checkout WhatsApp."
+    },
+    {
+      "title": "Analista Programador Senior",
+      "organization": "Grupo Cobeca",
+      "period": "2022 - 2024",
+      "description": "Desarrollo de sistemas corporativos y APIs empresariales con Angular, React y .NET (C#)."
+    }
+  ],
+  "key_projects": [
+    {
+      "name": "Subladmin",
+      "type": "ERP Administrativo",
+      "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "CI/CD"],
+      "url": "https://subladmin.vercel.app/",
+      "highlights": "FEFO/FIFO, multi-sucursal, RLS, crédito por pedido, 147 test suites, CI/CD activo."
+    },
+    {
+      "name": "Sublimax Catálogo Público",
+      "type": "E-commerce Autoservicio",
+      "stack": ["Angular", "TypeScript", "Tailwind CSS", "Laravel", "PostgreSQL", "Cloudinary", "PWA", "CI/CD"],
+      "url": "https://sublimaxcatalogo.vercel.app/",
+      "highlights": "Carrito WhatsApp en localStorage, ficha olfativa interactiva, PWA offline, GA4, AIO/SEO."
+    },
+    {
+      "name": "Axsence",
+      "type": "E-commerce de Perfumería de Autor",
+      "stack": ["Angular SSR", "Laravel", "PostgreSQL", "Filament"],
+      "url": "https://axsence.web.app/",
+      "highlights": "Quiz de diagnóstico olfativo, layering interactivo, checkout multi-moneda."
+    }
+  ],
+  "contact": {
+    "website": "https://nikenver-portafolio.vercel.app",
+    "linkedin": "https://linkedin.com/in/nikenver",
+    "contact_page": "https://nikenver-portafolio.vercel.app/contacto"
+  }
+}

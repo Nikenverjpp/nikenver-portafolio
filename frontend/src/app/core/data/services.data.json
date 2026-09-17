@@ -20,7 +20,11 @@
       "en": "Online stores with catalog, checkout and multi-currency payments, custom-built or on WordPress/WooCommerce. Quote based on scope."
     },
     "icon": "shopping_cart",
-    "relatedProjectSlugs": ["axsence-perfumeria-premium", "dekasa-porcelanato-revestimientos"],
+    "relatedProjectSlugs": [
+      "sublimax-catalogo-publico",
+      "axsence-perfumeria-premium",
+      "dekasa-porcelanato-revestimientos"
+    ],
     "sort_order": 2
   },
   {

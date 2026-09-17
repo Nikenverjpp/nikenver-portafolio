@@ -1,4 +1,4 @@
-﻿import { LocalizedText, NamedLink } from '@core/i18n/localized-text.model';
+import { LocalizedText, NamedLink } from '@core/i18n/localized-text.model';
 import { SocialPost } from './social-post.model';
 
 export interface Project {
@@ -25,5 +25,10 @@ export interface Project {
   is_featured: boolean;
   sort_order: number;
   year?: number;
+  has_cicd?: boolean;
+  cicd?: {
+    ci: LocalizedText;
+    cd: LocalizedText;
+  };
 }
 

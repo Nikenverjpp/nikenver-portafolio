@@ -1,5 +1,6 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, inject, effect, OnDestroy, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { combineLatest, map } from 'rxjs';
 import { Project } from '@core/models/project.model';
@@ -8,6 +9,9 @@ import { ServiceService } from '@core/api/service.service';
 import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
+
+const SERVICES_JSONLD_ID = 'services-jsonld';
+const SITE_ORIGIN = 'https://nikenver-portafolio.vercel.app';
 
 @Component({
   selector: 'app-services',
@@ -138,9 +142,11 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
     </section>
   `,
 })
-export class ServicesComponent {
+export class ServicesComponent implements OnDestroy {
   private readonly serviceApi = inject(ServiceService);
   private readonly projectApi = inject(ProjectService);
+  private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
   readonly locale = inject(LocaleService);
 
   readonly services$ = combineLatest([this.serviceApi.list(), this.projectApi.list()]).pipe(
@@ -153,4 +159,69 @@ export class ServicesComponent {
       }))
     )
   );
+
+  private readonly servicesSignal = toSignal(this.services$, { requireSync: true });
+
+  constructor() {
+    this.updateJsonLd(this.servicesSignal(), this.locale.locale());
+
+    effect(() => {
+      const services = this.servicesSignal();
+      const loc = this.locale.locale();
+      this.updateJsonLd(services, loc);
+    });
+  }
+
+  private updateJsonLd(services: typeof this.servicesSignal extends () => infer T ? T : never, loc: 'es' | 'en'): void {
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      name:
+        loc === 'es'
+          ? 'Servicios de Desarrollo de Software - Nikenver Pulgar'
+          : 'Software Development Services - Nikenver Pulgar',
+      description:
+        loc === 'es'
+          ? 'Desarrollo web a medida con Angular y Laravel: ERPs, e-commerce con checkout WhatsApp, landing pages y consultoría técnica.'
+          : 'Custom web development with Angular and Laravel: ERPs, e-commerce with WhatsApp checkout, landing pages, and technical consulting.',
+      url: `${SITE_ORIGIN}/servicios`,
+      provider: {
+        '@type': 'Person',
+        name: 'Nikenver Pulgar',
+        url: SITE_ORIGIN,
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Maracaibo',
+        addressCountry: 'VE',
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: loc === 'es' ? 'Catálogo de Servicios Profesionales' : 'Professional Services Catalog',
+        itemListElement: services.map((s) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: s.title[loc],
+            description: s.description[loc],
+          },
+        })),
+      },
+    };
+
+    let script = this.document.getElementById(SERVICES_JSONLD_ID) as HTMLScriptElement | null;
+    if (!script) {
+      script = this.document.createElement('script');
+      script.id = SERVICES_JSONLD_ID;
+      script.type = 'application/ld+json';
+      this.document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(jsonLd);
+  }
+
+  ngOnDestroy(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.document.getElementById(SERVICES_JSONLD_ID)?.remove();
+    }
+  }
 }
