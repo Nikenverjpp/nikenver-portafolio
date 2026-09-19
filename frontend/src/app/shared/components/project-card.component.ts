@@ -33,8 +33,8 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         </a>
       }
       <div class="flex flex-col p-5">
-        <div class="mb-2 flex items-start justify-between gap-3">
-          <div class="flex items-start gap-3">
+        @if (project.thumbnail_url || project.year) {
+          <div class="mb-3 flex items-center justify-between gap-3">
             @if (project.thumbnail_url) {
               <span class="logo-chip h-11 w-11">
                 <img
@@ -48,16 +48,20 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
                 />
               </span>
             }
-            <div>
-              @if (project.year) {
-                <p class="font-sans text-xs text-text-muted">{{ project.year }}</p>
-              }
-              <h3 class="mt-1 font-display text-xl font-semibold text-text-primary group-hover:text-accent-cyan">
-                <a [routerLink]="['/proyectos', project.slug]">{{ project.title | t: locale.locale() }}</a>
-              </h3>
-            </div>
+            @if (project.year) {
+              <span class="font-sans text-xs text-text-muted">
+                {{ project.year }}
+              </span>
+            }
           </div>
-          <div class="flex items-center gap-1.5 shrink-0">
+        }
+        <h3 class="font-display text-xl font-semibold text-text-primary group-hover:text-accent-cyan">
+          <a [routerLink]="['/proyectos', project.slug]" class="block">
+            {{ project.title | t: locale.locale() }}
+          </a>
+        </h3>
+        @if (project.has_cicd || project.company) {
+          <div class="mt-2.5 flex flex-wrap items-center gap-1.5">
             @if (project.has_cicd) {
               <span
                 class="inline-flex items-center gap-1 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-2 py-0.5 font-sans text-[11px] font-medium text-accent-cyan"
@@ -68,12 +72,12 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
               </span>
             }
             @if (project.company) {
-              <span class="rounded-full border border-border px-2 py-1 text-xs text-text-muted">
+              <span class="rounded-full border border-border px-2 py-0.5 text-xs text-text-muted">
                 {{ project.company }}
               </span>
             }
           </div>
-        </div>
+        }
         @if (project.tagline) {
           <p class="mb-3 text-sm text-text-secondary">{{ project.tagline | t: locale.locale() }}</p>
         }
