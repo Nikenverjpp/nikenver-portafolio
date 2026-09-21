@@ -175,8 +175,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'What experience does Nikenver have in ERPs and administrative systems?',
   },
   'projects.faq1Answer': {
-    es: 'Diseñó y programó Subladmin, un ERP completo para Sublimax con lógica de inventario FEFO por unidad física, asignación de pagos FIFO, planes de crédito a cuotas con recálculo automático, arquitectura multi-sucursal y Row-Level Security, respaldado por 147 suites de tests sobre PostgreSQL real.',
-    en: 'He designed and programmed Subladmin, a complete ERP for Sublimax featuring unit-level FEFO inventory logic, FIFO payment allocation, installment credit plans with automatic recalculation, multi-branch architecture and Row-Level Security, backed by 147 test suites on real PostgreSQL.',
+    es: 'Diseñó y programó Subladmin, un ERP completo para Sublimax con lógica de inventario FEFO por unidad física, asignación de pagos FIFO, planes de crédito a cuotas con recálculo automático, arquitectura multi-sucursal y Row-Level Security, respaldado por 766 tests de backend y 654 de frontend sobre PostgreSQL real.',
+    en: 'He designed and programmed Subladmin, a complete ERP for Sublimax featuring unit-level FEFO inventory logic, FIFO payment allocation, installment credit plans with automatic recalculation, multi-branch architecture and Row-Level Security, backed by 766 backend tests and 654 frontend tests on real PostgreSQL.',
   },
   'projects.faq2Question': {
     es: '¿Cómo aborda el desarrollo de E-commerce y catálogos de venta?',
@@ -207,8 +207,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'How do you implement continuous integration and delivery (CI/CD) in your projects?',
   },
   'projects.faq5Answer': {
-    es: 'Aplico pipelines automatizados con verificación de tipos, linters, pruebas unitarias y de integración (como las 147 suites de Subladmin con PHPUnit y PostgreSQL), y despliegue continuo (CD) hacia Vercel, Firebase y entornos cloud ante cada merge aprobado a la rama principal.',
-    en: 'I implement automated pipelines with type checking, linters, unit and integration tests (such as Subladmin\'s 147 test suites with PHPUnit and PostgreSQL), and continuous delivery (CD) to Vercel, Firebase, and cloud environments on every approved main-branch merge.',
+    es: 'Aplico pipelines automatizados con verificación de tipos, linters, pruebas unitarias y de integración (como los 766 tests de backend y 654 de frontend de Subladmin con PHPUnit, Vitest y PostgreSQL), y despliegue continuo (CD) hacia Vercel, Firebase y entornos cloud gateado por el paso de esos tests en la rama principal.',
+    en: 'I implement automated pipelines with type checking, linters, unit and integration tests (such as Subladmin\'s 766 backend and 654 frontend tests with PHPUnit, Vitest and PostgreSQL), and continuous delivery (CD) to Vercel, Firebase, and cloud environments gated on those tests passing on the main branch.',
   },
 
   'projects.cicdBadge': { es: 'CI/CD Activo', en: 'CI/CD Active' },

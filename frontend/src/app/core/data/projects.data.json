@@ -19,8 +19,8 @@
       "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
     },
     "solution": {
-      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle. La robustez está respaldada por 147 suites de tests automatizados (711 pruebas) ejecutadas contra PostgreSQL real.",
-      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets, backed by 147 test suites (711 automated tests) run against real PostgreSQL."
+      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle. El panel envía notificaciones push reales del sistema operativo con <b>Web Push/VAPID</b> para avisar cambios en la tasa del día, además de un centro de alertas propio para tasa desactualizada, stock bajo y cuotas vencidas que se pueden marcar como leídas. La robustez está respaldada por 766 tests de backend con PHPUnit sobre PostgreSQL real y 654 tests de frontend con Vitest.",
+      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets. The admin panel sends real OS-level push notifications via <b>Web Push/VAPID</b> for daily exchange-rate changes, alongside a dismissible in-app alert center for stale rates, low stock and overdue installments. It's backed by 766 backend tests with PHPUnit on real PostgreSQL and 654 frontend tests with Vitest."
     },
     "results": {
       "es": "En producción como PWA (<code>subladmin.vercel.app</code>), respaldando la operación integral de compras, inventario, ventas y cobranza de Sublimax con consistencia transaccional absoluta.",
@@ -30,12 +30,12 @@
     "has_cicd": true,
     "cicd": {
       "ci": {
-        "es": "147 suites de pruebas automatizadas (711 tests) con PHPUnit sobre PostgreSQL real, análisis estático y validación estricta de tipos en Angular.",
-        "en": "147 automated test suites (711 tests) with PHPUnit on real PostgreSQL, static analysis and strict Angular type checking."
+        "es": "766 tests de backend con PHPUnit sobre PostgreSQL real, 654 tests de frontend con Vitest y build estricto de Angular.",
+        "en": "766 backend tests with PHPUnit on real PostgreSQL, 654 frontend tests with Vitest and a strict Angular build."
       },
       "cd": {
-        "es": "Despliegue continuo en Vercel para frontend PWA y sincronización automatizada de producción tras superar la suite completa de pruebas.",
-        "en": "Continuous deployment to Vercel for the PWA frontend and automated production synchronization upon passing the full test suite."
+        "es": "Despliegue gateado exclusivamente por CI: al pasar los tests en un push a <code>main</code>, un mismo workflow despliega el backend en Render y los dos frontends de Vercel (panel admin y catálogo público) vía su CLI. El auto-deploy por git push está desactivado en las tres plataformas.",
+        "en": "Deploys are gated exclusively by CI: once tests pass on a push to <code>main</code>, a single workflow deploys the backend to Render and both Vercel frontends (admin panel and public catalog) via the Vercel CLI. Git-push auto-deploy is disabled on all three platforms."
       }
     },
     "company": "Sublimax",
@@ -77,12 +77,12 @@
     "has_cicd": true,
     "cicd": {
       "ci": {
-        "es": "Validación automática de compilación, verificación estricta de tipos TypeScript y chequeo de optimización de assets.",
-        "en": "Automated build verification, strict TypeScript type checking and asset optimization audits."
+        "es": "Comparte el pipeline de CI de Subladmin (mismo repo): los 766 tests de backend y 654 de frontend deben pasar antes de compilar y desplegar.",
+        "en": "Shares Subladmin's CI pipeline (same monorepo): all 766 backend tests and 654 frontend tests must pass before it builds and deploys."
       },
       "cd": {
-        "es": "Despliegue continuo en la red Edge CDN de Vercel con purga instantánea de caché ante cada integración en la rama de producción.",
-        "en": "Continuous deployment to Vercel's Edge CDN with instant cache invalidation upon each merge to the production branch."
+        "es": "Se despliega junto con el panel admin desde el mismo workflow: al pasar el gate de tests, el job de CI publica el build directo a la red Edge de Vercel vía su CLI. El auto-deploy nativo de Vercel está desactivado.",
+        "en": "Deploys alongside the admin panel from the same workflow: once the test gate passes, the CI job pushes the build straight to Vercel's Edge network via the Vercel CLI. Vercel's own auto-deploy is disabled."
       }
     },
     "company": "Sublimax",

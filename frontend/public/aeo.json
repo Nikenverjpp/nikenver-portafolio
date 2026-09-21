@@ -34,7 +34,7 @@
       "type": "ERP Administrativo",
       "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "CI/CD"],
       "url": "https://subladmin.vercel.app/",
-      "highlights": "FEFO/FIFO, multi-sucursal, RLS, crédito por pedido, 147 test suites, CI/CD activo."
+      "highlights": "FEFO/FIFO, multi-sucursal, RLS, crédito por pedido, push notifications Web Push/VAPID, 766+654 tests, CI/CD activo."
     },
     {
       "name": "Sublimax Catálogo Público",

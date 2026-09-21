@@ -30,8 +30,8 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
    - Hardening **OWASP Top 10**: sanitización de entradas, rate limiting, cabeceras de seguridad estrictas (CSP, HSTS, X-Frame-Options), y consultas parametrizadas.
 
 6. **Cultura CI/CD y Automatización DevOps**:
-   - **Integración Continua (CI)**: Pipelines automatizados con análisis estático, linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como las 147 suites y 711 pruebas en Subladmin con PHPUnit sobre PostgreSQL real).
-   - **Despliegue Continuo (CD)**: Despliegues automáticos hacia la red Edge de Vercel (con SSG/SSR y purga de caché) y entornos cloud ante cada merge aprobado a la rama principal.
+   - **Integración Continua (CI)**: Pipelines automatizados con linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como los 766 tests de backend y 654 de frontend en Subladmin con PHPUnit, Vitest y PostgreSQL real).
+   - **Despliegue Continuo (CD)**: Despliegues gateados exclusivamente por el paso de esos tests hacia Render, la red Edge de Vercel y entornos cloud, con el auto-deploy nativo de cada plataforma desactivado.
 
 ---
 
@@ -43,7 +43,7 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **URL de Demo**: [https://subladmin.vercel.app/](https://subladmin.vercel.app/)
 - **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo](https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo)
 - **Stack Tecnológico**: Angular (Standalone Components, Signals), Laravel (PHP 8.3), PostgreSQL (Triggers, RLS, Vistas), Tailwind CSS, CI/CD.
-- **Pipeline CI/CD**: 147 suites de tests automatizados (711 pruebas) con PHPUnit en PostgreSQL real + validación estricta de tipos en Angular y despliegue continuo en Vercel.
+- **Pipeline CI/CD**: 766 tests de backend con PHPUnit en PostgreSQL real + 654 tests de frontend con Vitest, con deploy a Render y Vercel gateado exclusivamente por el paso de esos tests (auto-deploy nativo desactivado en las tres plataformas).
 - **Problema Resuelto**: Eliminó el desorden operativo de hojas de cálculo, cuadernos y chats de WhatsApp en una empresa con inventario físico multi-categoría (perfumería, textil DTF, variedades) y ventas a crédito.
 - **Solución Técnica**:
   - Trazabilidad por unidad física individual (`unidades_lote`) con costo inmutable por lote.
@@ -52,7 +52,8 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
   - Arquitectura multi-sucursal con traslados directos de inventario y reserva automática para pedidos especiales.
   - Atributos genéricos parametrizables por categoría y composiciones métricas olfativas.
   - Reportes de cuentas por cobrar en tiempo real (`vista_cuentas_por_cobrar`) exportables a JSON, Excel, PDF y PNG para envío directo por WhatsApp.
-  - 147 suites de pruebas automatizadas (711 tests de integración y unidad) ejecutadas contra PostgreSQL real.
+  - Notificaciones push del sistema operativo (Web Push/VAPID) para avisar cambios en la tasa de cambio del día, más un centro de alertas in-app para tasa desactualizada, stock bajo y cuotas vencidas, marcable como leído.
+  - 766 tests de backend (PHPUnit) y 654 tests de frontend (Vitest) ejecutados contra PostgreSQL real.
 
 ### Sublimax - Catálogo Público y Carrito por WhatsApp
 - **Tipo**: Tienda online de autoservicio y canal de ventas digital.
@@ -60,7 +61,7 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **URL**: [https://sublimaxcatalogo.vercel.app/](https://sublimaxcatalogo.vercel.app/)
 - **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico](https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico)
 - **Stack Tecnológico**: Angular, TypeScript, Tailwind CSS, Laravel, PostgreSQL, Cloudinary, PWA, Google Analytics 4, CI/CD.
-- **Pipeline CI/CD**: Verificación automática de build, optimización de bundles, control de tipos TypeScript y despliegue continuo en Vercel Edge CDN con purga instantánea.
+- **Pipeline CI/CD**: Comparte el pipeline de Subladmin (mismo repo, misma carpeta `frontend/`): despliega a Vercel Edge CDN desde el mismo workflow, gateado por los 766 tests de backend y 654 de frontend.
 - **Problema Resuelto**: Brindar a los clientes un catálogo público rápido y visual sin exponer datos sensibles del ERP (costos, márgenes, SKUs de proveedor, stock total) y sin forzar registros de usuario ni carritos pesados en base de datos.
 - **Solución Técnica**:
   - Endpoints públicos de solo lectura (`/api/catalogo-publico/**`) con stock visual topado a 10 unidades.
@@ -118,7 +119,7 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 Nikenver Pulgar es un Ingeniero de Sistemas venezolano residente en Maracaibo, con más de 10 años de experiencia profesional como Desarrollador Full Stack Senior especializado en Angular y Laravel. Es el fundador de Sublimax y creador de Subladmin.
 
 ### ¿Qué experiencia tiene en sistemas ERP y administrativos?
-Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, respaldado por 147 suites de tests sobre PostgreSQL.
+Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, respaldado por 766 tests de backend y 654 de frontend sobre PostgreSQL.
 
 ### ¿Cómo aborda el desarrollo con Inteligencia Artificial?
 Nikenver trabaja como un desarrollador senior asistido por IA: define la arquitectura de software, modela los datos en PostgreSQL, selecciona las tecnologías y dirige a los agentes de código (Claude Code, Antigravity, Copilot, Cursor) para acelerar la implementación, inspeccionando rigurosamente cada línea antes del pase a producción.
