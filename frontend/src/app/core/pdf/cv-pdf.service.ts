@@ -138,9 +138,20 @@ export class CvPdfService {
         ...(project.tagline
           ? [
               {
-                text: boldRuns(project.tagline[locale] ?? project.tagline.es),
-                fontSize: 9.5,
+                text: project.tagline[locale] ?? project.tagline.es,
+                italics: true,
+                fontSize: 9,
+                color: '#666666',
                 margin: [0, 2, 0, 0] as [number, number, number, number],
+              },
+            ]
+          : []),
+        ...(project.description
+          ? [
+              {
+                text: boldRuns(project.description[locale] ?? project.description.es),
+                fontSize: 9.5,
+                margin: [0, 3, 0, 0] as [number, number, number, number],
               },
             ]
           : []),
