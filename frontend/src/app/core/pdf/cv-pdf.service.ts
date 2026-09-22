@@ -83,37 +83,40 @@ export class CvPdfService {
       margin: [0, 0, 0, 6] as [number, number, number, number],
     }));
 
-    const experienceBlocks = experiences.map((exp) => ({
-      margin: [0, 0, 0, 10] as [number, number, number, number],
-      stack: [
-        {
-          columns: [
-            { text: exp.role[locale] ?? exp.role.es, bold: true, fontSize: 11 },
-            { text: yearRange(exp, locale), alignment: 'right', color: '#666666', fontSize: 9 },
-          ],
-        },
-        { text: exp.company, italics: true, fontSize: 10, color: '#666666' },
-        ...(exp.description
-          ? [
-              {
-                text: boldRuns(exp.description[locale] ?? exp.description.es),
-                fontSize: 9.5,
-                margin: [0, 2, 0, 0] as [number, number, number, number],
-              },
-            ]
-          : []),
-        ...(exp.stack?.length
-          ? [
-              {
-                text: exp.stack.join('  ·  '),
-                fontSize: 8.5,
-                color: '#0e7fbf',
-                margin: [0, 3, 0, 0] as [number, number, number, number],
-              },
-            ]
-          : []),
-      ],
-    }));
+    const experienceBlocks = experiences.map((exp) => {
+      const summaryText = exp.detail ?? exp.description;
+      return {
+        margin: [0, 0, 0, 10] as [number, number, number, number],
+        stack: [
+          {
+            columns: [
+              { text: exp.role[locale] ?? exp.role.es, bold: true, fontSize: 11 },
+              { text: yearRange(exp, locale), alignment: 'right', color: '#666666', fontSize: 9 },
+            ],
+          },
+          { text: exp.company, italics: true, fontSize: 10, color: '#666666' },
+          ...(summaryText
+            ? [
+                {
+                  text: boldRuns(summaryText[locale] ?? summaryText.es),
+                  fontSize: 9.5,
+                  margin: [0, 2, 0, 0] as [number, number, number, number],
+                },
+              ]
+            : []),
+          ...(exp.stack?.length
+            ? [
+                {
+                  text: exp.stack.join('  ·  '),
+                  fontSize: 8.5,
+                  color: '#0e7fbf',
+                  margin: [0, 3, 0, 0] as [number, number, number, number],
+                },
+              ]
+            : []),
+        ],
+      };
+    });
 
     const projectBlocks = projects.map((project) => ({
       margin: [0, 0, 0, 10] as [number, number, number, number],
