@@ -3,6 +3,8 @@ import { firstValueFrom } from 'rxjs';
 import { environment } from '@env/environment';
 import { ExperienceService } from '@core/api/experience.service';
 import { Experience } from '@core/models/experience.model';
+import { ProjectService } from '@core/api/project.service';
+import { Project } from '@core/models/project.model';
 import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
 import { Locale } from '@core/i18n/locale.service';
 import { UI_STRINGS } from '@core/i18n/translations';
@@ -44,9 +46,13 @@ function yearRange(exp: Experience, locale: Locale): string {
 @Injectable({ providedIn: 'root' })
 export class CvPdfService {
   private readonly experienceApi = inject(ExperienceService);
+  private readonly projectApi = inject(ProjectService);
 
   async download(locale: Locale): Promise<void> {
-    const experiences = await firstValueFrom(this.experienceApi.list());
+    const [experiences, projects] = await Promise.all([
+      firstValueFrom(this.experienceApi.list()),
+      firstValueFrom(this.projectApi.list()),
+    ]);
 
     const [{ default: pdfMake }, { default: fontContainer }] = await Promise.all([
       import('pdfmake/build/pdfmake'),
@@ -55,11 +61,15 @@ export class CvPdfService {
     pdfMake.addVirtualFileSystem(fontContainer.vfs);
     pdfMake.addFonts(fontContainer.fonts);
 
-    const docDefinition = this.buildDocDefinition(locale, experiences);
+    const docDefinition = this.buildDocDefinition(locale, experiences, projects);
     await pdfMake.createPdf(docDefinition).download(`nikenver-pulgar-cv-${locale}.pdf`);
   }
 
-  private buildDocDefinition(locale: Locale, experiences: Experience[]): Record<string, unknown> {
+  private buildDocDefinition(
+    locale: Locale,
+    experiences: Experience[],
+    projects: Project[],
+  ): Record<string, unknown> {
     const contact = environment.contact;
     const contactLine = [
       contact.email,
@@ -105,6 +115,57 @@ export class CvPdfService {
       ],
     }));
 
+    const projectBlocks = projects.map((project) => ({
+      margin: [0, 0, 0, 10] as [number, number, number, number],
+      stack: [
+        {
+          columns: [
+            { text: project.title[locale] ?? project.title.es, bold: true, fontSize: 11 },
+            {
+              text: project.year ? String(project.year) : '',
+              alignment: 'right',
+              color: '#666666',
+              fontSize: 9,
+            },
+          ],
+        },
+        ...(project.company
+          ? [{ text: project.company, italics: true, fontSize: 10, color: '#666666' }]
+          : []),
+        ...(project.tagline
+          ? [
+              {
+                text: boldRuns(project.tagline[locale] ?? project.tagline.es),
+                fontSize: 9.5,
+                margin: [0, 2, 0, 0] as [number, number, number, number],
+              },
+            ]
+          : []),
+        ...(project.stack?.length
+          ? [
+              {
+                text: project.stack.join('  ·  '),
+                fontSize: 8.5,
+                color: '#0e7fbf',
+                margin: [0, 3, 0, 0] as [number, number, number, number],
+              },
+            ]
+          : []),
+        ...(project.demo_url
+          ? [
+              {
+                text: project.demo_url.replace(/^https?:\/\//, ''),
+                link: project.demo_url,
+                fontSize: 8.5,
+                color: '#0e7fbf',
+                decoration: 'underline',
+                margin: [0, 2, 0, 0] as [number, number, number, number],
+              },
+            ]
+          : []),
+      ],
+    }));
+
     const skillLines = SKILL_GROUPS.map((group) => ({
       text: `${t(group.titleKey, locale)}: ${group.items.join(', ')}`,
       fontSize: 9.5,
@@ -118,7 +179,7 @@ export class CvPdfService {
 
     return {
       pageMargins: [40, 40, 40, 40] as [number, number, number, number],
-      defaultStyle: { font: 'Roboto', fontSize: 10 },
+      defaultStyle: { font: 'Roboto', fontSize: 10, alignment: 'justify' },
       styles: {
         name: { fontSize: 20, bold: true },
         eyebrow: { fontSize: 11, color: '#0e7fbf', margin: [0, 2, 0, 0] },
@@ -131,6 +192,8 @@ export class CvPdfService {
         ...summary,
         { text: t('shared.experienceTitle', locale), style: 'sectionTitle' },
         ...experienceBlocks,
+        { text: t('projects.title', locale), style: 'sectionTitle' },
+        ...projectBlocks,
         { text: t('about.stackTitle', locale), style: 'sectionTitle' },
         ...skillLines,
         { text: t('about.coursesTitle', locale), style: 'sectionTitle' },
