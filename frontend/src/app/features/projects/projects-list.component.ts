@@ -184,7 +184,7 @@ export class ProjectsListComponent implements OnDestroy {
         case 'laravel':
           return stack.includes('Laravel');
         case 'erp':
-          return slug.includes('subladmin') || slug.includes('cobeca');
+          return slug.includes('subladmin') || slug.includes('cobeca') || slug.includes('gonzaga');
         case 'ecommerce':
           return (
             slug.includes('ecommerce') ||

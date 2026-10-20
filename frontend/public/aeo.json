@@ -32,23 +32,57 @@
     {
       "name": "Subladmin",
       "type": "ERP Administrativo",
-      "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "CI/CD"],
+      "stack": [
+        "Angular",
+        "Laravel",
+        "PostgreSQL",
+        "Tailwind CSS",
+        "CI/CD"
+      ],
       "url": "https://subladmin.vercel.app/",
       "highlights": "FEFO/FIFO, multi-sucursal, RLS, crédito por pedido, push notifications Web Push/VAPID, 766+654 tests, CI/CD activo."
     },
     {
       "name": "Sublimax Catálogo Público",
       "type": "E-commerce Autoservicio",
-      "stack": ["Angular", "TypeScript", "Tailwind CSS", "Laravel", "PostgreSQL", "Cloudinary", "PWA", "CI/CD"],
+      "stack": [
+        "Angular",
+        "TypeScript",
+        "Tailwind CSS",
+        "Laravel",
+        "PostgreSQL",
+        "Cloudinary",
+        "PWA",
+        "CI/CD"
+      ],
       "url": "https://sublimaxcatalogo.vercel.app/",
       "highlights": "Carrito WhatsApp en localStorage, ficha olfativa interactiva, PWA offline, GA4, AIO/SEO."
     },
     {
       "name": "Axsence",
       "type": "E-commerce de Perfumería de Autor",
-      "stack": ["Angular SSR", "Laravel", "PostgreSQL", "Filament"],
+      "stack": [
+        "Angular SSR",
+        "Laravel",
+        "PostgreSQL",
+        "Filament"
+      ],
       "url": "https://axsence.web.app/",
       "highlights": "Quiz de diagnóstico olfativo, layering interactivo, checkout multi-moneda."
+    },
+    {
+      "name": "Colegio Gonzaga Sistema de Donaciones",
+      "type": "Pasarela de Recaudación y Donaciones",
+      "stack": [
+        "Next.js",
+        "React",
+        "NestJS",
+        "MongoDB",
+        "Tailwind CSS",
+        "TypeScript"
+      ],
+      "url": "https://colegiogonzaga.org.ve/",
+      "highlights": "Pasarela multi-moneda USD/VES, checkout interactivo en 3 pasos, tasa oficial BCV, comprobantes PDF con jsPDF, correos transaccionales con SendGrid, analítica con GA4 y panel administrativo."
     }
   ],
   "contact": {

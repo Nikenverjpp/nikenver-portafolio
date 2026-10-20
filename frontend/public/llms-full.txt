@@ -72,6 +72,23 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
   - Telemetría analítica con GA4 (funnel de e-commerce completo: `view_item_list`, `view_item`, `add_to_cart`, `begin_checkout`, `purchase`).
   - Arquitectura AIO y SEO: Schema.org JSON-LD (`Product`, `Offer`, `BreadcrumbList`, `OnlineStore`, `FAQPage`), sitemap XML dinámico con imágenes y protocolo `llms.txt`.
 
+### Colegio Gonzaga - Sistema de Donaciones y Pasarela de Recaudación (2026)
+
+- **Empresa / Institución**: Colegio Gonzaga (Maracaibo, Venezuela)
+- **Rol**: Diseñador y Desarrollador Full Stack (Next.js + NestJS + MongoDB)
+- **URL de Demo / Sitio Oficial**: [https://colegiogonzaga.org.ve/](https://colegiogonzaga.org.ve/)
+- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/gonzaga-sistema-donaciones](https://nikenver-portafolio.vercel.app/proyectos/gonzaga-sistema-donaciones)
+- **Stack Tecnológico**: Next.js (React 19, Tailwind CSS v4), NestJS 11, MongoDB con Mongoose, jsPDF, SendGrid API, Google Analytics 4 (GA4), TypeScript.
+- **Problema Resuelto**: Modernizó la recaudación y donaciones del colegio eliminando conciliaciones manuales desorganizadas y ofreciendo trazabilidad fiscal transparente tanto en bolívares (exentos de ISLR) como en dólares.
+- **Solución Técnica**:
+  - Pasarela pública multi-moneda con cálculo dinámico según la tasa oficial del Banco Central de Venezuela (BCV).
+  - Checkout fluido de 3 pasos para donaciones vía Pago Móvil, transferencias bancarias y Zinli, con subida de comprobantes y validación de referencias.
+  - Generación instantánea de comprobantes oficiales en PDF con jsPDF y despacho automático de correos transaccionales vía Twilio SendGrid.
+  - Telemetría analítica integral con Google Analytics 4 (GA4) para seguimiento de embudo y conversión.
+  - Panel administrativo de auditoría con autenticación segura, roles y revisión de estatus en tiempo real.
+  - Diseño responsivo Mobile-First con Tailwind CSS v4 alineado con la identidad institucional del colegio.
+
+---
 ### Axsence - E-commerce de Perfumería de Autor
 - **Tipo**: Plataforma de comercio electrónico con diagnóstico olfativo interactivo.
 - **Estado**: En producción.

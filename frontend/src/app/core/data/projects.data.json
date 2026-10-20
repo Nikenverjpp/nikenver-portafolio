@@ -19,14 +19,21 @@
       "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
     },
     "solution": {
-      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle. El panel envía notificaciones push reales del sistema operativo con <b>Web Push/VAPID</b> para avisar cambios en la tasa del día, además de un centro de alertas propio para tasa desactualizada, stock bajo y cuotas vencidas que se pueden marcar como leídas. La robustez está respaldada por 766 tests de backend con PHPUnit sobre PostgreSQL real y 654 tests de frontend con Vitest.",
-      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets. The admin panel sends real OS-level push notifications via <b>Web Push/VAPID</b> for daily exchange-rate changes, alongside a dismissible in-app alert center for stale rates, low stock and overdue installments. It's backed by 766 backend tests with PHPUnit on real PostgreSQL and 654 frontend tests with Vitest."
+      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle, con estética TailAdmin Dark Mode, gráficos interactivos con <b>ApexCharts</b> y modales accesibles con <b>Angular Material</b>. El panel envía notificaciones push reales del sistema operativo con <b>Web Push/VAPID</b> para avisar cambios en la tasa del día, además de un centro de alertas propio para tasa desactualizada, stock bajo y cuotas vencidas que se pueden marcar como leídas. La robustez está respaldada por 766 tests de backend con PHPUnit sobre PostgreSQL real y 654 tests de frontend con Vitest.",
+      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets, featuring a TailAdmin Dark Mode aesthetic, interactive charts with <b>ApexCharts</b>, and accessible dialogs with <b>Angular Material</b>. The admin panel sends real OS-level push notifications via <b>Web Push/VAPID</b> for daily exchange-rate changes, alongside a dismissible in-app alert center for stale rates, low stock and overdue installments. It's backed by 766 backend tests with PHPUnit on real PostgreSQL and 654 frontend tests with Vitest."
     },
     "results": {
       "es": "En producción como PWA (<code>subladmin.vercel.app</code>), respaldando la operación integral de compras, inventario, ventas y cobranza de Sublimax con consistencia transaccional absoluta.",
       "en": "In production as a PWA (<code>subladmin.vercel.app</code>), powering Sublimax's full purchasing, inventory, sales and collection operations with rock-solid transactional consistency."
     },
-    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "CI/CD"],
+    "stack": [
+      "Angular",
+      "Laravel",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "ApexCharts",
+      "CI/CD"
+    ],
     "has_cicd": true,
     "cicd": {
       "ci": {
@@ -73,7 +80,16 @@
       "es": "En producción en Vercel (<code>sublimaxcatalogo.vercel.app</code>), canal oficial de venta digital de Sublimax con visualizaciones constantes y pedidos cerrados por WhatsApp con alta tasa de conversión.",
       "en": "In production on Vercel (<code>sublimaxcatalogo.vercel.app</code>), serving as Sublimax's official digital sales channel driving WhatsApp-closed orders with high conversion."
     },
-    "stack": ["Angular", "TypeScript", "Tailwind CSS", "Laravel", "PostgreSQL", "Cloudinary", "PWA", "CI/CD"],
+    "stack": [
+      "Angular",
+      "TypeScript",
+      "Tailwind CSS",
+      "Laravel",
+      "PostgreSQL",
+      "Cloudinary",
+      "PWA",
+      "CI/CD"
+    ],
     "has_cicd": true,
     "cicd": {
       "ci": {
@@ -113,14 +129,21 @@
       "en": "Recommending the right fragrance to buyers with no prior experience in Arabic or designer perfumery, while making the store feel genuinely luxurious, not generic."
     },
     "solution": {
-      "es": "<b>Angular</b> con <b>Signals</b> y renderizado en servidor (<b>SSR</b>) en el frontend; <b>Laravel</b> con panel <b>Filament</b> sobre <b>PostgreSQL</b> en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. La lógica de estas funcionalidades está basada en mi propio conocimiento como <b>Asesor Olfativo (Fragrance Consultant)</b>, no solo en investigación de producto. El contenido está estructurado también para búsquedas por <b>IA</b> (Gemini, ChatGPT), no solo para <b>SEO</b> tradicional.",
-      "en": "<b>Angular</b> with <b>Signals</b> and server-side rendering (<b>SSR</b>) on the frontend; <b>Laravel</b> with a <b>Filament</b> admin panel over <b>PostgreSQL</b> on the backend. I built a 5-step olfactory diagnosis quiz with a scoring algorithm, an interactive fragrance-layering simulator, a couple-matching feature, and a multi-step checkout with manual payment verification (Pago Móvil, Zelle) and BCV/parallel exchange-rate conversion. The logic behind these features is grounded in my own knowledge as a <b>Fragrance Consultant (Asesor Olfativo)</b>, not just product research. The content is also structured for <b>AI</b> search (Gemini, ChatGPT), not just traditional <b>SEO</b>."
+      "es": "<b>Angular</b> con <b>Signals</b> y renderizado en servidor (<b>SSR</b>) en el frontend; <b>Laravel</b> con panel <b>Filament</b> sobre <b>PostgreSQL</b> en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. La lógica de estas funcionalidades está basada en mi propio conocimiento como <b>Asesor Olfativo (Fragrance Consultant)</b>, no solo en investigación de producto. El contenido está estructurado también para búsquedas por <b>IA</b> (Gemini, ChatGPT), no solo para <b>SEO</b> tradicional. Además, implementé un sistema de diseño con tokens semánticos completos para soporte de tema claro/oscuro (Light/Dark Mode), auditoría de accesibilidad WCAG AA en contrastes de alertas y skeletons, y un modo de mantenimiento en producción.",
+      "en": "<b>Angular</b> with <b>Signals</b> and server-side rendering (<b>SSR</b>) on the frontend; <b>Laravel</b> with a <b>Filament</b> admin panel over <b>PostgreSQL</b> on the backend. I built a 5-step olfactory diagnosis quiz with a scoring algorithm, an interactive fragrance-layering simulator, a couple-matching feature, and a multi-step checkout with manual payment verification (Pago Móvil, Zelle) and BCV/parallel exchange-rate conversion. The logic behind these features is grounded in my own knowledge as a <b>Fragrance Consultant (Asesor Olfativo)</b>, not just product research. The content is also structured for <b>AI</b> search (Gemini, ChatGPT), not just traditional <b>SEO</b>. Additionally, I rolled out a design system with full semantic tokens supporting Light and Dark modes, a WCAG AA accessibility audit on notification and skeleton contrast, and a production maintenance mode."
     },
     "results": {
       "es": "En producción, con un panel <b>Filament</b> para manejar catálogo, pedidos, leads y blog, y <b>SSR</b> activo para que cargue rápido y posicione bien en buscadores.",
       "en": "In production, with a <b>Filament</b> panel for managing catalog, orders, leads and blog, and <b>SSR</b> keeping load times fast and search rankings healthy."
     },
-    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS", "Filament", "CI/CD"],
+    "stack": [
+      "Angular",
+      "Laravel",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "Filament",
+      "CI/CD"
+    ],
     "has_cicd": true,
     "cicd": {
       "ci": {
@@ -137,12 +160,18 @@
     "demo_url": "https://axsence.web.app/",
     "links": [
       {
-        "label": { "es": "Instagram", "en": "Instagram" },
+        "label": {
+          "es": "Instagram",
+          "en": "Instagram"
+        },
         "url": "https://www.instagram.com/axsenceperfumes/",
         "preview_image_url": "/img/previews/axsence-instagram.webp"
       },
       {
-        "label": { "es": "TikTok", "en": "TikTok" },
+        "label": {
+          "es": "TikTok",
+          "en": "TikTok"
+        },
         "url": "https://www.tiktok.com/@axsenceperfumes",
         "preview_image_url": "/img/previews/axsence-tiktok.webp"
       }
@@ -178,32 +207,58 @@
       "es": "Activo desde 2024, con marca, contenido y ventas propias, respaldado por un sistema administrativo hecho a medida.",
       "en": "Active since 2024, with its own brand, content and sales, backed by a purpose-built administrative system."
     },
-    "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
+    "stack": [
+      "Angular",
+      "Laravel",
+      "PostgreSQL",
+      "Tailwind CSS"
+    ],
     "company": "Sublimax",
     "thumbnail_url": "/img/logos/sublimax.webp",
     "preview_image_url": "/img/previews/sublimax-instagram.webp",
     "links": [
       {
-        "label": { "es": "Catálogo online", "en": "Online catalog" },
+        "label": {
+          "es": "Catálogo online",
+          "en": "Online catalog"
+        },
         "url": "https://sublimaxcatalogo.vercel.app/",
         "preview_image_url": "/img/previews/sublimax-catalogo.webp"
       },
       {
-        "label": { "es": "Instagram", "en": "Instagram" },
+        "label": {
+          "es": "Instagram",
+          "en": "Instagram"
+        },
         "url": "https://www.instagram.com/sublimaxss_",
         "preview_image_url": "/img/previews/sublimax-instagram.webp"
       },
       {
-        "label": { "es": "TikTok", "en": "TikTok" },
+        "label": {
+          "es": "TikTok",
+          "en": "TikTok"
+        },
         "url": "https://www.tiktok.com/@sublimaxss_",
         "preview_image_url": "/img/previews/sublimax-tiktok.webp"
       }
     ],
     "socialPosts": [
-      { "platform": "instagram", "url": "https://www.instagram.com/sublimaxss_/p/Dax-i_aCnaj/" },
-      { "platform": "instagram", "url": "https://www.instagram.com/sublimaxss_/p/DaqyfWHDL07/" },
-      { "platform": "tiktok", "url": "https://www.tiktok.com/@sublimaxss_/video/7605822785528581384" },
-      { "platform": "tiktok", "url": "https://www.tiktok.com/@sublimaxss_/video/7626971372459134215" }
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/sublimaxss_/p/Dax-i_aCnaj/"
+      },
+      {
+        "platform": "instagram",
+        "url": "https://www.instagram.com/sublimaxss_/p/DaqyfWHDL07/"
+      },
+      {
+        "platform": "tiktok",
+        "url": "https://www.tiktok.com/@sublimaxss_/video/7605822785528581384"
+      },
+      {
+        "platform": "tiktok",
+        "url": "https://www.tiktok.com/@sublimaxss_/video/7626971372459134215"
+      }
     ],
     "is_featured": true,
     "sort_order": 3,
@@ -236,7 +291,15 @@
       "es": "Menos tiempo operativo y mejor experiencia para usuarios internos y clientes.",
       "en": "Less operational time spent, and a better experience for internal users and customers."
     },
-    "stack": ["Angular", "React", "TypeScript", ".NET", "SQL Server", "Tailwind CSS", "CI/CD"],
+    "stack": [
+      "Angular",
+      "React",
+      "TypeScript",
+      ".NET",
+      "SQL Server",
+      "Tailwind CSS",
+      "CI/CD"
+    ],
     "has_cicd": true,
     "cicd": {
       "ci": {
@@ -252,32 +315,50 @@
     "preview_image_url": "/img/previews/cobeca.webp",
     "links": [
       {
-        "label": { "es": "Negociaciones Cobeca", "en": "Negociaciones Cobeca" },
+        "label": {
+          "es": "Negociaciones Cobeca",
+          "en": "Negociaciones Cobeca"
+        },
         "url": "https://negociacionescobeca.com/home",
         "preview_image_url": "/img/previews/cobeca.webp"
       },
       {
-        "label": { "es": "Step Web", "en": "Step Web" },
+        "label": {
+          "es": "Step Web",
+          "en": "Step Web"
+        },
         "url": "https://stepweb.drogueriascobeca.com/login",
         "preview_image_url": "/img/previews/cobeca-stepweb.webp"
       },
       {
-        "label": { "es": "Step Web Junior", "en": "Step Web Junior" },
+        "label": {
+          "es": "Step Web Junior",
+          "en": "Step Web Junior"
+        },
         "url": "https://stepwebjunior.drogueriascobeca.com/login",
         "preview_image_url": "/img/previews/cobeca-stepweb-junior.webp"
       },
       {
-        "label": { "es": "SIC", "en": "SIC" },
+        "label": {
+          "es": "SIC",
+          "en": "SIC"
+        },
         "url": "https://sic.drogueriascobeca.com/autenticacion",
         "preview_image_url": "/img/previews/cobeca-sic.webp"
       },
       {
-        "label": { "es": "PFL8", "en": "PFL8" },
+        "label": {
+          "es": "PFL8",
+          "en": "PFL8"
+        },
         "url": "https://pfl.drogueriascobeca.com/login",
         "preview_image_url": "/img/previews/cobeca-pfl8.webp"
       },
       {
-        "label": { "es": "Farmacia SaaS", "en": "Farmacia SaaS" },
+        "label": {
+          "es": "Farmacia SaaS",
+          "en": "Farmacia SaaS"
+        },
         "url": "https://www.farmaciasaas.com/",
         "preview_image_url": "/img/previews/farmacia-saas.webp"
       }
@@ -306,14 +387,20 @@
       "en": "Teaching a kid what programming actually is, in a tangible and fun way, without real code or abstract interfaces."
     },
     "solution": {
-      "es": "Cinco actividades de \"programación\" (trazo de código, sumas con variables, completar un nombre, arrastrar figuras, recortar y pegar una etiqueta <b>HTML</b>), seguidas de un juego de memoria de 18 cartas que reconoce dinosaurios de juguete reales por cámara web (<b>visión por computadora</b>) o por voz (<b>Web Speech API</b>). El sonido y la música se generan en tiempo real con <b>Web Audio API</b>, sin un solo archivo de audio.",
-      "en": "Five \"programming\" activities (tracing code, sums with variables, completing a name, dragging shapes, cutting and pasting an <b>HTML</b> tag), followed by an 18-card memory game that recognizes real toy dinosaurs through the webcam (<b>computer vision</b>) or by voice (<b>Web Speech API</b>). Sound and music are generated in real time with the <b>Web Audio API</b>, without a single audio file."
+      "es": "Cinco actividades de programación tangibles (trazo de código, sumas con variables, completar nombres, arrastrar figuras, recorte y pegado de etiquetas <b>HTML</b>), seguidas de un juego de memoria con reconocimiento por cámara web (<b>visión por computadora</b>) o voz (<b>Web Speech API</b>). El sonido y música se sintetizan con <b>Web Audio API</b> sin archivos de audio. Incluye una arquitectura PWA offline y una auditoría mobile-first estricta (CLS, feedback háptico/táctil, safe-area insets y soporte dinámico de orientación vertical/horizontal sin bloqueos).",
+      "en": "Five tangible programming activities (code tracing, variable sums, name completion, shape dragging, cutting and pasting <b>HTML</b> tags), followed by a memory game featuring webcam recognition (<b>computer vision</b>) and voice recognition (<b>Web Speech API</b>). Sound and music are synthesized in real time via the <b>Web Audio API</b> with zero audio files. Features offline PWA architecture and an exhaustive mobile-first audit (CLS zeroing, touch/haptic feedback, safe-area insets, and unconstrained portrait/landscape orientation support)."
     },
     "results": {
       "es": "Publicado en <b>Vercel</b> con integración continua desde <b>GitHub</b>, listo para jugar en cualquier dispositivo con cámara o micrófono.",
       "en": "Deployed on <b>Vercel</b> with continuous deployment from <b>GitHub</b>, ready to play on any device with a camera or microphone."
     },
-    "stack": ["JavaScript", "HTML", "CSS", "CI/CD"],
+    "stack": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "PWA",
+      "CI/CD"
+    ],
     "has_cicd": true,
     "cicd": {
       "ci": {
@@ -360,7 +447,11 @@
       "es": "En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.",
       "en": "In production, serving as the official digital invoicing channel for Droguerías Cobeca's customers."
     },
-    "stack": ["Angular", ".NET", "SQL Server"],
+    "stack": [
+      "Angular",
+      ".NET",
+      "SQL Server"
+    ],
     "company": "Grupo Cobeca",
     "preview_image_url": "/img/previews/cobeca-sic.webp",
     "demo_url": "https://sic.drogueriascobeca.com/autenticacion",
@@ -395,7 +486,13 @@
       "es": "En producción, con su catálogo de productos organizado por categoría y checkout funcional en WooCommerce.",
       "en": "In production, with its product catalog organized by category and a working WooCommerce checkout."
     },
-    "stack": ["WordPress", "WooCommerce", "Elementor", "PHP", "CSS"],
+    "stack": [
+      "WordPress",
+      "WooCommerce",
+      "Elementor",
+      "PHP",
+      "CSS"
+    ],
     "company": "Minima Studio",
     "preview_image_url": "/img/previews/dekasa.webp",
     "demo_url": "https://www.dekasa.com.ve/",
@@ -430,7 +527,13 @@
       "es": "En producción, con múltiples categorías de producto, cuentas de cliente y carrito de compra activos.",
       "en": "In production, with multiple product categories, customer accounts and a working shopping cart."
     },
-    "stack": ["WordPress", "WooCommerce", "Bootstrap", "PHP", "JavaScript"],
+    "stack": [
+      "WordPress",
+      "WooCommerce",
+      "Bootstrap",
+      "PHP",
+      "JavaScript"
+    ],
     "company": "Minima Studio",
     "preview_image_url": "/img/previews/arcoweld.webp",
     "demo_url": "https://www.arcoweld.com/",
@@ -465,7 +568,13 @@
       "es": "En producción desde 2017, como canal oficial de noticias y contacto de la organización.",
       "en": "In production since 2017, serving as the organization's official news and contact channel."
     },
-    "stack": ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL"
+    ],
     "company": "Iconos Consultores",
     "preview_image_url": "/img/previews/amavida.webp",
     "demo_url": "https://www.amavida.org.ve/",
@@ -500,12 +609,61 @@
       "es": "En producción desde 2018, con catálogo de productos, carrito de compra y blog activos.",
       "en": "In production since 2018, with an active product catalog, shopping cart and blog."
     },
-    "stack": ["PrestaShop", "PHP", "MySQL", "JavaScript", "CSS"],
+    "stack": [
+      "PrestaShop",
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "CSS"
+    ],
     "company": "Iconos Consultores",
     "preview_image_url": "/img/previews/wilmer-nadin.webp",
     "demo_url": "https://wilmernadin.com/",
     "is_featured": false,
     "sort_order": 10,
     "year": 2018
+  },
+  {
+    "id": "12",
+    "slug": "gonzaga-sistema-donaciones",
+    "title": {
+      "es": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
+      "en": "Colegio Gonzaga - Donations System & Gateway"
+    },
+    "tagline": {
+      "es": "Pasarela de recaudación multi-moneda, analítica GA4, correos SendGrid y panel de auditoría",
+      "en": "Multi-currency fundraising gateway, GA4 analytics, SendGrid emails and admin audit portal"
+    },
+    "description": {
+      "es": "Plataforma web integral de recaudación de fondos y donaciones para el Colegio Gonzaga (Maracaibo, Venezuela), con pasarela pública multi-moneda (USD y VES), verificación bancaria de Pago Móvil, transferencias y Zinli, reportes fiscales exentos de ISLR y panel administrativo de control.",
+      "en": "Full fundraising and donations platform for Colegio Gonzaga (Maracaibo, Venezuela), featuring a multi-currency public gateway (USD and VES), bank verification for Pago Móvil, wire transfers and Zinli, ISLR-exempt fiscal reporting and admin portal."
+    },
+    "challenge": {
+      "es": "Modernizar la recaudación institucional con trazabilidad financiera transparente, eliminando la conciliación manual dispersa y garantizando una experiencia de donación sin fricciones en dispositivos móviles.",
+      "en": "Modernize institutional fundraising with transparent financial traceability, eliminating scattered manual reconciliation and delivering a friction-free mobile donation experience."
+    },
+    "solution": {
+      "es": "Arquitectura desacoplada con frontend en <b>Next.js</b> (React 19, Tailwind CSS v4) y backend en <b>NestJS</b> sobre <b>MongoDB</b> con Mongoose. Diseñado bajo filosofía <i>Mobile-First</i> unificado con la identidad del colegio. Integra checkout interactivo de 3 pasos con cálculo dinámico según tasa oficial BCV, generación de comprobantes PDF con <b>jsPDF</b>, despacho automático de correos transaccionales con <b>SendGrid</b>, telemetría completa de conversión con <b>Google Analytics 4</b> (GA4), y panel de control administrativo con auditoría y roles.",
+      "en": "Decoupled architecture with a <b>Next.js</b> frontend (React 19, Tailwind CSS v4) and a <b>NestJS</b> backend on <b>MongoDB</b> with Mongoose. Built with a strict <i>Mobile-First</i> approach matching the school identity. Features a 3-step interactive checkout with live BCV exchange-rate conversion, PDF receipt generation with <b>jsPDF</b>, automated transactional email delivery via <b>SendGrid</b>, full funnel analytics via <b>Google Analytics 4</b> (GA4), and a secure role-based admin portal."
+    },
+    "results": {
+      "es": "En producción institucional con embudo de donación activo, conciliación automatizada por tesorería y comprobantes de donación auditables con soporte móvil y desktop.",
+      "en": "In institutional production powering the active donation funnel, automated treasury reconciliation and auditable donation receipts across mobile and desktop devices."
+    },
+    "stack": [
+      "Next.js",
+      "React",
+      "NestJS",
+      "MongoDB",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "preview_image_url": "/img/previews/gonzaga-donaciones.webp",
+    "demo_url": "https://colegiogonzaga.org.ve/",
+    "is_featured": true,
+    "sort_order": 3,
+    "year": 2026
   }
 ]
