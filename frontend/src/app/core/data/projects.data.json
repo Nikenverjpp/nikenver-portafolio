@@ -32,6 +32,8 @@
       "PostgreSQL",
       "Tailwind CSS",
       "Chart.js",
+      "Resend",
+      "Web Push",
       "Sentry",
       "CI/CD"
     ],
@@ -119,6 +121,52 @@
           "es": "Los productos, con variantes, precio, stock y alerta de bajo stock.",
           "en": "Products, with variants, price, stock and low-stock alerts."
         }
+      }
+    ],
+    "feature_groups": [
+      {
+        "title": {
+          "es": "Correos y avisos",
+          "en": "Email and notifications"
+        },
+        "items": [
+          {
+            "es": "<b>Resend</b> envía los correos del sistema a los clientes, con la marca de Sublimax.",
+            "en": "<b>Resend</b> sends the system's customer emails, with Sublimax branding."
+          },
+          {
+            "es": "El panel manda notificaciones reales al navegador con <b>Web Push/VAPID</b>.",
+            "en": "The panel sends real browser notifications through <b>Web Push/VAPID</b>."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "Seguridad",
+          "en": "Security"
+        },
+        "items": [
+          {
+            "es": "Documenté en el repositorio un control para cada riesgo de <b>OWASP Top 10</b>.",
+            "en": "I documented a control for each <b>OWASP Top 10</b> risk in the repository."
+          },
+          {
+            "es": "Apliqué <b>rate limiting</b> al inicio de sesión y a las operaciones financieras.",
+            "en": "I applied <b>rate limiting</b> to login and to financial operations."
+          },
+          {
+            "es": "Los permisos se validan por <b>RBAC</b>, y <b>Row-Level Security</b> tiene sus propias pruebas.",
+            "en": "Permissions run through <b>RBAC</b>, and <b>Row-Level Security</b> has its own tests."
+          },
+          {
+            "es": "Las reglas financieras viven en constraints y triggers de la base de datos, con bloqueos en las operaciones concurrentes sobre saldos.",
+            "en": "Financial rules live in database constraints and triggers, with locks on concurrent balance operations."
+          },
+          {
+            "es": "La bitácora registra accesos y cambios en modelos sensibles, y <b>Sentry</b> reporta las excepciones.",
+            "en": "The log records logins and changes to sensitive models, and <b>Sentry</b> reports exceptions."
+          }
+        ]
       }
     ]
   },
@@ -301,6 +349,8 @@
       "MongoDB",
       "Tailwind CSS",
       "TypeScript",
+      "API Mercantil",
+      "SendGrid",
       "Twilio",
       "Sentry",
       "Playwright",
@@ -379,6 +429,10 @@
             "en": "Amounts in dollars or bolívares, at the official BCV rate."
           },
           {
+            "es": "La API del banco <b>Mercantil</b> valida el Pago Móvil y la transferencia, y el sistema aprueba solo los pagos que coinciden.",
+            "en": "The <b>Mercantil</b> bank API validates Pago Móvil and bank transfers, and the system approves matching payments on its own."
+          },
+          {
             "es": "El donante recibe su recibo en PDF por correo cuando el pago queda aprobado.",
             "en": "Donors get a PDF receipt by email once the payment is approved."
           },
@@ -425,6 +479,26 @@
           {
             "es": "El panel avisa de correos rebotados, y Ctrl K busca pantallas y donantes.",
             "en": "The panel flags bounced emails, and Ctrl K searches screens and donors."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "Seguridad",
+          "en": "Security"
+        },
+        "items": [
+          {
+            "es": "La API usa <b>rate limiting</b> con <b>NestJS Throttler</b> y cabeceras de seguridad con <b>Helmet</b>.",
+            "en": "The API uses <b>rate limiting</b> through <b>NestJS Throttler</b> and security headers through <b>Helmet</b>."
+          },
+          {
+            "es": "Las claves se guardan con <b>bcrypt</b>, y cada persona entra con su propia cuenta y rol.",
+            "en": "Passwords are stored with <b>bcrypt</b>, and each person signs in with their own account and role."
+          },
+          {
+            "es": "Hice dos auditorías de seguridad del código, el 16 de octubre y el 1 de noviembre de 2026.",
+            "en": "I ran two security audits of the code, on October 16 and November 1, 2026."
           }
         ]
       }
@@ -656,8 +730,8 @@
       "en": "The two previous applications only talked through an event bridge every 5 minutes. The move to Laravel and Angular had to advance screen by screen while staff used the PHP system daily, on a server with no Node or Composer."
     },
     "solution": {
-      "es": "El sistema registra el pago de una familia y su ingreso bancario en la misma transacción, guarda cada monto en bolívares y dólares a la tasa <b>BCV</b> de su fecha, y anula registros con rastro de auditoría en lugar de borrarlos. La migración sigue el patrón <b>strangler</b>, con una ficha de paridad por pantalla. La nueva API usa <b>Laravel 13</b>, <b>Sanctum</b> y <b>Spatie Permission</b>.",
-      "en": "The system records a family's payment and its bank income in one transaction, stores each amount in bolívares and dollars at the <b>BCV</b> rate of its date, and voids records with an audit trail instead of deleting them. The migration follows the <b>strangler</b> pattern, with a parity sheet per screen. The new API uses <b>Laravel 13</b>, <b>Sanctum</b> and <b>Spatie Permission</b>."
+      "es": "El sistema registra el pago de una familia y su ingreso bancario en la misma transacción, guarda cada monto en bolívares y dólares a la tasa <b>BCV</b> de su fecha, y anula registros con rastro de auditoría en lugar de borrarlos. La migración sigue el patrón <b>strangler</b>, con una ficha de paridad por pantalla. La nueva API usa <b>Laravel 13</b>, <b>Sanctum</b> y <b>Spatie Permission</b>. Audité el esquema de la base de datos y lo normalicé en dos lotes de cambios aditivos. El inicio de sesión tiene <b>rate limiting</b>.",
+      "en": "The system records a family's payment and its bank income in one transaction, stores each amount in bolívares and dollars at the <b>BCV</b> rate of its date, and voids records with an audit trail instead of deleting them. The migration follows the <b>strangler</b> pattern, with a parity sheet per screen. The new API uses <b>Laravel 13</b>, <b>Sanctum</b> and <b>Spatie Permission</b>. I audited the database schema and normalized it in two batches of additive changes. Login has <b>rate limiting</b>."
     },
     "results": {
       "es": "El colegio usa la versión PHP en producción. La versión en Laravel y Angular corre en QA desde octubre de 2026 y aún no reemplaza a la actual.",

@@ -1,8 +1,16 @@
 import { LocalizedText } from '@core/i18n/localized-text.model';
+import { Locale } from '@core/i18n/locale.service';
+
+/** Product names stay plain strings; anything that translates uses LocalizedText. */
+export type SkillItem = string | LocalizedText;
 
 export interface SkillGroup {
   titleKey: string;
-  items: string[];
+  items: SkillItem[];
+}
+
+export function skillName(item: SkillItem, locale: Locale): string {
+  return typeof item === 'string' ? item : (item[locale] ?? item.es);
 }
 
 export type CourseItem = LocalizedText;
@@ -15,23 +23,72 @@ export interface CourseGroup {
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     titleKey: 'about.skillFrontend',
-    items: ['Angular', 'React', 'Vue.js', 'TypeScript', 'Tailwind CSS', 'Bootstrap'],
+    items: ['Angular', 'React', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap'],
   },
   {
     titleKey: 'about.skillBackend',
-    items: ['Laravel', 'PHP', 'REST APIs', 'PostgreSQL', 'MySQL'],
+    items: ['Laravel', 'PHP', 'NestJS', '.NET (C#)', 'REST APIs', 'Filament'],
+  },
+  {
+    titleKey: 'about.skillData',
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'SQL Server'],
+  },
+  {
+    titleKey: 'about.skillIntegrations',
+    items: [
+      { es: 'API del banco Mercantil', en: 'Mercantil bank API' },
+      { es: 'Tasa BCV', en: 'BCV exchange rate' },
+      'Resend',
+      'SendGrid',
+      'Twilio',
+      'Web Push (VAPID)',
+      'Cloudinary',
+    ],
+  },
+  {
+    titleKey: 'about.skillSecurity',
+    items: [
+      'OWASP Top 10',
+      'Rate limiting',
+      'RBAC',
+      'Row-Level Security',
+      { es: '2FA y passkeys', en: '2FA and passkeys' },
+      { es: 'Protección contra CSRF e inyección SQL', en: 'CSRF and SQL injection protection' },
+      { es: 'Cabeceras de seguridad', en: 'Security headers' },
+      { es: 'Auditorías de seguridad', en: 'Security audits' },
+    ],
+  },
+  {
+    titleKey: 'about.skillPractices',
+    items: [
+      { es: 'Normalización de bases de datos', en: 'Database normalization' },
+      { es: 'Refactorización', en: 'Refactoring' },
+      { es: 'Arquitectura por capas de servicios', en: 'Service layer architecture' },
+      { es: 'Migración por patrón strangler', en: 'Strangler pattern migration' },
+      { es: 'Pruebas unitarias, de API y de navegador', en: 'Unit, API and browser testing' },
+      'CI/CD',
+      { es: 'Desarrollo asistido por IA', en: 'AI-assisted development' },
+    ],
+  },
+  {
+    titleKey: 'about.skillDevops',
+    items: ['Git', 'GitHub Actions', { es: 'Docker (básico)', en: 'Docker (basic)' }, 'Vercel', 'Playwright', 'Sentry'],
+  },
+  {
+    titleKey: 'about.skillInfra',
+    items: [{ es: 'Soporte técnico', en: 'Technical support' }, 'cPanel/WHM', 'MikroTik', 'Ubiquiti', 'ADB', 'Bash', 'Python'],
   },
   {
     titleKey: 'about.skillOther',
-    items: ['Prompt Engineering', 'WordPress', '.NET (C#)', 'Git', 'Docker (básico)', 'Cloudinary'],
+    items: ['WordPress', 'Elementor', 'WooCommerce', 'Prompt Engineering', 'Claude Code'],
   },
   {
     titleKey: 'about.skillFragrance',
     items: [
-      'Diagnóstico olfativo',
-      'Layering de fragancias',
-      'Matching de perfumes',
-      'Familias olfativas',
+      { es: 'Diagnóstico olfativo', en: 'Olfactory diagnosis' },
+      { es: 'Layering de fragancias', en: 'Fragrance layering' },
+      { es: 'Matching de perfumes', en: 'Perfume matching' },
+      { es: 'Familias olfativas', en: 'Olfactory families' },
     ],
   },
 ];

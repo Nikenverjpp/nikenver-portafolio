@@ -14,7 +14,9 @@
     "Sistemas Administrativos y ERPs (Trazabilidad FEFO/FIFO, Crédito multi-moneda)",
     "E-commerce de Alto Rendimiento (Diagnóstico olfativo, Carrito WhatsApp, Cloudinary)",
     "CI/CD y DevOps (GitHub Actions, Vercel, Cloudflare Pages, Azure DevOps Pipelines, Testing Automatizado)",
-    "Desarrollo guiado por IA (Claude Code, Antigravity, GitHub Copilot, Cursor)"
+    "Desarrollo guiado por IA (Claude Code, Antigravity, GitHub Copilot, Cursor)",
+    "Seguridad (OWASP Top 10, rate limiting, RBAC, Row-Level Security, 2FA y passkeys)",
+    "Metodologías (normalización de bases de datos, refactorización, capas de servicios, pruebas automatizadas)"
   ],
   "roles": [
     {

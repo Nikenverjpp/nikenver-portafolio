@@ -11,6 +11,7 @@ import { SocialCarouselComponent } from '@components/social-carousel.component';
 import { NotFoundComponent } from '@components/not-found.component';
 import { LinkPreviewGridComponent } from '@components/link-preview-grid.component';
 import { PhoneVideoComponent } from '@components/phone-video.component';
+import { ProjectGalleryComponent } from '@components/project-gallery.component';
 import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
@@ -30,6 +31,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
     NotFoundComponent,
     LinkPreviewGridComponent,
     PhoneVideoComponent,
+    ProjectGalleryComponent,
     RevealOnScrollDirective,
     TranslatePipe,
   ],
@@ -204,24 +206,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailGallery' | t: locale.locale() }}
             </h2>
-            <div class="mt-4 grid gap-4 sm:grid-cols-2">
-              @for (image of project.gallery; track image.src) {
-                <figure>
-                  <a [href]="image.src" target="_blank" rel="noopener noreferrer" class="card-surface block overflow-hidden">
-                    <img
-                      [src]="image.src"
-                      [alt]="image.alt | t: locale.locale()"
-                      [attr.width]="image.width"
-                      [attr.height]="image.height"
-                      loading="lazy"
-                      decoding="async"
-                      class="h-auto w-full"
-                    />
-                  </a>
-                  <figcaption class="mt-2 font-sans text-xs text-text-muted">{{ image.caption | t: locale.locale() }}</figcaption>
-                </figure>
-              }
-            </div>
+            <app-project-gallery [images]="project.gallery!" class="mt-4 block" />
           </section>
         }
 

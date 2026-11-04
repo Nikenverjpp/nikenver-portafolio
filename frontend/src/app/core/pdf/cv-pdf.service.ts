@@ -5,7 +5,7 @@ import { ExperienceService } from '@core/api/experience.service';
 import { Experience } from '@core/models/experience.model';
 import { ProjectService } from '@core/api/project.service';
 import { Project } from '@core/models/project.model';
-import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
+import { SKILL_GROUPS, COURSE_GROUPS, skillName } from '@core/data/skills.data';
 import { Locale } from '@core/i18n/locale.service';
 import { UI_STRINGS } from '@core/i18n/translations';
 
@@ -224,7 +224,7 @@ export class CvPdfService {
     ];
 
     const skillLines = SKILL_GROUPS.map((group) => ({
-      text: `${t(group.titleKey, locale)}: ${group.items.join(', ')}`,
+      text: `${t(group.titleKey, locale)}: ${group.items.map((item) => skillName(item, locale)).join(', ')}`,
       fontSize: 9.5,
       margin: [0, 2, 0, 0] as [number, number, number, number],
     }));

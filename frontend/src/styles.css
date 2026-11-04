@@ -259,3 +259,8 @@
     animation: none !important;
   }
 }
+
+/* Keeps the page still behind an open gallery modal. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}

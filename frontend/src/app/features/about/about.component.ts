@@ -5,7 +5,7 @@ import { TimelineItemComponent } from '@components/timeline-item.component';
 import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
-import { SKILL_GROUPS, COURSE_GROUPS } from '@core/data/skills.data';
+import { SKILL_GROUPS, COURSE_GROUPS, skillName } from '@core/data/skills.data';
 import { CvPdfService } from '@core/pdf/cv-pdf.service';
 
 @Component({
@@ -115,7 +115,7 @@ import { CvPdfService } from '@core/pdf/cv-pdf.service';
                 @for (skill of group.items; track skill) {
                   <li class="flex items-center gap-2">
                     <span class="h-1.5 w-1.5 rounded-full bg-accent-cyan"></span>
-                    {{ skill }}
+                    {{ skillName(skill, locale.locale()) }}
                   </li>
                 }
               </ul>
@@ -156,6 +156,7 @@ export class AboutComponent {
   readonly cvState = signal<'idle' | 'generating' | 'error'>('idle');
 
   readonly skillGroups = SKILL_GROUPS;
+  readonly skillName = skillName;
 
   readonly courseGroups = COURSE_GROUPS;
 
