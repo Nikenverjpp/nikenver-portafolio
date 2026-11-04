@@ -3,6 +3,7 @@
   "outputDirectory": "frontend/dist/nikenver-portfolio/browser",
   "installCommand": "echo skip-root-install",
   "framework": null,
+  "ignoreCommand": "[ \"$VERCEL_GIT_COMMIT_REF\" != \"main\" ] && [ \"$VERCEL_GIT_COMMIT_REF\" != \"staging\" ]",
   "routes": [
     {
       "src": "/(.*)",
