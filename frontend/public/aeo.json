@@ -94,7 +94,7 @@
       "highlights": "Diagnóstico olfativo, layering y checkout multi-moneda para perfumería árabe de lujo"
     },
     {
-      "name": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
+      "name": "Colegio Gonzaga - Sistema de Donaciones: Pasarela y Panel",
       "type": "Sistema de gestión",
       "status": "En producción",
       "stack": [
@@ -110,7 +110,7 @@
         "CI/CD"
       ],
       "url": "https://donaciones.colegiogonzaga.org.ve/",
-      "highlights": "Pasarela de donaciones en USD y bolívares, con verificación bancaria, recibos y reportes"
+      "highlights": "Pasarela para donar en USD y bolívares, y panel para que el personal verifique pagos, emita recibos y saque reportes"
     },
     {
       "name": "Sublimax - Perfumería, Maquillaje y Variedades",

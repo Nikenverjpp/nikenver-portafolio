@@ -10,6 +10,7 @@ import { StackBadgesComponent } from '@components/stack-badges.component';
 import { SocialCarouselComponent } from '@components/social-carousel.component';
 import { NotFoundComponent } from '@components/not-found.component';
 import { LinkPreviewGridComponent } from '@components/link-preview-grid.component';
+import { PhoneVideoComponent } from '@components/phone-video.component';
 import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.directive';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
@@ -28,6 +29,7 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
     SocialCarouselComponent,
     NotFoundComponent,
     LinkPreviewGridComponent,
+    PhoneVideoComponent,
     RevealOnScrollDirective,
     TranslatePipe,
   ],
@@ -51,6 +53,9 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
               class="h-full w-full object-cover object-top"
             />
           </div>
+          @if (project.preview_caption) {
+            <p class="mt-2 max-w-3xl font-sans text-xs text-text-muted">{{ project.preview_caption | t: locale.locale() }}</p>
+          }
         }
         <header appRevealOnScroll class="mt-8 flex max-w-3xl items-start gap-4">
           @if (project.thumbnail_url) {
@@ -108,6 +113,19 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
           </section>
         }
 
+        @if (project.videos?.length) {
+          <section appRevealOnScroll class="mt-8 max-w-3xl">
+            <h2 class="font-display text-xl font-semibold text-text-primary">
+              {{ 'projects.detailVideos' | t: locale.locale() }}
+            </h2>
+            <div class="mt-5 flex flex-wrap justify-center gap-8 sm:justify-start">
+              @for (video of project.videos; track video.src) {
+                <app-phone-video [video]="video" class="block w-full max-w-[17.5rem]" />
+              }
+            </div>
+          </section>
+        }
+
         @if (project.contribution) {
           <section appRevealOnScroll class="card-surface mt-8 max-w-3xl p-6">
             <h2 class="font-display text-xl font-semibold text-text-primary">
@@ -135,12 +153,75 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
           </section>
         }
 
+        @for (group of project.feature_groups; track group.title.es) {
+          <section appRevealOnScroll class="prose-portfolio mt-8 max-w-3xl">
+            <h2 class="font-display text-xl font-semibold text-text-primary">{{ group.title | t: locale.locale() }}</h2>
+            <ul class="mt-3 list-disc space-y-2 pl-5 text-left">
+              @for (item of group.items; track item.es) {
+                <li [innerHTML]="item | t: locale.locale()"></li>
+              }
+            </ul>
+          </section>
+        }
+
         @if (project.results) {
           <section appRevealOnScroll class="prose-portfolio mt-8 max-w-3xl">
             <h2 class="font-display text-xl font-semibold text-text-primary">
               {{ 'projects.detailResults' | t: locale.locale() }}
             </h2>
             <p [innerHTML]="project.results | t: locale.locale()"></p>
+          </section>
+        }
+
+        @if (project.metrics?.length) {
+          <section appRevealOnScroll class="card-surface mt-8 max-w-3xl overflow-x-auto p-6">
+            <h2 class="font-display text-xl font-semibold text-text-primary">
+              {{ 'projects.detailMetrics' | t: locale.locale() }}
+            </h2>
+            <table class="mt-4 w-full border-collapse text-left text-sm">
+              <thead>
+                <tr class="border-b border-border font-sans text-xs text-text-muted">
+                  <th scope="col" class="py-2 pr-4 font-medium">{{ 'projects.metricName' | t: locale.locale() }}</th>
+                  <th scope="col" class="py-2 pr-4 font-medium">{{ 'projects.metricBefore' | t: locale.locale() }}</th>
+                  <th scope="col" class="py-2 font-medium">{{ 'projects.metricAfter' | t: locale.locale() }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (metric of project.metrics; track metric.label.es) {
+                  <tr class="border-b border-border/60 last:border-0">
+                    <th scope="row" class="py-2.5 pr-4 font-normal text-text-secondary">{{ metric.label | t: locale.locale() }}</th>
+                    <td class="whitespace-nowrap py-2.5 pr-4 text-text-muted">{{ metric.before | t: locale.locale() }}</td>
+                    <td class="whitespace-nowrap py-2.5 font-semibold text-text-primary">{{ metric.after | t: locale.locale() }}</td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </section>
+        }
+
+        @if (project.gallery?.length) {
+          <section appRevealOnScroll class="mt-8 max-w-3xl">
+            <h2 class="font-display text-xl font-semibold text-text-primary">
+              {{ 'projects.detailGallery' | t: locale.locale() }}
+            </h2>
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              @for (image of project.gallery; track image.src) {
+                <figure>
+                  <a [href]="image.src" target="_blank" rel="noopener noreferrer" class="card-surface block overflow-hidden">
+                    <img
+                      [src]="image.src"
+                      [alt]="image.alt | t: locale.locale()"
+                      [attr.width]="image.width"
+                      [attr.height]="image.height"
+                      loading="lazy"
+                      decoding="async"
+                      class="h-auto w-full"
+                    />
+                  </a>
+                  <figcaption class="mt-2 font-sans text-xs text-text-muted">{{ image.caption | t: locale.locale() }}</figcaption>
+                </figure>
+              }
+            </div>
           </section>
         }
 

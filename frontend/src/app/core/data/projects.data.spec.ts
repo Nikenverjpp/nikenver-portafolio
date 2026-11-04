@@ -51,6 +51,8 @@ describe('projects.data.json', () => {
     const images = [
       project.thumbnail_url,
       project.preview_image_url,
+      ...(project.gallery ?? []).map((image) => image.src),
+      ...(project.videos ?? []).flatMap((video) => [video.src, video.poster]),
       ...(project.links ?? []).map((link) => link.preview_image_url),
     ].filter((url): url is string => !!url);
     for (const image of images) {

@@ -13,6 +13,32 @@ export const PROJECT_STATUS_LABEL_KEYS: Record<ProjectStatus, string> = {
   pilot: 'projects.statusPilot',
 };
 
+export interface ProjectVideo {
+  src: string;
+  poster: string;
+  title: LocalizedText;
+  caption: LocalizedText;
+}
+
+export interface ProjectImage {
+  src: string;
+  width: number;
+  height: number;
+  alt: LocalizedText;
+  caption: LocalizedText;
+}
+
+export interface ProjectMetric {
+  label: LocalizedText;
+  before: LocalizedText;
+  after: LocalizedText;
+}
+
+export interface ProjectFeatureGroup {
+  title: LocalizedText;
+  items: LocalizedText[];
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -32,7 +58,15 @@ export interface Project {
   thumbnail_url?: string;
   /** Screenshot of the live site/app, shown as a preview thumbnail in the projects grid. */
   preview_image_url?: string;
-  gallery_urls?: string[];
+  /** Shown under the hero image when the capture needs explaining. */
+  preview_caption?: LocalizedText;
+  /** Vertical clips, shown inside a phone frame. */
+  videos?: ProjectVideo[];
+  gallery?: ProjectImage[];
+  /** Measured before and after values. */
+  metrics?: ProjectMetric[];
+  /** Named lists of what the system does, for parts the prose can't cover. */
+  feature_groups?: ProjectFeatureGroup[];
   demo_url?: string;
   /** The live link leads to a login: proof the system exists, not a public demo. */
   requires_login?: boolean;

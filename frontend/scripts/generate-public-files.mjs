@@ -86,6 +86,7 @@ function renderProjectSheets(projects) {
         ['Solución', plain(project.solution?.es)],
         ['Resultados', plain(project.results?.es)],
         ['Aporte propio de Nikenver', plain(project.contribution?.es)],
+        ['Funciones', (project.feature_groups ?? []).map((group) => `${group.title.es}: ${group.items.map((item) => plain(item.es)).join(' ')}`).join(' ')],
         ['Stack', project.stack.join(', ')],
         ['Integración continua', plain(project.cicd?.ci.es)],
         ['Despliegue continuo', plain(project.cicd?.cd.es)],

@@ -62,7 +62,65 @@
     "seo_description": {
       "es": "ERP de Sublimax con inventario FEFO, cobranza FIFO, crédito a cuotas y seguridad por sucursal. Angular y Laravel en producción, con miles de pruebas.",
       "en": "Sublimax's ERP with FEFO inventory, FIFO collections, installment credit and branch-level security. Angular and Laravel, with thousands of tests."
-    }
+    },
+    "preview_caption": {
+      "es": "Pantalla de pedidos. Todas las capturas usan datos de demostración, no clientes reales.",
+      "en": "The orders screen. All screenshots use demo data, not real customers."
+    },
+    "gallery": [
+      {
+        "src": "/img/gallery/subladmin-dashboard.webp",
+        "width": 1200,
+        "height": 750,
+        "alt": {
+          "es": "Dashboard de Subladmin con ventas, balance y cuotas vencidas",
+          "en": "Subladmin dashboard with sales, balance and overdue installments"
+        },
+        "caption": {
+          "es": "El dashboard, con ventas, balance, cuotas vencidas y cierres de caja.",
+          "en": "The dashboard, with sales, balance, overdue installments and cash closings."
+        }
+      },
+      {
+        "src": "/img/gallery/subladmin-creditos.webp",
+        "width": 1200,
+        "height": 750,
+        "alt": {
+          "es": "Lista de planes de crédito a cuotas de Subladmin",
+          "en": "Subladmin list of installment credit plans"
+        },
+        "caption": {
+          "es": "Los planes de crédito, con saldo, frecuencia y estado.",
+          "en": "Credit plans, with balance, frequency and status."
+        }
+      },
+      {
+        "src": "/img/gallery/subladmin-reportes.webp",
+        "width": 1200,
+        "height": 750,
+        "alt": {
+          "es": "Pantalla de reportes de Subladmin con ventas y márgenes",
+          "en": "Subladmin reports screen with sales and margins"
+        },
+        "caption": {
+          "es": "Los reportes de ventas, ganancia, margen y movimientos de caja.",
+          "en": "Reports on sales, profit, margin and cash movements."
+        }
+      },
+      {
+        "src": "/img/gallery/subladmin-productos.webp",
+        "width": 1200,
+        "height": 750,
+        "alt": {
+          "es": "Lista de productos de Subladmin con precio y stock",
+          "en": "Subladmin product list with price and stock"
+        },
+        "caption": {
+          "es": "Los productos, con variantes, precio, stock y alerta de bajo stock.",
+          "en": "Products, with variants, price, stock and low-stock alerts."
+        }
+      }
+    ]
   },
   {
     "id": "11",
@@ -213,16 +271,16 @@
     "id": "12",
     "slug": "gonzaga-sistema-donaciones",
     "title": {
-      "es": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
-      "en": "Colegio Gonzaga - Donations System & Gateway"
+      "es": "Colegio Gonzaga - Sistema de Donaciones: Pasarela y Panel",
+      "en": "Colegio Gonzaga - Donations System: Gateway and Staff Panel"
     },
     "tagline": {
-      "es": "Pasarela de donaciones en USD y bolívares, con verificación bancaria, recibos y reportes",
-      "en": "Donation gateway in USD and bolívares, with bank verification, receipts and reports"
+      "es": "Pasarela para donar en USD y bolívares, y panel para que el personal verifique pagos, emita recibos y saque reportes",
+      "en": "A gateway to donate in USD and bolívares, and a panel where staff verify payments, issue receipts and run reports"
     },
     "description": {
-      "es": "Plataforma de recaudación del Colegio Gonzaga (Maracaibo, Venezuela). Las familias y los exalumnos donan desde el celular en dólares o bolívares con Pago Móvil, transferencia o Zinli, y tesorería verifica cada pago y emite el recibo desde un panel con roles.",
-      "en": "Fundraising platform for Colegio Gonzaga (Maracaibo, Venezuela). Families and alumni donate from their phones in dollars or bolívares through Pago Móvil, bank transfer or Zinli, and the treasury team verifies each payment and issues the receipt from a role-based panel."
+      "es": "Plataforma de recaudación del Colegio Gonzaga (Maracaibo, Venezuela), con dos partes. En la pasarela, las familias y los exalumnos donan desde el celular en dólares o bolívares con Pago Móvil, transferencia o Zinli. En el panel, el personal verifica cada pago, emite el recibo, administra las campañas y saca reportes, cada quien con su rol.",
+      "en": "Fundraising platform for Colegio Gonzaga (Maracaibo, Venezuela), in two parts. On the gateway, families and alumni donate from their phones in dollars or bolívares through Pago Móvil, bank transfer or Zinli. On the panel, staff verify each payment, issue the receipt, manage campaigns and run reports, each with their own role."
     },
     "challenge": {
       "es": "Modernizar la recaudación institucional con trazabilidad financiera transparente, eliminando la conciliación manual dispersa y garantizando una experiencia de donación sin fricciones en dispositivos móviles.",
@@ -276,9 +334,101 @@
       }
     },
     "seo_description": {
-      "es": "Pasarela de donaciones del Colegio Gonzaga en dólares y bolívares, con verificación bancaria, recibos PDF y reportes. Next.js, NestJS y MongoDB.",
-      "en": "Colegio Gonzaga's donation gateway in dollars and bolívares, with bank verification, PDF receipts and reports. Next.js, NestJS and MongoDB."
-    }
+      "es": "Pasarela de donaciones y panel del personal del Colegio Gonzaga: pagos en USD y bolívares, verificación bancaria, recibos, campañas y reportes.",
+      "en": "Colegio Gonzaga's donation gateway and staff panel: USD and bolívar payments, bank verification, receipts, campaigns and reports."
+    },
+    "videos": [
+      {
+        "src": "/video/gonzaga-donantes.mp4",
+        "poster": "/video/gonzaga-donantes.webp",
+        "title": {
+          "es": "Para quien dona",
+          "en": "For donors"
+        },
+        "caption": {
+          "es": "Los seis pasos de la pasarela, con datos de ejemplo.",
+          "en": "The gateway's six steps, with sample data."
+        }
+      },
+      {
+        "src": "/video/gonzaga-panel.mp4",
+        "poster": "/video/gonzaga-panel.webp",
+        "title": {
+          "es": "Para el personal",
+          "en": "For staff"
+        },
+        "caption": {
+          "es": "Las pantallas del panel, con datos de ejemplo.",
+          "en": "The panel's screens, with sample data."
+        }
+      }
+    ],
+    "feature_groups": [
+      {
+        "title": {
+          "es": "La pasarela",
+          "en": "The gateway"
+        },
+        "items": [
+          {
+            "es": "Seis pasos desde el celular: datos, monto, método de pago, reporte del pago, revisión y confirmación.",
+            "en": "Six steps from a phone: details, amount, payment method, payment report, review and confirmation."
+          },
+          {
+            "es": "Montos en dólares o bolívares, con la tasa oficial del BCV.",
+            "en": "Amounts in dollars or bolívares, at the official BCV rate."
+          },
+          {
+            "es": "El donante recibe su recibo en PDF por correo cuando el pago queda aprobado.",
+            "en": "Donors get a PDF receipt by email once the payment is approved."
+          },
+          {
+            "es": "\"Mis donaciones\" muestra el historial de cada donante, con un enlace que llega al correo y vence en 10 minutos.",
+            "en": "\"My donations\" shows each donor's history, through an emailed link that expires in 10 minutes."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "El panel del personal",
+          "en": "The staff panel"
+        },
+        "items": [
+          {
+            "es": "La pantalla de inicio muestra lo recaudado, las donaciones aprobadas y lo que requiere atención.",
+            "en": "The home screen shows funds raised, approved donations and what needs attention."
+          },
+          {
+            "es": "Tesorería busca por donante, RIF o referencia, y aprueba, pasa a revisión o rechaza cada pago. Al aprobar, el sistema emite el recibo.",
+            "en": "Treasury searches by donor, tax ID or reference, then approves, flags or rejects each payment. Approval issues the receipt."
+          },
+          {
+            "es": "Un pago recibido por otra vía se registra a mano y lo aprueba otra persona del equipo.",
+            "en": "A payment received another way gets entered by hand, and a different team member approves it."
+          },
+          {
+            "es": "La ficha de cada donante reúne su acumulado y su historial, y envía ese acumulado por correo.",
+            "en": "Each donor's record holds their total and history, and sends that total by email."
+          },
+          {
+            "es": "Comunicaciones edita campañas, fondos y plantillas de correo sin tocar el dinero.",
+            "en": "Communications edits campaigns, backgrounds and email templates without touching the money."
+          },
+          {
+            "es": "Rectoría saca reportes en Excel o PDF y crea usuarios por departamento y rol.",
+            "en": "The rector's office exports reports to Excel or PDF and creates users by department and role."
+          },
+          {
+            "es": "Configuración maneja la tasa BCV, los límites de monto por campaña y la verificación automática con Mercantil por cuenta.",
+            "en": "Settings handle the BCV rate, per-campaign amount limits and automatic Mercantil verification per account."
+          },
+          {
+            "es": "El panel avisa de correos rebotados, y Ctrl K busca pantallas y donantes.",
+            "en": "The panel flags bounced emails, and Ctrl K searches screens and donors."
+          }
+        ]
+      }
+    ]
   },
   {
     "id": "3",
@@ -682,8 +832,8 @@
       "en": "Technical clean-up of the school's public site, a <b>WordPress</b> build with <b>Elementor</b> on cPanel/WHM. I took over the site already built and optimized it in phases, logging each change and its rollback."
     },
     "challenge": {
-      "es": "Una auditoría del 28 de octubre de 2026 encontró caché de página y OPcache apagados, sin compresión ni identidad SEO configurada. La portada tardaba 2,70 s en responder y pesaba 2.994 KB.",
-      "en": "An October 28, 2026 audit found page cache and OPcache switched off, with no compression and no SEO identity set up. The home page took 2.70 s to respond and weighed 2,994 KB."
+      "es": "Una auditoría del 28 de octubre de 2026 encontró caché de página y OPcache apagados, sin compresión ni identidad SEO configurada. La portada tardaba 2,70 s en responder y pesaba 2.994 KB. El servidor no tenía respaldos, y cualquier dirección inexistente mostraba una plantilla con texto de relleno.",
+      "en": "An October 28, 2026 audit found page cache and OPcache switched off, with no compression and no SEO identity set up. The home page took 2.70 s to respond and weighed 2,994 KB. The server had no backups, and any missing address showed a template full of placeholder text."
     },
     "solution": {
       "es": "Subí <b>PHP</b> de 8.1 a 8.3, activé OPcache, compresión, caché de navegador y <b>WP Super Cache</b> con precarga, y redirigí con 301 las URLs con <code>/index.php/</code>. Completé títulos H1, descripciones y textos alternativos con <b>Yoast</b>, y corregí la identidad de la organización. Actualicé el núcleo y los plugins, activé 2FA para administradores y dejé respaldos y un manual de publicación para el personal.",
@@ -720,7 +870,232 @@
       "es": "Saneamiento del WordPress del Colegio Gonzaga: la respuesta bajó de 2,70 s a 0,50 s, y SEO y accesibilidad llegaron a 100 en Lighthouse de laboratorio.",
       "en": "Clean-up of Colegio Gonzaga's WordPress site: server response fell from 2.70 s to 0.50 s, and SEO and accessibility reached 100 in lab Lighthouse."
     },
-    "schema_type": "CreativeWork"
+    "schema_type": "CreativeWork",
+    "preview_image_url": "/img/previews/gonzaga-wordpress.webp",
+    "preview_caption": {
+      "es": "Portada del sitio. Difuminé las fotos en la captura para no mostrar a los alumnos.",
+      "en": "The site's home page. I blurred the photos in this capture to keep students out of it."
+    },
+    "metrics": [
+      {
+        "label": {
+          "es": "Respuesta del servidor",
+          "en": "Server response"
+        },
+        "before": {
+          "es": "2,70 s",
+          "en": "2.70 s"
+        },
+        "after": {
+          "es": "0,50 s",
+          "en": "0.50 s"
+        }
+      },
+      {
+        "label": {
+          "es": "Peso de la portada",
+          "en": "Home page weight"
+        },
+        "before": {
+          "es": "2.994 KB",
+          "en": "2,994 KB"
+        },
+        "after": {
+          "es": "1.926 KB",
+          "en": "1,926 KB"
+        }
+      },
+      {
+        "label": {
+          "es": "Páginas sin H1",
+          "en": "Pages without an H1"
+        },
+        "before": {
+          "es": "12 de 22",
+          "en": "12 of 22"
+        },
+        "after": {
+          "es": "0",
+          "en": "0"
+        }
+      },
+      {
+        "label": {
+          "es": "Imágenes sin texto alternativo",
+          "en": "Images without alt text"
+        },
+        "before": {
+          "es": "Unas 65",
+          "en": "About 65"
+        },
+        "after": {
+          "es": "0",
+          "en": "0"
+        }
+      },
+      {
+        "label": {
+          "es": "LCP móvil",
+          "en": "Mobile LCP"
+        },
+        "before": {
+          "es": "10-11 s",
+          "en": "10-11 s"
+        },
+        "after": {
+          "es": "Unos 3,4 s",
+          "en": "About 3.4 s"
+        }
+      },
+      {
+        "label": {
+          "es": "SEO móvil (Lighthouse)",
+          "en": "Mobile SEO (Lighthouse)"
+        },
+        "before": {
+          "es": "92",
+          "en": "92"
+        },
+        "after": {
+          "es": "100",
+          "en": "100"
+        }
+      },
+      {
+        "label": {
+          "es": "Accesibilidad móvil (Lighthouse)",
+          "en": "Mobile accessibility (Lighthouse)"
+        },
+        "before": {
+          "es": "92",
+          "en": "92"
+        },
+        "after": {
+          "es": "100",
+          "en": "100"
+        }
+      },
+      {
+        "label": {
+          "es": "Rendimiento móvil (Lighthouse)",
+          "en": "Mobile performance (Lighthouse)"
+        },
+        "before": {
+          "es": "31-37",
+          "en": "31-37"
+        },
+        "after": {
+          "es": "50-59",
+          "en": "50-59"
+        }
+      }
+    ],
+    "feature_groups": [
+      {
+        "title": {
+          "es": "Respaldo y seguridad",
+          "en": "Backups and security"
+        },
+        "items": [
+          {
+            "es": "Hice el primer respaldo de la base de datos y de los archivos.",
+            "en": "I made the first backup of the database and files."
+          },
+          {
+            "es": "Actualicé WordPress, Elementor Pro y otros plugins, y activé 2FA para administradores.",
+            "en": "I updated WordPress, Elementor Pro and other plugins, and enabled 2FA for administrators."
+          },
+          {
+            "es": "Retiré una segunda instalación de WordPress que seguía en el servidor y apagué los listados de archivos.",
+            "en": "I removed a second WordPress install still sitting on the server and turned off file listings."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "Velocidad",
+          "en": "Speed"
+        },
+        "items": [
+          {
+            "es": "Subí <b>PHP</b> de 8.1 a 8.3 y activé OPcache, compresión, caché de navegador y <b>WP Super Cache</b> con precarga.",
+            "en": "I moved <b>PHP</b> from 8.1 to 8.3 and enabled OPcache, compression, browser caching and <b>WP Super Cache</b> with preloading."
+          },
+          {
+            "es": "Comprimí 92 imágenes pesadas con ImageMagick, con respaldo previo y sin cambiar sus URL.",
+            "en": "I compressed 92 heavy images with ImageMagick, backing them up first and keeping their URLs."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "SEO",
+          "en": "SEO"
+        },
+        "items": [
+          {
+            "es": "Configuré la identidad del colegio, que aparecía solo como \"Gonzaga\" y se compartía con una imagen de relleno.",
+            "en": "I set up the school's identity, which showed up as just \"Gonzaga\" and got shared with a placeholder image."
+          },
+          {
+            "es": "Escribí títulos y descripciones para 13 páginas, 3 noticias y 2 categorías con <b>Yoast</b>.",
+            "en": "I wrote titles and descriptions for 13 pages, 3 news posts and 2 categories with <b>Yoast</b>."
+          },
+          {
+            "es": "Quité <code>/index.php/</code> de las direcciones, con redirecciones 301.",
+            "en": "I removed <code>/index.php/</code> from addresses, with 301 redirects."
+          }
+        ]
+      },
+      {
+        "title": {
+          "es": "Funciones del sitio",
+          "en": "Site features"
+        },
+        "items": [
+          {
+            "es": "Puse en marcha una página 404 real, con buscador y enlaces útiles.",
+            "en": "I put a real 404 page in place, with search and useful links."
+          },
+          {
+            "es": "Reparé el reproductor de radio: un clic arrancaba dos señales a la vez y no se reconectaba solo.",
+            "en": "I fixed the radio player: one click started two streams at once, and it did not reconnect on its own."
+          },
+          {
+            "es": "Agregué un campo antispam a los 4 formularios y corregí enlaces rotos del pie de página.",
+            "en": "I added an anti-spam field to the 4 forms and fixed broken footer links."
+          }
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "src": "/img/gallery/gonzaga-wp-404.webp",
+        "width": 800,
+        "height": 609,
+        "alt": {
+          "es": "Página 404 del sitio del Colegio Gonzaga, con enlaces y buscador",
+          "en": "Colegio Gonzaga site 404 page, with links and search"
+        },
+        "caption": {
+          "es": "La página 404 publicada.",
+          "en": "The published 404 page."
+        }
+      },
+      {
+        "src": "/img/gallery/gonzaga-wp-radio.webp",
+        "width": 505,
+        "height": 150,
+        "alt": {
+          "es": "Reproductor flotante de radio en vivo del sitio",
+          "en": "The site's floating live radio player"
+        },
+        "caption": {
+          "es": "El reproductor de radio, ya reparado.",
+          "en": "The repaired radio player."
+        }
+      }
+    ]
   },
   {
     "id": "17",
@@ -1039,7 +1414,22 @@
       "es": "Kit para configurar los televisores del Colegio Gonzaga: inicio institucional, DNS con filtro familiar y ajustes por modelo. Piloto en 2 televisores.",
       "en": "Kit that sets up Colegio Gonzaga's TVs with a school home screen, family-filtered DNS and per-model settings. A pilot on 2 TVs so far."
     },
-    "schema_type": "CreativeWork"
+    "schema_type": "CreativeWork",
+    "preview_image_url": "/img/previews/gonzaga-televisores.webp",
+    "videos": [
+      {
+        "src": "/video/gonzaga-televisores.mp4",
+        "poster": "/video/gonzaga-televisores.webp",
+        "title": {
+          "es": "Antes y ahora",
+          "en": "Before and now"
+        },
+        "caption": {
+          "es": "Animación del inicio del colegio y del paso a HDMI para proyectar.",
+          "en": "Animation of the school home screen and of switching to HDMI to project."
+        }
+      }
+    ]
   },
   {
     "id": "9",

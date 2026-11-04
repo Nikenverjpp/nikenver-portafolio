@@ -253,6 +253,12 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.backToPortfolio': { es: 'Volver al portfolio', en: 'Back to portfolio' },
   'projects.viewDemo': { es: 'Ver sitio', en: 'View site' },
   'projects.viewCode': { es: 'Ver código', en: 'View code' },
+  'projects.detailVideos': { es: 'Míralo en video', en: 'Watch it in action' },
+  'projects.detailMetrics': { es: 'Antes y después', en: 'Before and after' },
+  'projects.metricName': { es: 'Medida', en: 'Measure' },
+  'projects.metricBefore': { es: 'Antes', en: 'Before' },
+  'projects.metricAfter': { es: 'Después', en: 'After' },
+  'projects.detailGallery': { es: 'Capturas', en: 'Screenshots' },
   'projects.detailLinks': { es: 'Sistemas en producción', en: 'Live systems' },
   'projects.detailSocial': { es: 'Marca y comunidad en redes', en: 'Brand and community on social' },
 
