@@ -8,9 +8,11 @@ const read = (path) => readFileSync(resolve(FRONTEND, path), 'utf8');
 describe.each(['vercel.json', '../vercel.json'])('%s', (path) => {
   const config = JSON.parse(read(path));
 
-  it('no reescribe todas las rutas, para que las páginas inexistentes den 404', () => {
+  it('sirve los archivos que existen y responde 404 con 404.html a todo lo demás', () => {
     expect(config.rewrites).toBeUndefined();
-    expect(config.routes).toBeUndefined();
+    const [, filesystem, fallback] = config.routes;
+    expect(filesystem).toEqual({ handle: 'filesystem' });
+    expect(fallback).toEqual({ src: '/(.*)', status: 404, dest: '/404.html' });
   });
 
   it('desactiva el preset de framework, que podría agregar su propio catch-all', () => {
@@ -18,9 +20,10 @@ describe.each(['vercel.json', '../vercel.json'])('%s', (path) => {
   });
 
   it('envía las cabeceras de seguridad en todas las rutas', () => {
-    const keys = config.headers[0].headers.map((header) => header.key);
-    expect(config.headers[0].source).toBe('/(.*)');
-    expect(keys).toEqual(expect.arrayContaining(['X-Content-Type-Options', 'X-Frame-Options', 'Referrer-Policy']));
+    const [headers] = config.routes;
+    expect(headers.src).toBe('/(.*)');
+    expect(headers.continue).toBe(true);
+    expect(Object.keys(headers.headers)).toEqual(expect.arrayContaining(['X-Content-Type-Options', 'X-Frame-Options', 'Referrer-Policy']));
   });
 });
 
