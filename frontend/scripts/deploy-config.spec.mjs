@@ -19,6 +19,10 @@ describe.each(['vercel.json', '../vercel.json'])('%s', (path) => {
     expect(config.framework).toBeNull();
   });
 
+  it('solo construye main y staging', () => {
+    expect(config.ignoreCommand).toBe('[ "$VERCEL_GIT_COMMIT_REF" != "main" ] && [ "$VERCEL_GIT_COMMIT_REF" != "staging" ]');
+  });
+
   it('envía las cabeceras de seguridad en todas las rutas', () => {
     const [headers] = config.routes;
     expect(headers.src).toBe('/(.*)');
