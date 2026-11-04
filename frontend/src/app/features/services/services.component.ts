@@ -187,8 +187,9 @@ export class ServicesComponent implements OnDestroy {
       url: `${SITE_ORIGIN}/servicios`,
       provider: {
         '@type': 'Person',
+        '@id': `${SITE_ORIGIN}/#person`,
         name: 'Nikenver Pulgar',
-        url: SITE_ORIGIN,
+        url: `${SITE_ORIGIN}/`,
       },
       address: {
         '@type': 'PostalAddress',

@@ -27,11 +27,9 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
           [href]="post.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="card-surface flex w-[220px] shrink-0 snap-start flex-col gap-3 border-l-4 p-5 transition-all hover:-translate-y-1"
-          [class.border-l-accent-violet]="post.platform === 'instagram'"
-          [class.border-l-border]="post.platform === 'tiktok'"
+          class="card-surface flex w-[220px] shrink-0 snap-start flex-col gap-3 p-5 transition-all hover:-translate-y-1 hover:border-accent-cyan/40"
         >
-          <span class="font-sans text-xs uppercase tracking-wide text-text-muted">
+          <span class="font-sans text-xs text-text-muted">
             {{ post.platform === 'instagram' ? 'Instagram' : 'TikTok' }}
           </span>
           <span class="font-display text-lg font-semibold text-text-primary">{{ '@sublimaxss_' }}</span>

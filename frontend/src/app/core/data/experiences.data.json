@@ -1,5 +1,30 @@
 [
   {
+    "id": "9",
+    "company": "Colegio Gonzaga",
+    "company_url": "https://colegiogonzaga.org.ve/",
+    "role": { "es": "Desarrollador Full Stack y Soporte Técnico", "en": "Full Stack Developer and Technical Support" },
+    "description": {
+      "es": "Me encargo de los sistemas del colegio: donaciones, tesorería, cierre diario de facturación, registro de exalumnos y voluntarios, mapa de red, sitio web y televisores. También doy soporte técnico.",
+      "en": "I run the school's systems: donations, treasury, daily billing close, alumni and volunteer registration, network map, website and TVs. I also provide technical support."
+    },
+    "detail": {
+      "es": "Me encargo de los sistemas del colegio y del soporte técnico. Eso incluye la pasarela de donaciones en <b>Next.js</b> y <b>NestJS</b>, la tesorería y su migración a <b>Laravel</b> y <b>Angular</b>, el cierre diario de facturación en <b>PHP</b>, el registro de exalumnos y voluntarios, el mapa de red, el saneamiento del sitio en <b>WordPress</b> y el kit de los televisores. En algunos de estos sistemas trabajo junto a otro desarrollador, y cada caso de estudio indica qué parte hice yo.",
+      "en": "I run the school's systems and its technical support. That covers the donations gateway in <b>Next.js</b> and <b>NestJS</b>, the treasury system and its migration to <b>Laravel</b> and <b>Angular</b>, the daily billing close in <b>PHP</b>, alumni and volunteer registration, the network map, the <b>WordPress</b> site clean-up and the TV kit. On some of these systems I work alongside another developer, and each case study states which part I did."
+    },
+    "stack": ["Next.js", "NestJS", "Laravel", "Angular", "PHP", "MongoDB", "MySQL", "WordPress"],
+    "logo_url": "/img/logos/gonzaga.webp",
+    "links": [
+      { "label": { "es": "Donaciones", "en": "Donations" }, "url": "https://donaciones.colegiogonzaga.org.ve/", "preview_image_url": "/img/previews/gonzaga-donaciones.webp" },
+      { "label": { "es": "Admon", "en": "Admon" }, "url": "https://admon.colegiogonzaga.org.ve/", "preview_image_url": "/img/previews/gonzaga-admon.webp" },
+      { "label": { "es": "Cierre de facturación", "en": "Billing close" }, "url": "https://colegiogonzaga.org.ve/cierre-facturacion/login.php", "preview_image_url": "/img/previews/gonzaga-cierre.webp" },
+      { "label": { "es": "Formulario", "en": "Registration" }, "url": "https://form.colegiogonzaga.org.ve/", "preview_image_url": "/img/previews/gonzaga-formulario.webp" }
+    ],
+    "start_year": 2026,
+    "end_year": null,
+    "sort_order": 0
+  },
+  {
     "id": "1",
     "company": "Sublimax",
     "role": { "es": "Fundador y CEO", "en": "Founder and CEO" },
@@ -13,7 +38,7 @@
     },
     "stack": ["Angular", "Laravel", "PostgreSQL", "Tailwind CSS"],
     "links": [
-      { "label": { "es": "Subladmin", "en": "Subladmin" }, "url": "https://sublabmin.vercel.app/" },
+      { "label": { "es": "Subladmin", "en": "Subladmin" }, "url": "https://subladmin.vercel.app/" },
       { "label": { "es": "Instagram", "en": "Instagram" }, "url": "https://www.instagram.com/sublimaxss_" },
       { "label": { "es": "TikTok", "en": "TikTok" }, "url": "https://www.tiktok.com/@sublimaxss_" }
     ],

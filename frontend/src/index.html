@@ -31,44 +31,79 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Nikenver Pulgar",
-        "jobTitle": "Full Stack Developer",
-        "description": "Full Stack developer (Angular, Laravel) in Maracaibo, Venezuela, with 10+ years of experience building real production systems for companies and his own e-commerce business.",
-        "url": "https://nikenver-portafolio.vercel.app/",
-        "image": "https://nikenver-portafolio.vercel.app/img/nikenver-pulgar.webp",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Maracaibo",
-          "addressCountry": "VE"
-        },
-        "alumniOf": {
-          "@type": "CollegeOrUniversity",
-          "name": "Universidad Dr. José Gregorio Hernández"
-        },
-        "knowsLanguage": ["es", "en"],
-        "knowsAbout": [
-          "Angular",
-          "Laravel",
-          "React",
-          "PHP",
-          "Vue.js",
-          "TypeScript",
-          "JavaScript",
-          ".NET",
-          "PostgreSQL",
-          "SQL Server",
-          "MySQL",
-          "Tailwind CSS",
-          "WordPress",
-          "Filament",
-          "Prompt Engineering",
-          "Fragrance Consulting"
-        ],
-        "sameAs": [
-          "https://linkedin.com/in/nikenver",
-          "https://www.instagram.com/sublimaxss_",
-          "https://www.tiktok.com/@sublimaxss_"
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://nikenver-portafolio.vercel.app/#person",
+            "name": "Nikenver Pulgar",
+            "jobTitle": "Full Stack Developer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Colegio Gonzaga",
+              "url": "https://colegiogonzaga.org.ve/"
+            },
+            "description": "Full Stack developer (Angular, Laravel) in Maracaibo, Venezuela, with 10+ years of experience building real production systems for companies and his own e-commerce business. Works remotely. Speaks Spanish and basic English.",
+            "url": "https://nikenver-portafolio.vercel.app/",
+            "image": "https://nikenver-portafolio.vercel.app/img/nikenver-pulgar.webp",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Maracaibo",
+              "addressCountry": "VE"
+            },
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad Dr. José Gregorio Hernández"
+            },
+            "knowsLanguage": [
+              "es"
+            ],
+            "knowsAbout": [
+              "Angular",
+              "Laravel",
+              "React",
+              "Next.js",
+              "NestJS",
+              "PHP",
+              "Vue.js",
+              "TypeScript",
+              "JavaScript",
+              ".NET",
+              "PostgreSQL",
+              "MongoDB",
+              "SQL Server",
+              "MySQL",
+              "Tailwind CSS",
+              "WordPress",
+              "Filament",
+              "Playwright",
+              "Python",
+              "Technical Support",
+              "OWASP Top 10",
+              "Rate Limiting",
+              "Database Normalization",
+              "Refactoring",
+              "Prompt Engineering",
+              "Fragrance Consulting"
+            ],
+            "sameAs": [
+              "https://linkedin.com/in/nikenver",
+              "https://github.com/Nikenverjpp"
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://nikenver-portafolio.vercel.app/#sublimax",
+            "name": "Sublimax",
+            "url": "https://tiendasublimax.com/",
+            "foundingDate": "2024",
+            "founder": {
+              "@id": "https://nikenver-portafolio.vercel.app/#person"
+            },
+            "sameAs": [
+              "https://www.instagram.com/sublimaxss_",
+              "https://www.tiktok.com/@sublimaxss_"
+            ]
+          }
         ]
       }
     </script>
@@ -76,7 +111,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&display=block" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20,400,0,0&icon_names=auto_awesome,brightness_auto,build,chevron_left,chevron_right,close,code,dark_mode,dashboard,download,expand_less,expand_more,insights,language,layers,light_mode,lock,menu,open_in_new,progress_activity,published_with_changes,rocket_launch,rule,shopping_cart,storefront,sync,verified,visibility&display=block" rel="stylesheet" />
   </head>
   <body>
     <app-root></app-root>

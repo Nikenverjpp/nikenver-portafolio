@@ -70,6 +70,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         </p>
         <p class="mt-8 flex flex-wrap gap-4">
           <a routerLink="/proyectos" class="btn-primary">{{ 'home.ctaProjects' | t: locale.locale() }}</a>
+          <a routerLink="/servicios" class="btn-ghost">{{ 'home.ctaServices' | t: locale.locale() }}</a>
           <a
             [href]="contact.linkedin"
             target="_blank"
@@ -113,7 +114,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
           {{ 'home.viewFullBio' | t: locale.locale() }}
         </a>
       </header>
-      <section class="max-w-[68ch] text-justify [hyphens:auto]">
+      <section class="max-w-[68ch] [hyphens:auto] sm:text-justify">
         @if (experiences$ | async; as experiences) {
           @for (exp of experiences | slice: 0 : 4; track exp.id) {
             <app-timeline-item [experience]="exp" appRevealOnScroll />

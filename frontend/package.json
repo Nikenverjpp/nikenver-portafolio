@@ -8,7 +8,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "test": "vitest run",
+    "generate:public": "node scripts/generate-public-files.mjs",
+    "prebuild": "npm run generate:public",
+    "postbuild": "node scripts/create-404-page.mjs"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +42,7 @@
     "@types/node": "^20.17.19",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.3.3",
-    "typescript": "~6.0.3"
+    "typescript": "~6.0.3",
+    "vitest": "^4.0.8"
   }
 }

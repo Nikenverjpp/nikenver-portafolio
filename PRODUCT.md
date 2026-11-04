@@ -17,11 +17,11 @@ El copy y los casos de estudio deben funcionar para ambos: suficientemente técn
 
 ## Product Purpose
 
-Portfolio personal de Nikenver Pulgar, desarrollador Full Stack (Angular + Laravel) en Maracaibo, Venezuela, con 10+ años de experiencia. Existe para conseguir empleo full-time y/o clientes freelance/consultoría mostrando sistemas reales y verificables en producción, no relleno de portfolio genérico. Éxito = una decisión de contacto informada, sin fricción.
+Portfolio personal de Nikenver Pulgar, desarrollador Full Stack (Angular + Laravel) en Maracaibo, Venezuela, con 10+ años de experiencia. Hoy trabaja en el Colegio Gonzaga, a cargo de sus sistemas y del soporte técnico. Existe para conseguir empleo full-time y/o clientes freelance/consultoría mostrando sistemas reales y verificables en producción, no relleno de portfolio genérico. Éxito = una decisión de contacto informada, sin fricción.
 
 ## Positioning
 
-Cada caso de estudio enlaza a un sistema real en producción (no un mockup ni una captura muerta) — Subladmin (ERP con lógica FEFO/FIFO y RLS), Axsence (e-commerce con SSR y diagnóstico olfativo por algoritmo), Sublimax (el negocio real que fundó), y plataformas internas de Grupo Cobeca — incluyendo sistemas que requieren credenciales que el visitante no tiene, usados como prueba de existencia más que como demo. El sitio también revela, en lenguaje simple, que Nikenver trabaja como desarrollador senior apoyado en IA (dirige la arquitectura y las decisiones, la IA acelera la implementación, él revisa cada línea) en vez de ocultar ese flujo de trabajo. Un portfolio vecino no podría copiar honestamente ninguna de las dos afirmaciones.
+Casi todos los casos de estudio enlazan a un sistema real en producción (no un mockup ni una captura muerta), y los que no pueden enlazar lo dicen y explican por qué — Subladmin (ERP con lógica FEFO/FIFO y RLS), Axsence (e-commerce con SSR y diagnóstico olfativo por algoritmo), Sublimax (el negocio real que fundó), y plataformas internas de Grupo Cobeca — incluyendo sistemas que requieren credenciales que el visitante no tiene, usados como prueba de existencia más que como demo. Cuando un trabajo es compartido, el caso declara qué parte hizo Nikenver. El sitio también revela, en lenguaje simple, que Nikenver trabaja como desarrollador senior apoyado en IA (dirige la arquitectura y las decisiones, la IA acelera la implementación, él revisa cada línea) en vez de ocultar ese flujo de trabajo. Un portfolio vecino no podría copiar honestamente ninguna de las dos afirmaciones.
 
 ## Operating Context
 
@@ -52,7 +52,7 @@ Más allá de eso, el usuario no puso más restricciones: contenido, estructura 
 
 ## Evidence on Hand
 
-- Links en vivo/producción: demo de Subladmin, Negociaciones Cobeca, Step Web, Step Web Junior, SIC, PFL8, Farmacia SaaS, Axsence (sitio + Instagram + TikTok), Sublimax (Instagram + TikTok), Isla de los Dinosaurios (demo + repo en GitHub).
+- Links en vivo/producción: demo de Subladmin, Negociaciones Cobeca, Step Web, Step Web Junior, SIC, PFL8, Farmacia SaaS, Axsence (sitio + Instagram + TikTok), Sublimax (Instagram + TikTok), Isla de los Dinosaurios (demo + repo en GitHub), Colegio Gonzaga (Donaciones, Admon, Cierre de facturación, Formulario y sitio web).
 - Una recomendación real de LinkedIn (Evert Pulgar, supervisor anterior).
 - CVs detallados con logros cuantificados (p. ej., 260+ clientes reales de servicio de internet construidos en solitario en Gandalf Comunicaciones) usados para enriquecer el detalle de experiencia en `/sobre-mi`.
 - Lista de cursos/certificaciones (Udemy, diplomados) mostrada en `/sobre-mi`.

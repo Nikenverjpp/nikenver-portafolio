@@ -13,7 +13,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
   template: `
     <div class="relative border-l border-border pl-6 pb-10 last:pb-0">
       <span
-        class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-accent-cyan shadow-[0_0_12px_#00D9FF80]"
+        class="absolute -left-[5px] top-1 h-2.5 w-2.5 rounded-full bg-accent-cyan"
       ></span>
       <p class="font-sans text-xs text-text-muted">
         {{ period() }}
@@ -36,7 +36,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
       }
       @if (detailed && experience.detail) {
         <p
-          class="mt-2 text-sm leading-relaxed text-text-secondary text-justify"
+          class="mt-2 text-sm leading-relaxed text-text-secondary sm:text-justify"
           [innerHTML]="experience.detail | t: locale.locale()"
         ></p>
       } @else if (experience.description) {

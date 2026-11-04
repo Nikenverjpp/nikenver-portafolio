@@ -7,17 +7,11 @@ import { RevealOnScrollDirective } from '@shared/directives/reveal-on-scroll.dir
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
 import { UI_STRINGS } from '@core/i18n/translations';
+import { ProjectFilter, buildFilterGroups, matchesFilter } from './project-filters';
 
 const SITE_ORIGIN = 'https://nikenver-portafolio.vercel.app';
 const ITEMLIST_JSONLD_ID = 'projects-itemlist-jsonld';
 const FAQ_JSONLD_ID = 'projects-faq-jsonld';
-
-type ProjectFilter = 'all' | 'cicd' | 'angular' | 'laravel' | 'ecommerce' | 'erp' | 'dotnet' | 'wordpress';
-
-interface FilterOption {
-  key: ProjectFilter;
-  labelKey: string;
-}
 
 @Component({
   selector: 'app-projects-list',
@@ -38,37 +32,46 @@ interface FilterOption {
           {{ 'projects.subtitle' | t: locale.locale() }}
         </p>
 
-        <!-- Filtros reactivos por Stack y Solución -->
-        <nav
-          aria-label="Filtros de proyectos"
-          class="mt-8 flex flex-wrap items-center gap-2"
-        >
-          @for (f of filterOptions; track f.key) {
-            <button
-              type="button"
-              (click)="setFilter(f.key)"
-              [attr.aria-pressed]="activeFilter() === f.key"
-              class="min-h-11 rounded-full px-4 py-2 text-xs font-medium transition-colors sm:text-sm"
-              [class.bg-accent-cyan]="activeFilter() === f.key"
-              [class.text-bg-primary]="activeFilter() === f.key"
-              [class.font-semibold]="activeFilter() === f.key"
-              [class.border]="activeFilter() !== f.key"
-              [class.border-border]="activeFilter() !== f.key"
-              [class.bg-bg-elevated]="activeFilter() !== f.key"
-              [class.text-text-secondary]="activeFilter() !== f.key"
-              [class.hover:border-accent-cyan/40]="activeFilter() !== f.key"
-              [class.hover:text-text-primary]="activeFilter() !== f.key"
-            >
-              {{ f.labelKey | t: locale.locale() }}
-            </button>
+        <div role="group" [attr.aria-label]="'projects.filterAria' | t: locale.locale()" class="mt-8 space-y-3">
+          @for (group of filterGroups(); track group.id) {
+            <div role="group" [attr.aria-labelledby]="'filter-group-' + group.id" class="sm:flex sm:items-start sm:gap-4">
+              <span [id]="'filter-group-' + group.id" class="block pb-1 text-xs text-text-muted sm:w-24 sm:shrink-0 sm:pb-0 sm:pt-3.5">
+                {{ group.labelKey | t: locale.locale() }}
+              </span>
+              <div class="-mx-4 flex gap-2 overflow-x-auto px-4 py-0.5 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+                @for (f of group.chips; track f.key) {
+                  <button
+                    type="button"
+                    (click)="setFilter(f.key)"
+                    [attr.aria-pressed]="activeFilter() === f.key"
+                    class="min-h-11 shrink-0 rounded-full px-4 py-2 text-xs font-medium transition-colors sm:text-sm"
+                    [class.bg-accent-cyan]="activeFilter() === f.key"
+                    [class.text-bg-primary]="activeFilter() === f.key"
+                    [class.font-semibold]="activeFilter() === f.key"
+                    [class.border]="activeFilter() !== f.key"
+                    [class.border-border]="activeFilter() !== f.key"
+                    [class.bg-bg-elevated]="activeFilter() !== f.key"
+                    [class.text-text-secondary]="activeFilter() !== f.key"
+                    [class.hover:border-accent-cyan/40]="activeFilter() !== f.key"
+                    [class.hover:text-text-primary]="activeFilter() !== f.key"
+                  >
+                    {{ f.name ?? (f.labelKey! | t: locale.locale()) }}
+                    <span class="ml-1 font-normal tabular-nums">{{ f.count }}</span>
+                  </button>
+                }
+              </div>
+            </div>
           }
-        </nav>
+        </div>
+        <p class="sr-only" aria-live="polite">
+          {{ filteredProjects().length }} {{ 'projects.countBadge' | t: locale.locale() }}
+        </p>
       </header>
 
       <h2 class="sr-only">{{ 'projects.gridHeading' | t: locale.locale() }}</h2>
 
       @if (filteredProjects().length > 0) {
-        <section class="mt-10 grid items-start gap-6 md:grid-cols-2">
+        <section class="mt-10 grid gap-6 md:grid-cols-2">
           @for (project of filteredProjects(); track project.id) {
             <app-project-card [project]="project" appRevealOnScroll />
           }
@@ -153,55 +156,11 @@ export class ProjectsListComponent implements OnDestroy {
   readonly allProjects = toSignal(this.projectService.list(), { requireSync: true });
   readonly activeFilter = signal<ProjectFilter>('all');
 
-  readonly filterOptions: FilterOption[] = [
-    { key: 'all', labelKey: 'projects.filterAll' },
-    { key: 'cicd', labelKey: 'projects.filterCicd' },
-    { key: 'angular', labelKey: 'projects.filterAngular' },
-    { key: 'laravel', labelKey: 'projects.filterLaravel' },
-    { key: 'erp', labelKey: 'projects.filterErp' },
-    { key: 'ecommerce', labelKey: 'projects.filterEcommerce' },
-    { key: 'dotnet', labelKey: 'projects.filterDotNet' },
-    { key: 'wordpress', labelKey: 'projects.filterWordpress' },
-  ];
+  readonly filterGroups = computed(() => buildFilterGroups(this.allProjects()));
 
-  readonly filteredProjects = computed(() => {
-    const list = this.allProjects();
-    const filter = this.activeFilter();
-
-    if (filter === 'all') {
-      return list;
-    }
-
-    return list.filter((project) => {
-      const stack = project.stack ?? [];
-      const slug = project.slug.toLowerCase();
-
-      switch (filter) {
-        case 'cicd':
-          return !!project.has_cicd || stack.includes('CI/CD');
-        case 'angular':
-          return stack.includes('Angular');
-        case 'laravel':
-          return stack.includes('Laravel');
-        case 'erp':
-          return slug.includes('subladmin') || slug.includes('cobeca');
-        case 'ecommerce':
-          return (
-            slug.includes('ecommerce') ||
-            slug.includes('catalogo') ||
-            slug.includes('axsence') ||
-            stack.includes('WooCommerce') ||
-            stack.includes('PrestaShop')
-          );
-        case 'dotnet':
-          return stack.includes('.NET');
-        case 'wordpress':
-          return stack.includes('WordPress');
-        default:
-          return true;
-      }
-    });
-  });
+  readonly filteredProjects = computed(() =>
+    this.allProjects().filter((project) => matchesFilter(project, this.activeFilter()))
+  );
 
   constructor() {
     // Sincrónico para garantizar que el prerenderizado SSG contenga los scripts en el HTML

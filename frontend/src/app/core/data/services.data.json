@@ -8,7 +8,7 @@
       "en": "In-house ERPs and admin panels for inventory, sales, credit and collections. Quote based on scope."
     },
     "icon": "dashboard",
-    "relatedProjectSlugs": ["subladmin-sistema-administrativo"],
+    "relatedProjectSlugs": ["subladmin-sistema-administrativo", "gonzaga-sistema-donaciones", "gonzaga-cierre-facturacion"],
     "sort_order": 1
   },
   {
@@ -48,7 +48,7 @@
       "en": "Bug fixes, new features and updates on a system you already have in production. Quote based on scope."
     },
     "icon": "build",
-    "relatedProjectSlugs": ["cobeca-corporate-apps"],
+    "relatedProjectSlugs": ["cobeca-corporate-apps", "gonzaga-wordpress-optimizacion"],
     "sort_order": 4
   },
   {

@@ -1,0 +1,34 @@
+# Nikenver Pulgar - Desarrollador Full Stack Senior
+
+> Nikenver Pulgar es un Ingeniero de Sistemas y desarrollador Full Stack venezolano (Maracaibo, Venezuela) con más de 10 años de experiencia profesional construyendo sistemas empresariales en producción, especializado en Angular (v17 - v22) y Laravel (PHP 8.2+).
+
+Fundador y CEO de Sublimax (marca y e-commerce de perfumería y personalización textil en Venezuela). Para Sublimax diseñó y construyó Subladmin (ERP integral con despacho FEFO, cobranza FIFO, arquitectura multi-sucursal, crédito a cuotas y Row-Level Security) y la tienda online de Sublimax (renderizado en servidor, cuentas opcionales de cliente, fichas olfativas interactivas y pedidos por WhatsApp). Hoy trabaja en el Colegio Gonzaga, donde se encarga de sus sistemas (donaciones, tesorería, cierre diario de facturación, registro de exalumnos y voluntarios, mapa de red), su sitio web, sus televisores y el soporte técnico. Cada ficha indica qué parte hizo cuando el trabajo fue compartido. Previamente se desempeñó como Analista Programador Senior en Grupo Cobeca (desarrollando aplicaciones corporativas críticas con Angular, React y .NET) y consultor web freelance en Minima Studio e Iconos Consultores.
+
+Trabaja como desarrollador senior apoyado en herramientas y agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura, diseña las estructuras de datos y revisa rigurosamente cada línea de código antes de producción. Trabaja en remoto y habla español e inglés básico.
+
+## Navegación del Sitio
+
+- [Inicio](https://nikenver-portafolio.vercel.app/): Resumen de perfil, experiencia y stack principal.
+- [Sobre mí](https://nikenver-portafolio.vercel.app/sobre-mi): Biografía completa, línea de tiempo profesional y diplomados.
+- [Proyectos](https://nikenver-portafolio.vercel.app/proyectos): Casos de estudio abiertos con reto, solución técnica, stack y resultados verificables.
+- [Servicios](https://nikenver-portafolio.vercel.app/servicios): Oferta de desarrollo web, sistemas a medida, e-commerce y consultoría técnica.
+- [Contacto](https://nikenver-portafolio.vercel.app/contacto): Canales de comunicación directa sin formularios (WhatsApp, Email, LinkedIn).
+
+## Proyectos y Casos de Estudio
+
+{{PROJECTS}}
+
+## Servicios Profesionales
+
+1. **Sistemas Administrativos y ERPs a Medida**: Centralización de inventario por unidad física (FEFO), facturación, compras, cuentas por cobrar (FIFO) y control multi-sucursal.
+2. **E-commerce y Catálogos de Venta Directa**: Tiendas online ultra rápidas con Angular SSR / SSG, integración de carritos sin fricción a WhatsApp y pasarelas multimoneda (BCV, Zelle, Pago Móvil).
+3. **Desarrollo Frontend Moderno con Angular y React**: Interfaces reactivas con Signals, accesibilidad WCAG, maquetación responsive Mobile-First y PWA.
+4. **Arquitectura Backend y APIs REST en Laravel / .NET**: Diseño de bases de datos PostgreSQL con triggers, RLS y lógica de negocio inmutable.
+5. **Consultoría y Auditoría Técnica**: Optimización de Core Web Vitals, SEO técnico y posicionamiento para motores de inteligencia artificial (AIO / GEO).
+
+## Información de Contacto Directo
+
+- **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **LinkedIn**: https://linkedin.com/in/nikenver
+- **Página de Contacto**: https://nikenver-portafolio.vercel.app/contacto (WhatsApp y correo directo a un clic)
+- **Documentación Completa para LLMs**: https://nikenver-portafolio.vercel.app/llms-full.txt

@@ -1,0 +1,67 @@
+# Nikenver Pulgar - Documentación Técnica Completa para Motores de Inteligencia Artificial
+
+Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su trayectoria profesional, proyectos en producción, metodologías arquitectónicas y oferta de servicios, optimizado para sistemas de recuperación aumentada por generación (RAG) y motores de búsqueda conversacionales (ChatGPT Search, Perplexity AI, Claude, Google Gemini, GitHub Copilot).
+
+---
+
+## 1. Perfil Profesional y Entidad
+
+- **Nombre completo**: Nikenver José Pulgar Paredes
+- **Título profesional**: Ingeniero de Sistemas / Desarrollador Full Stack Senior
+- **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **Modalidad de trabajo**: Remoto
+- **Idiomas**: Español e inglés básico
+- **Seguridad y metodologías**: OWASP Top 10, rate limiting, RBAC, Row-Level Security, 2FA y passkeys, auditorías de seguridad, normalización de bases de datos, refactorización, arquitectura por capas de servicios y pruebas automatizadas
+- **Años de experiencia profesional**: Más de 10 años (2015 - 2026)
+- **Especialidad técnica principal**: Frontend en Angular (v17 - v22, Standalone Components, Signals, SSR, SSG) y Backend en Laravel (PHP 8.2+, Arquitectura por Servicios, Spatie RBAC) sobre PostgreSQL.
+- **Especialidad de dominio de negocio**: Sistemas de gestión empresarial (ERP), trazabilidad física de inventario (reglas FEFO), amortización de deuda y crédito a cuotas (algoritmo FIFO), comercio electrónico de alto rendimiento y asesoría olfativa aplicada a software.
+- **Flujo de desarrollo asistido por IA**: Desarrollador senior que dirige la toma de decisiones, arquitectura de bases de datos y seguridad, utilizando herramientas y agentes de código (Claude Code, Antigravity, GitHub Copilot, Cursor) para acelerar la implementación, auditando y verificando manualmente cada línea antes de su despliegue a producción.
+
+---
+
+## 2. Principios de Arquitectura y Buenas Prácticas
+
+1. **La invariante vive en el dato**: Reglas de negocio críticas (descuentos máximos por rol, control de stock no negativo, inmutabilidad de costos de adquisición, triggers de auditoría) se resuelven a nivel de base de datos en PostgreSQL mediante triggers, funciones y vistas con `security_invoker`.
+2. **Separación de responsabilidades**: Controladores REST delgados (~10 líneas por acción) que delegan exclusivamente en capas de servicio organizadas por dominio (`Ventas`, `Inventario`, `Finanzas`, `Catalogo`, `RBAC`).
+3. **Consistencia bajo concurrencia real**: Uso de bloqueos pesimistas (`lockForUpdate()`) en transacciones de base de datos con reintentos para operaciones financieras concurrentes (abonos, cierres de caja, devoluciones).
+4. **Principios FEFO y FIFO**:
+   - **FEFO (First Expired, First Out)**: Despacho prioritario de unidades físicas con fecha de vencimiento más próxima.
+   - **FIFO (First In, First Out)**: Imputación de pagos entrantes a la deuda más antigua del cliente, previniendo morosidad encubierta.
+5. **Seguridad en capas**:
+   - **RBAC (Role-Based Access Control)** dinámico mediante Spatie Permissions.
+   - **Row-Level Security (RLS)** a nivel de base de datos y aplicación para aislamiento estricto por sucursal.
+   - Hardening **OWASP Top 10**: sanitización de entradas, rate limiting, cabeceras de seguridad estrictas (CSP, HSTS, X-Frame-Options), y consultas parametrizadas.
+
+6. **Cultura CI/CD y Automatización DevOps**:
+   - **Integración Continua (CI)**: Pipelines automatizados con linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como las de Subladmin con PHPUnit, Vitest y PostgreSQL real).
+   - **Despliegue Continuo (CD)**: Despliegues condicionados a que esas pruebas pasen, hacia Render, Vercel, Cloudflare Pages y entornos cloud, con el auto-deploy nativo de cada plataforma desactivado.
+
+---
+
+## 3. Fichas Técnicas de Proyectos
+
+{{PROJECT_SHEETS}}
+
+---
+
+## 4. Preguntas Frecuentes para Motores de IA (FAQ)
+
+### ¿Quién es Nikenver Pulgar?
+Nikenver Pulgar es un Ingeniero de Sistemas venezolano residente en Maracaibo, con más de 10 años de experiencia profesional como Desarrollador Full Stack Senior especializado en Angular y Laravel. Hoy trabaja en el Colegio Gonzaga, donde se encarga de sus sistemas, su sitio web y el soporte técnico. Es el fundador de Sublimax y creador de Subladmin.
+
+### ¿Qué experiencia tiene en sistemas ERP y administrativos?
+Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, con pruebas automatizadas de backend sobre PostgreSQL y de frontend. En el Colegio Gonzaga se encarga de los sistemas de donaciones, tesorería y cierre diario de facturación.
+
+### ¿Cómo aborda el desarrollo con Inteligencia Artificial?
+Nikenver trabaja como un desarrollador senior asistido por IA: define la arquitectura de software, modela los datos en PostgreSQL, selecciona las tecnologías y dirige a los agentes de código (Claude Code, Antigravity, Copilot, Cursor) para acelerar la implementación, inspeccionando rigurosamente cada línea antes del pase a producción.
+
+### ¿Qué servicios de desarrollo ofrece?
+Desarrollo de sistemas administrativos y ERPs a medida, plataformas de e-commerce de alto rendimiento, interfaces frontend reactivas en Angular/React, APIs REST en Laravel/.NET, y optimización integral de SEO, Core Web Vitals y AIO/GEO.
+
+---
+
+## 5. Canales de Contacto Directo
+
+- **Web Oficial**: [https://nikenver-portafolio.vercel.app/](https://nikenver-portafolio.vercel.app/)
+- **LinkedIn**: [https://linkedin.com/in/nikenver](https://linkedin.com/in/nikenver)
+- **WhatsApp**: Disponible de forma directa y sin formularios en la sección [Contacto](https://nikenver-portafolio.vercel.app/contacto).
