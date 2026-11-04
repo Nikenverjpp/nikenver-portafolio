@@ -245,7 +245,8 @@ export class CvPdfService {
       content: [
         { text: contact.name, style: 'name' },
         { text: t('about.eyebrow', locale), style: 'eyebrow' },
-        { text: contactLine, fontSize: 9.5, color: '#444444', margin: [0, 4, 0, 12] },
+        { text: contactLine, fontSize: 9.5, color: '#444444', margin: [0, 4, 0, 2] },
+        { text: t('about.workMeta', locale), fontSize: 9.5, color: '#444444', margin: [0, 0, 0, 12] },
         ...summary,
         { text: t('shared.experienceTitle', locale), style: 'sectionTitle' },
         ...experienceBlocks,

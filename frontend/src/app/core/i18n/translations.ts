@@ -113,6 +113,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'about.skillBackend': { es: 'Backend', en: 'Backend' },
   'about.skillOther': { es: 'Otros', en: 'Other' },
   'about.skillFragrance': { es: 'Perfumería', en: 'Perfumery' },
+  'about.workMeta': { es: 'Trabajo remoto · Inglés básico', en: 'Remote work · Basic English' },
   'about.personalMeta': {
     es: '32 años · Maracaibo, Venezuela · Padre de familia · Vehículo propio · Catador de Perfumes · Fanático del fútbol y madridista',
     en: '32 years old · Maracaibo, Venezuela · Father · Own vehicle · Perfume Connoisseur · Football fan and Real Madrid supporter',

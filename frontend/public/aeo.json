@@ -4,6 +4,11 @@
   "headline": "Desarrollador Full Stack Senior / Senior Full Stack Developer (Angular y Laravel)",
   "job_title": "Full Stack Developer",
   "location": "Maracaibo, Zulia, Venezuela",
+  "work_mode": "remote",
+  "languages": [
+    "Español",
+    "Inglés básico"
+  ],
   "experience_years": 10,
   "specialties": [
     "Angular (v17 - v22, Standalone Components, Signals, SSR, SSG)",

@@ -4,7 +4,7 @@
 
 Fundador y CEO de Sublimax (marca y e-commerce de perfumería y personalización textil en Venezuela). Para Sublimax diseñó y construyó Subladmin (ERP integral con despacho FEFO, cobranza FIFO, arquitectura multi-sucursal, crédito a cuotas y Row-Level Security) y la tienda online de Sublimax (renderizado en servidor, cuentas opcionales de cliente, fichas olfativas interactivas y pedidos por WhatsApp). Hoy trabaja en el Colegio Gonzaga, donde se encarga de sus sistemas (donaciones, tesorería, cierre diario de facturación, registro de exalumnos y voluntarios, mapa de red), su sitio web, sus televisores y el soporte técnico. Cada ficha indica qué parte hizo cuando el trabajo fue compartido. Previamente se desempeñó como Analista Programador Senior en Grupo Cobeca (desarrollando aplicaciones corporativas críticas con Angular, React y .NET) y consultor web freelance en Minima Studio e Iconos Consultores.
 
-Trabaja como desarrollador senior apoyado en herramientas y agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura, diseña las estructuras de datos y revisa rigurosamente cada línea de código antes de producción.
+Trabaja como desarrollador senior apoyado en herramientas y agentes de IA (Claude Code, Antigravity, GitHub Copilot, Cursor): dirige la arquitectura, diseña las estructuras de datos y revisa rigurosamente cada línea de código antes de producción. Trabaja en remoto y habla español e inglés básico.
 
 ## Navegación del Sitio
 

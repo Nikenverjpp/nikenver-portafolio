@@ -33,6 +33,9 @@ import { CvPdfService } from '@core/pdf/cv-pdf.service';
         <p class="mt-6 text-lg text-text-secondary">
           {{ 'about.subtitle' | t: locale.locale() }}
         </p>
+        <p class="mt-2 font-sans text-sm text-text-secondary">
+          {{ 'about.workMeta' | t: locale.locale() }}
+        </p>
         <p class="mt-2 font-sans text-xs text-text-muted">
           {{ 'about.personalMeta' | t: locale.locale() }}
         </p>

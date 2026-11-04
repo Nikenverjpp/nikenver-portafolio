@@ -9,6 +9,8 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **Nombre completo**: Nikenver José Pulgar Paredes
 - **Título profesional**: Ingeniero de Sistemas / Desarrollador Full Stack Senior
 - **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **Modalidad de trabajo**: Remoto
+- **Idiomas**: Español e inglés básico
 - **Años de experiencia profesional**: Más de 10 años (2015 - 2026)
 - **Especialidad técnica principal**: Frontend en Angular (v17 - v22, Standalone Components, Signals, SSR, SSG) y Backend en Laravel (PHP 8.2+, Arquitectura por Servicios, Spatie RBAC) sobre PostgreSQL.
 - **Especialidad de dominio de negocio**: Sistemas de gestión empresarial (ERP), trazabilidad física de inventario (reglas FEFO), amortización de deuda y crédito a cuotas (algoritmo FIFO), comercio electrónico de alto rendimiento y asesoría olfativa aplicada a software.
@@ -187,7 +189,7 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **Tipo**: Sistema de gestión
 - **Estado**: En producción
 - **Organización**: Grupo Cobeca
-- **Año**: 2026
+- **Año**: 2023
 - **Resumen**: Portal web para los clientes de Droguerías Cobeca: consulta de facturación digital, actualización de datos de contacto y autogestión, para reducir el papeleo físico entre la droguería y sus clientes.
 - **Desafío**: Migrar a los clientes de la facturación en papel a un canal digital propio, sin depender de correos ni llamadas para cada actualización de datos.
 - **Solución**: Frontend Angular y backend .NET (C#) sobre SQL Server, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.
@@ -231,7 +233,6 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **Integración continua**: Integración continua con GitHub Actions para validación estática de sintaxis.
 - **Despliegue continuo**: Despliegue continuo instantáneo en Vercel ante cada push a la rama principal.
 - **Enlace**: https://isla-dinosaurio-app.vercel.app/
-- **Código**: https://github.com/Nikenverjpp/isla-dinosaurio-app
 
 ### Kit de Televisores - Colegio Gonzaga
 - **Tipo**: Infraestructura
@@ -249,11 +250,11 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **Tipo**: Sitio web
 - **Estado**: En producción
 - **Organización**: Iconos Consultores
-- **Año**: 2017
+- **Año**: 2018
 - **Resumen**: Sitio institucional para Amavida Zulia, asociación civil de liderazgo comunitario dedicada a la prevención del VIH y la defensa de los derechos humanos en Maracaibo, construido como freelance en Iconos Consultores.
 - **Desafío**: La organización necesitaba un sitio propio para publicar noticias, información de salud sexual y VIH, y convocatorias públicas, con un tono institucional apropiado para una ONG que trabaja con poblaciones vulnerables.
 - **Solución**: Frontend a medida en HTML, CSS y JavaScript con jQuery, y backend en PHP y MySQL para el gestor de noticias y las secciones de servicios, documentos y convocatorias.
-- **Resultados**: En producción desde 2017, como canal oficial de noticias y contacto de la organización.
+- **Resultados**: En producción desde 2018, como canal oficial de noticias y contacto de la organización.
 - **Stack**: HTML, CSS, JavaScript, PHP, MySQL
 - **Enlace**: https://www.amavida.org.ve/
 

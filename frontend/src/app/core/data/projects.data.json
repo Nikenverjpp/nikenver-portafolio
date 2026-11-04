@@ -813,13 +813,13 @@
     "demo_url": "https://sic.drogueriascobeca.com/autenticacion",
     "is_featured": false,
     "sort_order": 12,
-    "year": 2026,
+    "year": 2023,
     "categories": [
       "erp"
     ],
     "status": "production",
     "requires_login": true,
-    "updated_at": "2026-10-20",
+    "updated_at": "2026-11-04",
     "seo_description": {
       "es": "Portal de clientes de Droguerías Cobeca para consultar facturas digitales y actualizar datos sin llamadas, con Angular, .NET y SQL Server.",
       "en": "Customer portal for Droguerías Cobeca to look up digital invoices and update data without phone calls, built with Angular, .NET and SQL Server."
@@ -975,7 +975,6 @@
     "thumbnail_url": "/img/logos/isla-de-dinosaurios.webp",
     "preview_image_url": "/img/previews/isla-de-dinosaurios.webp",
     "demo_url": "https://isla-dinosaurio-app.vercel.app/",
-    "repo_url": "https://github.com/Nikenverjpp/isla-dinosaurio-app",
     "is_featured": false,
     "sort_order": 15,
     "year": 2026,
@@ -983,7 +982,7 @@
       "game"
     ],
     "status": "production",
-    "updated_at": "2026-10-20",
+    "updated_at": "2026-11-04",
     "seo_description": {
       "es": "Juego web para enseñar programación a niños, hecho junto a mi hijo, con actividades táctiles, visión por computadora y reconocimiento de voz.",
       "en": "Web game that teaches kids to code, built together with my son, with hands-on activities, computer vision and voice recognition."
@@ -1066,8 +1065,8 @@
       "en": "Custom front-end in <b>HTML</b>, <b>CSS</b> and <b>JavaScript</b> with <b>jQuery</b>, and a <b>PHP</b>/<b>MySQL</b> back-end powering the news manager and the services, documents and public-notice sections."
     },
     "results": {
-      "es": "En producción desde 2017, como canal oficial de noticias y contacto de la organización.",
-      "en": "In production since 2017, serving as the organization's official news and contact channel."
+      "es": "En producción desde 2018, como canal oficial de noticias y contacto de la organización.",
+      "en": "In production since 2018, serving as the organization's official news and contact channel."
     },
     "stack": [
       "HTML",
@@ -1081,12 +1080,12 @@
     "demo_url": "https://www.amavida.org.ve/",
     "is_featured": false,
     "sort_order": 17,
-    "year": 2017,
+    "year": 2018,
     "categories": [
       "website"
     ],
     "status": "production",
-    "updated_at": "2026-10-20",
+    "updated_at": "2026-11-04",
     "seo_description": {
       "es": "Sitio de Amavida Zulia, ONG de prevención del VIH y derechos humanos en Maracaibo, con gestor de noticias y convocatorias en PHP y MySQL.",
       "en": "Website for Amavida Zulia, an HIV-prevention and human-rights NGO in Maracaibo, with a news and public-notice manager in PHP and MySQL."

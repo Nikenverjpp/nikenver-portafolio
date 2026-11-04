@@ -9,6 +9,8 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
 - **Nombre completo**: Nikenver José Pulgar Paredes
 - **Título profesional**: Ingeniero de Sistemas / Desarrollador Full Stack Senior
 - **Ubicación**: Maracaibo, Estado Zulia, Venezuela
+- **Modalidad de trabajo**: Remoto
+- **Idiomas**: Español e inglés básico
 - **Años de experiencia profesional**: Más de 10 años (2015 - 2026)
 - **Especialidad técnica principal**: Frontend en Angular (v17 - v22, Standalone Components, Signals, SSR, SSG) y Backend en Laravel (PHP 8.2+, Arquitectura por Servicios, Spatie RBAC) sobre PostgreSQL.
 - **Especialidad de dominio de negocio**: Sistemas de gestión empresarial (ERP), trazabilidad física de inventario (reglas FEFO), amortización de deuda y crédito a cuotas (algoritmo FIFO), comercio electrónico de alto rendimiento y asesoría olfativa aplicada a software.
