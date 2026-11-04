@@ -7,6 +7,7 @@ function project(overrides: Partial<Project>): Project {
     id: '1',
     slug: 'demo',
     title: { es: 'Demo', en: 'Demo' },
+    seo_description: { es: 'Demo', en: 'Demo' },
     categories: ['website'],
     status: 'production',
     updated_at: '2026-11-04',

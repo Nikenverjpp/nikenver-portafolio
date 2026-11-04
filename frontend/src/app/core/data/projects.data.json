@@ -42,8 +42,8 @@
         "en": "Backend tests with PHPUnit on real PostgreSQL, frontend tests with Vitest, a Playwright job and a strict Angular build."
       },
       "cd": {
-        "es": "Solo CI despliega: al pasar las pruebas en un push a <code>main</code>, un mismo workflow publica el backend en Render, el panel en Vercel y el catálogo en Cloudflare Pages. El auto-deploy de las tres plataformas está apagado.",
-        "en": "Only CI deploys: once tests pass on a push to <code>main</code>, one workflow publishes the backend to Render, the panel to Vercel and the catalog to Cloudflare Pages. Auto-deploy is off on all three platforms."
+        "es": "Solo CI despliega: al pasar las pruebas en un push a main, un mismo workflow publica el backend en Render, el panel en Vercel y el catálogo en Cloudflare Pages. El auto-deploy de las tres plataformas está apagado.",
+        "en": "Only CI deploys: once tests pass on a push to main, one workflow publishes the backend to Render, the panel to Vercel and the catalog to Cloudflare Pages. Auto-deploy is off on all three platforms."
       }
     },
     "company": "Sublimax",
@@ -58,7 +58,11 @@
     ],
     "status": "production",
     "requires_login": true,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "ERP de Sublimax con inventario FEFO, cobranza FIFO, crédito a cuotas y seguridad por sucursal. Angular y Laravel en producción, con miles de pruebas.",
+      "en": "Sublimax's ERP with FEFO inventory, FIFO collections, installment credit and branch-level security. Angular and Laravel, with thousands of tests."
+    }
   },
   {
     "id": "11",
@@ -104,8 +108,8 @@
         "en": "It shares Subladmin's pipeline because both live in the same repository: backend and frontend tests must pass before it builds."
       },
       "cd": {
-        "es": "El mismo workflow publica el build en Cloudflare Pages con <code>wrangler</code> cuando pasan las pruebas.",
-        "en": "The same workflow publishes the build to Cloudflare Pages with <code>wrangler</code> once tests pass."
+        "es": "El mismo workflow publica el build en Cloudflare Pages con wrangler cuando pasan las pruebas.",
+        "en": "The same workflow publishes the build to Cloudflare Pages with wrangler once tests pass."
       }
     },
     "company": "Sublimax",
@@ -119,7 +123,11 @@
       "ecommerce"
     ],
     "status": "production",
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Tienda online de Sublimax con renderizado en servidor, ficha olfativa, cuentas opcionales y pedidos por WhatsApp. Hecha con Angular y Cloudflare Pages.",
+      "en": "Sublimax's online store with server rendering, scent profiles, optional accounts and WhatsApp orders. Built with Angular on Cloudflare Pages."
+    }
   },
   {
     "id": "2",
@@ -195,7 +203,11 @@
       "ecommerce"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "E-commerce de perfumería de autor con quiz olfativo, simulador de layering y checkout en varias monedas. Angular con SSR, Laravel y PostgreSQL.",
+      "en": "Designer perfumery e-commerce with a scent quiz, layering simulator and multi-currency checkout. Angular SSR, Laravel and PostgreSQL."
+    }
   },
   {
     "id": "12",
@@ -262,6 +274,10 @@
         "es": "Los workflows despliegan en QA y producción con Docker sobre un VPS, con versiones semánticas y respaldos cifrados cada semana.",
         "en": "Workflows deploy to QA and production with Docker on a VPS, with semantic versions and weekly encrypted backups."
       }
+    },
+    "seo_description": {
+      "es": "Pasarela de donaciones del Colegio Gonzaga en dólares y bolívares, con verificación bancaria, recibos PDF y reportes. Next.js, NestJS y MongoDB.",
+      "en": "Colegio Gonzaga's donation gateway in dollars and bolívares, with bank verification, PDF receipts and reports. Next.js, NestJS and MongoDB."
     }
   },
   {
@@ -351,7 +367,12 @@
       "ecommerce"
     ],
     "status": "production",
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Negocio de perfumería, maquillaje y variedades fundado en 2024 en Maracaibo, con estrategia comercial, marca y ventas propias, apoyado en Subladmin.",
+      "en": "Perfumery, makeup and variety business founded in 2024 in Maracaibo, with its own commercial strategy, brand and sales, running on Subladmin."
+    },
+    "schema_type": "CreativeWork"
   },
   {
     "id": "4",
@@ -459,7 +480,11 @@
       "erp"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Plataformas comerciales y sistemas internos de Grupo Cobeca, como Negociaciones Cobeca, SIC y Step Web, con Angular, .NET y SQL Server.",
+      "en": "Commercial platforms and internal systems for Grupo Cobeca, including Negociaciones Cobeca, SIC and Step Web, built with Angular, .NET and SQL Server."
+    }
   },
   {
     "id": "13",
@@ -523,7 +548,11 @@
     "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
     "year": 2026,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Sistema de tesorería del Colegio Gonzaga: ingresos, egresos, conciliación bancaria y aportes en bolívares y dólares, con migración a Laravel y Angular.",
+      "en": "Colegio Gonzaga's treasury system: income, expenses, bank reconciliation and family fees in bolívares and dollars, moving to Laravel and Angular."
+    }
   },
   {
     "id": "14",
@@ -575,6 +604,10 @@
     "contribution": {
       "es": "Estoy a cargo del sistema en el colegio y lo programé.",
       "en": "I run the system at the school, and I built it."
+    },
+    "seo_description": {
+      "es": "Herramienta del Colegio Gonzaga para cuadrar cada día las ventas desde un Excel irregular: facturas, pagos, tasa BCV y descuadres. PHP y JavaScript.",
+      "en": "Colegio Gonzaga tool that reconciles daily sales from an irregular Excel report: invoices, payments, BCV rate and mismatches. PHP and JavaScript."
     }
   },
   {
@@ -627,7 +660,11 @@
     "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
     "year": 2026,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Registro público de exalumnos y voluntarios del Colegio Gonzaga, con una reescritura en Next.js y Laravel validada con pruebas de paridad.",
+      "en": "Public alumni and volunteer registration for Colegio Gonzaga, with a rewrite in Next.js and Laravel validated through parity tests."
+    }
   },
   {
     "id": "16",
@@ -678,7 +715,12 @@
     "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
     "year": 2026,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Saneamiento del WordPress del Colegio Gonzaga: la respuesta bajó de 2,70 s a 0,50 s, y SEO y accesibilidad llegaron a 100 en Lighthouse de laboratorio.",
+      "en": "Clean-up of Colegio Gonzaga's WordPress site: server response fell from 2.70 s to 0.50 s, and SEO and accessibility reached 100 in lab Lighthouse."
+    },
+    "schema_type": "CreativeWork"
   },
   {
     "id": "17",
@@ -728,7 +770,11 @@
     "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
     "year": 2026,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Mapa de equipos, cables y enlaces de la red del Colegio Gonzaga sobre su plano real. Proyecto en desarrollo con Angular, Laravel y Python.",
+      "en": "Map of Colegio Gonzaga's network equipment, cables and links over its real floor plan. A project in development with Angular, Laravel and Python."
+    }
   },
   {
     "id": "6",
@@ -773,7 +819,11 @@
     ],
     "status": "production",
     "requires_login": true,
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Portal de clientes de Droguerías Cobeca para consultar facturas digitales y actualizar datos sin llamadas, con Angular, .NET y SQL Server.",
+      "en": "Customer portal for Droguerías Cobeca to look up digital invoices and update data without phone calls, built with Angular, .NET and SQL Server."
+    }
   },
   {
     "id": "7",
@@ -820,7 +870,11 @@
       "website"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Catálogo de e-commerce de Dekasa para porcelanato, baños y revestimientos, con navegación por categoría. WordPress, Elementor y WooCommerce.",
+      "en": "Dekasa's e-commerce catalog for porcelain tile, bathrooms and coatings, with category navigation. Built on WordPress, Elementor and WooCommerce."
+    }
   },
   {
     "id": "8",
@@ -867,7 +921,11 @@
       "website"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Tienda de Arcoweld para equipos de soldadura, corte y seguridad industrial, con cuentas de cliente y carrito. WordPress, WooCommerce y Bootstrap.",
+      "en": "Arcoweld's store for welding, cutting and industrial safety gear, with customer accounts and a cart. Built on WordPress, WooCommerce and Bootstrap."
+    }
   },
   {
     "id": "5",
@@ -925,7 +983,11 @@
       "game"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Juego web para enseñar programación a niños, hecho junto a mi hijo, con actividades táctiles, visión por computadora y reconocimiento de voz.",
+      "en": "Web game that teaches kids to code, built together with my son, with hands-on activities, computer vision and voice recognition."
+    }
   },
   {
     "id": "18",
@@ -973,7 +1035,12 @@
     "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
     "year": 2026,
-    "updated_at": "2026-11-04"
+    "updated_at": "2026-11-04",
+    "seo_description": {
+      "es": "Kit para configurar los televisores del Colegio Gonzaga: inicio institucional, DNS con filtro familiar y ajustes por modelo. Piloto en 2 televisores.",
+      "en": "Kit that sets up Colegio Gonzaga's TVs with a school home screen, family-filtered DNS and per-model settings. A pilot on 2 TVs so far."
+    },
+    "schema_type": "CreativeWork"
   },
   {
     "id": "9",
@@ -1019,7 +1086,11 @@
       "website"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Sitio de Amavida Zulia, ONG de prevención del VIH y derechos humanos en Maracaibo, con gestor de noticias y convocatorias en PHP y MySQL.",
+      "en": "Website for Amavida Zulia, an HIV-prevention and human-rights NGO in Maracaibo, with a news and public-notice manager in PHP and MySQL."
+    }
   },
   {
     "id": "10",
@@ -1066,6 +1137,10 @@
       "website"
     ],
     "status": "production",
-    "updated_at": "2026-10-20"
+    "updated_at": "2026-10-20",
+    "seo_description": {
+      "es": "Tienda y blog de Wilmer Nadín Holistic Center en Maracaibo, con catálogo de productos y contenido editorial. PrestaShop, PHP y MySQL.",
+      "en": "Online store and blog for Wilmer Nadín Holistic Center in Maracaibo, with a product catalog and editorial content. PrestaShop, PHP and MySQL."
+    }
   }
 ]

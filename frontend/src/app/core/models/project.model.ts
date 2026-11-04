@@ -18,6 +18,10 @@ export interface Project {
   slug: string;
   title: LocalizedText;
   tagline?: LocalizedText;
+  /** Meta description, 120-155 characters. */
+  seo_description: LocalizedText;
+  /** Defaults to SoftwareApplication. Use CreativeWork for a business or a service, not an application. */
+  schema_type?: 'CreativeWork';
   description?: LocalizedText;
   challenge?: LocalizedText;
   solution?: LocalizedText;

@@ -215,6 +215,22 @@ const JSONLD_SCRIPT_ID = 'project-jsonld';
             {{ 'projects.loginNotice' | t: locale.locale() }}
           </p>
         }
+
+        <section
+          appRevealOnScroll
+          class="card-surface mt-12 flex max-w-3xl flex-col gap-6 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8"
+        >
+          <div>
+            <h2 class="font-display text-xl font-semibold text-text-primary">
+              {{ 'projects.ctaTitle' | t: locale.locale() }}
+            </h2>
+            <p class="mt-2 text-text-secondary">{{ 'projects.ctaText' | t: locale.locale() }}</p>
+          </div>
+          <p class="flex shrink-0 flex-wrap gap-3">
+            <a routerLink="/contacto" class="btn-primary">{{ 'projects.ctaContact' | t: locale.locale() }}</a>
+            <a routerLink="/servicios" class="btn-ghost">{{ 'home.ctaServices' | t: locale.locale() }}</a>
+          </p>
+        </section>
       </article>
     } @else {
       <app-not-found titleKey="notFound.projectTitle" [showProjectsLink]="true" />
@@ -248,17 +264,10 @@ export class ProjectDetailComponent implements OnDestroy {
         this.pageTitle.setTitle(title);
         this.pageMeta.updateTag({ property: 'og:title', content: title });
         this.pageMeta.updateTag({ name: 'twitter:title', content: title });
-        // description can carry <b> tags for on-page rendering; strip them here since
-        // this value only ever lands in plain-text meta tags / JSON-LD, never innerHTML.
-        const description = (project.tagline?.[locale] ?? project.description?.[locale])?.replace(
-          /<\/?[^>]+>/g,
-          ''
-        );
-        if (description) {
-          this.pageMeta.updateTag({ name: 'description', content: description });
-          this.pageMeta.updateTag({ property: 'og:description', content: description });
-          this.pageMeta.updateTag({ name: 'twitter:description', content: description });
-        }
+        const description = project.seo_description[locale];
+        this.pageMeta.updateTag({ name: 'description', content: description });
+        this.pageMeta.updateTag({ property: 'og:description', content: description });
+        this.pageMeta.updateTag({ name: 'twitter:description', content: description });
         const image = project.preview_image_url
           ? `${SITE_ORIGIN}${project.preview_image_url}`
           : `${SITE_ORIGIN}/img/nikenver-pulgar.webp`;
@@ -275,26 +284,28 @@ export class ProjectDetailComponent implements OnDestroy {
   private updateJsonLd(
     project: Project,
     locale: 'es' | 'en',
-    description: string | undefined,
+    description: string,
     image: string
   ): void {
     const jsonLd = {
       '@context': 'https://schema.org',
       '@graph': [
         {
-          '@type': 'SoftwareApplication',
+          '@type': project.schema_type ?? 'SoftwareApplication',
           name: project.title[locale],
           description,
           image,
           url: `${SITE_ORIGIN}/proyectos/${project.slug}`,
-          applicationCategory: 'WebApplication',
-          operatingSystem: 'Web Browser',
+          ...(project.schema_type
+            ? {}
+            : { applicationCategory: 'WebApplication', operatingSystem: 'Web Browser' }),
           keywords: project.stack?.join(', '),
           // `contribution` marks shared work, so the schema doesn't claim sole authorship.
           [project.contribution ? 'contributor' : 'author']: {
             '@type': 'Person',
+            '@id': `${SITE_ORIGIN}/#person`,
             name: 'Nikenver Pulgar',
-            url: SITE_ORIGIN,
+            url: `${SITE_ORIGIN}/`,
           },
           ...(project.year ? { dateCreated: `${project.year}` } : {}),
         },

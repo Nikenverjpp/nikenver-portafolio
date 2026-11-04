@@ -108,7 +108,7 @@ A near-black neutral scale carries the page; color is reserved for meaning, not 
 
 ### Hierarchy
 - **Display** (700–800, `text-3xl`–`text-4xl`/`clamp` on Home H1, tight tracking): section titles, the hero name, the logo monogram. Appears at the top of every page and nowhere else.
-- **Body** (400, `text-base`, 1.6 line-height, justified in prose blocks): bio paragraphs, case-study copy. Comfortable long-form reading measure.
+- **Body** (400, `text-base`, 1.6 line-height, justified in prose blocks from `sm` up, left-aligned on phones): bio paragraphs, case-study copy. Comfortable long-form reading measure.
 - **Label** (400–500, `text-xs`–`text-sm`, `text-secondary`/`text-muted`): eyebrows, stat captions, year stamps, nav links, chip text. Carries the weight labels used to get from the retired mono face — no letter-spacing or case tricks required to read as "metadata."
 
 ### Named Rules

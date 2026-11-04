@@ -11,7 +11,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "vitest run",
     "generate:public": "node scripts/generate-public-files.mjs",
-    "prebuild": "npm run generate:public"
+    "prebuild": "npm run generate:public",
+    "postbuild": "node scripts/create-404-page.mjs"
   },
   "private": true,
   "dependencies": {

@@ -32,7 +32,7 @@ const FAQ_JSONLD_ID = 'projects-faq-jsonld';
           {{ 'projects.subtitle' | t: locale.locale() }}
         </p>
 
-        <nav [attr.aria-label]="'projects.filterAria' | t: locale.locale()" class="mt-8 space-y-3">
+        <div role="group" [attr.aria-label]="'projects.filterAria' | t: locale.locale()" class="mt-8 space-y-3">
           @for (group of filterGroups(); track group.id) {
             <div role="group" [attr.aria-labelledby]="'filter-group-' + group.id" class="sm:flex sm:items-start sm:gap-4">
               <span [id]="'filter-group-' + group.id" class="block pb-1 text-xs text-text-muted sm:w-24 sm:shrink-0 sm:pb-0 sm:pt-3.5">
@@ -56,13 +56,13 @@ const FAQ_JSONLD_ID = 'projects-faq-jsonld';
                     [class.hover:text-text-primary]="activeFilter() !== f.key"
                   >
                     {{ f.name ?? (f.labelKey! | t: locale.locale()) }}
-                    <span class="ml-1 tabular-nums opacity-70">{{ f.count }}</span>
+                    <span class="ml-1 font-normal tabular-nums">{{ f.count }}</span>
                   </button>
                 }
               </div>
             </div>
           }
-        </nav>
+        </div>
         <p class="sr-only" aria-live="polite">
           {{ filteredProjects().length }} {{ 'projects.countBadge' | t: locale.locale() }}
         </p>

@@ -3,19 +3,19 @@ import { LocalizedText } from './localized-text.model';
 export const UI_STRINGS: Record<string, LocalizedText> = {
   'a11y.skipToContent': { es: 'Saltar al contenido', en: 'Skip to content' },
 
-  'title.home': { es: 'Inicio - Nikenver Pulgar', en: 'Home - Nikenver Pulgar' },
+  'title.home': { es: 'Nikenver Pulgar, desarrollador Full Stack en Maracaibo', en: 'Nikenver Pulgar, Full Stack Developer in Maracaibo' },
   'title.about': { es: 'Sobre mí - Nikenver Pulgar', en: 'About - Nikenver Pulgar' },
   'title.projects': { es: 'Proyectos - Nikenver Pulgar', en: 'Projects - Nikenver Pulgar' },
-  'title.services': { es: 'Servicios - Nikenver Pulgar', en: 'Services - Nikenver Pulgar' },
+  'title.services': { es: 'Software a medida en Maracaibo - Nikenver Pulgar', en: 'Custom Software in Maracaibo - Nikenver Pulgar' },
   'title.contact': { es: 'Contacto - Nikenver Pulgar', en: 'Contact - Nikenver Pulgar' },
   'title.notFound': { es: 'Página no encontrada - Nikenver Pulgar', en: 'Page not found - Nikenver Pulgar' },
   'meta.home': {
-    es: 'Nikenver Pulgar, desarrollador Full Stack Angular y Laravel en Maracaibo, Venezuela. Más de 10 años construyendo sistemas administrativos, e-commerce y aplicaciones web para empresas reales.',
-    en: 'Nikenver Pulgar, Full Stack Angular and Laravel developer in Maracaibo, Venezuela. Over 10 years building administrative systems, e-commerce and web applications for real businesses.',
+    es: 'Nikenver Pulgar, desarrollador Full Stack Angular y Laravel en Maracaibo. Más de 10 años creando sistemas administrativos, tiendas online y aplicaciones web.',
+    en: 'Nikenver Pulgar, Full Stack Angular and Laravel developer in Maracaibo. Over 10 years building administrative systems, online stores and web applications.',
   },
   'meta.about': {
-    es: 'Trayectoria profesional de Nikenver Pulgar: 10+ años en desarrollo Full Stack, a cargo de los sistemas del Colegio Gonzaga, fundador de Sublimax y experiencia en Grupo Cobeca con Angular, Laravel, React y .NET.',
-    en: "Nikenver Pulgar's professional background: 10+ years in Full Stack development, running the systems at Colegio Gonzaga, founder of Sublimax, and experience at Grupo Cobeca with Angular, Laravel, React and .NET.",
+    es: 'Trayectoria de Nikenver Pulgar: más de 10 años en desarrollo Full Stack, a cargo de los sistemas del Colegio Gonzaga y fundador de Sublimax.',
+    en: "Nikenver Pulgar's background: over 10 years in Full Stack development, running the systems at Colegio Gonzaga, and founder of Sublimax.",
   },
   'meta.projects': {
     es: 'Casos de estudio reales de Nikenver Pulgar: sistemas administrativos, e-commerce y plataformas corporativas construidas con Angular, Laravel, PostgreSQL y .NET.',
@@ -72,6 +72,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: "Over 10 years building web applications for companies in Venezuela. Everything's out in the open: check out my work and reach out whenever you like.",
   },
   'home.ctaProjects': { es: 'Ver proyectos', en: 'View projects' },
+  'home.ctaServices': { es: 'Ver servicios', en: 'View services' },
   'home.statYears': { es: '10+', en: '10+' },
   'home.statYearsLabel': { es: 'Años de experiencia', en: 'Years of experience' },
   'home.statCompanies': { es: '5+', en: '5+' },
@@ -147,8 +148,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.eyebrow': { es: 'Portfolio', en: 'Portfolio' },
   'projects.title': { es: 'Proyectos', en: 'Projects' },
   'projects.subtitle': {
-    es: 'Casos de estudio completos y abiertos, con demo o código donde aplica.',
-    en: 'Full, open case studies, with a live demo or code where it applies.',
+    es: 'Casos de estudio abiertos: qué hace cada sistema, en qué estado está y qué parte hice yo.',
+    en: 'Open case studies: what each system does, where it stands and which part I did.',
   },
   'projects.gridHeading': { es: 'Casos de estudio', en: 'Case studies' },
   'projects.countBadge': { es: 'sistemas y plataformas documentadas', en: 'documented systems and platforms' },
@@ -172,6 +173,12 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.statusInProgress': { es: 'En desarrollo', en: 'In development' },
   'projects.statusPilot': { es: 'Piloto', en: 'Pilot' },
   'projects.detailContribution': { es: 'Mi parte', en: 'My part' },
+  'projects.ctaTitle': { es: 'Si necesitas algo parecido, hablemos', en: "If you need something similar, let's talk" },
+  'projects.ctaText': {
+    es: 'Cuéntame qué necesita tu negocio o qué puesto tienes abierto, y te respondo directo.',
+    en: 'Tell me what your business needs or which role you have open, and I will answer you directly.',
+  },
+  'projects.ctaContact': { es: 'Escríbeme', en: 'Get in touch' },
   'projects.viewSystem': { es: 'Ver sistema', en: 'View system' },
   'projects.loginNotice': {
     es: 'Este enlace abre el acceso al sistema real y pide credenciales. Sirve como prueba de que existe en producción.',
@@ -243,7 +250,7 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.detailSolution': { es: 'Solución', en: 'Solution' },
   'projects.detailResults': { es: 'Resultados', en: 'Results' },
   'projects.backToPortfolio': { es: 'Volver al portfolio', en: 'Back to portfolio' },
-  'projects.viewDemo': { es: 'Ver demo', en: 'View demo' },
+  'projects.viewDemo': { es: 'Ver sitio', en: 'View site' },
   'projects.viewCode': { es: 'Ver código', en: 'View code' },
   'projects.detailLinks': { es: 'Sistemas en producción', en: 'Live systems' },
   'projects.detailSocial': { es: 'Marca y comunidad en redes', en: 'Brand and community on social' },
@@ -251,10 +258,10 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'social.viewPost': { es: 'Ver publicación', en: 'View post' },
 
   'services.eyebrow': { es: 'Servicios', en: 'Services' },
-  'services.title': { es: 'Qué ofrezco', en: 'What I offer' },
+  'services.title': { es: 'Software a medida para tu negocio', en: 'Custom software for your business' },
   'services.subtitle': {
-    es: 'Sistemas reales para negocios reales. Sin plantillas genéricas ni relleno.',
-    en: 'Real systems for real businesses. No generic templates, no filler.',
+    es: 'Desarrollo sistemas administrativos y tiendas online desde Maracaibo, Venezuela. Sin plantillas genéricas ni relleno.',
+    en: 'I build administrative systems and online stores from Maracaibo, Venezuela. No generic templates, no filler.',
   },
   'services.gridHeading': { es: 'Servicios disponibles', en: 'Available services' },
   'services.evidenceLabel': { es: 'Ejemplo real:', en: 'Real example:' },
@@ -285,8 +292,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'services.whyTitle': { es: 'Por qué contratarme', en: 'Why hire me' },
   'services.why1Title': { es: 'Evidencia real, no relleno', en: 'Real evidence, not filler' },
   'services.why1Desc': {
-    es: 'Cada sistema que ves en mis proyectos está en producción, no es una maqueta.',
-    en: 'Every system you see in my projects is in production, not a mockup.',
+    es: 'Mis proyectos son sistemas reales, no maquetas. Cada caso indica si está en producción, en desarrollo o en piloto.',
+    en: 'My projects are real systems, not mockups. Each case states whether it is in production, in development or in pilot.',
   },
   'services.why2Title': { es: 'Perspectiva de dueño de negocio', en: 'A business-owner perspective' },
   'services.why2Desc': {

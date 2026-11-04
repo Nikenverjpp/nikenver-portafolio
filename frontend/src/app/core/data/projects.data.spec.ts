@@ -10,7 +10,7 @@ const PUBLIC_DIR = resolve(__dirname, '../../../../public');
 
 const CATEGORIES = ['erp', 'ecommerce', 'website', 'infrastructure', 'game'];
 const STATUSES = ['production', 'migrating', 'in_progress', 'pilot'];
-const TEXT_FIELDS = ['title', 'tagline', 'description', 'challenge', 'solution', 'results', 'contribution'] as const;
+const TEXT_FIELDS = ['title', 'tagline', 'seo_description', 'description', 'challenge', 'solution', 'results', 'contribution'] as const;
 
 function localizedValues(project: Project): string[] {
   const texts = TEXT_FIELDS.flatMap((field) => {
@@ -58,8 +58,21 @@ describe('projects.data.json', () => {
     }
   });
 
+  it.each(projects.map((p) => [p.slug, p] as const))('%s tiene una descripción de 120 a 155 caracteres', (_slug, project) => {
+    for (const lang of ['es', 'en'] as const) {
+      const length = project.seo_description[lang].length;
+      expect(length, lang).toBeGreaterThanOrEqual(120);
+      expect(length, lang).toBeLessThanOrEqual(155);
+    }
+  });
+
   it('no contiene rayas largas en la copia', () => {
     const offenders = projects.filter((p) => localizedValues(p).some((text) => text.includes('—')));
+    expect(offenders.map((p) => p.slug)).toEqual([]);
+  });
+
+  it('no usa etiquetas en los textos de CI/CD, que se muestran como texto plano', () => {
+    const offenders = projects.filter((p) => p.cicd && /<\/?[a-z]/i.test(JSON.stringify(p.cicd)));
     expect(offenders.map((p) => p.slug)).toEqual([]);
   });
 
