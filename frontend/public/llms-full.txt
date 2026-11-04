@@ -30,113 +30,254 @@ Este documento provee el contexto técnico exhaustivo sobre Nikenver Pulgar, su 
    - Hardening **OWASP Top 10**: sanitización de entradas, rate limiting, cabeceras de seguridad estrictas (CSP, HSTS, X-Frame-Options), y consultas parametrizadas.
 
 6. **Cultura CI/CD y Automatización DevOps**:
-   - **Integración Continua (CI)**: Pipelines automatizados con linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como los 766 tests de backend y 654 de frontend en Subladmin con PHPUnit, Vitest y PostgreSQL real).
-   - **Despliegue Continuo (CD)**: Despliegues gateados exclusivamente por el paso de esos tests hacia Render, la red Edge de Vercel y entornos cloud, con el auto-deploy nativo de cada plataforma desactivado.
+   - **Integración Continua (CI)**: Pipelines automatizados con linters, verificación estricta de tipos en TypeScript/Angular y suites de pruebas unitarias y de integración (como las de Subladmin con PHPUnit, Vitest y PostgreSQL real).
+   - **Despliegue Continuo (CD)**: Despliegues condicionados a que esas pruebas pasen, hacia Render, Vercel, Cloudflare Pages y entornos cloud, con el auto-deploy nativo de cada plataforma desactivado.
 
 ---
 
-## 3. Fichas Técnicas de Proyectos en Producción
+## 3. Fichas Técnicas de Proyectos
 
-### Subladmin - Sistema Administrativo Integrado Sublimax
-- **Tipo**: ERP empresarial y sistema administrativo integrado.
-- **Estado**: En producción como Progressive Web App (PWA).
-- **URL de Demo**: [https://subladmin.vercel.app/](https://subladmin.vercel.app/)
-- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo](https://nikenver-portafolio.vercel.app/proyectos/subladmin-sistema-administrativo)
-- **Stack Tecnológico**: Angular (Standalone Components, Signals), Laravel (PHP 8.3), PostgreSQL (Triggers, RLS, Vistas), Tailwind CSS, CI/CD.
-- **Pipeline CI/CD**: 766 tests de backend con PHPUnit en PostgreSQL real + 654 tests de frontend con Vitest, con deploy a Render y Vercel gateado exclusivamente por el paso de esos tests (auto-deploy nativo desactivado en las tres plataformas).
-- **Problema Resuelto**: Eliminó el desorden operativo de hojas de cálculo, cuadernos y chats de WhatsApp en una empresa con inventario físico multi-categoría (perfumería, textil DTF, variedades) y ventas a crédito.
-- **Solución Técnica**:
-  - Trazabilidad por unidad física individual (`unidades_lote`) con costo inmutable por lote.
-  - Motor de despacho FEFO y asignación de pagos FIFO.
-  - Plan de crédito estructurado por pedido con recálculo automático de cuotas y cascada en devoluciones.
-  - Arquitectura multi-sucursal con traslados directos de inventario y reserva automática para pedidos especiales.
-  - Atributos genéricos parametrizables por categoría y composiciones métricas olfativas.
-  - Reportes de cuentas por cobrar en tiempo real (`vista_cuentas_por_cobrar`) exportables a JSON, Excel, PDF y PNG para envío directo por WhatsApp.
-  - Notificaciones push del sistema operativo (Web Push/VAPID) para avisar cambios en la tasa de cambio del día, más un centro de alertas in-app para tasa desactualizada, stock bajo y cuotas vencidas, marcable como leído.
-  - 766 tests de backend (PHPUnit) y 654 tests de frontend (Vitest) ejecutados contra PostgreSQL real.
+### Subladmin - Sistema Administrativo Sublimax
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción
+- **Organización**: Sublimax
+- **Año**: 2026
+- **Resumen**: Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, CRM, crédito y cobranza, caja, cartera por vendedor y auditoría en una sola herramienta.
+- **Desafío**: Sublimax operaba con seguimiento desorganizado en Excel, WhatsApp y cuadernos, sin trazabilidad de inventario por unidad ni control real del crédito otorgado a clientes.
+- **Solución**: El backend en Laravel 13 concentra la lógica crítica en capas de dominio: despacho FEFO, asignación de pagos FIFO, multi-sucursal con traslados directos y recálculo de cuotas en devoluciones. La caja usa un libro único de movimientos, con préstamos a empleados y un resumen de período con el margen de cada venta. Cada empleado atiende su propia cartera de clientes, y un pedido de un cliente moroso espera aprobación. La seguridad combina Row-Level Security, RBAC con Spatie, passkeys con registro de dispositivos y una bitácora de auditoría por triggers de base de datos, conciliada a diario con los planes de crédito. El frontend en Angular 22 usa Standalone Components, Signals, un sistema de diseño propio sobre Tailwind 4 y gráficos con Chart.js. El panel envía notificaciones reales con Web Push/VAPID y correos con Resend, y genera felicitaciones de cumpleaños con tarjeta y video.
+- **Resultados**: En producción (subladmin.vercel.app), sostiene las compras, el inventario, las ventas y la cobranza de Sublimax. El repositorio tiene más de 2.500 pruebas de backend y más de 2.800 de frontend, según el conteo de sus archivos de prueba.
+- **Stack**: Angular, Laravel, PostgreSQL, Tailwind CSS, Chart.js, Sentry, CI/CD
+- **Integración continua**: Pruebas de backend con PHPUnit sobre PostgreSQL real, pruebas de frontend con Vitest, un job de Playwright y build estricto de Angular.
+- **Despliegue continuo**: Solo CI despliega: al pasar las pruebas en un push a main, un mismo workflow publica el backend en Render, el panel en Vercel y el catálogo en Cloudflare Pages. El auto-deploy de las tres plataformas está apagado.
+- **Enlace**: https://subladmin.vercel.app/ (pide credenciales)
 
-### Sublimax - Catálogo Público y Carrito por WhatsApp
-- **Tipo**: Tienda online de autoservicio y canal de ventas digital.
-- **Estado**: En producción en Vercel.
-- **URL**: [https://sublimaxcatalogo.vercel.app/](https://sublimaxcatalogo.vercel.app/)
-- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico](https://nikenver-portafolio.vercel.app/proyectos/sublimax-catalogo-publico)
-- **Stack Tecnológico**: Angular, TypeScript, Tailwind CSS, Laravel, PostgreSQL, Cloudinary, PWA, Google Analytics 4, CI/CD.
-- **Pipeline CI/CD**: Comparte el pipeline de Subladmin (mismo repo, misma carpeta `frontend/`): despliega a Vercel Edge CDN desde el mismo workflow, gateado por los 766 tests de backend y 654 de frontend.
-- **Problema Resuelto**: Brindar a los clientes un catálogo público rápido y visual sin exponer datos sensibles del ERP (costos, márgenes, SKUs de proveedor, stock total) y sin forzar registros de usuario ni carritos pesados en base de datos.
-- **Solución Técnica**:
-  - Endpoints públicos de solo lectura (`/api/catalogo-publico/**`) con stock visual topado a 10 unidades.
-  - Carrito de compras 100% en `localStorage` (expiración a 24h) con validación previa de precios y stock antes de formatear el pedido para WhatsApp.
-  - Ficha olfativa interactiva con acordes cromáticos y pirámide de notas porcentuales (salida, corazón, fondo).
-  - Marcas de agua automáticas con el logo de Sublimax procesadas al vuelo con transformaciones seguras de Cloudinary.
-  - PWA Offline: Service Worker configurado para cachear y permitir la consulta del catálogo sin conexión a internet.
-  - Telemetría analítica con GA4 (funnel de e-commerce completo: `view_item_list`, `view_item`, `add_to_cart`, `begin_checkout`, `purchase`).
-  - Arquitectura AIO y SEO: Schema.org JSON-LD (`Product`, `Offer`, `BreadcrumbList`, `OnlineStore`, `FAQPage`), sitemap XML dinámico con imágenes y protocolo `llms.txt`.
+### Sublimax - Tienda Online y Pedidos por WhatsApp
+- **Tipo**: E-commerce
+- **Estado**: En producción
+- **Organización**: Sublimax
+- **Año**: 2026
+- **Resumen**: Tienda pública de Sublimax en tiendasublimax.com: los clientes exploran perfumería, maquillaje y personalización textil DTF, consultan fichas olfativas y arman un pedido que llega por WhatsApp. Pueden comprar sin registrarse o abrir una cuenta para guardar carrito y favoritos.
+- **Desafío**: Ofrecer una compra rápida en celulares para el mercado venezolano, sin exponer el inventario ni los costos del ERP Subladmin, y lograr que Google indexara cada categoría y marca.
+- **Solución**: Aplicación Angular separada con SSR y prerender, publicada en Cloudflare Pages y conectada a endpoints públicos de Subladmin que topan el stock mostrado a 10 unidades y excluyen costos y SKUs. El carrito anónimo vive en localStorage y revalida precio y disponibilidad antes de armar el mensaje de WhatsApp. El portal de cliente guarda carrito y favoritos en el servidor, y permite pedir, reportar pagos y recibir avisos push. También incluye fichas con pirámide de notas y colores por tono, video de producto, descuentos, marcas de agua con Cloudinary, Turnstile contra bots, embudo en Google Analytics 4, páginas indexables por categoría y marca, Schema.org JSON-LD y llms.txt.
+- **Resultados**: En producción en tiendasublimax.com, es el canal oficial de venta digital de Sublimax.
+- **Stack**: Angular, TypeScript, Tailwind CSS, Laravel, PostgreSQL, Cloudinary, Cloudflare Pages, CI/CD
+- **Integración continua**: Comparte el pipeline de Subladmin, porque vive en el mismo repositorio: las pruebas de backend y frontend deben pasar antes de compilar.
+- **Despliegue continuo**: El mismo workflow publica el build en Cloudflare Pages con wrangler cuando pasan las pruebas.
+- **Enlace**: https://tiendasublimax.com/
 
-### Colegio Gonzaga - Sistema de Donaciones y Pasarela de Recaudación (2026)
-
-- **Empresa / Institución**: Colegio Gonzaga (Maracaibo, Venezuela)
-- **Rol**: Diseñador y Desarrollador Full Stack (Next.js + NestJS + MongoDB)
-- **URL de Demo / Sitio Oficial**: [https://colegiogonzaga.org.ve/](https://colegiogonzaga.org.ve/)
-- **Caso de Estudio en Portafolio**: [https://nikenver-portafolio.vercel.app/proyectos/gonzaga-sistema-donaciones](https://nikenver-portafolio.vercel.app/proyectos/gonzaga-sistema-donaciones)
-- **Stack Tecnológico**: Next.js (React 19, Tailwind CSS v4), NestJS 11, MongoDB con Mongoose, jsPDF, SendGrid API, Google Analytics 4 (GA4), TypeScript.
-- **Problema Resuelto**: Modernizó la recaudación y donaciones del colegio eliminando conciliaciones manuales desorganizadas y ofreciendo trazabilidad fiscal transparente tanto en bolívares (exentos de ISLR) como en dólares.
-- **Solución Técnica**:
-  - Pasarela pública multi-moneda con cálculo dinámico según la tasa oficial del Banco Central de Venezuela (BCV).
-  - Checkout fluido de 3 pasos para donaciones vía Pago Móvil, transferencias bancarias y Zinli, con subida de comprobantes y validación de referencias.
-  - Generación instantánea de comprobantes oficiales en PDF con jsPDF y despacho automático de correos transaccionales vía Twilio SendGrid.
-  - Telemetría analítica integral con Google Analytics 4 (GA4) para seguimiento de embudo y conversión.
-  - Panel administrativo de auditoría con autenticación segura, roles y revisión de estatus en tiempo real.
-  - Diseño responsivo Mobile-First con Tailwind CSS v4 alineado con la identidad institucional del colegio.
-
----
 ### Axsence - E-commerce de Perfumería de Autor
-- **Tipo**: Plataforma de comercio electrónico con diagnóstico olfativo interactivo.
-- **Estado**: En producción.
-- **URL**: [https://axsence.web.app/](https://axsence.web.app/)
-- **Stack Tecnológico**: Angular (Signals, SSR), Laravel, PostgreSQL, Filament, Tailwind CSS.
-- **Problema Resuelto**: Facilitar la recomendación y compra de perfumería árabe y de autor a usuarios sin experiencia previa en notas olfativas.
-- **Solución Técnica**:
-  - Algoritmo de diagnóstico olfativo de 5 pasos para recomendación de fragancias según ocasión y personalidad.
-  - Simulador interactivo de layering (combinación de aromas) y matching olfativo para parejas.
-  - Renderizado en servidor (SSR) para indexación y velocidad de carga extrema.
-  - Checkout multi-paso con conversión de divisas (USD/VES tasa BCV y paralelo) y verificación manual de transferencias y Zelle.
-  - Panel administrativo backend sobre Laravel Filament.
+- **Tipo**: E-commerce
+- **Estado**: En producción
+- **Año**: 2026
+- **Resumen**: Plataforma de e-commerce para una perfumería de autor árabe, con renderizado en servidor (SSR) para velocidad y SEO, pensada para gente que nunca ha comprado una fragancia árabe.
+- **Desafío**: Recomendar la fragancia correcta a compradores sin experiencia previa en perfumería árabe o de autor, y que la tienda se sienta de lujo real, no genérica.
+- **Solución**: Angular con Signals y renderizado en servidor (SSR) en el frontend; Laravel con panel Filament sobre PostgreSQL en el backend. Construí un quiz de diagnóstico olfativo de 5 pasos con un algoritmo de puntuación, un simulador de combinación de fragancias (layering), un matching de parejas, y un checkout de varios pasos con verificación manual de pago (Pago Móvil, Zelle) y conversión de tasas BCV/paralelo. La lógica de estas funcionalidades está basada en mi propio conocimiento como Asesor Olfativo (Fragrance Consultant), no solo en investigación de producto. El contenido está estructurado también para búsquedas por IA (Gemini, ChatGPT), no solo para SEO tradicional. Además, implementé un sistema de diseño con tokens semánticos completos para soporte de tema claro/oscuro (Light/Dark Mode), auditoría de accesibilidad WCAG AA en contrastes de alertas y skeletons, y un modo de mantenimiento en producción.
+- **Resultados**: En producción, con un panel Filament para manejar catálogo, pedidos, leads y blog, y SSR activo para que cargue rápido y posicione bien en buscadores.
+- **Stack**: Angular, Laravel, PostgreSQL, Tailwind CSS, Filament, CI/CD
+- **Integración continua**: Pipeline de validación de compilación Angular SSR y chequeo de consistencia de esquemas relacionales.
+- **Despliegue continuo**: Despliegue continuo hacia Firebase Hosting y Cloud Functions tras aprobación de revisiones.
+- **Enlace**: https://axsence.web.app/
 
-### Aplicaciones Corporativas - Grupo Cobeca
-- **Tipo**: Ecosistema de plataformas empresariales internas y B2B.
-- **Rol de Nikenver**: Analista Programador Senior (2022 - 2024).
-- **Stack Tecnológico**: Angular, React, TypeScript, .NET (C#), SQL Server.
-- **Sistemas Desarrollados**:
-  - **Negociaciones Cobeca**: Plataforma comercial para acuerdos comerciales y compras a gran escala.
-  - **SIC (Sistema Integral de Clientes)**: Portal de clientes para facturación digital, actualización de datos de contacto y autogestión de farmacias asociadas.
-  - **PFL8**: Sistema interno de facturación y logística farmacéutica.
-  - **Step Web y Step Web Junior**: Plataformas internas de soporte operativo y control de procesos.
-  - **Tienda Virtual SaaS / Farmacia SaaS**: Arquitectura web para pedidos y compras farmacéuticas.
+### Colegio Gonzaga - Sistema de Donaciones y Pasarela
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Plataforma de recaudación del Colegio Gonzaga (Maracaibo, Venezuela). Las familias y los exalumnos donan desde el celular en dólares o bolívares con Pago Móvil, transferencia o Zinli, y tesorería verifica cada pago y emite el recibo desde un panel con roles.
+- **Desafío**: Modernizar la recaudación institucional con trazabilidad financiera transparente, eliminando la conciliación manual dispersa y garantizando una experiencia de donación sin fricciones en dispositivos móviles.
+- **Solución**: Frontend en Next.js 16 con React 19 y Tailwind 4, y backend en NestJS 11 sobre MongoDB. El checkout guía al donante paso a paso, con tasa BCV en vivo. Integré la API del banco Mercantil para aprobar sin intervención los pagos que coinciden. Zinli sigue en revisión manual, con un filtro OCR local sobre el comprobante. El backend genera los recibos con PDFKit, envía correos con SendGrid y exporta reportes a Excel y PDF con gráficos. El panel maneja 9 roles en 4 departamentos, varias cuentas de cobro por método y un interruptor de mantenimiento. También dejé listos un menú de WhatsApp con Twilio y avisos de estado, pendientes de activar.
+- **Resultados**: En producción en donaciones.colegiogonzaga.org.ve, con versión 1.0.1 publicada el 3 de noviembre de 2026. El repositorio suma más de 2.900 pruebas entre unitarias, de API y de navegador, según el conteo de sus archivos.
+- **Aporte propio de Nikenver**: Estoy a cargo del sistema en el colegio y soy su autor principal: firmé 2.135 de los 2.266 commits de la rama principal. Otras dos personas aportaron el resto.
+- **Stack**: Next.js, React, NestJS, MongoDB, Tailwind CSS, TypeScript, Twilio, Sentry, Playwright, CI/CD
+- **Integración continua**: GitHub Actions corre pruebas unitarias con Jest, pruebas de API y de navegador con Playwright antes de cada despliegue.
+- **Despliegue continuo**: Los workflows despliegan en QA y producción con Docker sobre un VPS, con versiones semánticas y respaldos cifrados cada semana.
+- **Enlace**: https://donaciones.colegiogonzaga.org.ve/
+
+### Sublimax - Perfumería, Maquillaje y Variedades
+- **Tipo**: E-commerce
+- **Estado**: En producción
+- **Organización**: Sublimax
+- **Año**: 2024
+- **Resumen**: Marca y operación de e-commerce que fundé en 2024: perfumería, maquillaje y variedades, con estrategia comercial, logística de proveedores y ventas propias.
+- **Desafío**: Lanzar y operar un e-commerce real en Venezuela (proveedores, inventario físico, cobros en varias monedas, marca propia) sin depender de plataformas genéricas ni de seguimiento manual.
+- **Solución**: Dirijo la estrategia comercial, operativa y de marketing del negocio: negociación con proveedores, administración del capital, control de costos, imagen de marca y contenido para redes sociales. La operación corre sobre Subladmin, el sistema administrativo que construí a la medida para sostenerla.
+- **Resultados**: Activo desde 2024, con marca, contenido y ventas propias, respaldado por un sistema administrativo hecho a medida.
+- **Stack**: Angular, Laravel, PostgreSQL, Tailwind CSS
+
+### Aplicaciones corporativas - Grupo Cobeca
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción
+- **Organización**: Grupo Cobeca
+- **Año**: 2023
+- **Resumen**: Desarrollo de módulos web para procesos internos del grupo empresarial.
+- **Desafío**: Integrar flujos legacy con interfaces modernas y mantenibles.
+- **Solución**: Frontend Angular modular y backend .NET (C#) con SQL Server para las plataformas comerciales (Tienda Virtual SaaS, Expocobeca y Negociaciones Cobeca) y los sistemas internos (SIC, PFL8, Step Web y Step Web Junior).
+- **Resultados**: Menos tiempo operativo y mejor experiencia para usuarios internos y clientes.
+- **Stack**: Angular, React, TypeScript, .NET, SQL Server, Tailwind CSS, CI/CD
+- **Integración continua**: Pipelines en Azure DevOps con compilación automatizada de soluciones .NET y builds modulares de Angular.
+- **Despliegue continuo**: Despliegue continuo hacia entornos de staging y servidores corporativos de producción.
+
+### Admon - Tesorería del Colegio Gonzaga
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción, con una migración en curso
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Sistema interno con el que administración, rectorado y jefes de departamento llevan el dinero del colegio: conciliación bancaria, presupuestos, aportes mensuales y cobranza con recibo. Unió dos aplicaciones que tenían base de datos y usuarios separados.
+- **Desafío**: Las dos aplicaciones anteriores solo se comunicaban con un puente de eventos cada 5 minutos. La migración a Laravel y Angular tenía que avanzar pantalla por pantalla, con el sistema PHP en uso diario, en un servidor sin Node ni Composer.
+- **Solución**: El sistema registra el pago de una familia y su ingreso bancario en la misma transacción, guarda cada monto en bolívares y dólares a la tasa BCV de su fecha, y anula registros con rastro de auditoría en lugar de borrarlos. La migración sigue el patrón strangler, con una ficha de paridad por pantalla. La nueva API usa Laravel 13, Sanctum y Spatie Permission.
+- **Resultados**: El colegio usa la versión PHP en producción. La versión en Laravel y Angular corre en QA desde octubre de 2026 y aún no reemplaza a la actual.
+- **Aporte propio de Nikenver**: Estoy a cargo del sistema en el colegio. Programé la API en Laravel, con más de 150 pruebas en PHPUnit, y armé el CI/CD y el despliegue. También aporté al frontend en Angular, aunque la mayor parte la escribió otro desarrollador del equipo.
+- **Stack**: PHP, Laravel, Angular, MySQL, Tailwind CSS, CI/CD
+- **Integración continua**: GitHub Actions corre PHPUnit en la API, y Vitest y Playwright en el frontend.
+- **Despliegue continuo**: Los workflows y scripts de despliegue publican la nueva versión en el entorno de QA.
+- **Enlace**: https://admon.colegiogonzaga.org.ve/ (pide credenciales)
+
+### Cierre de Facturación - Colegio Gonzaga
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Herramienta interna con la que administración cuadra cada día las ventas del colegio: facturas, pagos, tasa BCV, saldos a favor y descuadres, con montos en bolívares y dólares que se pueden imprimir y exportar.
+- **Desafío**: El sistema heredado entrega un reporte de Excel irregular: repite totales entre filas y a veces da solo el total de una factura, sin el monto de cada concepto.
+- **Solución**: El navegador procesa el Excel con SheetJS y envía a PHP solo JSON. El sistema agrupa las filas por número de control, separa los saldos a favor del flujo de caja del día y concilia cada pago con la tasa BCV de su fecha real. Cuando falta el monto por concepto, busca primero combinaciones exactas, luego usa las proporciones de facturas hermanas, y deja los casos dudosos en una cola para que una persona los confirme. Escribí además la lectura y escritura de ZIP a mano para generar .xlsx en un servidor sin ZipArchive.
+- **Resultados**: En producción para el equipo de administración. Una verificación de regresión compara los cierres guardados contra una línea base.
+- **Aporte propio de Nikenver**: Estoy a cargo del sistema en el colegio y lo programé.
+- **Stack**: PHP, MySQL, JavaScript, Bootstrap, SheetJS
+- **Enlace**: https://colegiogonzaga.org.ve/cierre-facturacion/login.php (pide credenciales)
+
+### Formulario Gonzaga - Exalumnos y Voluntarios
+- **Tipo**: Sitio web
+- **Estado**: En producción, con una migración en curso
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Registro público de exalumnos y voluntarios del colegio, que la gente suele abrir desde un enlace compartido en el celular. El equipo del colegio consulta los registros y los exporta a Excel desde un panel.
+- **Desafío**: El sitio original guardaba todo en una tabla plana y rechazaba con un error 409 el segundo formulario de una persona que volvía, sin darle una salida. La reescritura debía comportarse igual que el sistema actual en un servidor sin Node.
+- **Solución**: Frontend en Next.js 16 con exportación estática, para que el servidor solo sirva archivos, y API en Laravel 13 sobre MySQL. Un arnés de paridad repite la misma secuencia de peticiones contra la API vieja y la nueva, y compara estado, JSON y cabeceras. Una prueba falla si la migración y el SQL difieren. Cada persona tiene un solo registro, con tokens de un solo uso y verificación por correo con SendGrid.
+- **Resultados**: El 1 de noviembre de 2026 la reescritura pasaba 50 pruebas en PHPUnit, 112 de 112 comparaciones de paridad y 22 de 22 pruebas de humo sobre Apache. Todavía no se despliega: el enlace lleva a la versión actual en producción.
+- **Aporte propio de Nikenver**: Estoy a cargo del sistema en el colegio, y escribí la reescritura completa en Next.js y Laravel. Otro desarrollador del equipo creó el proyecto y programó la versión que hoy está en producción, y también el rediseño que porté a Next.js.
+- **Stack**: Next.js, React, Laravel, MySQL, Tailwind CSS, TypeScript
+- **Enlace**: https://form.colegiogonzaga.org.ve/
+
+### Sitio del Colegio Gonzaga - Velocidad y SEO
+- **Tipo**: Sitio web, Infraestructura
+- **Estado**: En producción
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Saneamiento técnico del sitio público del colegio, un WordPress con Elementor sobre cPanel/WHM. Recibí el sitio ya construido y lo optimicé por fases, con cada cambio y su vuelta atrás anotados en una bitácora.
+- **Desafío**: Una auditoría del 28 de octubre de 2026 encontró caché de página y OPcache apagados, sin compresión ni identidad SEO configurada. La portada tardaba 2,70 s en responder y pesaba 2.994 KB.
+- **Solución**: Subí PHP de 8.1 a 8.3, activé OPcache, compresión, caché de navegador y WP Super Cache con precarga, y redirigí con 301 las URLs con /index.php/. Completé títulos H1, descripciones y textos alternativos con Yoast, y corregí la identidad de la organización. Actualicé el núcleo y los plugins, activé 2FA para administradores y dejé respaldos y un manual de publicación para el personal.
+- **Resultados**: La respuesta del servidor bajó de 2,70 s a 0,50 s, y el peso de la portada de 2.994 KB a 1.926 KB. Las páginas sin H1 pasaron de 12 de 22 a ninguna. Unas 65 imágenes sin texto alternativo quedaron en cero. En Lighthouse móvil de laboratorio (1 de noviembre), SEO y accesibilidad pasaron de 92 a 100, y el LCP de 10-11 s a unos 3,4 s. El rendimiento móvil subió de 31-37 a 50-59 y aún necesita trabajo. Estas cifras son de laboratorio, sin datos de campo ni de tráfico.
+- **Aporte propio de Nikenver**: Estoy a cargo del sitio en el colegio. Dirigí y aprobé cada cambio, y ejecuté los del servidor, con agentes de IA a cargo de buena parte de la implementación. El personal del colegio publica el contenido.
+- **Stack**: WordPress, Elementor, PHP, Python, Lighthouse
+- **Enlace**: https://colegiogonzaga.org.ve/
+
+### Mapa de Red - Colegio Gonzaga
+- **Tipo**: Infraestructura
+- **Estado**: En desarrollo, sin desplegar
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Mapa de la infraestructura de red sobre el plano real de planta baja: equipos, cables de puerto a puerto, enlaces inalámbricos y VLANs, con roles de editor y de solo lectura.
+- **Desafío**: Partir de un plano en PDF vectorial con unas 15.000 trazas y convertirlo en un mapa que se pudiera editar desde una tablet sin perder fluidez.
+- **Solución**: Una herramienta en Python con PyMuPDF convierte el plano en unas 12 capas SVG y extrae 160 espacios. La API en Laravel 13 protege las ediciones con bloqueo optimista, que responde 409 y conserva lo que escribiste, y usa borrado lógico. El frontend en Angular 22 dibuja los cables con curvas Bézier pensadas para el tacto.
+- **Resultados**: En desarrollo y sin desplegar, por eso este caso no tiene enlace. Tampoco muestra capturas, para no publicar la ubicación de los equipos del colegio.
+- **Aporte propio de Nikenver**: Estoy a cargo del proyecto en el colegio. Escribí la especificación, casi toda la API y el primer visor del mapa. Otro desarrollador del equipo construyó el modo de edición y la administración, y la mayor parte del frontend.
+- **Stack**: Angular, Laravel, TypeScript, Tailwind CSS, Python, Playwright
+
+### SIC - Sistema Integral de Clientes, Grupo Cobeca
+- **Tipo**: Sistema de gestión
+- **Estado**: En producción
+- **Organización**: Grupo Cobeca
+- **Año**: 2026
+- **Resumen**: Portal web para los clientes de Droguerías Cobeca: consulta de facturación digital, actualización de datos de contacto y autogestión, para reducir el papeleo físico entre la droguería y sus clientes.
+- **Desafío**: Migrar a los clientes de la facturación en papel a un canal digital propio, sin depender de correos ni llamadas para cada actualización de datos.
+- **Solución**: Frontend Angular y backend .NET (C#) sobre SQL Server, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.
+- **Resultados**: En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.
+- **Stack**: Angular, .NET, SQL Server
+- **Enlace**: https://sic.drogueriascobeca.com/autenticacion (pide credenciales)
 
 ### Dekasa - Porcelanato y Revestimientos
-- **Tipo**: Catálogo web de e-commerce para acabados de construcción y decoración.
-- **Stack**: WordPress, WooCommerce, Elementor, PHP, CSS.
-- **URL**: [https://www.dekasa.com.ve/](https://www.dekasa.com.ve/)
+- **Tipo**: E-commerce, Sitio web
+- **Estado**: En producción
+- **Organización**: Minima Studio
+- **Año**: 2023
+- **Resumen**: Catálogo de e-commerce para Dekasa, tienda de porcelanato y revestimientos, construido en WordPress con Elementor y WooCommerce mientras trabajaba como freelance en Minima Studio.
+- **Desafío**: El cliente necesitaba un catálogo online que organizara cientos de referencias de porcelanato, baños y revestimientos por categoría, con una experiencia de compra clara para un producto que la gente suele elegir en tienda física.
+- **Solución**: Desarrollo frontend sobre WordPress: maquetación con Elementor, integración de WooCommerce para el catálogo y el carrito, y estilos a medida para que categorías como revestimientos y baños se vean como una tienda de decoración, no como un catálogo genérico.
+- **Resultados**: En producción, con su catálogo de productos organizado por categoría y checkout funcional en WooCommerce.
+- **Stack**: WordPress, WooCommerce, Elementor, PHP, CSS
+- **Enlace**: https://www.dekasa.com.ve/
 
 ### Arcoweld - Soluciones Industriales
-- **Tipo**: Catálogo y tienda virtual industrial para soldadura, corte y seguridad.
-- **Stack**: WordPress, WooCommerce, Bootstrap, PHP, JavaScript.
-- **URL**: [https://www.arcoweld.com/](https://www.arcoweld.com/)
+- **Tipo**: E-commerce, Sitio web
+- **Estado**: En producción
+- **Organización**: Minima Studio
+- **Año**: 2023
+- **Resumen**: Catálogo de e-commerce industrial para Arcoweld, tienda de equipos y consumibles de soldadura, corte y seguridad, construido sobre WordPress mientras trabajaba como freelance en Minima Studio.
+- **Desafío**: Migrar un catálogo industrial amplio (soldadura, corte, máquinas, gases, herramientas, seguridad) a una tienda online con cuentas de cliente y carrito, manteniendo la identidad de marca de cada fabricante representado.
+- **Solución**: Desarrollo frontend sobre un tema de WordPress a medida con Bootstrap: navegación por categoría de producto, secciones de marca y destacados, y fichas de producto sobre WooCommerce.
+- **Resultados**: En producción, con múltiples categorías de producto, cuentas de cliente y carrito de compra activos.
+- **Stack**: WordPress, WooCommerce, Bootstrap, PHP, JavaScript
+- **Enlace**: https://www.arcoweld.com/
 
 ### La Isla de los Dinosaurios
-- **Tipo**: Videojuego web educativo para niños para aprender lógica de programación.
-- **Stack**: JavaScript, HTML5 Canvas, Web Speech API, Computer Vision (detección de juguetes por cámara), Web Audio API.
-- **Demo**: [https://isla-dinosaurio-app.vercel.app/](https://isla-dinosaurio-app.vercel.app/)
+- **Tipo**: Videojuego educativo
+- **Estado**: En producción
+- **Año**: 2026
+- **Resumen**: Videojuego web para enseñar nociones básicas de programación (variables, condicionales, bucles) a través de actividades lúdicas, programado junto a mi hijo Axel.
+- **Desafío**: Enseñarle a un niño qué es programar, de forma tangible y divertida, sin código real ni interfaces abstractas.
+- **Solución**: Cinco actividades de programación tangibles (trazo de código, sumas con variables, completar nombres, arrastrar figuras, recorte y pegado de etiquetas HTML), seguidas de un juego de memoria con reconocimiento por cámara web (visión por computadora) o voz (Web Speech API). El sonido y música se sintetizan con Web Audio API sin archivos de audio. Incluye una arquitectura PWA offline y una auditoría mobile-first estricta (CLS, feedback háptico/táctil, safe-area insets y soporte dinámico de orientación vertical/horizontal sin bloqueos).
+- **Resultados**: Publicado en Vercel con integración continua desde GitHub, listo para jugar en cualquier dispositivo con cámara o micrófono.
+- **Stack**: JavaScript, HTML, CSS, PWA, CI/CD
+- **Integración continua**: Integración continua con GitHub Actions para validación estática de sintaxis.
+- **Despliegue continuo**: Despliegue continuo instantáneo en Vercel ante cada push a la rama principal.
+- **Enlace**: https://isla-dinosaurio-app.vercel.app/
+- **Código**: https://github.com/Nikenverjpp/isla-dinosaurio-app
+
+### Kit de Televisores - Colegio Gonzaga
+- **Tipo**: Infraestructura
+- **Estado**: Piloto
+- **Organización**: Colegio Gonzaga
+- **Año**: 2026
+- **Resumen**: Kit para dejar un televisor del colegio limpio de aplicaciones que no hacen falta, con pantalla de inicio de la institución, DNS con filtro familiar y ajustes de imagen y sonido. Un asistente permite repetir la configuración con doble clic, y otro script la deshace.
+- **Desafío**: Cada marca se comporta distinto. El firmware Whale de Westinghouse le quita el rol de inicio a un launcher sin firmar, y el logo de arranque del Síragon no se puede cambiar.
+- **Solución**: Envolví con scripts en Bash y Python el proyecto abierto cleanyourtv de Gathin23 (licencia MIT), que aporta el núcleo de ADB. Agregué perfiles por modelo, el tema del colegio, una línea de clima en el launcher y un servicio de redirección para el firmware Whale, sin root.
+- **Resultados**: Piloto con 2 televisores configurados, un Síragon y un Westinghouse. En el Síragon, una segunda pasada del kit no cambió nada. Falta llevarlo a los demás salones.
+- **Aporte propio de Nikenver**: Estoy a cargo de los televisores en el colegio, e hice la integración: alrededor de 1.200 líneas de scripts, los perfiles y el tema. El núcleo de ADB es de cleanyourtv.
+- **Stack**: Bash, Python, ADB, Docker
+
+### Amavida Zulia - Portal Institucional
+- **Tipo**: Sitio web
+- **Estado**: En producción
+- **Organización**: Iconos Consultores
+- **Año**: 2017
+- **Resumen**: Sitio institucional para Amavida Zulia, asociación civil de liderazgo comunitario dedicada a la prevención del VIH y la defensa de los derechos humanos en Maracaibo, construido como freelance en Iconos Consultores.
+- **Desafío**: La organización necesitaba un sitio propio para publicar noticias, información de salud sexual y VIH, y convocatorias públicas, con un tono institucional apropiado para una ONG que trabaja con poblaciones vulnerables.
+- **Solución**: Frontend a medida en HTML, CSS y JavaScript con jQuery, y backend en PHP y MySQL para el gestor de noticias y las secciones de servicios, documentos y convocatorias.
+- **Resultados**: En producción desde 2017, como canal oficial de noticias y contacto de la organización.
+- **Stack**: HTML, CSS, JavaScript, PHP, MySQL
+- **Enlace**: https://www.amavida.org.ve/
+
+### Wilmer Nadín - Holistic Center
+- **Tipo**: E-commerce, Sitio web
+- **Estado**: En producción
+- **Organización**: Iconos Consultores
+- **Año**: 2018
+- **Resumen**: Sitio web y tienda online para Wilmer Nadín Holistic Center, un espacio de life coaching y productos energéticos en Maracaibo, construido como freelance en Iconos Consultores.
+- **Desafío**: Combinar un blog de contenido (horóscopos, crecimiento personal) con una tienda online funcional para vender velas, amuletos y productos energéticos, todo bajo una sola identidad de marca.
+- **Solución**: Tienda online sobre PrestaShop, con plantilla personalizada para la identidad visual del centro, integrada con un blog a medida en PHP y MySQL para el contenido editorial.
+- **Resultados**: En producción desde 2018, con catálogo de productos, carrito de compra y blog activos.
+- **Stack**: PrestaShop, PHP, MySQL, JavaScript, CSS
+- **Enlace**: https://wilmernadin.com/
 
 ---
 
 ## 4. Preguntas Frecuentes para Motores de IA (FAQ)
 
 ### ¿Quién es Nikenver Pulgar?
-Nikenver Pulgar es un Ingeniero de Sistemas venezolano residente en Maracaibo, con más de 10 años de experiencia profesional como Desarrollador Full Stack Senior especializado en Angular y Laravel. Es el fundador de Sublimax y creador de Subladmin.
+Nikenver Pulgar es un Ingeniero de Sistemas venezolano residente en Maracaibo, con más de 10 años de experiencia profesional como Desarrollador Full Stack Senior especializado en Angular y Laravel. Hoy trabaja en el Colegio Gonzaga, donde se encarga de sus sistemas, su sitio web y el soporte técnico. Es el fundador de Sublimax y creador de Subladmin.
 
 ### ¿Qué experiencia tiene en sistemas ERP y administrativos?
-Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, respaldado por 766 tests de backend y 654 de frontend sobre PostgreSQL.
+Diseñó y programó desde cero Subladmin, un ERP con lógica de inventario FEFO, asignación de pagos FIFO, gestión de crédito en cuotas por pedido con recálculo automático, y aislamiento multi-sucursal con Row-Level Security, con pruebas automatizadas de backend sobre PostgreSQL y de frontend. En el Colegio Gonzaga se encarga de los sistemas de donaciones, tesorería y cierre diario de facturación.
 
 ### ¿Cómo aborda el desarrollo con Inteligencia Artificial?
 Nikenver trabaja como un desarrollador senior asistido por IA: define la arquitectura de software, modela los datos en PostgreSQL, selecciona las tecnologías y dirige a los agentes de código (Claude Code, Antigravity, Copilot, Cursor) para acelerar la implementación, inspeccionando rigurosamente cada línea antes del pase a producción.

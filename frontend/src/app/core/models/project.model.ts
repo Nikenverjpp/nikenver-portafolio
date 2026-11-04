@@ -1,6 +1,18 @@
 import { LocalizedText, NamedLink } from '@core/i18n/localized-text.model';
 import { SocialPost } from './social-post.model';
 
+export type ProjectCategory = 'erp' | 'ecommerce' | 'website' | 'infrastructure' | 'game';
+
+/** `migrating`: the system runs in production while a rewrite is under way. */
+export type ProjectStatus = 'production' | 'migrating' | 'in_progress' | 'pilot';
+
+export const PROJECT_STATUS_LABEL_KEYS: Record<ProjectStatus, string> = {
+  production: 'projects.statusProduction',
+  migrating: 'projects.statusMigrating',
+  in_progress: 'projects.statusInProgress',
+  pilot: 'projects.statusPilot',
+};
+
 export interface Project {
   id: string;
   slug: string;
@@ -10,18 +22,26 @@ export interface Project {
   challenge?: LocalizedText;
   solution?: LocalizedText;
   results?: LocalizedText;
+  /** What the owner did himself. Required whenever someone else shares authorship. */
+  contribution?: LocalizedText;
   stack?: string[];
   thumbnail_url?: string;
   /** Screenshot of the live site/app, shown as a preview thumbnail in the projects grid. */
   preview_image_url?: string;
   gallery_urls?: string[];
   demo_url?: string;
+  /** The live link leads to a login: proof the system exists, not a public demo. */
+  requires_login?: boolean;
   repo_url?: string;
   /** Extra named references when a project spans several live systems (e.g. one platform per named app). */
   links?: NamedLink[];
   /** Curated Instagram/TikTok posts to embed — add/remove entries here to control what shows. */
   socialPosts?: SocialPost[];
   company?: string;
+  categories: ProjectCategory[];
+  status: ProjectStatus;
+  /** Last content review (YYYY-MM-DD); feeds the sitemap's lastmod. */
+  updated_at: string;
   is_featured: boolean;
   sort_order: number;
   year?: number;

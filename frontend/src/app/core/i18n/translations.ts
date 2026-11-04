@@ -14,8 +14,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'Nikenver Pulgar, Full Stack Angular and Laravel developer in Maracaibo, Venezuela. Over 10 years building administrative systems, e-commerce and web applications for real businesses.',
   },
   'meta.about': {
-    es: 'Trayectoria profesional de Nikenver Pulgar: 10+ años en desarrollo Full Stack, fundador de Sublimax, y experiencia en Grupo Cobeca con Angular, Laravel, React y .NET.',
-    en: "Nikenver Pulgar's professional background: 10+ years in Full Stack development, founder of Sublimax, and experience at Grupo Cobeca with Angular, Laravel, React and .NET.",
+    es: 'Trayectoria profesional de Nikenver Pulgar: 10+ años en desarrollo Full Stack, a cargo de los sistemas del Colegio Gonzaga, fundador de Sublimax y experiencia en Grupo Cobeca con Angular, Laravel, React y .NET.',
+    en: "Nikenver Pulgar's professional background: 10+ years in Full Stack development, running the systems at Colegio Gonzaga, founder of Sublimax, and experience at Grupo Cobeca with Angular, Laravel, React and .NET.",
   },
   'meta.projects': {
     es: 'Casos de estudio reales de Nikenver Pulgar: sistemas administrativos, e-commerce y plataformas corporativas construidas con Angular, Laravel, PostgreSQL y .NET.',
@@ -94,8 +94,8 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'Full Stack Developer, Angular and Laravel - Maracaibo, Venezuela',
   },
   'about.paragraph1': {
-    es: 'Soy Nikenver Pulgar, Ingeniero de Sistemas egresado de la Universidad Dr. José Gregorio Hernández en Maracaibo, Venezuela. Llevo más de 10 años desarrollando aplicaciones web <b>full stack</b> para empresas como Grupo Cobeca, C.A. Diario Panorama, Metro IT Service e Iconos Consultores, con <b>Angular</b>, <b>Laravel</b>, <b>React</b>, <b>Vue.js</b> y <b>PHP</b>.',
-    en: "I'm Nikenver Pulgar, a Systems Engineer from Universidad Dr. José Gregorio Hernández in Maracaibo, Venezuela. I've spent over 10 years building <b>full stack</b> web applications for companies like Grupo Cobeca, C.A. Diario Panorama, Metro IT Service and Iconos Consultores, with <b>Angular</b>, <b>Laravel</b>, <b>React</b>, <b>Vue.js</b> and <b>PHP</b>.",
+    es: 'Soy Nikenver Pulgar, Ingeniero de Sistemas egresado de la Universidad Dr. José Gregorio Hernández en Maracaibo, Venezuela. Llevo más de 10 años desarrollando aplicaciones web <b>full stack</b> para empresas como Grupo Cobeca, C.A. Diario Panorama, Metro IT Service e Iconos Consultores, con <b>Angular</b>, <b>Laravel</b>, <b>React</b>, <b>Vue.js</b> y <b>PHP</b>. Hoy trabajo en el Colegio Gonzaga, donde me encargo de sus sistemas, su sitio web y el soporte técnico.',
+    en: "I'm Nikenver Pulgar, a Systems Engineer from Universidad Dr. José Gregorio Hernández in Maracaibo, Venezuela. I've spent over 10 years building <b>full stack</b> web applications for companies like Grupo Cobeca, C.A. Diario Panorama, Metro IT Service and Iconos Consultores, with <b>Angular</b>, <b>Laravel</b>, <b>React</b>, <b>Vue.js</b> and <b>PHP</b>. Today I work at Colegio Gonzaga, where I run its systems, its website and technical support.",
   },
   'about.paragraph2': {
     es: 'También soy el fundador de Sublimax, un e-commerce de perfumería y variedades para el que construí Subladmin, su sistema administrativo a medida (inventario, CRM y crédito). Aparte desarrollé Axsence, una plataforma de e-commerce para perfumería de autor con <b>Angular</b> y <b>Laravel</b>. El diagnóstico olfativo, el matching y el simulador de layering que construí para Axsence no son solo funcionalidades técnicas: reflejan conocimiento propio como <b>Asesor Olfativo (Fragrance Consultant)</b>, un camino que sigo profundizando. Me especializo en front-end moderno con <b>Angular</b> y <b>React</b>, con un back-end sólido en <b>Laravel</b> y <b>PHP</b> como soporte.',
@@ -160,6 +160,23 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
   'projects.filterErp': { es: 'ERP / Gestión', en: 'ERP / Management' },
   'projects.filterDotNet': { es: '.NET', en: '.NET' },
   'projects.filterWordpress': { es: 'WordPress', en: 'WordPress' },
+  'projects.filterNext': { es: 'Next.js', en: 'Next.js' },
+  'projects.filterWebsite': { es: 'Sitios web', en: 'Websites' },
+  'projects.filterInfrastructure': { es: 'Infraestructura', en: 'Infrastructure' },
+  'projects.filterGroupType': { es: 'Tipo', en: 'Type' },
+  'projects.filterGroupTech': { es: 'Tecnología', en: 'Technology' },
+  'projects.filterGroupClient': { es: 'Organización', en: 'Organization' },
+  'projects.filterAria': { es: 'Filtros de proyectos', en: 'Project filters' },
+  'projects.statusProduction': { es: 'En producción', en: 'In production' },
+  'projects.statusMigrating': { es: 'En producción, migración en curso', en: 'In production, migration under way' },
+  'projects.statusInProgress': { es: 'En desarrollo', en: 'In development' },
+  'projects.statusPilot': { es: 'Piloto', en: 'Pilot' },
+  'projects.detailContribution': { es: 'Mi parte', en: 'My part' },
+  'projects.viewSystem': { es: 'Ver sistema', en: 'View system' },
+  'projects.loginNotice': {
+    es: 'Este enlace abre el acceso al sistema real y pide credenciales. Sirve como prueba de que existe en producción.',
+    en: 'This link opens the real system\'s login and asks for credentials. It proves the system exists in production.',
+  },
   'projects.emptyFilter': {
     es: 'No hay proyectos que coincidan con este filtro en este momento.',
     en: 'No projects match this filter at this time.',
@@ -175,16 +192,16 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'What experience does Nikenver have in ERPs and administrative systems?',
   },
   'projects.faq1Answer': {
-    es: 'Diseñó y programó Subladmin, un ERP completo para Sublimax con lógica de inventario FEFO por unidad física, asignación de pagos FIFO, planes de crédito a cuotas con recálculo automático, arquitectura multi-sucursal y Row-Level Security, respaldado por 766 tests de backend y 654 de frontend sobre PostgreSQL real.',
-    en: 'He designed and programmed Subladmin, a complete ERP for Sublimax featuring unit-level FEFO inventory logic, FIFO payment allocation, installment credit plans with automatic recalculation, multi-branch architecture and Row-Level Security, backed by 766 backend tests and 654 frontend tests on real PostgreSQL.',
+    es: 'Diseñó y programó Subladmin, un ERP completo para Sublimax con lógica de inventario FEFO por unidad física, asignación de pagos FIFO, planes de crédito a cuotas con recálculo automático, arquitectura multi-sucursal y Row-Level Security, con pruebas automatizadas de backend sobre PostgreSQL real y de frontend. En el Colegio Gonzaga se encarga de los sistemas de donaciones, tesorería y cierre diario de facturación.',
+    en: 'He designed and programmed Subladmin, a complete ERP for Sublimax featuring unit-level FEFO inventory logic, FIFO payment allocation, installment credit plans with automatic recalculation, multi-branch architecture and Row-Level Security, with automated backend tests on real PostgreSQL and frontend tests. At Colegio Gonzaga he runs the donations, treasury and daily billing close systems.',
   },
   'projects.faq2Question': {
     es: '¿Cómo aborda el desarrollo de E-commerce y catálogos de venta?',
     en: 'How does he approach E-commerce and sales catalog development?',
   },
   'projects.faq2Answer': {
-    es: 'Priorizando velocidad de carga y cero fricción de compra: creó el Catálogo Público Sublimax con carrito local en localStorage y checkout directo a WhatsApp, y Axsence con quiz de diagnóstico olfativo por algoritmo, simulador de layering interactivo y renderizado SSR.',
-    en: 'Prioritizing instant load speeds and zero shopping friction: he created the Sublimax Public Catalog with local localStorage cart and direct WhatsApp checkout, and Axsence with an algorithmic scent quiz, interactive layering and SSR rendering.',
+    es: 'Priorizando velocidad de carga y una compra sin registro obligatorio: creó la tienda de Sublimax con renderizado en servidor, cuentas opcionales de cliente y pedidos directos por WhatsApp, y Axsence con quiz de diagnóstico olfativo por algoritmo, simulador de layering interactivo y renderizado SSR.',
+    en: 'Prioritizing load speed and a purchase with no required sign-up: he created the Sublimax store with server rendering, optional customer accounts and direct WhatsApp orders, and Axsence with an algorithmic scent quiz, interactive layering and SSR rendering.',
   },
   'projects.faq3Question': {
     es: '¿Cómo utiliza la Inteligencia Artificial en sus proyectos?',
@@ -199,16 +216,16 @@ export const UI_STRINGS: Record<string, LocalizedText> = {
     en: 'Are the projects and systems in the portfolio real?',
   },
   'projects.faq4Answer': {
-    es: 'Absolutamente. Cada caso de estudio enlaza a demostraciones en vivo, aplicaciones web en producción o credenciales de sistemas corporativos reales desarrollados para empresas como Sublimax, Grupo Cobeca y Minima Studio.',
-    en: 'Absolutely. Every case study links to live demos, production web applications, or credentials for real corporate systems built for companies like Sublimax, Grupo Cobeca, and Minima Studio.',
+    es: 'Sí. Los casos enlazan a demostraciones en vivo o a sistemas en producción de Sublimax, Grupo Cobeca, Colegio Gonzaga y Minima Studio. Algunos enlaces piden credenciales, y cada caso indica su estado y, si el trabajo fue compartido, qué parte hizo Nikenver.',
+    en: 'Yes. The case studies link to live demos or production systems at Sublimax, Grupo Cobeca, Colegio Gonzaga and Minima Studio. Some links ask for credentials, and each case shows its status and, for shared work, which part Nikenver did.',
   },
   'projects.faq5Question': {
     es: '¿Cómo implementa la integración y entrega continua (CI/CD) en sus proyectos?',
     en: 'How do you implement continuous integration and delivery (CI/CD) in your projects?',
   },
   'projects.faq5Answer': {
-    es: 'Aplico pipelines automatizados con verificación de tipos, linters, pruebas unitarias y de integración (como los 766 tests de backend y 654 de frontend de Subladmin con PHPUnit, Vitest y PostgreSQL), y despliegue continuo (CD) hacia Vercel, Firebase y entornos cloud gateado por el paso de esos tests en la rama principal.',
-    en: 'I implement automated pipelines with type checking, linters, unit and integration tests (such as Subladmin\'s 766 backend and 654 frontend tests with PHPUnit, Vitest and PostgreSQL), and continuous delivery (CD) to Vercel, Firebase, and cloud environments gated on those tests passing on the main branch.',
+    es: 'Aplico pipelines automatizados con verificación de tipos, linters, pruebas unitarias y de integración (como las de Subladmin con PHPUnit, Vitest y PostgreSQL), y despliegue continuo (CD) hacia Vercel, Cloudflare, Firebase y entornos cloud, condicionado a que esas pruebas pasen en la rama principal.',
+    en: 'I implement automated pipelines with type checking, linters, unit and integration tests (such as Subladmin\'s with PHPUnit, Vitest and PostgreSQL), and continuous delivery (CD) to Vercel, Cloudflare, Firebase and cloud environments, gated on those tests passing on the main branch.',
   },
 
   'projects.cicdBadge': { es: 'CI/CD Activo', en: 'CI/CD Active' },

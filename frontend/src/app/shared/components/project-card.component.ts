@@ -1,6 +1,6 @@
 import { Component, Input, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Project } from '@core/models/project.model';
+import { PROJECT_STATUS_LABEL_KEYS, Project } from '@core/models/project.model';
 import { StackBadgesComponent } from './stack-badges.component';
 import { LocaleService } from '@core/i18n/locale.service';
 import { TranslatePipe } from '@core/i18n/translate.pipe';
@@ -19,6 +19,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
           [routerLink]="['/proyectos', project.slug]"
           class="block h-36 w-full overflow-hidden bg-bg-primary sm:h-40"
           tabindex="-1"
+          aria-hidden="true"
         >
           <img
             [src]="project.preview_image_url"
@@ -31,11 +32,30 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
             class="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
           />
         </a>
+      } @else if (project.thumbnail_url) {
+        <a
+          [routerLink]="['/proyectos', project.slug]"
+          class="flex h-36 w-full items-center justify-center border-b border-border bg-bg-primary sm:h-40"
+          tabindex="-1"
+          aria-hidden="true"
+        >
+          <span class="logo-chip h-20 w-20">
+            <img
+              [src]="project.thumbnail_url"
+              alt=""
+              width="80"
+              height="80"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-contain"
+            />
+          </span>
+        </a>
       }
-      <div class="flex flex-col p-5">
+      <div class="flex flex-1 flex-col p-5">
         @if (project.thumbnail_url || project.year) {
           <div class="mb-3 flex items-center justify-between gap-3">
-            @if (project.thumbnail_url) {
+            @if (project.thumbnail_url && project.preview_image_url) {
               <span class="logo-chip h-11 w-11">
                 <img
                   [src]="project.thumbnail_url"
@@ -60,8 +80,13 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
             {{ project.title | t: locale.locale() }}
           </a>
         </h3>
-        @if (project.has_cicd || project.company) {
+        @if (project.has_cicd || project.company || project.status !== 'production') {
           <div class="mt-2.5 flex flex-wrap items-center gap-1.5">
+            @if (project.status !== 'production') {
+              <span class="rounded-full border border-accent-amber/40 bg-accent-amber/10 px-2 py-0.5 text-xs text-accent-amber">
+                {{ statusKeys[project.status] | t: locale.locale() }}
+              </span>
+            }
             @if (project.has_cicd) {
               <span
                 class="inline-flex items-center gap-1 rounded-full border border-accent-cyan/30 bg-accent-cyan/10 px-2 py-0.5 font-sans text-[11px] font-medium text-accent-cyan"
@@ -86,7 +111,7 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
         }
         <a
           [routerLink]="['/proyectos', project.slug]"
-          class="mt-4 inline-flex min-h-11 items-center text-sm font-medium text-accent-cyan hover:underline"
+          class="mt-auto inline-flex min-h-11 items-center pt-4 text-sm font-medium text-accent-cyan hover:underline"
         >
           {{ 'projects.viewCase' | t: locale.locale() }}
         </a>
@@ -97,4 +122,5 @@ import { TranslatePipe } from '@core/i18n/translate.pipe';
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
   readonly locale = inject(LocaleService);
+  readonly statusKeys = PROJECT_STATUS_LABEL_KEYS;
 }

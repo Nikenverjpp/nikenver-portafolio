@@ -11,38 +11,39 @@
       "en": "In-house ERP with FEFO/FIFO traceability, row-level security and multi-currency credit"
     },
     "description": {
-      "es": "Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, <b>CRM</b>, crédito y cobranza, cierre de caja y auditoría en una sola herramienta.",
-      "en": "Full administrative system built for Sublimax: it centralizes purchasing, unit-level inventory, sales, <b>CRM</b>, credit and collections, cash closing and auditing into one tool."
+      "es": "Sistema administrativo integral construido para Sublimax: centraliza compras, inventario por unidad física, ventas, <b>CRM</b>, crédito y cobranza, caja, cartera por vendedor y auditoría en una sola herramienta.",
+      "en": "Full administrative system built for Sublimax: it centralizes purchasing, unit-level inventory, sales, <b>CRM</b>, credit and collections, cash, per-employee client portfolios and auditing in one tool."
     },
     "challenge": {
       "es": "Sublimax operaba con seguimiento desorganizado en Excel, WhatsApp y cuadernos, sin trazabilidad de inventario por unidad ni control real del crédito otorgado a clientes.",
       "en": "Sublimax ran on scattered tracking across Excel, WhatsApp and notebooks, with no unit-level inventory traceability and no real control over customer credit."
     },
     "solution": {
-      "es": "El backend en <b>Laravel</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, arquitectura multi-sucursal con traslados directos, y recálculo automático de cuotas en devoluciones. Incorpora soporte de líneas de producto y composiciones métricas con pirámides olfativas interactivas. La seguridad integra <b>Row-Level Security</b> y <b>RBAC</b> con Spatie, reportes de cuentas por cobrar en tiempo real (<code>vista_cuentas_por_cobrar</code>) con exportaciones a Excel, PDF y PNG para WhatsApp, y hardening <b>OWASP Top 10</b>. El frontend en <b>Angular</b> utiliza <b>Standalone Components</b> y <b>Signals</b>, optimizado para tablets PWA en mostrador y calle, con estética TailAdmin Dark Mode, gráficos interactivos con <b>ApexCharts</b> y modales accesibles con <b>Angular Material</b>. El panel envía notificaciones push reales del sistema operativo con <b>Web Push/VAPID</b> para avisar cambios en la tasa del día, además de un centro de alertas propio para tasa desactualizada, stock bajo y cuotas vencidas que se pueden marcar como leídas. La robustez está respaldada por 766 tests de backend con PHPUnit sobre PostgreSQL real y 654 tests de frontend con Vitest.",
-      "en": "The <b>Laravel</b> backend concentrates critical business logic across domain services: <b>FEFO</b> inventory dispatch, <b>FIFO</b> payment allocation, multi-branch architecture with direct stock transfers, and automated installment recalculation on returns. It features product lines and metric compositions with interactive fragrance pyramids. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, real-time accounts receivable reporting (<code>vista_cuentas_por_cobrar</code>) with Excel/PDF/PNG exports for WhatsApp, and <b>OWASP Top 10</b> hardening. The <b>Angular</b> frontend uses <b>Standalone Components</b> and <b>Signals</b>, tailored for counter and field PWA tablets, featuring a TailAdmin Dark Mode aesthetic, interactive charts with <b>ApexCharts</b>, and accessible dialogs with <b>Angular Material</b>. The admin panel sends real OS-level push notifications via <b>Web Push/VAPID</b> for daily exchange-rate changes, alongside a dismissible in-app alert center for stale rates, low stock and overdue installments. It's backed by 766 backend tests with PHPUnit on real PostgreSQL and 654 frontend tests with Vitest."
+      "es": "El backend en <b>Laravel 13</b> concentra la lógica crítica en capas de dominio: despacho <b>FEFO</b>, asignación de pagos <b>FIFO</b>, multi-sucursal con traslados directos y recálculo de cuotas en devoluciones. La caja usa un libro único de movimientos, con préstamos a empleados y un resumen de período con el margen de cada venta. Cada empleado atiende su propia cartera de clientes, y un pedido de un cliente moroso espera aprobación. La seguridad combina <b>Row-Level Security</b>, <b>RBAC</b> con Spatie, passkeys con registro de dispositivos y una bitácora de auditoría por triggers de base de datos, conciliada a diario con los planes de crédito. El frontend en <b>Angular 22</b> usa <b>Standalone Components</b>, <b>Signals</b>, un sistema de diseño propio sobre <b>Tailwind 4</b> y gráficos con <b>Chart.js</b>. El panel envía notificaciones reales con <b>Web Push/VAPID</b> y correos con <b>Resend</b>, y genera felicitaciones de cumpleaños con tarjeta y video.",
+      "en": "The <b>Laravel 13</b> backend concentrates critical logic in domain services: <b>FEFO</b> dispatch, <b>FIFO</b> payment allocation, multi-branch stock transfers and installment recalculation on returns. Cash runs on a single movement ledger, with employee loans and a period summary showing the margin of each sale. Each employee works their own client portfolio, and an order from a client in arrears waits for approval. Security combines <b>Row-Level Security</b>, Spatie <b>RBAC</b>, passkeys with a device registry and a database-trigger audit log, reconciled daily against credit plans. The <b>Angular 22</b> frontend uses <b>Standalone Components</b>, <b>Signals</b>, its own design system on <b>Tailwind 4</b> and <b>Chart.js</b> charts. The panel sends real notifications through <b>Web Push/VAPID</b> and email through <b>Resend</b>, and generates birthday greetings with a card and a video."
     },
     "results": {
-      "es": "En producción como PWA (<code>subladmin.vercel.app</code>), respaldando la operación integral de compras, inventario, ventas y cobranza de Sublimax con consistencia transaccional absoluta.",
-      "en": "In production as a PWA (<code>subladmin.vercel.app</code>), powering Sublimax's full purchasing, inventory, sales and collection operations with rock-solid transactional consistency."
+      "es": "En producción (<code>subladmin.vercel.app</code>), sostiene las compras, el inventario, las ventas y la cobranza de Sublimax. El repositorio tiene más de 2.500 pruebas de backend y más de 2.800 de frontend, según el conteo de sus archivos de prueba.",
+      "en": "In production (<code>subladmin.vercel.app</code>), it runs purchasing, inventory, sales and collections for Sublimax. The repository holds over 2,500 backend tests and over 2,800 frontend tests, counted from its test files."
     },
     "stack": [
       "Angular",
       "Laravel",
       "PostgreSQL",
       "Tailwind CSS",
-      "ApexCharts",
+      "Chart.js",
+      "Sentry",
       "CI/CD"
     ],
     "has_cicd": true,
     "cicd": {
       "ci": {
-        "es": "766 tests de backend con PHPUnit sobre PostgreSQL real, 654 tests de frontend con Vitest y build estricto de Angular.",
-        "en": "766 backend tests with PHPUnit on real PostgreSQL, 654 frontend tests with Vitest and a strict Angular build."
+        "es": "Pruebas de backend con PHPUnit sobre PostgreSQL real, pruebas de frontend con Vitest, un job de Playwright y build estricto de Angular.",
+        "en": "Backend tests with PHPUnit on real PostgreSQL, frontend tests with Vitest, a Playwright job and a strict Angular build."
       },
       "cd": {
-        "es": "Despliegue gateado exclusivamente por CI: al pasar los tests en un push a <code>main</code>, un mismo workflow despliega el backend en Render y los dos frontends de Vercel (panel admin y catálogo público) vía su CLI. El auto-deploy por git push está desactivado en las tres plataformas.",
-        "en": "Deploys are gated exclusively by CI: once tests pass on a push to <code>main</code>, a single workflow deploys the backend to Render and both Vercel frontends (admin panel and public catalog) via the Vercel CLI. Git-push auto-deploy is disabled on all three platforms."
+        "es": "Solo CI despliega: al pasar las pruebas en un push a <code>main</code>, un mismo workflow publica el backend en Render, el panel en Vercel y el catálogo en Cloudflare Pages. El auto-deploy de las tres plataformas está apagado.",
+        "en": "Only CI deploys: once tests pass on a push to <code>main</code>, one workflow publishes the backend to Render, the panel to Vercel and the catalog to Cloudflare Pages. Auto-deploy is off on all three platforms."
       }
     },
     "company": "Sublimax",
@@ -51,34 +52,40 @@
     "demo_url": "https://subladmin.vercel.app/",
     "is_featured": true,
     "sort_order": 1,
-    "year": 2026
+    "year": 2026,
+    "categories": [
+      "erp"
+    ],
+    "status": "production",
+    "requires_login": true,
+    "updated_at": "2026-11-04"
   },
   {
     "id": "11",
     "slug": "sublimax-catalogo-publico",
     "title": {
-      "es": "Sublimax - Catálogo Público y Carrito por WhatsApp",
-      "en": "Sublimax - Public Catalog & WhatsApp Cart"
+      "es": "Sublimax - Tienda Online y Pedidos por WhatsApp",
+      "en": "Sublimax - Online Store & WhatsApp Orders"
     },
     "tagline": {
-      "es": "E-commerce de autoservicio con ficha olfativa interactiva, PWA offline y checkout directo a WhatsApp",
-      "en": "Self-service e-commerce with interactive scent breakdown, offline PWA and direct WhatsApp checkout"
+      "es": "Tienda con renderizado en servidor, ficha olfativa, cuentas de cliente y pedidos por WhatsApp",
+      "en": "Server-rendered store with scent profiles, customer accounts and WhatsApp orders"
     },
     "description": {
-      "es": "Canal público de e-commerce para Sublimax: permite a los clientes explorar el catálogo de perfumería y personalización textil DTF en tiempo real, consultar fichas olfativas interactivas y armar pedidos con carrito local que se envían directamente a WhatsApp sin requerir registro ni backend propio para el carrito.",
-      "en": "Public e-commerce storefront for Sublimax: lets customers browse live perfumery and DTF apparel catalogs, inspect interactive fragrance profiles, and build orders via a local cart routed directly to WhatsApp without registration or cart backend."
+      "es": "Tienda pública de Sublimax en tiendasublimax.com: los clientes exploran perfumería, maquillaje y personalización textil DTF, consultan fichas olfativas y arman un pedido que llega por WhatsApp. Pueden comprar sin registrarse o abrir una cuenta para guardar carrito y favoritos.",
+      "en": "Sublimax's public store at tiendasublimax.com: customers browse perfumery, makeup and DTF apparel, read scent profiles and build an order that arrives over WhatsApp. They can buy without signing up, or open an account to keep their cart and wishlist."
     },
     "challenge": {
-      "es": "Ofrecer una experiencia de compra rápida, de alta conversión y sin fricción para el mercado venezolano, protegiendo los datos sensibles de inventario y costos del ERP Subladmin, con soporte offline y tiempos de carga instantáneos en dispositivos móviles.",
-      "en": "Delivering a fast, high-converting, friction-free shopping experience for the Venezuelan market while shielding sensitive inventory and cost data from the Subladmin ERP, featuring offline support and instant mobile load times."
+      "es": "Ofrecer una compra rápida en celulares para el mercado venezolano, sin exponer el inventario ni los costos del ERP Subladmin, y lograr que Google indexara cada categoría y marca.",
+      "en": "Delivering a fast mobile purchase for the Venezuelan market without exposing inventory or costs from the Subladmin ERP, and getting Google to index every category and brand."
     },
     "solution": {
-      "es": "Frontend en <b>Angular</b> con <b>Standalone Components</b>, <b>Signals</b> y <b>Tailwind CSS</b>, conectado a la API de Subladmin con endpoints públicos seguros (<code>/api/catalogo-publico/**</code>) que topan el stock a 10 unidades y excluyen costos y SKUs. Incorpora un carrito 100% en <b>localStorage</b> con revalidación de precio y disponibilidad al momento de generar el mensaje estructurado para WhatsApp. Incluye fichas olfativas con pirámide de notas porcentuales, marcas de agua automáticas con el logo de Sublimax procesadas en <b>Cloudinary</b>, telemetría de comercio electrónico con <b>Google Analytics 4</b> (funnel completo), <b>PWA</b> con caché offline vía Service Worker, y una arquitectura <b>AIO / GEO</b> y <b>SEO</b> integral con <b>Schema.org JSON-LD</b> (<code>Product</code>, <code>Offer</code>, <code>OnlineStore</code>, <code>FAQPage</code>), sitemap dinámico con imágenes y protocolo <b>llms.txt</b> para visibilidad en ChatGPT Search y Perplexity.",
-      "en": "<b>Angular</b> frontend with <b>Standalone Components</b>, <b>Signals</b> and <b>Tailwind CSS</b> consuming hardened Subladmin API endpoints (<code>/api/catalogo-publico/**</code>) capping stock display at 10 units and stripping cost and SKU data. Features a 100% <b>localStorage</b> cart revalidating live prices before generating structured WhatsApp order messages. Includes interactive fragrance pyramids, automatic Cloudinary watermarks, <b>Google Analytics 4</b> e-commerce funnel tracking, offline <b>PWA</b> caching, and a full <b>AIO / GEO</b> and <b>SEO</b> architecture with <b>Schema.org JSON-LD</b>, dynamic image sitemaps, and <b>llms.txt</b> for ChatGPT Search and Perplexity visibility."
+      "es": "Aplicación <b>Angular</b> separada con <b>SSR</b> y prerender, publicada en <b>Cloudflare Pages</b> y conectada a endpoints públicos de Subladmin que topan el stock mostrado a 10 unidades y excluyen costos y SKUs. El carrito anónimo vive en <b>localStorage</b> y revalida precio y disponibilidad antes de armar el mensaje de WhatsApp. El portal de cliente guarda carrito y favoritos en el servidor, y permite pedir, reportar pagos y recibir avisos push. También incluye fichas con pirámide de notas y colores por tono, video de producto, descuentos, marcas de agua con <b>Cloudinary</b>, <b>Turnstile</b> contra bots, embudo en <b>Google Analytics 4</b>, páginas indexables por categoría y marca, <b>Schema.org JSON-LD</b> y <b>llms.txt</b>.",
+      "en": "A separate <b>Angular</b> app with <b>SSR</b> and prerendering, published on <b>Cloudflare Pages</b> and connected to public Subladmin endpoints that cap displayed stock at 10 units and strip costs and SKUs. The anonymous cart lives in <b>localStorage</b> and revalidates price and availability before building the WhatsApp message. The customer portal keeps cart and wishlist on the server, and lets customers place requests, report payments and get push notices. It also includes note pyramids and tone colors on product sheets, product video, discounts, <b>Cloudinary</b> watermarks, <b>Turnstile</b> against bots, a <b>Google Analytics 4</b> funnel, indexable category and brand pages, <b>Schema.org JSON-LD</b> and <b>llms.txt</b>."
     },
     "results": {
-      "es": "En producción en Vercel (<code>sublimaxcatalogo.vercel.app</code>), canal oficial de venta digital de Sublimax con visualizaciones constantes y pedidos cerrados por WhatsApp con alta tasa de conversión.",
-      "en": "In production on Vercel (<code>sublimaxcatalogo.vercel.app</code>), serving as Sublimax's official digital sales channel driving WhatsApp-closed orders with high conversion."
+      "es": "En producción en <code>tiendasublimax.com</code>, es el canal oficial de venta digital de Sublimax.",
+      "en": "In production at <code>tiendasublimax.com</code>, it is Sublimax's official digital sales channel."
     },
     "stack": [
       "Angular",
@@ -87,27 +94,32 @@
       "Laravel",
       "PostgreSQL",
       "Cloudinary",
-      "PWA",
+      "Cloudflare Pages",
       "CI/CD"
     ],
     "has_cicd": true,
     "cicd": {
       "ci": {
-        "es": "Comparte el pipeline de CI de Subladmin (mismo repo): los 766 tests de backend y 654 de frontend deben pasar antes de compilar y desplegar.",
-        "en": "Shares Subladmin's CI pipeline (same monorepo): all 766 backend tests and 654 frontend tests must pass before it builds and deploys."
+        "es": "Comparte el pipeline de Subladmin, porque vive en el mismo repositorio: las pruebas de backend y frontend deben pasar antes de compilar.",
+        "en": "It shares Subladmin's pipeline because both live in the same repository: backend and frontend tests must pass before it builds."
       },
       "cd": {
-        "es": "Se despliega junto con el panel admin desde el mismo workflow: al pasar el gate de tests, el job de CI publica el build directo a la red Edge de Vercel vía su CLI. El auto-deploy nativo de Vercel está desactivado.",
-        "en": "Deploys alongside the admin panel from the same workflow: once the test gate passes, the CI job pushes the build straight to Vercel's Edge network via the Vercel CLI. Vercel's own auto-deploy is disabled."
+        "es": "El mismo workflow publica el build en Cloudflare Pages con <code>wrangler</code> cuando pasan las pruebas.",
+        "en": "The same workflow publishes the build to Cloudflare Pages with <code>wrangler</code> once tests pass."
       }
     },
     "company": "Sublimax",
     "thumbnail_url": "/img/logos/sublimax.webp",
     "preview_image_url": "/img/previews/sublimax-catalogo.webp",
-    "demo_url": "https://sublimaxcatalogo.vercel.app/",
+    "demo_url": "https://tiendasublimax.com/",
     "is_featured": true,
     "sort_order": 2,
-    "year": 2026
+    "year": 2026,
+    "categories": [
+      "ecommerce"
+    ],
+    "status": "production",
+    "updated_at": "2026-11-04"
   },
   {
     "id": "2",
@@ -177,8 +189,80 @@
       }
     ],
     "is_featured": true,
-    "sort_order": 2,
-    "year": 2026
+    "sort_order": 3,
+    "year": 2026,
+    "categories": [
+      "ecommerce"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
+  },
+  {
+    "id": "12",
+    "slug": "gonzaga-sistema-donaciones",
+    "title": {
+      "es": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
+      "en": "Colegio Gonzaga - Donations System & Gateway"
+    },
+    "tagline": {
+      "es": "Pasarela de donaciones en USD y bolívares, con verificación bancaria, recibos y reportes",
+      "en": "Donation gateway in USD and bolívares, with bank verification, receipts and reports"
+    },
+    "description": {
+      "es": "Plataforma de recaudación del Colegio Gonzaga (Maracaibo, Venezuela). Las familias y los exalumnos donan desde el celular en dólares o bolívares con Pago Móvil, transferencia o Zinli, y tesorería verifica cada pago y emite el recibo desde un panel con roles.",
+      "en": "Fundraising platform for Colegio Gonzaga (Maracaibo, Venezuela). Families and alumni donate from their phones in dollars or bolívares through Pago Móvil, bank transfer or Zinli, and the treasury team verifies each payment and issues the receipt from a role-based panel."
+    },
+    "challenge": {
+      "es": "Modernizar la recaudación institucional con trazabilidad financiera transparente, eliminando la conciliación manual dispersa y garantizando una experiencia de donación sin fricciones en dispositivos móviles.",
+      "en": "Modernize institutional fundraising with transparent financial traceability, eliminating scattered manual reconciliation and delivering a friction-free mobile donation experience."
+    },
+    "solution": {
+      "es": "Frontend en <b>Next.js 16</b> con <b>React 19</b> y <b>Tailwind 4</b>, y backend en <b>NestJS 11</b> sobre <b>MongoDB</b>. El checkout guía al donante paso a paso, con tasa <b>BCV</b> en vivo. Integré la API del banco Mercantil para aprobar sin intervención los pagos que coinciden. Zinli sigue en revisión manual, con un filtro <b>OCR</b> local sobre el comprobante. El backend genera los recibos con <b>PDFKit</b>, envía correos con <b>SendGrid</b> y exporta reportes a Excel y PDF con gráficos. El panel maneja 9 roles en 4 departamentos, varias cuentas de cobro por método y un interruptor de mantenimiento. También dejé listos un menú de WhatsApp con <b>Twilio</b> y avisos de estado, pendientes de activar.",
+      "en": "A <b>Next.js 16</b> frontend with <b>React 19</b> and <b>Tailwind 4</b>, and a <b>NestJS 11</b> backend on <b>MongoDB</b>. The checkout walks donors step by step with a live <b>BCV</b> rate. I integrated the Mercantil bank API to approve matching payments with no manual step. Zinli stays under manual review, with a local <b>OCR</b> filter on the receipt. The backend generates receipts with <b>PDFKit</b>, sends email through <b>SendGrid</b> and exports reports to Excel and PDF with charts. The panel handles 9 roles across 4 departments, several payment accounts per method and a maintenance switch. I also finished a <b>Twilio</b> WhatsApp menu and status notices, still waiting to be switched on."
+    },
+    "results": {
+      "es": "En producción en <code>donaciones.colegiogonzaga.org.ve</code>, con versión 1.0.1 publicada el 3 de noviembre de 2026. El repositorio suma más de 2.900 pruebas entre unitarias, de API y de navegador, según el conteo de sus archivos.",
+      "en": "In production at <code>donaciones.colegiogonzaga.org.ve</code>, with version 1.0.1 released on November 3, 2026. The repository holds over 2,900 unit, API and browser tests, counted from its files."
+    },
+    "stack": [
+      "Next.js",
+      "React",
+      "NestJS",
+      "MongoDB",
+      "Tailwind CSS",
+      "TypeScript",
+      "Twilio",
+      "Sentry",
+      "Playwright",
+      "CI/CD"
+    ],
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "preview_image_url": "/img/previews/gonzaga-donaciones.webp",
+    "demo_url": "https://donaciones.colegiogonzaga.org.ve/",
+    "is_featured": true,
+    "sort_order": 4,
+    "year": 2026,
+    "categories": [
+      "erp"
+    ],
+    "status": "production",
+    "updated_at": "2026-11-04",
+    "contribution": {
+      "es": "Estoy a cargo del sistema en el colegio y soy su autor principal: firmé 2.135 de los 2.266 commits de la rama principal. Otras dos personas aportaron el resto.",
+      "en": "I run the system at the school and I am its main author: I signed 2,135 of the 2,266 commits on the main branch. Two other people contributed the rest."
+    },
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "GitHub Actions corre pruebas unitarias con Jest, pruebas de API y de navegador con Playwright antes de cada despliegue.",
+        "en": "GitHub Actions runs Jest unit tests, plus API and Playwright browser tests, before each deployment."
+      },
+      "cd": {
+        "es": "Los workflows despliegan en QA y producción con Docker sobre un VPS, con versiones semánticas y respaldos cifrados cada semana.",
+        "en": "Workflows deploy to QA and production with Docker on a VPS, with semantic versions and weekly encrypted backups."
+      }
+    }
   },
   {
     "id": "3",
@@ -219,10 +303,10 @@
     "links": [
       {
         "label": {
-          "es": "Catálogo online",
-          "en": "Online catalog"
+          "es": "Tienda online",
+          "en": "Online store"
         },
-        "url": "https://sublimaxcatalogo.vercel.app/",
+        "url": "https://tiendasublimax.com/",
         "preview_image_url": "/img/previews/sublimax-catalogo.webp"
       },
       {
@@ -261,8 +345,13 @@
       }
     ],
     "is_featured": true,
-    "sort_order": 3,
-    "year": 2024
+    "sort_order": 5,
+    "year": 2024,
+    "categories": [
+      "ecommerce"
+    ],
+    "status": "production",
+    "updated_at": "2026-11-04"
   },
   {
     "id": "4",
@@ -364,8 +453,421 @@
       }
     ],
     "is_featured": true,
-    "sort_order": 4,
-    "year": 2023
+    "sort_order": 6,
+    "year": 2023,
+    "categories": [
+      "erp"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
+  },
+  {
+    "id": "13",
+    "slug": "gonzaga-admon-tesoreria",
+    "title": {
+      "es": "Admon - Tesorería del Colegio Gonzaga",
+      "en": "Admon - Colegio Gonzaga Treasury"
+    },
+    "tagline": {
+      "es": "Ingresos, egresos y aportes de las familias en bolívares y dólares",
+      "en": "Income, expenses and family fees in bolívares and dollars"
+    },
+    "description": {
+      "es": "Sistema interno con el que administración, rectorado y jefes de departamento llevan el dinero del colegio: conciliación bancaria, presupuestos, aportes mensuales y cobranza con recibo. Unió dos aplicaciones que tenían base de datos y usuarios separados.",
+      "en": "Internal system that administration, the rector's office and department heads use to run the school's money: bank reconciliation, budgets, monthly fees and collections with receipts. It merged two applications with separate databases and logins."
+    },
+    "challenge": {
+      "es": "Las dos aplicaciones anteriores solo se comunicaban con un puente de eventos cada 5 minutos. La migración a Laravel y Angular tenía que avanzar pantalla por pantalla, con el sistema PHP en uso diario, en un servidor sin Node ni Composer.",
+      "en": "The two previous applications only talked through an event bridge every 5 minutes. The move to Laravel and Angular had to advance screen by screen while staff used the PHP system daily, on a server with no Node or Composer."
+    },
+    "solution": {
+      "es": "El sistema registra el pago de una familia y su ingreso bancario en la misma transacción, guarda cada monto en bolívares y dólares a la tasa <b>BCV</b> de su fecha, y anula registros con rastro de auditoría en lugar de borrarlos. La migración sigue el patrón <b>strangler</b>, con una ficha de paridad por pantalla. La nueva API usa <b>Laravel 13</b>, <b>Sanctum</b> y <b>Spatie Permission</b>.",
+      "en": "The system records a family's payment and its bank income in one transaction, stores each amount in bolívares and dollars at the <b>BCV</b> rate of its date, and voids records with an audit trail instead of deleting them. The migration follows the <b>strangler</b> pattern, with a parity sheet per screen. The new API uses <b>Laravel 13</b>, <b>Sanctum</b> and <b>Spatie Permission</b>."
+    },
+    "results": {
+      "es": "El colegio usa la versión PHP en producción. La versión en Laravel y Angular corre en QA desde octubre de 2026 y aún no reemplaza a la actual.",
+      "en": "The school runs the PHP version in production. The Laravel and Angular version has been on QA since October 2026 and does not replace the current one yet."
+    },
+    "contribution": {
+      "es": "Estoy a cargo del sistema en el colegio. Programé la API en Laravel, con más de 150 pruebas en PHPUnit, y armé el CI/CD y el despliegue. También aporté al frontend en Angular, aunque la mayor parte la escribió otro desarrollador del equipo.",
+      "en": "I run the system at the school. I wrote the Laravel API, with over 150 PHPUnit tests, and set up CI/CD and deployment. I also contributed to the Angular frontend, though another developer on the team wrote most of it."
+    },
+    "stack": [
+      "PHP",
+      "Laravel",
+      "Angular",
+      "MySQL",
+      "Tailwind CSS",
+      "CI/CD"
+    ],
+    "has_cicd": true,
+    "cicd": {
+      "ci": {
+        "es": "GitHub Actions corre PHPUnit en la API, y Vitest y Playwright en el frontend.",
+        "en": "GitHub Actions runs PHPUnit on the API, and Vitest and Playwright on the frontend."
+      },
+      "cd": {
+        "es": "Los workflows y scripts de despliegue publican la nueva versión en el entorno de QA.",
+        "en": "Deployment workflows and scripts publish the new version to the QA environment."
+      }
+    },
+    "categories": [
+      "erp"
+    ],
+    "status": "migrating",
+    "preview_image_url": "/img/previews/gonzaga-admon.webp",
+    "demo_url": "https://admon.colegiogonzaga.org.ve/",
+    "requires_login": true,
+    "sort_order": 7,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "is_featured": false,
+    "year": 2026,
+    "updated_at": "2026-11-04"
+  },
+  {
+    "id": "14",
+    "slug": "gonzaga-cierre-facturacion",
+    "title": {
+      "es": "Cierre de Facturación - Colegio Gonzaga",
+      "en": "Daily Billing Close - Colegio Gonzaga"
+    },
+    "tagline": {
+      "es": "Cuadre diario de ventas a partir del Excel del sistema heredado",
+      "en": "Daily sales reconciliation from the legacy system's Excel report"
+    },
+    "description": {
+      "es": "Herramienta interna con la que administración cuadra cada día las ventas del colegio: facturas, pagos, tasa BCV, saldos a favor y descuadres, con montos en bolívares y dólares que se pueden imprimir y exportar.",
+      "en": "Internal tool the administration team uses to reconcile the school's sales each day: invoices, payments, BCV rate, credit balances and mismatches, with amounts in bolívares and dollars ready to print and export."
+    },
+    "challenge": {
+      "es": "El sistema heredado entrega un reporte de Excel irregular: repite totales entre filas y a veces da solo el total de una factura, sin el monto de cada concepto.",
+      "en": "The legacy system produces an irregular Excel report: it repeats totals across rows and sometimes gives only an invoice total, with no amount per concept."
+    },
+    "solution": {
+      "es": "El navegador procesa el Excel con <b>SheetJS</b> y envía a <b>PHP</b> solo JSON. El sistema agrupa las filas por número de control, separa los saldos a favor del flujo de caja del día y concilia cada pago con la tasa <b>BCV</b> de su fecha real. Cuando falta el monto por concepto, busca primero combinaciones exactas, luego usa las proporciones de facturas hermanas, y deja los casos dudosos en una cola para que una persona los confirme. Escribí además la lectura y escritura de ZIP a mano para generar <code>.xlsx</code> en un servidor sin <code>ZipArchive</code>.",
+      "en": "The browser parses the Excel file with <b>SheetJS</b> and sends only JSON to <b>PHP</b>. The system groups rows by control number, separates credit balances from the day's cash flow and reconciles each payment against the <b>BCV</b> rate of its real date. When a per-concept amount is missing, it looks for exact combinations first, then uses shares from sibling invoices, and leaves doubtful cases in a queue for a person to confirm. I also hand-wrote ZIP reading and writing to produce <code>.xlsx</code> files on a server without <code>ZipArchive</code>."
+    },
+    "results": {
+      "es": "En producción para el equipo de administración. Una verificación de regresión compara los cierres guardados contra una línea base.",
+      "en": "In production for the administration team. A regression check compares saved closes against a baseline."
+    },
+    "stack": [
+      "PHP",
+      "MySQL",
+      "JavaScript",
+      "Bootstrap",
+      "SheetJS"
+    ],
+    "categories": [
+      "erp"
+    ],
+    "status": "production",
+    "preview_image_url": "/img/previews/gonzaga-cierre.webp",
+    "demo_url": "https://colegiogonzaga.org.ve/cierre-facturacion/login.php",
+    "requires_login": true,
+    "sort_order": 8,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "is_featured": false,
+    "year": 2026,
+    "updated_at": "2026-11-04",
+    "contribution": {
+      "es": "Estoy a cargo del sistema en el colegio y lo programé.",
+      "en": "I run the system at the school, and I built it."
+    }
+  },
+  {
+    "id": "15",
+    "slug": "gonzaga-formulario-registro",
+    "title": {
+      "es": "Formulario Gonzaga - Exalumnos y Voluntarios",
+      "en": "Formulario Gonzaga - Alumni and Volunteers"
+    },
+    "tagline": {
+      "es": "Registro público desde el celular, reescrito en Next.js y Laravel",
+      "en": "Mobile-first public registration, rewritten in Next.js and Laravel"
+    },
+    "description": {
+      "es": "Registro público de exalumnos y voluntarios del colegio, que la gente suele abrir desde un enlace compartido en el celular. El equipo del colegio consulta los registros y los exporta a Excel desde un panel.",
+      "en": "Public registration for the school's alumni and volunteers, usually opened from a shared link on a phone. School staff review the records and export them to Excel from a panel."
+    },
+    "challenge": {
+      "es": "El sitio original guardaba todo en una tabla plana y rechazaba con un error 409 el segundo formulario de una persona que volvía, sin darle una salida. La reescritura debía comportarse igual que el sistema actual en un servidor sin Node.",
+      "en": "The original site kept everything in one flat table and rejected a returning person's second form with a 409 error, offering no way forward. The rewrite had to behave like the current system on a server with no Node."
+    },
+    "solution": {
+      "es": "Frontend en <b>Next.js 16</b> con exportación estática, para que el servidor solo sirva archivos, y API en <b>Laravel 13</b> sobre <b>MySQL</b>. Un arnés de paridad repite la misma secuencia de peticiones contra la API vieja y la nueva, y compara estado, JSON y cabeceras. Una prueba falla si la migración y el SQL difieren. Cada persona tiene un solo registro, con tokens de un solo uso y verificación por correo con <b>SendGrid</b>.",
+      "en": "A <b>Next.js 16</b> frontend with static export, so the server only serves files, and a <b>Laravel 13</b> API on <b>MySQL</b>. A parity harness replays one request sequence against the old and new APIs and compares status, JSON and headers. A test fails if the migration and the SQL differ. Each person has one record, with single-use tokens and <b>SendGrid</b> email verification."
+    },
+    "results": {
+      "es": "El 1 de noviembre de 2026 la reescritura pasaba 50 pruebas en PHPUnit, 112 de 112 comparaciones de paridad y 22 de 22 pruebas de humo sobre Apache. Todavía no se despliega: el enlace lleva a la versión actual en producción.",
+      "en": "On November 1, 2026 the rewrite passed 50 PHPUnit tests, 112 of 112 parity comparisons and 22 of 22 smoke tests on Apache. It isn't deployed yet: the link leads to the current production version."
+    },
+    "contribution": {
+      "es": "Estoy a cargo del sistema en el colegio, y escribí la reescritura completa en Next.js y Laravel. Otro desarrollador del equipo creó el proyecto y programó la versión que hoy está en producción, y también el rediseño que porté a Next.js.",
+      "en": "I run the system at the school, and I wrote the full rewrite in Next.js and Laravel. Another developer on the team started the project and built the version now in production, along with the redesign I ported to Next.js."
+    },
+    "stack": [
+      "Next.js",
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "TypeScript"
+    ],
+    "categories": [
+      "website"
+    ],
+    "status": "migrating",
+    "preview_image_url": "/img/previews/gonzaga-formulario.webp",
+    "demo_url": "https://form.colegiogonzaga.org.ve/",
+    "sort_order": 9,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "is_featured": false,
+    "year": 2026,
+    "updated_at": "2026-11-04"
+  },
+  {
+    "id": "16",
+    "slug": "gonzaga-wordpress-optimizacion",
+    "title": {
+      "es": "Sitio del Colegio Gonzaga - Velocidad y SEO",
+      "en": "Colegio Gonzaga Website - Speed and SEO"
+    },
+    "tagline": {
+      "es": "Saneamiento técnico de un WordPress en producción, medido antes y después",
+      "en": "Technical clean-up of a production WordPress site, measured before and after"
+    },
+    "description": {
+      "es": "Saneamiento técnico del sitio público del colegio, un <b>WordPress</b> con <b>Elementor</b> sobre cPanel/WHM. Recibí el sitio ya construido y lo optimicé por fases, con cada cambio y su vuelta atrás anotados en una bitácora.",
+      "en": "Technical clean-up of the school's public site, a <b>WordPress</b> build with <b>Elementor</b> on cPanel/WHM. I took over the site already built and optimized it in phases, logging each change and its rollback."
+    },
+    "challenge": {
+      "es": "Una auditoría del 28 de octubre de 2026 encontró caché de página y OPcache apagados, sin compresión ni identidad SEO configurada. La portada tardaba 2,70 s en responder y pesaba 2.994 KB.",
+      "en": "An October 28, 2026 audit found page cache and OPcache switched off, with no compression and no SEO identity set up. The home page took 2.70 s to respond and weighed 2,994 KB."
+    },
+    "solution": {
+      "es": "Subí <b>PHP</b> de 8.1 a 8.3, activé OPcache, compresión, caché de navegador y <b>WP Super Cache</b> con precarga, y redirigí con 301 las URLs con <code>/index.php/</code>. Completé títulos H1, descripciones y textos alternativos con <b>Yoast</b>, y corregí la identidad de la organización. Actualicé el núcleo y los plugins, activé 2FA para administradores y dejé respaldos y un manual de publicación para el personal.",
+      "en": "I moved <b>PHP</b> from 8.1 to 8.3, enabled OPcache, compression, browser caching and <b>WP Super Cache</b> with preloading, and sent <code>/index.php/</code> URLs through 301 redirects. I filled in H1 headings, descriptions and alt text with <b>Yoast</b>, and fixed the organization's identity. I updated core and plugins, enabled 2FA for administrators and left backups and a publishing manual for staff."
+    },
+    "results": {
+      "es": "La respuesta del servidor bajó de 2,70 s a 0,50 s, y el peso de la portada de 2.994 KB a 1.926 KB. Las páginas sin H1 pasaron de 12 de 22 a ninguna. Unas 65 imágenes sin texto alternativo quedaron en cero. En Lighthouse móvil de laboratorio (1 de noviembre), SEO y accesibilidad pasaron de 92 a 100, y el LCP de 10-11 s a unos 3,4 s. El rendimiento móvil subió de 31-37 a 50-59 y aún necesita trabajo. Estas cifras son de laboratorio, sin datos de campo ni de tráfico.",
+      "en": "Server response dropped from 2.70 s to 0.50 s, and home page weight from 2,994 KB to 1,926 KB. Pages without an H1 went from 12 of 22 to none. About 65 images without alt text went to zero. In lab mobile Lighthouse (November 1), SEO and accessibility went from 92 to 100, and LCP from 10-11 s to about 3.4 s. Mobile performance rose from 31-37 to 50-59 and still needs work. These are lab figures, with no field or traffic data."
+    },
+    "contribution": {
+      "es": "Estoy a cargo del sitio en el colegio. Dirigí y aprobé cada cambio, y ejecuté los del servidor, con agentes de IA a cargo de buena parte de la implementación. El personal del colegio publica el contenido.",
+      "en": "I run the site at the school. I directed and approved each change and ran the server-side ones, with AI agents handling much of the implementation. School staff publish the content."
+    },
+    "stack": [
+      "WordPress",
+      "Elementor",
+      "PHP",
+      "Python",
+      "Lighthouse"
+    ],
+    "categories": [
+      "website",
+      "infrastructure"
+    ],
+    "status": "production",
+    "demo_url": "https://colegiogonzaga.org.ve/",
+    "sort_order": 10,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "is_featured": false,
+    "year": 2026,
+    "updated_at": "2026-11-04"
+  },
+  {
+    "id": "17",
+    "slug": "gonzaga-mapa-red",
+    "title": {
+      "es": "Mapa de Red - Colegio Gonzaga",
+      "en": "Network Map - Colegio Gonzaga"
+    },
+    "tagline": {
+      "es": "Equipos, cables y enlaces de la red sobre el plano real del colegio",
+      "en": "Network equipment, cables and links drawn over the school's real floor plan"
+    },
+    "description": {
+      "es": "Mapa de la infraestructura de red sobre el plano real de planta baja: equipos, cables de puerto a puerto, enlaces inalámbricos y VLANs, con roles de editor y de solo lectura.",
+      "en": "Network infrastructure map over the real ground-floor plan: equipment, port-to-port cables, wireless links and VLANs, with editor and read-only roles."
+    },
+    "challenge": {
+      "es": "Partir de un plano en PDF vectorial con unas 15.000 trazas y convertirlo en un mapa que se pudiera editar desde una tablet sin perder fluidez.",
+      "en": "Starting from a vector PDF floor plan with about 15,000 paths and turning it into a map you could edit from a tablet and keep smooth."
+    },
+    "solution": {
+      "es": "Una herramienta en <b>Python</b> con PyMuPDF convierte el plano en unas 12 capas <b>SVG</b> y extrae 160 espacios. La API en <b>Laravel 13</b> protege las ediciones con bloqueo optimista, que responde 409 y conserva lo que escribiste, y usa borrado lógico. El frontend en <b>Angular 22</b> dibuja los cables con curvas Bézier pensadas para el tacto.",
+      "en": "A <b>Python</b> tool with PyMuPDF converts the plan into about 12 <b>SVG</b> layers and extracts 160 spaces. The <b>Laravel 13</b> API protects edits with optimistic locking, which answers 409 and keeps what you typed, and uses soft deletes. The <b>Angular 22</b> frontend draws cables with touch-friendly Bézier curves."
+    },
+    "results": {
+      "es": "En desarrollo y sin desplegar, por eso este caso no tiene enlace. Tampoco muestra capturas, para no publicar la ubicación de los equipos del colegio.",
+      "en": "In development and not deployed, so this case has no link. It shows no screenshots either, to keep the location of the school's equipment private."
+    },
+    "contribution": {
+      "es": "Estoy a cargo del proyecto en el colegio. Escribí la especificación, casi toda la API y el primer visor del mapa. Otro desarrollador del equipo construyó el modo de edición y la administración, y la mayor parte del frontend.",
+      "en": "I run the project at the school. I wrote the spec, nearly all of the API and the first map viewer. Another developer on the team built edit mode and administration, and most of the frontend."
+    },
+    "stack": [
+      "Angular",
+      "Laravel",
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "Playwright"
+    ],
+    "categories": [
+      "infrastructure"
+    ],
+    "status": "in_progress",
+    "sort_order": 11,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
+    "is_featured": false,
+    "year": 2026,
+    "updated_at": "2026-11-04"
+  },
+  {
+    "id": "6",
+    "slug": "cobeca-sic",
+    "title": {
+      "es": "SIC - Sistema Integral de Clientes, Grupo Cobeca",
+      "en": "SIC - Grupo Cobeca Customer Portal"
+    },
+    "tagline": {
+      "es": "Portal de clientes para facturación digital y actualización de datos",
+      "en": "Customer portal for digital invoicing and data updates"
+    },
+    "description": {
+      "es": "Portal web para los clientes de Droguerías Cobeca: consulta de facturación digital, actualización de datos de contacto y autogestión, para reducir el papeleo físico entre la droguería y sus clientes.",
+      "en": "Web portal for Droguerías Cobeca's customers: digital invoice lookup, contact-data updates and self-service, cutting down on physical paperwork between the drugstore chain and its clients."
+    },
+    "challenge": {
+      "es": "Migrar a los clientes de la facturación en papel a un canal digital propio, sin depender de correos ni llamadas para cada actualización de datos.",
+      "en": "Moving customers from paper invoicing to a self-service digital channel, without relying on emails or phone calls for every data update."
+    },
+    "solution": {
+      "es": "Frontend <b>Angular</b> y backend <b>.NET (C#)</b> sobre <b>SQL Server</b>, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.",
+      "en": "<b>Angular</b> frontend and a <b>.NET (C#)</b> backend over <b>SQL Server</b>, integrated with the rest of Grupo Cobeca's internal systems I built alongside it."
+    },
+    "results": {
+      "es": "En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.",
+      "en": "In production, serving as the official digital invoicing channel for Droguerías Cobeca's customers."
+    },
+    "stack": [
+      "Angular",
+      ".NET",
+      "SQL Server"
+    ],
+    "company": "Grupo Cobeca",
+    "preview_image_url": "/img/previews/cobeca-sic.webp",
+    "demo_url": "https://sic.drogueriascobeca.com/autenticacion",
+    "is_featured": false,
+    "sort_order": 12,
+    "year": 2026,
+    "categories": [
+      "erp"
+    ],
+    "status": "production",
+    "requires_login": true,
+    "updated_at": "2026-10-20"
+  },
+  {
+    "id": "7",
+    "slug": "dekasa-porcelanato-revestimientos",
+    "title": {
+      "es": "Dekasa - Porcelanato y Revestimientos",
+      "en": "Dekasa - Porcelain Tile & Home Fixtures"
+    },
+    "tagline": {
+      "es": "Catálogo de e-commerce para porcelanato, baños y revestimientos",
+      "en": "E-commerce catalog for porcelain tile, bathrooms and coatings"
+    },
+    "description": {
+      "es": "Catálogo de e-commerce para Dekasa, tienda de porcelanato y revestimientos, construido en <b>WordPress</b> con <b>Elementor</b> y <b>WooCommerce</b> mientras trabajaba como freelance en Minima Studio.",
+      "en": "E-commerce catalog for Dekasa, a porcelain tile and home fixtures store, built on <b>WordPress</b> with <b>Elementor</b> and <b>WooCommerce</b> while freelancing at Minima Studio."
+    },
+    "challenge": {
+      "es": "El cliente necesitaba un catálogo online que organizara cientos de referencias de porcelanato, baños y revestimientos por categoría, con una experiencia de compra clara para un producto que la gente suele elegir en tienda física.",
+      "en": "The client needed an online catalog to organize hundreds of porcelain tile, bathroom and coating references by category, with a shopping experience clear enough for a product people are used to picking out in a physical showroom."
+    },
+    "solution": {
+      "es": "Desarrollo frontend sobre <b>WordPress</b>: maquetación con <b>Elementor</b>, integración de <b>WooCommerce</b> para el catálogo y el carrito, y estilos a medida para que categorías como revestimientos y baños se vean como una tienda de decoración, no como un catálogo genérico.",
+      "en": "Front-end work on <b>WordPress</b>: page building with <b>Elementor</b>, <b>WooCommerce</b> integration for the catalog and cart, and custom styling so categories like coatings and bathrooms read like a home-decor store, not a generic catalog."
+    },
+    "results": {
+      "es": "En producción, con su catálogo de productos organizado por categoría y checkout funcional en WooCommerce.",
+      "en": "In production, with its product catalog organized by category and a working WooCommerce checkout."
+    },
+    "stack": [
+      "WordPress",
+      "WooCommerce",
+      "Elementor",
+      "PHP",
+      "CSS"
+    ],
+    "company": "Minima Studio",
+    "preview_image_url": "/img/previews/dekasa.webp",
+    "demo_url": "https://www.dekasa.com.ve/",
+    "is_featured": true,
+    "sort_order": 13,
+    "year": 2023,
+    "categories": [
+      "ecommerce",
+      "website"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
+  },
+  {
+    "id": "8",
+    "slug": "arcoweld-soluciones-industriales",
+    "title": {
+      "es": "Arcoweld - Soluciones Industriales",
+      "en": "Arcoweld - Industrial Solutions"
+    },
+    "tagline": {
+      "es": "Catálogo de e-commerce industrial para soldadura, corte y seguridad",
+      "en": "Industrial e-commerce catalog for welding, cutting and safety gear"
+    },
+    "description": {
+      "es": "Catálogo de e-commerce industrial para Arcoweld, tienda de equipos y consumibles de soldadura, corte y seguridad, construido sobre <b>WordPress</b> mientras trabajaba como freelance en Minima Studio.",
+      "en": "Industrial e-commerce catalog for Arcoweld, a store for welding, cutting and safety equipment, built on <b>WordPress</b> while freelancing at Minima Studio."
+    },
+    "challenge": {
+      "es": "Migrar un catálogo industrial amplio (soldadura, corte, máquinas, gases, herramientas, seguridad) a una tienda online con cuentas de cliente y carrito, manteniendo la identidad de marca de cada fabricante representado.",
+      "en": "Moving a wide industrial catalog (welding, cutting, machines, gases, tools, safety gear) into an online store with customer accounts and a cart, while keeping each represented brand's identity intact."
+    },
+    "solution": {
+      "es": "Desarrollo frontend sobre un tema de <b>WordPress</b> a medida con <b>Bootstrap</b>: navegación por categoría de producto, secciones de marca y destacados, y fichas de producto sobre <b>WooCommerce</b>.",
+      "en": "Front-end work on a custom <b>WordPress</b> theme with <b>Bootstrap</b>: category-based product navigation, brand and featured-product sections, and product cards built on top of <b>WooCommerce</b>."
+    },
+    "results": {
+      "es": "En producción, con múltiples categorías de producto, cuentas de cliente y carrito de compra activos.",
+      "en": "In production, with multiple product categories, customer accounts and a working shopping cart."
+    },
+    "stack": [
+      "WordPress",
+      "WooCommerce",
+      "Bootstrap",
+      "PHP",
+      "JavaScript"
+    ],
+    "company": "Minima Studio",
+    "preview_image_url": "/img/previews/arcoweld.webp",
+    "demo_url": "https://www.arcoweld.com/",
+    "is_featured": true,
+    "sort_order": 14,
+    "year": 2023,
+    "categories": [
+      "ecommerce",
+      "website"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
   },
   {
     "id": "5",
@@ -417,129 +919,61 @@
     "demo_url": "https://isla-dinosaurio-app.vercel.app/",
     "repo_url": "https://github.com/Nikenverjpp/isla-dinosaurio-app",
     "is_featured": false,
-    "sort_order": 5,
-    "year": 2026
+    "sort_order": 15,
+    "year": 2026,
+    "categories": [
+      "game"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
   },
   {
-    "id": "6",
-    "slug": "cobeca-sic",
+    "id": "18",
+    "slug": "gonzaga-kit-televisores",
     "title": {
-      "es": "SIC - Sistema Integral de Clientes, Grupo Cobeca",
-      "en": "SIC - Grupo Cobeca Customer Portal"
+      "es": "Kit de Televisores - Colegio Gonzaga",
+      "en": "Classroom TV Kit - Colegio Gonzaga"
     },
     "tagline": {
-      "es": "Portal de clientes para facturación digital y actualización de datos",
-      "en": "Customer portal for digital invoicing and data updates"
+      "es": "Configuración repetible para los televisores inteligentes del colegio",
+      "en": "Repeatable setup for the school's smart TVs"
     },
     "description": {
-      "es": "Portal web para los clientes de Droguerías Cobeca: consulta de facturación digital, actualización de datos de contacto y autogestión, para reducir el papeleo físico entre la droguería y sus clientes.",
-      "en": "Web portal for Droguerías Cobeca's customers: digital invoice lookup, contact-data updates and self-service, cutting down on physical paperwork between the drugstore chain and its clients."
+      "es": "Kit para dejar un televisor del colegio limpio de aplicaciones que no hacen falta, con pantalla de inicio de la institución, DNS con filtro familiar y ajustes de imagen y sonido. Un asistente permite repetir la configuración con doble clic, y otro script la deshace.",
+      "en": "A kit that clears a school TV of apps nobody needs, adding a school-branded home screen, family-filtered DNS and picture and sound settings. An assistant repeats the setup with a double click, and another script undoes it."
     },
     "challenge": {
-      "es": "Migrar a los clientes de la facturación en papel a un canal digital propio, sin depender de correos ni llamadas para cada actualización de datos.",
-      "en": "Moving customers from paper invoicing to a self-service digital channel, without relying on emails or phone calls for every data update."
+      "es": "Cada marca se comporta distinto. El firmware Whale de Westinghouse le quita el rol de inicio a un launcher sin firmar, y el logo de arranque del Síragon no se puede cambiar.",
+      "en": "Each brand behaves differently. Westinghouse's Whale firmware strips the home role from an unsigned launcher, and the Síragon boot logo can't be changed."
     },
     "solution": {
-      "es": "Frontend <b>Angular</b> y backend <b>.NET (C#)</b> sobre <b>SQL Server</b>, integrado con el resto de sistemas internos del Grupo Cobeca que desarrollé en paralelo.",
-      "en": "<b>Angular</b> frontend and a <b>.NET (C#)</b> backend over <b>SQL Server</b>, integrated with the rest of Grupo Cobeca's internal systems I built alongside it."
+      "es": "Envolví con scripts en <b>Bash</b> y <b>Python</b> el proyecto abierto <a href=\"https://github.com/Gathin23/cleanyourtv\" target=\"_blank\" rel=\"noopener noreferrer\">cleanyourtv</a> de Gathin23 (licencia MIT), que aporta el núcleo de <b>ADB</b>. Agregué perfiles por modelo, el tema del colegio, una línea de clima en el launcher y un servicio de redirección para el firmware Whale, sin root.",
+      "en": "I wrapped the open-source <a href=\"https://github.com/Gathin23/cleanyourtv\" target=\"_blank\" rel=\"noopener noreferrer\">cleanyourtv</a> project by Gathin23 (MIT license), which provides the <b>ADB</b> core, with <b>Bash</b> and <b>Python</b> scripts. I added per-model profiles, the school theme, a weather line in the launcher and a redirect service for the Whale firmware, with no root."
     },
     "results": {
-      "es": "En producción, activo como canal oficial de facturación digital para los clientes de Droguerías Cobeca.",
-      "en": "In production, serving as the official digital invoicing channel for Droguerías Cobeca's customers."
+      "es": "Piloto con 2 televisores configurados, un Síragon y un Westinghouse. En el Síragon, una segunda pasada del kit no cambió nada. Falta llevarlo a los demás salones.",
+      "en": "Pilot with 2 TVs configured, a Síragon and a Westinghouse. On the Síragon, a second pass of the kit changed nothing. The remaining rooms are still pending."
+    },
+    "contribution": {
+      "es": "Estoy a cargo de los televisores en el colegio, e hice la integración: alrededor de 1.200 líneas de scripts, los perfiles y el tema. El núcleo de ADB es de cleanyourtv.",
+      "en": "I run the TVs at the school, and I did the integration: about 1,200 lines of scripts, plus the profiles and theme. The ADB core comes from cleanyourtv."
     },
     "stack": [
-      "Angular",
-      ".NET",
-      "SQL Server"
+      "Bash",
+      "Python",
+      "ADB",
+      "Docker"
     ],
-    "company": "Grupo Cobeca",
-    "preview_image_url": "/img/previews/cobeca-sic.webp",
-    "demo_url": "https://sic.drogueriascobeca.com/autenticacion",
+    "categories": [
+      "infrastructure"
+    ],
+    "status": "pilot",
+    "sort_order": 16,
+    "company": "Colegio Gonzaga",
+    "thumbnail_url": "/img/logos/gonzaga.webp",
     "is_featured": false,
-    "sort_order": 6,
-    "year": 2026
-  },
-  {
-    "id": "7",
-    "slug": "dekasa-porcelanato-revestimientos",
-    "title": {
-      "es": "Dekasa - Porcelanato y Revestimientos",
-      "en": "Dekasa - Porcelain Tile & Home Fixtures"
-    },
-    "tagline": {
-      "es": "Catálogo de e-commerce para porcelanato, baños y revestimientos",
-      "en": "E-commerce catalog for porcelain tile, bathrooms and coatings"
-    },
-    "description": {
-      "es": "Catálogo de e-commerce para Dekasa, tienda de porcelanato y revestimientos, construido en <b>WordPress</b> con <b>Elementor</b> y <b>WooCommerce</b> mientras trabajaba como freelance en Minima Studio.",
-      "en": "E-commerce catalog for Dekasa, a porcelain tile and home fixtures store, built on <b>WordPress</b> with <b>Elementor</b> and <b>WooCommerce</b> while freelancing at Minima Studio."
-    },
-    "challenge": {
-      "es": "El cliente necesitaba un catálogo online que organizara cientos de referencias de porcelanato, baños y revestimientos por categoría, con una experiencia de compra clara para un producto que la gente suele elegir en tienda física.",
-      "en": "The client needed an online catalog to organize hundreds of porcelain tile, bathroom and coating references by category, with a shopping experience clear enough for a product people are used to picking out in a physical showroom."
-    },
-    "solution": {
-      "es": "Desarrollo frontend sobre <b>WordPress</b>: maquetación con <b>Elementor</b>, integración de <b>WooCommerce</b> para el catálogo y el carrito, y estilos a medida para que categorías como revestimientos y baños se vean como una tienda de decoración, no como un catálogo genérico.",
-      "en": "Front-end work on <b>WordPress</b>: page building with <b>Elementor</b>, <b>WooCommerce</b> integration for the catalog and cart, and custom styling so categories like coatings and bathrooms read like a home-decor store, not a generic catalog."
-    },
-    "results": {
-      "es": "En producción, con su catálogo de productos organizado por categoría y checkout funcional en WooCommerce.",
-      "en": "In production, with its product catalog organized by category and a working WooCommerce checkout."
-    },
-    "stack": [
-      "WordPress",
-      "WooCommerce",
-      "Elementor",
-      "PHP",
-      "CSS"
-    ],
-    "company": "Minima Studio",
-    "preview_image_url": "/img/previews/dekasa.webp",
-    "demo_url": "https://www.dekasa.com.ve/",
-    "is_featured": true,
-    "sort_order": 7,
-    "year": 2023
-  },
-  {
-    "id": "8",
-    "slug": "arcoweld-soluciones-industriales",
-    "title": {
-      "es": "Arcoweld - Soluciones Industriales",
-      "en": "Arcoweld - Industrial Solutions"
-    },
-    "tagline": {
-      "es": "Catálogo de e-commerce industrial para soldadura, corte y seguridad",
-      "en": "Industrial e-commerce catalog for welding, cutting and safety gear"
-    },
-    "description": {
-      "es": "Catálogo de e-commerce industrial para Arcoweld, tienda de equipos y consumibles de soldadura, corte y seguridad, construido sobre <b>WordPress</b> mientras trabajaba como freelance en Minima Studio.",
-      "en": "Industrial e-commerce catalog for Arcoweld, a store for welding, cutting and safety equipment, built on <b>WordPress</b> while freelancing at Minima Studio."
-    },
-    "challenge": {
-      "es": "Migrar un catálogo industrial amplio (soldadura, corte, máquinas, gases, herramientas, seguridad) a una tienda online con cuentas de cliente y carrito, manteniendo la identidad de marca de cada fabricante representado.",
-      "en": "Moving a wide industrial catalog (welding, cutting, machines, gases, tools, safety gear) into an online store with customer accounts and a cart, while keeping each represented brand's identity intact."
-    },
-    "solution": {
-      "es": "Desarrollo frontend sobre un tema de <b>WordPress</b> a medida con <b>Bootstrap</b>: navegación por categoría de producto, secciones de marca y destacados, y fichas de producto sobre <b>WooCommerce</b>.",
-      "en": "Front-end work on a custom <b>WordPress</b> theme with <b>Bootstrap</b>: category-based product navigation, brand and featured-product sections, and product cards built on top of <b>WooCommerce</b>."
-    },
-    "results": {
-      "es": "En producción, con múltiples categorías de producto, cuentas de cliente y carrito de compra activos.",
-      "en": "In production, with multiple product categories, customer accounts and a working shopping cart."
-    },
-    "stack": [
-      "WordPress",
-      "WooCommerce",
-      "Bootstrap",
-      "PHP",
-      "JavaScript"
-    ],
-    "company": "Minima Studio",
-    "preview_image_url": "/img/previews/arcoweld.webp",
-    "demo_url": "https://www.arcoweld.com/",
-    "is_featured": true,
-    "sort_order": 8,
-    "year": 2023
+    "year": 2026,
+    "updated_at": "2026-11-04"
   },
   {
     "id": "9",
@@ -579,8 +1013,13 @@
     "preview_image_url": "/img/previews/amavida.webp",
     "demo_url": "https://www.amavida.org.ve/",
     "is_featured": false,
-    "sort_order": 9,
-    "year": 2017
+    "sort_order": 17,
+    "year": 2017,
+    "categories": [
+      "website"
+    ],
+    "status": "production",
+    "updated_at": "2026-10-20"
   },
   {
     "id": "10",
@@ -620,50 +1059,13 @@
     "preview_image_url": "/img/previews/wilmer-nadin.webp",
     "demo_url": "https://wilmernadin.com/",
     "is_featured": false,
-    "sort_order": 10,
-    "year": 2018
-  },
-  {
-    "id": "12",
-    "slug": "gonzaga-sistema-donaciones",
-    "title": {
-      "es": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
-      "en": "Colegio Gonzaga - Donations System & Gateway"
-    },
-    "tagline": {
-      "es": "Pasarela de recaudación multi-moneda, analítica GA4, correos SendGrid y panel de auditoría",
-      "en": "Multi-currency fundraising gateway, GA4 analytics, SendGrid emails and admin audit portal"
-    },
-    "description": {
-      "es": "Plataforma web integral de recaudación de fondos y donaciones para el Colegio Gonzaga (Maracaibo, Venezuela), con pasarela pública multi-moneda (USD y VES), verificación bancaria de Pago Móvil, transferencias y Zinli, reportes fiscales exentos de ISLR y panel administrativo de control.",
-      "en": "Full fundraising and donations platform for Colegio Gonzaga (Maracaibo, Venezuela), featuring a multi-currency public gateway (USD and VES), bank verification for Pago Móvil, wire transfers and Zinli, ISLR-exempt fiscal reporting and admin portal."
-    },
-    "challenge": {
-      "es": "Modernizar la recaudación institucional con trazabilidad financiera transparente, eliminando la conciliación manual dispersa y garantizando una experiencia de donación sin fricciones en dispositivos móviles.",
-      "en": "Modernize institutional fundraising with transparent financial traceability, eliminating scattered manual reconciliation and delivering a friction-free mobile donation experience."
-    },
-    "solution": {
-      "es": "Arquitectura desacoplada con frontend en <b>Next.js</b> (React 19, Tailwind CSS v4) y backend en <b>NestJS</b> sobre <b>MongoDB</b> con Mongoose. Diseñado bajo filosofía <i>Mobile-First</i> unificado con la identidad del colegio. Integra checkout interactivo de 3 pasos con cálculo dinámico según tasa oficial BCV, generación de comprobantes PDF con <b>jsPDF</b>, despacho automático de correos transaccionales con <b>SendGrid</b>, telemetría completa de conversión con <b>Google Analytics 4</b> (GA4), y panel de control administrativo con auditoría y roles.",
-      "en": "Decoupled architecture with a <b>Next.js</b> frontend (React 19, Tailwind CSS v4) and a <b>NestJS</b> backend on <b>MongoDB</b> with Mongoose. Built with a strict <i>Mobile-First</i> approach matching the school identity. Features a 3-step interactive checkout with live BCV exchange-rate conversion, PDF receipt generation with <b>jsPDF</b>, automated transactional email delivery via <b>SendGrid</b>, full funnel analytics via <b>Google Analytics 4</b> (GA4), and a secure role-based admin portal."
-    },
-    "results": {
-      "es": "En producción institucional con embudo de donación activo, conciliación automatizada por tesorería y comprobantes de donación auditables con soporte móvil y desktop.",
-      "en": "In institutional production powering the active donation funnel, automated treasury reconciliation and auditable donation receipts across mobile and desktop devices."
-    },
-    "stack": [
-      "Next.js",
-      "React",
-      "NestJS",
-      "MongoDB",
-      "Tailwind CSS",
-      "TypeScript"
+    "sort_order": 18,
+    "year": 2018,
+    "categories": [
+      "ecommerce",
+      "website"
     ],
-    "company": "Colegio Gonzaga",
-    "thumbnail_url": "/img/logos/gonzaga.webp",
-    "preview_image_url": "/img/previews/gonzaga-donaciones.webp",
-    "demo_url": "https://colegiogonzaga.org.ve/",
-    "is_featured": true,
-    "sort_order": 3,
-    "year": 2026
+    "status": "production",
+    "updated_at": "2026-10-20"
   }
 ]

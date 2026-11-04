@@ -11,15 +11,21 @@
     "PostgreSQL (Triggers, Vistas, Row-Level Security)",
     "Sistemas Administrativos y ERPs (Trazabilidad FEFO/FIFO, Crédito multi-moneda)",
     "E-commerce de Alto Rendimiento (Diagnóstico olfativo, Carrito WhatsApp, Cloudinary)",
-    "CI/CD y DevOps (GitHub Actions, Vercel Edge CDN, Azure DevOps Pipelines, Testing Automatizado)",
+    "CI/CD y DevOps (GitHub Actions, Vercel, Cloudflare Pages, Azure DevOps Pipelines, Testing Automatizado)",
     "Desarrollo guiado por IA (Claude Code, Antigravity, GitHub Copilot, Cursor)"
   ],
   "roles": [
     {
+      "title": "Desarrollador Full Stack y Soporte Técnico",
+      "organization": "Colegio Gonzaga",
+      "period": "2026 - Presente",
+      "description": "A cargo de los sistemas del colegio (donaciones, tesorería, cierre diario de facturación, registro de exalumnos y voluntarios, mapa de red), el sitio web, los televisores y el soporte técnico."
+    },
+    {
       "title": "Fundador y CEO",
       "organization": "Sublimax",
       "period": "2024 - Presente",
-      "description": "E-commerce de perfumería y variedades. Creador de Subladmin (ERP interno) y del Catálogo Público con checkout WhatsApp."
+      "description": "E-commerce de perfumería y variedades. Creador de Subladmin (ERP interno) y de la tienda online con pedidos por WhatsApp."
     },
     {
       "title": "Analista Programador Senior",
@@ -28,23 +34,32 @@
       "description": "Desarrollo de sistemas corporativos y APIs empresariales con Angular, React y .NET (C#)."
     }
   ],
+  "contact": {
+    "website": "https://nikenver-portafolio.vercel.app",
+    "linkedin": "https://linkedin.com/in/nikenver",
+    "contact_page": "https://nikenver-portafolio.vercel.app/contacto"
+  },
   "key_projects": [
     {
-      "name": "Subladmin",
-      "type": "ERP Administrativo",
+      "name": "Subladmin - Sistema Administrativo Sublimax",
+      "type": "Sistema de gestión",
+      "status": "En producción",
       "stack": [
         "Angular",
         "Laravel",
         "PostgreSQL",
         "Tailwind CSS",
+        "Chart.js",
+        "Sentry",
         "CI/CD"
       ],
       "url": "https://subladmin.vercel.app/",
-      "highlights": "FEFO/FIFO, multi-sucursal, RLS, crédito por pedido, push notifications Web Push/VAPID, 766+654 tests, CI/CD activo."
+      "highlights": "ERP interno con trazabilidad FEFO/FIFO, RLS y crédito multi-moneda"
     },
     {
-      "name": "Sublimax Catálogo Público",
-      "type": "E-commerce Autoservicio",
+      "name": "Sublimax - Tienda Online y Pedidos por WhatsApp",
+      "type": "E-commerce",
+      "status": "En producción",
       "stack": [
         "Angular",
         "TypeScript",
@@ -52,42 +67,102 @@
         "Laravel",
         "PostgreSQL",
         "Cloudinary",
-        "PWA",
+        "Cloudflare Pages",
         "CI/CD"
       ],
-      "url": "https://sublimaxcatalogo.vercel.app/",
-      "highlights": "Carrito WhatsApp en localStorage, ficha olfativa interactiva, PWA offline, GA4, AIO/SEO."
+      "url": "https://tiendasublimax.com/",
+      "highlights": "Tienda con renderizado en servidor, ficha olfativa, cuentas de cliente y pedidos por WhatsApp"
     },
     {
-      "name": "Axsence",
-      "type": "E-commerce de Perfumería de Autor",
+      "name": "Axsence - E-commerce de Perfumería de Autor",
+      "type": "E-commerce",
+      "status": "En producción",
       "stack": [
-        "Angular SSR",
+        "Angular",
         "Laravel",
         "PostgreSQL",
-        "Filament"
+        "Tailwind CSS",
+        "Filament",
+        "CI/CD"
       ],
       "url": "https://axsence.web.app/",
-      "highlights": "Quiz de diagnóstico olfativo, layering interactivo, checkout multi-moneda."
+      "highlights": "Diagnóstico olfativo, layering y checkout multi-moneda para perfumería árabe de lujo"
     },
     {
-      "name": "Colegio Gonzaga Sistema de Donaciones",
-      "type": "Pasarela de Recaudación y Donaciones",
+      "name": "Colegio Gonzaga - Sistema de Donaciones y Pasarela",
+      "type": "Sistema de gestión",
+      "status": "En producción",
       "stack": [
         "Next.js",
         "React",
         "NestJS",
         "MongoDB",
         "Tailwind CSS",
-        "TypeScript"
+        "TypeScript",
+        "Twilio",
+        "Sentry",
+        "Playwright",
+        "CI/CD"
       ],
-      "url": "https://colegiogonzaga.org.ve/",
-      "highlights": "Pasarela multi-moneda USD/VES, checkout interactivo en 3 pasos, tasa oficial BCV, comprobantes PDF con jsPDF, correos transaccionales con SendGrid, analítica con GA4 y panel administrativo."
+      "url": "https://donaciones.colegiogonzaga.org.ve/",
+      "highlights": "Pasarela de donaciones en USD y bolívares, con verificación bancaria, recibos y reportes"
+    },
+    {
+      "name": "Sublimax - Perfumería, Maquillaje y Variedades",
+      "type": "E-commerce",
+      "status": "En producción",
+      "stack": [
+        "Angular",
+        "Laravel",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      "url": "https://nikenver-portafolio.vercel.app/proyectos/sublimax-ecommerce",
+      "highlights": "E-commerce que fundé y dirijo en Maracaibo, Venezuela"
+    },
+    {
+      "name": "Aplicaciones corporativas - Grupo Cobeca",
+      "type": "Sistema de gestión",
+      "status": "En producción",
+      "stack": [
+        "Angular",
+        "React",
+        "TypeScript",
+        ".NET",
+        "SQL Server",
+        "Tailwind CSS",
+        "CI/CD"
+      ],
+      "url": "https://nikenver-portafolio.vercel.app/proyectos/cobeca-corporate-apps",
+      "highlights": "Sistemas internos y APIs para operaciones empresariales"
+    },
+    {
+      "name": "Dekasa - Porcelanato y Revestimientos",
+      "type": "E-commerce, Sitio web",
+      "status": "En producción",
+      "stack": [
+        "WordPress",
+        "WooCommerce",
+        "Elementor",
+        "PHP",
+        "CSS"
+      ],
+      "url": "https://www.dekasa.com.ve/",
+      "highlights": "Catálogo de e-commerce para porcelanato, baños y revestimientos"
+    },
+    {
+      "name": "Arcoweld - Soluciones Industriales",
+      "type": "E-commerce, Sitio web",
+      "status": "En producción",
+      "stack": [
+        "WordPress",
+        "WooCommerce",
+        "Bootstrap",
+        "PHP",
+        "JavaScript"
+      ],
+      "url": "https://www.arcoweld.com/",
+      "highlights": "Catálogo de e-commerce industrial para soldadura, corte y seguridad"
     }
-  ],
-  "contact": {
-    "website": "https://nikenver-portafolio.vercel.app",
-    "linkedin": "https://linkedin.com/in/nikenver",
-    "contact_page": "https://nikenver-portafolio.vercel.app/contacto"
-  }
+  ]
 }

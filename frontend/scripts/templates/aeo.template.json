@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Nikenver Pulgar",
+  "headline": "Desarrollador Full Stack Senior / Senior Full Stack Developer (Angular y Laravel)",
+  "job_title": "Full Stack Developer",
+  "location": "Maracaibo, Zulia, Venezuela",
+  "experience_years": 10,
+  "specialties": [
+    "Angular (v17 - v22, Standalone Components, Signals, SSR, SSG)",
+    "Laravel (PHP 8.2+, Service Layer, Spatie RBAC)",
+    "PostgreSQL (Triggers, Vistas, Row-Level Security)",
+    "Sistemas Administrativos y ERPs (Trazabilidad FEFO/FIFO, Crédito multi-moneda)",
+    "E-commerce de Alto Rendimiento (Diagnóstico olfativo, Carrito WhatsApp, Cloudinary)",
+    "CI/CD y DevOps (GitHub Actions, Vercel, Cloudflare Pages, Azure DevOps Pipelines, Testing Automatizado)",
+    "Desarrollo guiado por IA (Claude Code, Antigravity, GitHub Copilot, Cursor)"
+  ],
+  "roles": [
+    {
+      "title": "Desarrollador Full Stack y Soporte Técnico",
+      "organization": "Colegio Gonzaga",
+      "period": "2026 - Presente",
+      "description": "A cargo de los sistemas del colegio (donaciones, tesorería, cierre diario de facturación, registro de exalumnos y voluntarios, mapa de red), el sitio web, los televisores y el soporte técnico."
+    },
+    {
+      "title": "Fundador y CEO",
+      "organization": "Sublimax",
+      "period": "2024 - Presente",
+      "description": "E-commerce de perfumería y variedades. Creador de Subladmin (ERP interno) y de la tienda online con pedidos por WhatsApp."
+    },
+    {
+      "title": "Analista Programador Senior",
+      "organization": "Grupo Cobeca",
+      "period": "2022 - 2024",
+      "description": "Desarrollo de sistemas corporativos y APIs empresariales con Angular, React y .NET (C#)."
+    }
+  ],
+  "contact": {
+    "website": "https://nikenver-portafolio.vercel.app",
+    "linkedin": "https://linkedin.com/in/nikenver",
+    "contact_page": "https://nikenver-portafolio.vercel.app/contacto"
+  }
+}

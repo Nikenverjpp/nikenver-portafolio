@@ -118,7 +118,44 @@ export class CvPdfService {
       };
     });
 
-    const projectBlocks = projects.map((project) => ({
+    const contributionLine = (project: Project) =>
+      project.contribution
+        ? [
+            {
+              text: project.contribution[locale] ?? project.contribution.es,
+              fontSize: 9,
+              margin: [0, 2, 0, 0] as [number, number, number, number],
+            },
+          ]
+        : [];
+
+    const compactProjectBlock = (project: Project) => ({
+      margin: [0, 0, 0, 6] as [number, number, number, number],
+      stack: [
+        {
+          columns: [
+            {
+              text: [
+                { text: project.title[locale] ?? project.title.es, bold: true, fontSize: 10 },
+                ...(project.tagline
+                  ? [{ text: `. ${project.tagline[locale] ?? project.tagline.es}`, fontSize: 9, color: '#666666' }]
+                  : []),
+              ],
+            },
+            {
+              text: project.year ? String(project.year) : '',
+              alignment: 'right',
+              color: '#666666',
+              fontSize: 9,
+              width: 30,
+            },
+          ],
+        },
+        ...contributionLine(project),
+      ],
+    });
+
+    const detailedProjectBlock = (project: Project) => ({
       margin: [0, 0, 0, 10] as [number, number, number, number],
       stack: [
         {
@@ -177,8 +214,14 @@ export class CvPdfService {
               },
             ]
           : []),
+        ...contributionLine(project),
       ],
-    }));
+    });
+
+    const projectBlocks = [
+      ...projects.filter((project) => project.is_featured).map(detailedProjectBlock),
+      ...projects.filter((project) => !project.is_featured).map(compactProjectBlock),
+    ];
 
     const skillLines = SKILL_GROUPS.map((group) => ({
       text: `${t(group.titleKey, locale)}: ${group.items.join(', ')}`,
